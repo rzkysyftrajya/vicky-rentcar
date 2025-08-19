@@ -60,7 +60,7 @@ export default function TestimonialsPage() {
     },
     {
       quote:
-        "Menyewa Hiace untuk liburan keluarga di Yogyakarta sangat menyenangkan. Mobilnya luas dan nyaman untuk rombongan kami. Terima kasih!",
+        "Menyewa Innova Reborn untuk liburan keluarga di Yogyakarta sangat menyenangkan. Tim di PT.VICKY RENTCAR NUSANTARA sangat profesional, ramah, dan benar benar baik dengan pelanggan mereka. Terima kasih!",
       name: "Keluarga Santoso",
       location: "Yogyakarta",
       avatar: "/testimoni/testimoni5.jpeg",
@@ -70,11 +70,11 @@ export default function TestimonialsPage() {
     {
       quote:
         "Pelayanan fantastis dari awal hingga akhir. Tim di PT.VICKY RENTCAR NUSANTARA profesional, ramah, dan benar-benar peduli dengan pelanggan mereka.",
-      name: "Sophia C.",
+      name: "Fadli K.",
       location: "Makassar",
       avatar: "/testimoni/testimoni6.jpeg",
       hint: "woman smiling",
-      alt: "Review dari Sophia C tentang layanan pelanggan rental mobil",
+      alt: "Review dari Fadli K. tentang layanan pelanggan rental mobil",
     },
   ];
 

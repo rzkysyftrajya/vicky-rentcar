@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -71,6 +72,26 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  // favicon + manifest
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      {
+        url: "/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -119,7 +140,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "CarRental",
     name: "PT.VICKY RENTCAR NUSANTARA",
-    image: "https://vickyrentcarnusantara.com/logo.png",
+    image: "https://vickyrentcarnusantara.com/logoVRN.png",
     "@id": "https://vickyrentcarnusantara.com",
     url: "https://vickyrentcarnusantara.com",
     telephone: "+6282363389893",
@@ -165,10 +186,13 @@ export default function RootLayout({
   return (
     <html lang="id" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        {/* Schema.org JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
+        {/* PWA theme color */}
+        <meta name="theme-color" content="#0f172a" />
       </head>
       <body
         className={cn(
@@ -183,9 +207,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="relative w-full">
+            {/* FIX STRUCTURE: flex container */}
+            <div className="flex flex-col min-h-screen w-full">
               <Navbar />
-              <main className="flex-1">{children}</main>
+              <main className="flex-grow">{children}</main>
               <Footer />
               <div className="fixed bottom-4 left-4 z-50">
                 <FloatingDock items={dockItems} />
@@ -193,6 +218,26 @@ export default function RootLayout({
             </div>
           </ThemeProvider>
         </AppContextProvider>
+
+        {/* Register Service Worker */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/service-worker.js')
+                    .then(function(reg) {
+                      console.log('Service Worker registered with scope:', reg.scope);
+                    })
+                    .catch(function(err) {
+                      console.log('Service Worker registration failed:', err);
+                    });
+                });
+              }
+            `,
+          }}
+        />
+        <Analytics />
       </body>
     </html>
   );

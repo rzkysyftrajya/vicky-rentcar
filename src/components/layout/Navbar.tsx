@@ -44,7 +44,6 @@ import {
   MenuItem,
   ProductItem,
 } from "@/components/ui/navbar-menu";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { ImageZoom } from "../ui/image-zoom";
 import { useAppContext, Currency, Language } from "@/app/context/AppContext";
@@ -58,7 +57,6 @@ function ThemeToggle() {
         <Button variant="ghost" size="icon" aria-label="Toggle theme">
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -83,6 +81,7 @@ function InternationalizationSwitchers() {
 
   return (
     <div className="flex items-center gap-1">
+      {/* mata uang */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="px-2">
@@ -105,6 +104,7 @@ function InternationalizationSwitchers() {
         </DropdownMenuContent>
       </DropdownMenu>
 
+      {/* Language */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" aria-label="Ganti Bahasa">
@@ -131,6 +131,7 @@ function InternationalizationSwitchers() {
 
 function DesktopNavbar() {
   const [active, setActive] = useState<string | null>(null);
+
   return (
     <NavMenu
       setActive={setActive}
@@ -139,6 +140,7 @@ function DesktopNavbar() {
       <Button variant="ghost" asChild>
         <Link href="/">Beranda</Link>
       </Button>
+
       <MenuItem setActive={setActive} active={active} item="Perusahaan">
         <div className="flex flex-col space-y-4 text-sm p-2">
           <HoveredLink href="/about">Tentang Kami</HoveredLink>
@@ -148,13 +150,13 @@ function DesktopNavbar() {
           <HoveredLink href="/faq">FAQ</HoveredLink>
         </div>
       </MenuItem>
+
       <MenuItem setActive={setActive} active={active} item="Armada & Layanan">
         <div className="text-sm grid grid-cols-2 gap-10 p-4 w-[30rem]">
           <ProductItem
             title="Armada Rental Kami"
             href="/fleet"
             src="/icon/armada-rental-kami.png"
-            data-ai-hint="various cars showroom"
             alt="Berbagai jenis mobil untuk rental"
             description="Jelajahi berbagai pilihan mobil berkualitas kami."
           />
@@ -162,7 +164,6 @@ function DesktopNavbar() {
             title="Sewa Mobil Mewah"
             href="/luxury-cars"
             src="/icon/sewa-mobil-mewah.png"
-            data-ai-hint="luxury sports car"
             alt="Mobil mewah untuk disewa"
             description="Pilihan eksklusif untuk acara spesial Anda."
           />
@@ -170,7 +171,6 @@ function DesktopNavbar() {
             title="Semua Layanan Rental"
             href="/services"
             src="/icon/semua-layanan-rental.png"
-            data-ai-hint="car rental keys"
             alt="Kunci mobil sebagai simbol layanan rental"
             description="Dari sewa harian hingga layanan korporat."
           />
@@ -178,12 +178,12 @@ function DesktopNavbar() {
             title="Rental Jangka Panjang"
             href="/long-term-rental"
             src="/icon/rental-jangka-panjang.png"
-            data-ai-hint="man signing contract"
             alt="Kontrak sewa mobil jangka panjang"
             description="Solusi fleksibel untuk kebutuhan transportasi Anda."
           />
         </div>
       </MenuItem>
+
       <Button variant="ghost" asChild>
         <Link href="/tour-guide">Panduan Wisata</Link>
       </Button>
@@ -199,6 +199,7 @@ function DesktopNavbar() {
 
 function MobileNavbar() {
   const [isOpen, setIsOpen] = useState(false);
+
   const navItems = [
     { href: "/", label: "Beranda", icon: <Home className="w-5 h-5" /> },
     {
@@ -246,6 +247,7 @@ function MobileNavbar() {
             <span className="sr-only">Buka Menu</span>
           </Button>
         </SheetTrigger>
+
         <SheetContent
           side="right"
           className="w-full max-w-sm bg-secondary flex flex-col p-0"
@@ -253,7 +255,9 @@ function MobileNavbar() {
           <SheetHeader className="p-6 pb-0">
             <SheetTitle className="text-left text-gradient">PT.VRN</SheetTitle>
           </SheetHeader>
-          <div className="flex-grow overflow-y-auto p-6">
+
+          {/* FIX: hapus overflow-y-auto biar gak double scrollbar */}
+          <div className="flex-grow p-6">
             <nav className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <MobileNavLink
@@ -267,6 +271,7 @@ function MobileNavbar() {
               ))}
             </nav>
           </div>
+
           <div className="p-4 mt-auto border-t space-y-4">
             <div className="flex justify-around items-center">
               <InternationalizationSwitchers />
@@ -290,6 +295,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
+        {/* Logo */}
         <Link
           href="/"
           className="flex items-center gap-2 font-bold text-lg"
@@ -298,22 +304,20 @@ export default function Navbar() {
           <ImageZoom
             src="/logoVRN.png"
             alt="Logo PT.VICKY RENTCAR NUSANTARA"
-            data-ai-hint="car logo"
             width={28}
             height={28}
             className="text-primary"
             isZoomable={false}
           />
-          <span className="hidden md:inline font-extrabold whitespace-nowrap bg-gradient-to-r from-primary to-blue-400 text-transparent bg-clip-text text-sm md:text-base">
-            PT.VRN
-          </span>
-          <span className="md:hidden font-extrabold whitespace-nowrap bg-gradient-to-r from-primary to-blue-400 text-transparent bg-clip-text text-sm md:text-base">
+          <span className="font-extrabold whitespace-nowrap bg-gradient-to-r from-primary to-blue-400 text-transparent bg-clip-text text-sm md:text-base">
             PT.VRN
           </span>
         </Link>
 
+        {/* Desktop Navbar */}
         <DesktopNavbar />
 
+        {/* Right side */}
         <div className="flex items-center gap-2">
           <div className="hidden md:flex">
             <InternationalizationSwitchers />
