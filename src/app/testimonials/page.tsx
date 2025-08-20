@@ -12,6 +12,13 @@ export const metadata: Metadata = {
     "review sewa mobil",
     "pelanggan puas rental mobil",
     "ulasan rental mobil nasional",
+    "testimoni moren rental mobil",
+    "review rental mobil medan",
+    "review rental mobil traveloka",
+    "pengalaman rental mobil",
+    "testimoni sewa mobil",
+    "ulasan rental mobil",
+    "review rental mobil lepas kunci",
   ],
   openGraph: {
     title: "Testimoni Pelanggan - Review Rental Mobil di Seluruh Indonesia",
