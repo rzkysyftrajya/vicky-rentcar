@@ -31,168 +31,51 @@ export const metadata: Metadata = {
     "rental mobil indonesia",
     "sewa mobil medan",
     "rental mobil jakarta",
-    "sewa mobil bali",
-    "sewa mobil murah",
-    "rental mobil lepas kunci",
+    "rental mobil bali",
+    "sewa mobil surabaya",
+    "sewa mobil bandung",
+    "rental mobil murah",
+    "sewa mobil matic",
+    "sewa mobil lepas kunci",
     "sewa mobil dengan sopir",
-    "sewa mobil di indonesia",
+    "antar jemput bandara",
+    "rental innova",
+    "rental avanza",
+    "rental fortuner",
+    "rental alphard",
+    "vicky rentcar nusantara",
+    "vrn",
   ],
-  openGraph: {
-    title: "Rental Mobil Profesional se-Nusantara | PT.VICKY RENTCAR NUSANTARA",
-    description:
-      "Layanan rental mobil profesional di seluruh Nusantara untuk kebutuhan wisata, bisnis, atau acara spesial. Armada terawat, harga kompetitif, dan pelayanan 24 jam.",
-    url: "https://vickyrentcarnusantara.com",
-    siteName: "PT.VICKY RENTCAR NUSANTARA",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Layanan Rental Mobil Profesional di seluruh Nusantara",
-      },
-    ],
-    locale: "id_ID",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Rental Mobil Profesional se-Nusantara | PT.VICKY RENTCAR NUSANTARA",
-    description:
-      "Sewa mobil mudah dan aman di seluruh Indonesia. Pilihan lengkap mulai dari Avanza, Innova, hingga Alphard untuk segala kebutuhan Anda.",
-    images: ["/twitter-image.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  // favicon + manifest
-  icons: {
-    icon: [
-      { url: "/favicon.ico", type: "image/x-icon" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      {
-        url: "/android-chrome-192x192.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
-      {
-        url: "/android-chrome-512x512.png",
-        sizes: "512x512",
-        type: "image/png",
-      },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
-  },
-  manifest: "/site.webmanifest",
 };
+
+const dockItems = [
+  {
+    icon: <IconBrandWhatsapp className="w-5 h-5 text-green-500" />,
+    href: "https://wa.me/6282363389893",
+    title: "WhatsApp", // <-- DI SINI PERBAIKANNYA!
+  },
+  {
+    icon: <IconPhone className="w-5 h-5 text-primary" />,
+    href: "tel:+6282363389893",
+    title: "Telepon", // <-- DI SINI PERBAIKANNYA!
+  },
+  {
+    icon: <IconMapPin className="w-5 h-5 text-red-500" />,
+    href: "https://maps.app.goo.gl/k9K2m9nL7X9M3J9J6",
+    title: "Lokasi", // <-- DI SINI PERBAIKANNYA!
+  },
+];
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const waText =
-    "Halo, saya tertarik untuk menyewa mobil. Bisa berikan saya informasi lebih lanjut?";
-  const encodedWaText = encodeURIComponent(waText);
-
-  const dockItems = [
-    {
-      title: "WhatsApp",
-      href: `https://wa.me/6282363389893?text=${encodedWaText}`,
-      icon: (
-        <IconBrandWhatsapp
-          className="h-full w-full text-neutral-500 dark:text-neutral-400"
-          aria-label="WhatsApp"
-        />
-      ),
-    },
-    {
-      title: "Peta Lokasi",
-      href: "https://maps.app.goo.gl/5ojJEaQqXfN691pP7",
-      icon: (
-        <IconMapPin
-          className="h-full w-full text-neutral-500 dark:text-neutral-400"
-          aria-label="Lokasi di Google Maps"
-        />
-      ),
-    },
-    {
-      title: "Telepon",
-      href: "tel:082363389893",
-      icon: (
-        <IconPhone
-          className="h-full w-full text-neutral-500 dark:text-neutral-400"
-          aria-label="Telepon"
-        />
-      ),
-    },
-  ];
-
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "CarRental",
-    name: "PT.VICKY RENTCAR NUSANTARA",
-    image: "https://vickyrentcarnusantara.com/logoVRN.png",
-    "@id": "https://vickyrentcarnusantara.com",
-    url: "https://vickyrentcarnusantara.com",
-    telephone: "+6282363389893",
-    priceRange: "IDR",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress:
-        "Jalan Sempurna Dusun II Mawar, Desa Sambirejo Timur, Kec, Percut Sei Tuan",
-      addressLocality: "Deli Serdang",
-      addressRegion: "Sumatera Utara",
-      postalCode: "20371",
-      addressCountry: "ID",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 3.5891399,
-      longitude: 98.7619553,
-    },
-    areaServed: [
-      {
-        "@type": "Country",
-        name: "Indonesia",
-      },
-    ],
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-      ],
-      opens: "00:00",
-      closes: "23:59",
-    },
-    description:
-      "PT.VICKY RENTCAR NUSANTARA adalah penyedia jasa sewa dan rental mobil terpercaya di seluruh Nusantara. Kami menyediakan berbagai jenis mobil untuk kebutuhan wisata, bisnis, acara pernikahan, hingga antar jemput bandara dengan layanan 24 jam, lepas kunci, atau dengan sopir profesional.",
-  };
-
   return (
-    <html lang="id" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="id" suppressHydrationWarning>
       <head>
-        {/* Schema.org JSON-LD */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-        {/* PWA theme color */}
-        <meta name="theme-color" content="#0f172a" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#2563eb" />
       </head>
       <body
         className={cn(
@@ -207,8 +90,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {/* FIX STRUCTURE: flex container */}
-            <div className="flex flex-col min-h-screen w-full">
+            <div className="flex flex-col w-full">
               <Navbar />
               <main className="flex-grow">{children}</main>
               <Footer />
@@ -219,7 +101,6 @@ export default function RootLayout({
           </ThemeProvider>
         </AppContextProvider>
 
-        {/* Register Service Worker */}
         <script
           dangerouslySetInnerHTML={{
             __html: `

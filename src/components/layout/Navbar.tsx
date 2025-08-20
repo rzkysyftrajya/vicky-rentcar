@@ -250,13 +250,12 @@ function MobileNavbar() {
 
         <SheetContent
           side="right"
-          className="w-full max-w-sm bg-secondary flex flex-col p-0"
+          className="w-full max-w-sm bg-secondary flex flex-col p-0 overflow-y-hidden"
         >
           <SheetHeader className="p-6 pb-0">
             <SheetTitle className="text-left text-gradient">PT.VRN</SheetTitle>
           </SheetHeader>
 
-          {/* FIX: hapus overflow-y-auto biar gak double scrollbar */}
           <div className="flex-grow p-6">
             <nav className="flex flex-col gap-2">
               {navItems.map((item) => (
@@ -309,7 +308,12 @@ export default function Navbar() {
             className="text-primary"
             isZoomable={false}
           />
-          <span className="font-extrabold whitespace-nowrap bg-gradient-to-r from-primary to-blue-400 text-transparent bg-clip-text text-sm md:text-base">
+          {/* desktop logo text (hidden on mobile) */}
+          <span className="hidden md:inline font-extrabold whitespace-nowrap bg-gradient-to-r from-primary to-blue-400 text-transparent bg-clip-text text-base">
+            PT.VRN
+          </span>
+          {/* mobile logo text (hidden on desktop) */}
+          <span className="md:hidden font-extrabold whitespace-nowrap bg-gradient-to-r from-primary to-blue-400 text-transparent bg-clip-text text-sm">
             PT.VRN
           </span>
         </Link>
