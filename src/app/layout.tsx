@@ -45,6 +45,18 @@ export const metadata: Metadata = {
     "rental alphard",
     "vicky rentcar nusantara",
     "vrn",
+    "sewa mobil lepas kunci medan",
+    "sewa mobil lepas kunci jakarta",
+    "sewa mobil lepas kunci bali",
+    "sewa mobil lepas kunci surabaya",
+    "sewa mobil lepas kunci bandung",
+    "sewa mobil lepas kunci jogja",
+    "sewa mobil lepas kunci yogyakarta",
+    "sewa mobil lepas kunci malang",
+    "sewa mobil bandara kualanamu",
+    "sewa mobil terdekat bandara kualanamu",
+    "sewa mobil terdekat medan",
+    "vicky rental mobil nusantara",
   ],
 };
 
