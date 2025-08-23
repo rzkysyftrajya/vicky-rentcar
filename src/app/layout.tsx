@@ -64,17 +64,17 @@ const dockItems = [
   {
     icon: <IconBrandWhatsapp className="w-5 h-5 text-green-500" />,
     href: "https://wa.me/6282363389893",
-    title: "WhatsApp", // <-- DI SINI PERBAIKANNYA!
+    title: "WhatsApp", // <-- DI SINI PERBAIKANNYA
   },
   {
     icon: <IconPhone className="w-5 h-5 text-primary" />,
     href: "tel:+6282363389893",
-    title: "Telepon", // <-- DI SINI PERBAIKANNYA!
+    title: "Telepon", // <-- DI SINI PERBAIKANNYA
   },
   {
     icon: <IconMapPin className="w-5 h-5 text-red-500" />,
-    href: "https://maps.app.goo.gl/k9K2m9nL7X9M3J9J6",
-    title: "Lokasi", // <-- DI SINI PERBAIKANNYA!
+    href: "https://maps.app.goo.gl/eSAPvoBukHM2iYCb7",
+    title: "Lokasi", // <-- DI SINI PERBAIKANNYA
   },
 ];
 

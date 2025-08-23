@@ -47,6 +47,7 @@ import {
 import Image from "next/image";
 import { ImageZoom } from "../ui/image-zoom";
 import { useAppContext, Currency, Language } from "@/app/context/AppContext";
+import { ScrollArea } from "@/components/ui/scroll-area"; // <-- Perbaikan: Tambah impor ScrollArea
 
 function ThemeToggle() {
   const { setTheme } = useTheme();
@@ -250,13 +251,14 @@ function MobileNavbar() {
 
         <SheetContent
           side="right"
-          className="w-full max-w-sm bg-secondary flex flex-col p-0 overflow-y-hidden"
+          className="w-full max-w-sm bg-secondary flex flex-col p-0" // <-- Perbaikan: Hapus overflow-y-hidden
         >
           <SheetHeader className="p-6 pb-0">
             <SheetTitle className="text-left text-gradient">PT.VRN</SheetTitle>
           </SheetHeader>
 
-          <div className="flex-grow p-6">
+          {/* Perbaikan: Gunakan ScrollArea untuk membungkus daftar link */}
+          <ScrollArea className="flex-grow p-6">
             <nav className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <MobileNavLink
@@ -269,7 +271,7 @@ function MobileNavbar() {
                 </MobileNavLink>
               ))}
             </nav>
-          </div>
+          </ScrollArea>
 
           <div className="p-4 mt-auto border-t space-y-4">
             <div className="flex justify-around items-center">
