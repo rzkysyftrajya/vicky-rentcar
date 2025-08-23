@@ -2,36 +2,23 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(req: NextRequest) {
-  const url = req.nextUrl.clone();
-  const { pathname } = url;
+  const { pathname } = req.nextUrl;
 
-  // Redirect /en -> /
-  if (pathname === "/en") {
-    url.pathname = "/";
-    return NextResponse.redirect(url);
+  if (pathname === "/en" || pathname.startsWith("/en/")) {
+    return NextResponse.redirect(
+      new URL(pathname.replace(/^\/en/, ""), req.url)
+    );
   }
 
-  // Redirect /en/... -> /...
-  if (pathname.startsWith("/en/")) {
-    url.pathname = pathname.replace(/^\/en/, "");
-    return NextResponse.redirect(url);
-  }
-
-  // Redirect /id -> /
-  if (pathname === "/id") {
-    url.pathname = "/";
-    return NextResponse.redirect(url);
-  }
-
-  // Redirect /id/... -> /...
-  if (pathname.startsWith("/id/")) {
-    url.pathname = pathname.replace(/^\/id/, "");
-    return NextResponse.redirect(url);
+  if (pathname === "/id" || pathname.startsWith("/id/")) {
+    return NextResponse.redirect(
+      new URL(pathname.replace(/^\/id/, ""), req.url)
+    );
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/((?!_next|api|.*\\..*).*)"],
+  matcher: ["/((?!api|_next|.*\\..*).*)"],
 };
