@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { IconBrandWhatsapp, IconMapPin, IconPhone } from "@tabler/icons-react";
 import { AppContextProvider } from "./context/AppContext";
+import Script from "next/script"; // <-- Tambahkan ini
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,17 +65,17 @@ const dockItems = [
   {
     icon: <IconBrandWhatsapp className="w-5 h-5 text-green-500" />,
     href: "https://wa.me/6282363389893",
-    title: "WhatsApp", // <-- DI SINI PERBAIKANNYA
+    title: "WhatsApp",
   },
   {
     icon: <IconPhone className="w-5 h-5 text-primary" />,
     href: "tel:+6282363389893",
-    title: "Telepon", // <-- DI SINI PERBAIKANNYA
+    title: "Telepon",
   },
   {
     icon: <IconMapPin className="w-5 h-5 text-red-500" />,
     href: "https://maps.app.goo.gl/eSAPvoBukHM2iYCb7",
-    title: "Lokasi", // <-- DI SINI PERBAIKANNYA
+    title: "Lokasi",
   },
 ];
 
@@ -113,6 +114,7 @@ export default function RootLayout({
           </ThemeProvider>
         </AppContextProvider>
 
+        {/* Service Worker */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -130,6 +132,22 @@ export default function RootLayout({
             `,
           }}
         />
+
+        {/* Google Tag Manager */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17496627513"
+          strategy="afterInteractive"
+          async
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17496627513');
+          `}
+        </Script>
+
         <Analytics />
       </body>
     </html>
