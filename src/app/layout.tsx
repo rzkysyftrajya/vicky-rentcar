@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -9,7 +10,7 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { IconBrandWhatsapp, IconMapPin, IconPhone } from "@tabler/icons-react";
 import { AppContextProvider } from "./context/AppContext";
-import Script from "next/script"; // <-- Tambahkan ini
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -59,6 +60,10 @@ export const metadata: Metadata = {
     "sewa mobil terdekat medan",
     "vicky rental mobil nusantara",
   ],
+  // Perbaikan SEO: Tambahkan kode verifikasi Google Search Console
+  verification: {
+    google: "0e7tdpsZeFHt20H7FDiaoWypuVlVHKnJ7PGYqalg-6c",
+  },
 };
 
 const dockItems = [
@@ -133,9 +138,13 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google Tag Manager */}
+        {/* Perbaikan SEO:
+          Gunakan tag Script terpisah untuk Google Analytics 4 (GA4) 
+          dan Google Ads (jika diperlukan)
+        */}
+        {/* Google Analytics 4 (GA4) - Sangat penting untuk SEO */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17496627513"
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
           strategy="afterInteractive"
           async
         />
@@ -144,7 +153,8 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-17496627513');
+            gtag('config', 'G-XXXXXXXXXX');
+            gtag('config', 'AW-17496627513'); // Kode Google Ads yang sudah Anda miliki
           `}
         </Script>
 
