@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     "sewa mobil bandara soekarno hatta",
     "rental alphard jakarta",
     "sewa hiace jakarta",
+    // Tambahkan kata kunci relevan lainnya jika diperlukan
   ],
   openGraph: {
     title: "Sewa Mobil Jakarta - Rental Murah Lepas Kunci & Dengan Sopir",
@@ -49,9 +50,32 @@ export default function Page() {
               </h2>
               <p className="text-muted-foreground">
                 Untuk Anda yang memiliki jadwal padat, kami menyediakan mobil
-                eksekutif seperti Alphard atau Fortuner yang dilengkapi dengan
-                sopir profesional. Fokus pada pekerjaan Anda, dan biarkan kami
-                yang mengurus perjalanan.
+                eksekutif seperti{" "}
+                <a
+                  href="/rental-alphard-jakarta"
+                  className="text-primary hover:underline"
+                >
+                  Alphard
+                </a>{" "}
+                atau{" "}
+                <a
+                  href="/sewa-fortuner-surabaya"
+                  className="text-primary hover:underline"
+                >
+                  Fortuner
+                </a>{" "}
+                yang dilengkapi dengan sopir profesional. Fokus pada pekerjaan
+                Anda, dan biarkan kami yang mengurus perjalanan.
+              </p>
+              <h3 className="text-lg font-semibold mt-4 text-primary">
+                Mengapa Memilih Layanan Sopir di Jakarta?
+              </h3>
+              <p className="text-muted-foreground mt-2">
+                Jakarta terkenal dengan lalu lintasnya yang padat. Dengan sopir
+                profesional yang berpengalaman, Anda tidak perlu khawatir
+                mencari rute tercepat, tempat parkir, atau menghadapi stres
+                kemacetan. Sopir kami akan memastikan perjalanan Anda aman dan
+                efisien, sehingga Anda bisa fokus pada bisnis Anda.
               </p>
             </div>
             <div className="p-6 border rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
@@ -59,10 +83,16 @@ export default function Page() {
                 Antar Jemput Bandara Soekarno-Hatta (CGK)
               </h2>
               <p className="text-muted-foreground">
-                Layanan antar jemput bandara kami siap menyambut Anda tepat
-                waktu. Kami memantau jadwal penerbangan secara real-time untuk
-                memastikan Anda tidak perlu menunggu lama, baik saat kedatangan
-                maupun keberangkatan.
+                Layanan{" "}
+                <a
+                  href="/sewa-mobil-bandara-kualanamu"
+                  className="text-primary hover:underline"
+                >
+                  antar jemput bandara
+                </a>{" "}
+                kami siap menyambut Anda tepat waktu. Kami memantau jadwal
+                penerbangan secara real-time untuk memastikan Anda tidak perlu
+                menunggu lama, baik saat kedatangan maupun keberangkatan.
               </p>
             </div>
             <div className="p-6 border rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
@@ -77,7 +107,11 @@ export default function Page() {
                 , Anda bebas berkeliling kota, mengunjungi pusat perbelanjaan,
                 atau menemui kerabat tanpa terikat jadwal. Kami menawarkan
                 berbagai tipe mobil, termasuk yang irit bahan bakar dan mudah
-                bermanuver.
+                bermanuver. Syarat dan ketentuan dapat Anda lihat di{" "}
+                <a href="/terms" className="text-primary hover:underline">
+                  halaman ini
+                </a>
+                .
               </p>
             </div>
           </div>
@@ -162,6 +196,29 @@ export default function Page() {
                   untuk verifikasi. Prosedur kami dirancang agar cepat dan aman
                   untuk kedua belah pihak. Hubungi kami untuk detail lebih
                   lanjut.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg">
+                  Apakah harga sewa sudah termasuk bensin dan tol?
+                </h3>
+                <p className="text-muted-foreground">
+                  Harga sewa yang kami tawarkan tidak termasuk biaya bensin dan
+                  tol. Biaya tersebut menjadi tanggung jawab penyewa, kecuali
+                  jika Anda memilih layanan sewa mobil dengan sopir, di mana
+                  persyaratan ini dapat disesuaikan.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg">
+                  Berapa biaya tambahan untuk layanan sopir profesional?
+                </h3>
+                <p className="text-muted-foreground">
+                  Biaya tambahan untuk layanan sopir sangat terjangkau dan
+                  bervariasi tergantung durasi sewa. Biaya ini mencakup jasa
+                  sopir dan tidak termasuk akomodasi (jika menginap). Untuk
+                  informasi harga yang lebih akurat, silakan hubungi tim layanan
+                  pelanggan kami.
                 </p>
               </div>
             </div>

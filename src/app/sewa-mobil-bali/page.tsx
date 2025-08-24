@@ -56,6 +56,18 @@ export default function Page() {
                 </strong>{" "}
                 dengan prosedur yang mudah.
               </p>
+              <p className="text-muted-foreground mt-2">
+                Dengan layanan ini, Anda bisa menyusun rute sesuai keinginan,
+                mulai dari penjemputan di{" "}
+                <a
+                  href="/sewa-mobil-bandara-kualanamu"
+                  className="text-primary hover:underline"
+                >
+                  bandara
+                </a>{" "}
+                hingga berkeliling dari Kuta ke Ubud atau ke area utara Bali
+                yang sejuk.
+              </p>
             </div>
             <div className="p-6 border rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
               <h2 className="text-xl font-semibold mb-2 text-primary">
@@ -96,7 +108,7 @@ export default function Page() {
               <div className="border rounded-lg p-4 text-center">
                 <img
                   src="/armada/ertiga-hybrid.webp"
-                  alt="Sewa Suzuki Ertiga Bali"
+                  alt="Sewa Suzuki Ertiga matic di Bali untuk jalanan perkotaan"
                   className="w-full h-auto mb-2"
                 />
                 <h3 className="text-lg font-semibold">Suzuki Ertiga Matic</h3>
@@ -107,7 +119,7 @@ export default function Page() {
               <div className="border rounded-lg p-4 text-center">
                 <img
                   src="/armada/innova-reborn.webp"
-                  alt="Sewa Toyota Innova Bali"
+                  alt="Rental Toyota Innova Reborn di Bali, mobil keluarga tangguh"
                   className="w-full h-auto mb-2"
                 />
                 <h3 className="text-lg font-semibold">Toyota Innova</h3>
@@ -118,7 +130,7 @@ export default function Page() {
               <div className="border rounded-lg p-4 text-center">
                 <img
                   src="/armada/toyota-all-new-avanza.webp"
-                  alt="Sewa Toyota Avanza Bali"
+                  alt="Sewa Toyota Avanza di Bali, pilihan terfavorit wisatawan"
                   className="w-full h-auto mb-2"
                 />
                 <h3 className="text-lg font-semibold">Toyota Avanza</h3>
@@ -129,7 +141,7 @@ export default function Page() {
               <div className="border rounded-lg p-4 text-center">
                 <img
                   src="/armada/hiace-premio-luxury.webp"
-                  alt="Sewa Toyota Hiace Bali"
+                  alt="Sewa Toyota Hiace Luxury di Bali untuk perjalanan rombongan"
                   className="w-full h-auto mb-2"
                 />
                 <h3 className="text-lg font-semibold">Toyota Hiace</h3>
@@ -162,6 +174,30 @@ export default function Page() {
                   Kami melayani seluruh area populer di Bali, termasuk Kuta,
                   Seminyak, Denpasar, Ubud, dan sekitarnya. Anda bisa menjemput
                   atau dijemput di lokasi yang disepakati.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg">
+                  Bagaimana cara memesan layanan sewa mobil di Bali?
+                </h3>
+                <p className="text-muted-foreground">
+                  Proses pemesanan sangat mudah. Anda bisa menghubungi tim
+                  layanan pelanggan kami melalui WhatsApp atau telepon. Berikan
+                  tanggal, durasi, dan jenis mobil yang Anda inginkan. Tim kami
+                  akan membantu Anda dengan cepat.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg">
+                  Apa saja persyaratan untuk sewa mobil lepas kunci?
+                </h3>
+                <p className="text-muted-foreground">
+                  Kami memerlukan salinan KTP dan SIM untuk verifikasi. Syarat
+                  dan ketentuan lengkap dapat Anda lihat di{" "}
+                  <a href="/terms" className="text-primary hover:underline">
+                    halaman persyaratan
+                  </a>
+                  .
                 </p>
               </div>
             </div>

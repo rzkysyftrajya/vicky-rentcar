@@ -59,6 +59,12 @@ export default function Page() {
                 dengan proses yang mudah dan cepat. Cukup siapkan dokumen
                 seperti KTP dan SIM, dan mobil impian Anda siap dibawa pulang.
               </p>
+              <p className="text-muted-foreground mt-2">
+                Dengan mobil sewaan, Anda bisa dengan mudah memulai perjalanan
+                dari kota dan langsung menuju keindahan alam seperti Berastagi
+                untuk melihat Gunung Sibayak dan Gundaling, atau melanjutkan
+                perjalanan hingga ke Danau Toba yang memesona.
+              </p>
             </div>
             <div className="p-6 border rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
               <h2 className="text-xl font-semibold mb-2 text-primary">
@@ -72,7 +78,11 @@ export default function Page() {
                 </strong>{" "}
                 adalah pilihan tepat. Sopir kami adalah penduduk lokal yang
                 berpengalaman, ramah, dan menguasai rute-rute terbaik, termasuk
-                saat menghindari kemacetan.
+                saat menghindari kemacetan. Kami juga melayani permintaan{" "}
+                <a href="/tour-guide" className="text-primary hover:underline">
+                  tour guide profesional
+                </a>{" "}
+                untuk menemani perjalanan Anda.
               </p>
             </div>
             <div className="p-6 border rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
@@ -80,7 +90,13 @@ export default function Page() {
                 Antar Jemput Bandara Kualanamu (KNO)
               </h2>
               <p className="text-muted-foreground">
-                Kami menyediakan layanan jemputan dari Bandara Kualanamu
+                Kami menyediakan layanan jemputan dari{" "}
+                <a
+                  href="/sewa-mobil-bandara-kualanamu"
+                  className="text-primary hover:underline"
+                >
+                  Bandara Kualanamu
+                </a>{" "}
                 langsung menuju hotel atau lokasi tujuan Anda. Hindari antrean
                 panjang dan nikmati kenyamanan begitu tiba. Layanan ini juga
                 tersedia untuk perjalanan kembali ke bandara.
@@ -96,12 +112,11 @@ export default function Page() {
               Pilihan mobil yang paling banyak diminati oleh pelanggan kami di
               Medan, cocok untuk berbagai kebutuhan.
             </p>
-            {/* Bagian ini nanti bisa diisi dengan komponen kartu mobil */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               <div className="border rounded-lg p-4 text-center">
                 <img
                   src="/armada/toyota-all-new-avanza.webp"
-                  alt="Sewa Toyota Avanza di Medan"
+                  alt="Sewa Toyota Avanza terbaru, cocok untuk keluarga di Medan"
                   className="w-full h-auto mb-2"
                 />
                 <h3 className="text-lg font-semibold">Toyota Avanza</h3>
@@ -112,7 +127,7 @@ export default function Page() {
               <div className="border rounded-lg p-4 text-center">
                 <img
                   src="/armada/innova-reborn.webp"
-                  alt="Sewa Toyota Innova di Medan"
+                  alt="Rental Toyota Innova Reborn untuk perjalanan bisnis di Medan"
                   className="w-full h-auto mb-2"
                 />
                 <h3 className="text-lg font-semibold">Toyota Innova</h3>
@@ -123,7 +138,7 @@ export default function Page() {
               <div className="border rounded-lg p-4 text-center">
                 <img
                   src="/armada/xpander.webp"
-                  alt="Sewa Mitsubishi Xpander di Medan"
+                  alt="Sewa Mitsubishi Xpander di Medan, mobil tangguh dan nyaman"
                   className="w-full h-auto mb-2"
                 />
                 <h3 className="text-lg font-semibold">Mitsubishi Xpander</h3>
@@ -134,7 +149,7 @@ export default function Page() {
               <div className="border rounded-lg p-4 text-center">
                 <img
                   src="/armada/hiace-premio.webp"
-                  alt="Sewa Toyota Hiace di Medan"
+                  alt="Sewa Toyota Hiace Premio di Medan, cocok untuk rombongan"
                   className="w-full h-auto mb-2"
                 />
                 <h3 className="text-lg font-semibold">Toyota Hiace</h3>
@@ -166,9 +181,15 @@ export default function Page() {
                 </h3>
                 <p className="text-muted-foreground">
                   Tentu. Kami melayani perjalanan ke luar kota, termasuk ke
-                  destinasi populer seperti Danau Toba, Berastagi, dan kota-kota
-                  lain di Sumatera Utara. Silakan konsultasikan rute Anda dengan
-                  tim kami.
+                  destinasi populer seperti{" "}
+                  <a
+                    href="/sewa-mobil-ke-danau-toba"
+                    className="text-primary hover:underline"
+                  >
+                    Danau Toba
+                  </a>
+                  , Berastagi, dan kota-kota lain di Sumatera Utara. Silakan
+                  konsultasikan rute Anda dengan tim kami.
                 </p>
               </div>
               <div>
@@ -179,6 +200,20 @@ export default function Page() {
                   Harga sewa bervariasi tergantung jenis mobil, durasi, dan
                   layanan (lepas kunci atau dengan sopir). Untuk informasi harga
                   terbaru, silakan hubungi kontak kami.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg">
+                  Apa saja persyaratan untuk sewa mobil lepas kunci?
+                </h3>
+                <p className="text-muted-foreground">
+                  Untuk keamanan dan kenyamanan bersama, kami memerlukan salinan
+                  dokumen pribadi yang valid seperti KTP, SIM, dan KK. Untuk
+                  syarat dan ketentuan lengkap, silakan kunjungi{" "}
+                  <a href="/terms" className="text-primary hover:underline">
+                    halaman ini
+                  </a>
+                  .
                 </p>
               </div>
             </div>
