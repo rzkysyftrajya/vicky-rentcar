@@ -265,6 +265,18 @@ const fullFleet = [
     fuel: "Bensin",
     prices: { driver: 3000000 },
   },
+  {
+    slug: "Toyota-innova-zenix",
+    name: "Toyota Innova Zenix",
+    image: "/armada/innova-zenix .webp",
+    hint: "innova zenix",
+    category: "Luxury",
+    alt: "Sewa mobil Toyota zenix di seluruh Indonesia",
+    rating: 5.0,
+    capacity: 6,
+    fuel: "Bensin",
+    prices: { matic: 750000 },
+  },
 ];
 
 function FleetPageContent() {
