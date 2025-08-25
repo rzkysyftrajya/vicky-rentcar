@@ -60,7 +60,7 @@ export default function Footer() {
                 asChild
               >
                 <Link
-                  href="https://www.instagram.com/rentcarmedanvicky/profilecard/?igsh=M2o3N2liZW10Mm9p"
+                  href="https://www.instagram.com/rentcarmedanvicky/?igsh=M2o3N2liZW10Mm9p"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
@@ -73,7 +73,7 @@ export default function Footer() {
                 asChild
               >
                 <Link
-                  href="https://www.tiktok.com/@ptvickyrentalnusantara?_t=ZS-8yzAglR99Fw&_r=1"
+                  href="https://www.tiktok.com/@ptvickyrentalnusantara"
                   aria-label="TikTok"
                 >
                   <Image

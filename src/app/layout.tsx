@@ -43,7 +43,6 @@ export const metadata: Metadata = {
   verification: {
     google: "0e7tdpsZeFHt20H7FDiaoWypuVlVHKnJ7PGYqalg-6c",
   },
-  // Perbaikan SEO: Tambahkan Schema Markup untuk Bisnis Lokal
   openGraph: {
     title: "Sewa Mobil Terpercaya di Medan, Jakarta, & Bali",
     description:
@@ -59,7 +58,7 @@ const structuredData = {
   "@type": "LocalBusiness",
   name: "PT. VICKY RENTCAR NUSANTARA",
   url: "https://vickyrentcarnusantara.com",
-  logo: "https://vickyrentcarnusantara.com/logo.png",
+  logo: "https://vickyrentcarnusantara.com/logo-vicky.png",
   image: "https://vickyrentcarnusantara.com/armada/innova-reborn.webp",
   description:
     "Pusat sewa dan rental mobil terpercaya di Indonesia. Melayani kebutuhan sewa mobil di Medan, Jakarta, dan Bali.",
@@ -73,7 +72,7 @@ const structuredData = {
     addressCountry: "ID",
   },
   priceRange: "$$",
-  hasMap: "https://maps.app.goo.gl/xxxxxx", // Ganti dengan link Google Maps bisnis Anda
+  hasMap: "https://maps.app.goo.gl/xxxxxx",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -139,6 +138,7 @@ export default function RootLayout({
   return (
     <html lang="id" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2563eb" />
       </head>
@@ -166,7 +166,6 @@ export default function RootLayout({
           </ThemeProvider>
         </AppContextProvider>
 
-        {/* Service Worker */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -185,7 +184,6 @@ export default function RootLayout({
           }}
         />
 
-        {/* Kode Google Analytics dan Google Ads */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
           strategy="afterInteractive"
@@ -200,7 +198,6 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Schema Markup (JSON-LD) */}
         <Script
           id="structured-data"
           type="application/ld+json"
