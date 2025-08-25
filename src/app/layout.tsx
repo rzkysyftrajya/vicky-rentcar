@@ -34,36 +34,83 @@ export const metadata: Metadata = {
     "sewa mobil medan",
     "rental mobil jakarta",
     "rental mobil bali",
-    "sewa mobil surabaya",
-    "sewa mobil bandung",
     "rental mobil murah",
     "sewa mobil matic",
     "sewa mobil lepas kunci",
     "sewa mobil dengan sopir",
     "antar jemput bandara",
-    "rental innova",
-    "rental avanza",
-    "rental fortuner",
-    "rental alphard",
-    "vicky rentcar nusantara",
-    "vrn",
-    "sewa mobil lepas kunci medan",
-    "sewa mobil lepas kunci jakarta",
-    "sewa mobil lepas kunci bali",
-    "sewa mobil lepas kunci surabaya",
-    "sewa mobil lepas kunci bandung",
-    "sewa mobil lepas kunci jogja",
-    "sewa mobil lepas kunci yogyakarta",
-    "sewa mobil lepas kunci malang",
-    "sewa mobil bandara kualanamu",
-    "sewa mobil terdekat bandara kualanamu",
-    "sewa mobil terdekat medan",
-    "vicky rental mobil nusantara",
   ],
-  // Perbaikan SEO: Tambahkan kode verifikasi Google Search Console
   verification: {
     google: "0e7tdpsZeFHt20H7FDiaoWypuVlVHKnJ7PGYqalg-6c",
   },
+  // Perbaikan SEO: Tambahkan Schema Markup untuk Bisnis Lokal
+  openGraph: {
+    title: "Sewa Mobil Terpercaya di Medan, Jakarta, & Bali",
+    description:
+      "Layanan sewa mobil lepas kunci dan dengan sopir 24 jam. Pilihan armada lengkap untuk perjalanan bisnis dan wisata.",
+    type: "website",
+    url: "https://vickyrentcarnusantara.com",
+    siteName: "PT. VICKY RENTCAR NUSANTARA",
+  },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "PT. VICKY RENTCAR NUSANTARA",
+  url: "https://vickyrentcarnusantara.com",
+  logo: "https://vickyrentcarnusantara.com/logo.png",
+  image: "https://vickyrentcarnusantara.com/armada/innova-reborn.webp",
+  description:
+    "Pusat sewa dan rental mobil terpercaya di Indonesia. Melayani kebutuhan sewa mobil di Medan, Jakarta, dan Bali.",
+  telephone: "+6282363389893",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Jl. Melati Raya No.5B",
+    addressLocality: "Medan",
+    addressRegion: "North Sumatra",
+    postalCode: "20122",
+    addressCountry: "ID",
+  },
+  priceRange: "$$",
+  hasMap: "https://maps.app.goo.gl/xxxxxx", // Ganti dengan link Google Maps bisnis Anda
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "00:00",
+      closes: "23:59",
+    },
+  ],
+  acceptsReservations: "True",
+  serviceType: [
+    "Car Rental",
+    "Airport Transfer",
+    "Chauffeur Service",
+    "Self-drive Car Rental",
+  ],
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Medan",
+    },
+    {
+      "@type": "City",
+      name: "Jakarta",
+    },
+    {
+      "@type": "City",
+      name: "Bali",
+    },
+  ],
 };
 
 const dockItems = [
@@ -138,15 +185,10 @@ export default function RootLayout({
           }}
         />
 
-        {/* Perbaikan SEO:
-          Gunakan tag Script terpisah untuk Google Analytics 4 (GA4) 
-          dan Google Ads (jika diperlukan)
-        */}
-        {/* Google Analytics 4 (GA4) - Sangat penting untuk SEO */}
+        {/* Kode Google Analytics dan Google Ads */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
           strategy="afterInteractive"
-          async
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
@@ -154,9 +196,17 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-XXXXXXXXXX');
-            gtag('config', 'AW-17496627513'); // Kode Google Ads yang sudah Anda miliki
+            gtag('config', 'AW-17496627513');
           `}
         </Script>
+
+        {/* Schema Markup (JSON-LD) */}
+        <Script
+          id="structured-data"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
 
         <Analytics />
       </body>
