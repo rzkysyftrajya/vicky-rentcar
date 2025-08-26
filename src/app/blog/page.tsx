@@ -13,19 +13,22 @@ import { type Metadata } from "next";
 import { ImageZoom } from "@/components/ui/image-zoom";
 
 export const metadata: Metadata = {
-  title: "Blog - Wawasan & Tips Rental Mobil se-Nusantara",
+  title: "Blog Rental Mobil & Wawasan Wisata - Vicky Rentcar Nusantara",
   description:
-    "Jelajahi blog kami untuk mendapatkan wawasan terbaru, tips perjalanan, panduan sewa mobil, dan berita terkini dari PT.VICKY RENTCAR NUSANTARA untuk perjalanan Anda di seluruh Indonesia.",
+    "Jelajahi blog kami untuk tips perjalanan, panduan sewa mobil di Medan, Jakarta, dan Bali, serta berita terbaru dari Vicky Rentcar Nusantara. Temukan wawasan untuk perjalanan Anda di seluruh Indonesia.",
   keywords: [
     "blog rental mobil indonesia",
     "tips sewa mobil",
     "panduan wisata nusantara",
     "berita rental mobil",
+    "rental mobil medan",
+    "sewa mobil jakarta",
+    "tips perjalanan bali",
   ],
   openGraph: {
-    title: "Blog - Wawasan & Tips Rental Mobil se-Nusantara",
+    title: "Blog Rental Mobil - Tips & Panduan Terbaik untuk Perjalanan",
     description:
-      "Dapatkan wawasan terbaru seputar rental mobil dan pariwisata di seluruh Indonesia.",
+      "Dapatkan wawasan terbaru seputar rental mobil dan pariwisata di seluruh Indonesia dari tim ahli Vicky Rentcar.",
   },
 };
 
@@ -88,9 +91,26 @@ export default function BlogPage() {
             Blog & Wawasan Nusantara
           </h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Dapatkan informasi, tips, dan inspirasi terbaru seputar dunia rental
-            mobil dan pariwisata dari tim ahli kami untuk perjalanan Anda di
-            seluruh Indonesia.
+            Dapatkan informasi, tips, dan inspirasi terbaru seputar dunia{" "}
+            <a
+              href="/sewa-mobil-medan"
+              className="text-primary hover:underline"
+            >
+              rental mobil di Medan
+            </a>
+            ,{" "}
+            <a
+              href="/sewa-mobil-jakarta"
+              className="text-primary hover:underline"
+            >
+              Jakarta
+            </a>
+            ,{" "}
+            <a href="/sewa-mobil-bali" className="text-primary hover:underline">
+              Bali
+            </a>
+            , dan berbagai kota lainnya dari tim ahli kami untuk perjalanan Anda
+            di seluruh Indonesia.
           </p>
         </div>
 

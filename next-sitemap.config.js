@@ -40,25 +40,25 @@ module.exports = {
       changefreq = "monthly";
     }
 
-    // Generate hreflang untuk ID & EN
-    const hreflangs = [
-      { hrefLang: "id", href: `https://vickyrentcarnusantara.com/id${path}` },
-      { hrefLang: "en", href: `https://vickyrentcarnusantara.com/en${path}` },
-    ];
+    // Catatan: Jika website Anda bukan multibahasa, jangan gunakan alternateRefs
+    // Menghapus baris hreflangs untuk menghindari tautan rusak.
 
     return {
       loc: path,
       changefreq,
       priority,
       lastmod: new Date().toISOString(),
-      alternateRefs: hreflangs,
+      // alternateRefs: hreflangs, // Baris ini dihapus
     };
   },
 
   robotsTxtOptions: {
     policies: [
       { userAgent: "*", allow: "/" },
-      { userAgent: "*", disallow: ["/api/", "/admin/", "/_next/", "/404"] },
+      {
+        userAgent: "*",
+        disallow: ["/api/", "/admin/", "/_next/", "/404", "/cdn-cgi/"],
+      },
     ],
     additionalSitemaps: ["https://vickyrentcarnusantara.com/sitemap.xml"],
   },
