@@ -1,8 +1,8 @@
 const CACHE_NAME = "vicky-rentcar-cache-v1";
 const urlsToCache = [
-  "/",
+  "/", // homepage
   "/favicon.ico",
-  "/site.webmanifest",
+  "/manifest.json",
   "/logoVRN.png",
   "/android-chrome-192x192.png",
   "/android-chrome-512x512.png",
@@ -38,16 +38,28 @@ self.addEventListener("activate", (event) => {
   return self.clients.claim();
 });
 
-// Fetch cache-first fallback to network
+// Fetch: cache-first untuk asset statis, network-first untuk HTML
 self.addEventListener("fetch", (event) => {
+  const request = event.request;
+
+  // HTML pages → network first
+  if (request.mode === "navigate") {
+    event.respondWith(fetch(request).catch(() => caches.match("/")));
+    return;
+  }
+
+  // Static assets → cache first
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      if (response) {
-        console.log("[SW] Serving from cache:", event.request.url);
-        return response;
-      }
-      console.log("[SW] Fetching:", event.request.url);
-      return fetch(event.request);
+    caches.match(request).then((response) => {
+      return (
+        response ||
+        fetch(request).then((res) => {
+          return caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, res.clone());
+            return res;
+          });
+        })
+      );
     })
   );
 });

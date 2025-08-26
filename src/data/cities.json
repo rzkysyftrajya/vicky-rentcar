@@ -1,0 +1,819 @@
+[
+  {
+    "slug": "jakarta",
+    "city": "Jakarta",
+    "title": "Sewa Mobil Jakarta - Rental Mobil Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Rental mobil Jakarta murah dengan armada lengkap. Cocok untuk perjalanan bisnis, liburan, dan antar jemput Bandara Soekarno-Hatta.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Bandara Soekarno-Hatta"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Jakarta",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Innova Reborn",
+        "image": "/armada/innova-reborn.webp",
+        "alt": "Sewa Innova Jakarta",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Fortuner",
+        "image": "/armada/fortuner.webp",
+        "alt": "Sewa Fortuner Jakarta",
+        "type": "SUV, 7 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah tersedia rental mobil harian di Jakarta?",
+        "a": "Ya, mulai dari 12 jam, harian, hingga bulanan."
+      },
+      {
+        "q": "Apakah bisa sewa mobil dengan sopir di Jakarta?",
+        "a": "Tentu, tersedia sopir berpengalaman untuk area Jabodetabek."
+      }
+    ]
+  },
+  {
+    "slug": "medan",
+    "city": "Medan",
+    "title": "Sewa Mobil Medan - Rental Mobil Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Sewa mobil Medan murah untuk perjalanan ke Danau Toba, bisnis, dan antar jemput Bandara Kualanamu.",
+    "highlights": [
+      "Lepas Kunci",
+      "Dengan Sopir",
+      "Antar Jemput Bandara Kualanamu"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Medan",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Innova Reborn",
+        "image": "/armada/innova-reborn.webp",
+        "alt": "Sewa Innova Medan",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Hiace Premio",
+        "image": "/armada/hiace-premio.webp",
+        "alt": "Sewa Hiace Medan",
+        "type": "Van, 14-16 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah bisa sewa mobil lepas kunci di Medan?",
+        "a": "Ya, tersedia dengan syarat dokumen lengkap."
+      },
+      {
+        "q": "Apakah ada antar jemput Bandara Kualanamu?",
+        "a": "Tentu, tersedia 24 jam."
+      }
+    ]
+  },
+  {
+    "slug": "bandung",
+    "city": "Bandung",
+    "title": "Sewa Mobil Bandung - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Rental mobil Bandung dengan harga terjangkau. Cocok untuk wisata Lembang, Ciwidey, dan city tour.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Stasiun Bandung"
+    ],
+    "cars": [
+      {
+        "name": "Xpander",
+        "image": "/armada/xpander.webp",
+        "alt": "Sewa Xpander Bandung",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Bandung",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Hiace Premio",
+        "image": "/armada/hiace-premio.webp",
+        "alt": "Sewa Hiace Bandung",
+        "type": "Van, 14-16 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah tersedia rental mobil harian di Bandung?",
+        "a": "Ya, mulai dari 12 jam hingga bulanan."
+      },
+      {
+        "q": "Apakah ada paket wisata Bandung?",
+        "a": "Ya, tersedia paket city tour dan Lembang tour."
+      }
+    ]
+  },
+  {
+    "slug": "surabaya",
+    "city": "Surabaya",
+    "title": "Sewa Mobil Surabaya - Rental Mobil Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Butuh sewa mobil di Surabaya? Armada lengkap untuk perjalanan bisnis maupun wisata. Harga murah, sopir berpengalaman.",
+    "highlights": [
+      "Dengan Sopir",
+      "Antar Jemput Bandara Juanda",
+      "Harian & Bulanan"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Surabaya",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Innova Reborn",
+        "image": "/armada/innova-reborn.webp",
+        "alt": "Sewa Innova Surabaya",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Hiace Premio",
+        "image": "/armada/hiace-premio.webp",
+        "alt": "Sewa Hiace Surabaya",
+        "type": "Van, 14-16 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah tersedia sewa mobil harian di Surabaya?",
+        "a": "Ya, tersedia mulai dari 12 jam."
+      },
+      {
+        "q": "Apakah bisa antar jemput Bandara Juanda?",
+        "a": "Ya, tersedia untuk semua jenis kendaraan."
+      }
+    ]
+  },
+  {
+    "slug": "bali",
+    "city": "Bali",
+    "title": "Sewa Mobil Bali - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Nikmati liburan di Bali dengan sewa mobil murah. Pilihan armada lengkap, bisa lepas kunci atau dengan sopir.",
+    "highlights": [
+      "Lepas Kunci",
+      "Dengan Sopir",
+      "Antar Jemput Bandara Ngurah Rai"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Bali",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Innova Reborn",
+        "image": "/armada/innova-reborn.webp",
+        "alt": "Sewa Innova Bali",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Alphard",
+        "image": "/armada/alphard.webp",
+        "alt": "Sewa Alphard Bali",
+        "type": "Luxury MPV, 7 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah bisa sewa mobil lepas kunci di Bali?",
+        "a": "Ya, tersedia dengan syarat dokumen lengkap."
+      },
+      {
+        "q": "Apakah ada sopir untuk city tour Bali?",
+        "a": "Tentu, sopir kami berpengalaman untuk wisata Bali."
+      }
+    ]
+  },
+  {
+    "slug": "yogyakarta",
+    "city": "Yogyakarta",
+    "title": "Sewa Mobil Yogyakarta - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Sewa mobil di Jogja murah, armada lengkap untuk wisata Borobudur, Prambanan, Malioboro dan city tour.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Stasiun & Bandara YIA"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Jogja",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Innova Reborn",
+        "image": "/armada/innova-reborn.webp",
+        "alt": "Sewa Innova Jogja",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Hiace Premio",
+        "image": "/armada/hiace-premio.webp",
+        "alt": "Sewa Hiace Jogja",
+        "type": "Van, 14-16 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah tersedia paket wisata Jogja?",
+        "a": "Ya, termasuk Borobudur, Prambanan, dan city tour."
+      },
+      {
+        "q": "Apakah bisa lepas kunci di Yogyakarta?",
+        "a": "Bisa dengan dokumen lengkap (KTP + SIM + KK)."
+      }
+    ]
+  },
+  {
+    "slug": "semarang",
+    "city": "Semarang",
+    "title": "Sewa Mobil Semarang - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Rental mobil Semarang murah, cocok untuk perjalanan bisnis maupun wisata ke Lawang Sewu, Simpang Lima, dan sekitarnya.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Bandara Ahmad Yani"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Semarang",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Xpander",
+        "image": "/armada/xpander.webp",
+        "alt": "Sewa Xpander Semarang",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Hiace Premio",
+        "image": "/armada/hiace-premio.webp",
+        "alt": "Sewa Hiace Semarang",
+        "type": "Van, 14-16 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah bisa sewa mobil harian di Semarang?",
+        "a": "Ya, tersedia mulai dari 12 jam."
+      },
+      {
+        "q": "Apakah ada antar jemput bandara Ahmad Yani?",
+        "a": "Tentu, tersedia setiap hari."
+      }
+    ]
+  },
+  {
+    "slug": "makassar",
+    "city": "Makassar",
+    "title": "Sewa Mobil Makassar - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Sewa mobil di Makassar dengan harga terjangkau. Cocok untuk perjalanan ke Pantai Losari, bisnis, maupun wisata Sulawesi Selatan.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Bandara Sultan Hasanuddin"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Makassar",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Innova Reborn",
+        "image": "/armada/innova-reborn.webp",
+        "alt": "Sewa Innova Makassar",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Fortuner",
+        "image": "/armada/fortuner.webp",
+        "alt": "Sewa Fortuner Makassar",
+        "type": "SUV, 7 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah tersedia paket wisata di Makassar?",
+        "a": "Ya, termasuk city tour dan wisata ke Tana Toraja."
+      },
+      {
+        "q": "Apakah bisa sewa mobil bulanan di Makassar?",
+        "a": "Ya, tersedia paket corporate dan individu."
+      }
+    ]
+  },
+  {
+    "slug": "palembang",
+    "city": "Palembang",
+    "title": "Sewa Mobil Palembang - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Rental mobil Palembang murah untuk perjalanan bisnis, wisata Jembatan Ampera, dan kuliner pempek.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Bandara SMB II"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Palembang",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Xpander",
+        "image": "/armada/xpander.webp",
+        "alt": "Sewa Xpander Palembang",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Hiace Premio",
+        "image": "/armada/hiace-premio.webp",
+        "alt": "Sewa Hiace Palembang",
+        "type": "Van, 14-16 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah bisa sewa mobil lepas kunci di Palembang?",
+        "a": "Ya, tersedia dengan dokumen lengkap."
+      },
+      {
+        "q": "Apakah ada paket city tour Palembang?",
+        "a": "Tentu, termasuk wisata Jembatan Ampera & Benteng Kuto Besak."
+      }
+    ]
+  },
+  {
+    "slug": "batam",
+    "city": "Batam",
+    "title": "Sewa Mobil Batam - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Butuh rental mobil di Batam? Armada lengkap untuk city tour, bisnis, atau liburan ke Barelang.",
+    "highlights": [
+      "Lepas Kunci",
+      "Dengan Sopir",
+      "Antar Jemput Bandara Hang Nadim"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Batam",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Innova Reborn",
+        "image": "/armada/innova-reborn.webp",
+        "alt": "Sewa Innova Batam",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Hiace Premio",
+        "image": "/armada/hiace-premio.webp",
+        "alt": "Sewa Hiace Batam",
+        "type": "Van, 14-16 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah bisa sewa mobil lepas kunci di Batam?",
+        "a": "Ya, dengan syarat dokumen lengkap."
+      },
+      {
+        "q": "Apakah tersedia antar jemput Bandara Hang Nadim?",
+        "a": "Ya, tersedia 24 jam."
+      }
+    ]
+  },
+  {
+    "slug": "pekanbaru",
+    "city": "Pekanbaru",
+    "title": "Sewa Mobil Pekanbaru - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Sewa mobil di Pekanbaru murah, armada lengkap untuk bisnis, perjalanan dinas, dan wisata Riau.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Bandara Sultan Syarif Kasim II"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Pekanbaru",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Xpander",
+        "image": "/armada/xpander.webp",
+        "alt": "Sewa Xpander Pekanbaru",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Innova Reborn",
+        "image": "/armada/innova-reborn.webp",
+        "alt": "Sewa Innova Pekanbaru",
+        "type": "MPV, 7 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah bisa sewa mobil lepas kunci di Pekanbaru?",
+        "a": "Bisa, dengan dokumen lengkap."
+      },
+      {
+        "q": "Apakah ada antar jemput bandara?",
+        "a": "Ya, gratis untuk area Bandara Sultan Syarif Kasim II."
+      }
+    ]
+  },
+  {
+    "slug": "balikpapan",
+    "city": "Balikpapan",
+    "title": "Sewa Mobil Balikpapan - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Rental mobil Balikpapan untuk perjalanan bisnis, wisata Kalimantan Timur, atau city tour dengan harga terjangkau.",
+    "highlights": ["Dengan Sopir", "Lepas Kunci", "Antar Jemput Bandara SAMS"],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Balikpapan",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Innova Reborn",
+        "image": "/armada/innova-reborn.webp",
+        "alt": "Sewa Innova Balikpapan",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Fortuner",
+        "image": "/armada/fortuner.webp",
+        "alt": "Sewa Fortuner Balikpapan",
+        "type": "SUV, 7 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah ada layanan antar jemput Bandara Sepinggan?",
+        "a": "Ya, tersedia 24 jam."
+      },
+      {
+        "q": "Apakah bisa sewa mobil bulanan di Balikpapan?",
+        "a": "Tersedia untuk perusahaan & individu."
+      }
+    ]
+  },
+  {
+    "slug": "pontianak",
+    "city": "Pontianak",
+    "title": "Sewa Mobil Pontianak - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Sewa mobil Pontianak untuk perjalanan bisnis, wisata Tugu Khatulistiwa, dan city tour Kalimantan Barat.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Bandara Supadio"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Pontianak",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Xpander",
+        "image": "/armada/xpander.webp",
+        "alt": "Sewa Xpander Pontianak",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Hiace Premio",
+        "image": "/armada/hiace-premio.webp",
+        "alt": "Sewa Hiace Pontianak",
+        "type": "Van, 14-16 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah bisa sewa mobil untuk city tour Pontianak?",
+        "a": "Ya, termasuk wisata Tugu Khatulistiwa & Sungai Kapuas."
+      },
+      {
+        "q": "Apakah tersedia sewa mobil harian?",
+        "a": "Ya, minimal durasi 12 jam."
+      }
+    ]
+  },
+  {
+    "slug": "banjarmasin",
+    "city": "Banjarmasin",
+    "title": "Sewa Mobil Banjarmasin - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Rental mobil Banjarmasin murah untuk bisnis, wisata Pasar Terapung, dan perjalanan Kalimantan Selatan.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Bandara Syamsudin Noor"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Banjarmasin",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Innova Reborn",
+        "image": "/armada/innova-reborn.webp",
+        "alt": "Sewa Innova Banjarmasin",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Hiace Premio",
+        "image": "/armada/hiace-premio.webp",
+        "alt": "Sewa Hiace Banjarmasin",
+        "type": "Van, 14-16 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah bisa sewa mobil untuk wisata Pasar Terapung?",
+        "a": "Ya, tersedia dengan sopir lokal berpengalaman."
+      },
+      {
+        "q": "Apakah tersedia antar jemput bandara?",
+        "a": "Tersedia 24 jam ke/dari Bandara Syamsudin Noor."
+      }
+    ]
+  },
+  {
+    "slug": "malang",
+    "city": "Malang",
+    "title": "Sewa Mobil Malang - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Sewa mobil Malang untuk liburan ke Batu, Bromo, atau city tour Jawa Timur. Armada lengkap & murah.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Stasiun & Bandara"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Malang",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Xpander",
+        "image": "/armada/xpander.webp",
+        "alt": "Sewa Xpander Malang",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Hiace Premio",
+        "image": "/armada/hiace-premio.webp",
+        "alt": "Sewa Hiace Malang",
+        "type": "Van, 14-16 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah tersedia paket wisata Bromo & Batu?",
+        "a": "Ya, termasuk sewa mobil + sopir."
+      },
+      {
+        "q": "Apakah bisa lepas kunci di Malang?",
+        "a": "Bisa dengan dokumen lengkap (KTP + SIM + KK)."
+      }
+    ]
+  },
+
+  {
+    "slug": "denpasar",
+    "city": "Denpasar",
+    "title": "Sewa Mobil Denpasar - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Rental mobil Denpasar murah untuk liburan Bali, tour wisata, dan perjalanan bisnis. Armada lengkap, harga bersahabat.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Bandara Ngurah Rai"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Denpasar",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Innova Reborn",
+        "image": "/armada/innova-reborn.webp",
+        "alt": "Sewa Innova Denpasar",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Alphard",
+        "image": "/armada/alphard.webp",
+        "alt": "Sewa Alphard Denpasar",
+        "type": "Luxury MPV, 6 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah bisa sewa mobil harian di Denpasar?",
+        "a": "Bisa, tersedia dengan sopir maupun lepas kunci."
+      },
+      {
+        "q": "Apakah tersedia paket wisata Bali?",
+        "a": "Ya, termasuk Kuta, Ubud, Tanah Lot, dan Nusa Dua."
+      }
+    ]
+  },
+  {
+    "slug": "solo",
+    "city": "Solo",
+    "title": "Sewa Mobil Solo - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Sewa mobil Solo murah untuk city tour, acara keluarga, dan perjalanan bisnis di Jawa Tengah.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Bandara Adi Soemarmo"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Solo",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Xpander",
+        "image": "/armada/xpander.webp",
+        "alt": "Sewa Xpander Solo",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Hiace Premio",
+        "image": "/armada/hiace-premio.webp",
+        "alt": "Sewa Hiace Solo",
+        "type": "Van, 14-16 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah ada sewa mobil untuk acara pernikahan di Solo?",
+        "a": "Ya, tersedia Alphard dan Pajero untuk acara spesial."
+      },
+      {
+        "q": "Apakah bisa lepas kunci di Solo?",
+        "a": "Bisa dengan dokumen lengkap (KTP, SIM, KK)."
+      }
+    ]
+  },
+  {
+    "slug": "danau-toba",
+    "city": "Danau Toba",
+    "title": "Sewa Mobil Danau Toba - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Rental mobil Danau Toba untuk wisata, perjalanan keluarga, dan tour Sumatera Utara. Armada terawat & sopir berpengalaman.",
+    "highlights": [
+      "Dengan Sopir",
+      "Antar Jemput Bandara Silangit",
+      "Tour Wisata Danau Toba"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Danau Toba",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Innova Reborn",
+        "image": "/armada/innova-reborn.webp",
+        "alt": "Sewa Innova Danau Toba",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Hiace Premio",
+        "image": "/armada/hiace-premio.webp",
+        "alt": "Sewa Hiace Danau Toba",
+        "type": "Van, 14-16 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah tersedia tour keliling Danau Toba?",
+        "a": "Ya, termasuk Samosir, Balige, dan Parapat."
+      },
+      {
+        "q": "Apakah ada layanan antar jemput bandara Silangit?",
+        "a": "Tersedia dengan armada berbagai tipe."
+      }
+    ]
+  },
+  {
+    "slug": "manado",
+    "city": "Manado",
+    "title": "Sewa Mobil Manado - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Sewa mobil Manado untuk wisata Bunaken, perjalanan bisnis, dan city tour Sulawesi Utara.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Bandara Sam Ratulangi"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Manado",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Xpander",
+        "image": "/armada/xpander.webp",
+        "alt": "Sewa Xpander Manado",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Fortuner",
+        "image": "/armada/fortuner.webp",
+        "alt": "Sewa Fortuner Manado",
+        "type": "SUV, 7 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah bisa sewa mobil untuk wisata Bunaken?",
+        "a": "Bisa, tersedia paket dengan sopir lokal."
+      },
+      {
+        "q": "Apakah ada sewa mobil bulanan di Manado?",
+        "a": "Ya, untuk perusahaan dan ekspatriat."
+      }
+    ]
+  },
+  {
+    "slug": "padang",
+    "city": "Padang",
+    "title": "Sewa Mobil Padang - Rental Murah Lepas Kunci & Sopir | PT.VRN",
+    "description": "Rental mobil Padang untuk wisata Sumatera Barat, perjalanan keluarga, dan keperluan bisnis.",
+    "highlights": [
+      "Dengan Sopir",
+      "Lepas Kunci",
+      "Antar Jemput Bandara Minangkabau"
+    ],
+    "cars": [
+      {
+        "name": "Avanza",
+        "image": "/armada/toyota-all-new-avanza.webp",
+        "alt": "Sewa Avanza Padang",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Innova Reborn",
+        "image": "/armada/innova-reborn.webp",
+        "alt": "Sewa Innova Padang",
+        "type": "MPV, 7 Penumpang"
+      },
+      {
+        "name": "Hiace Premio",
+        "image": "/armada/hiace-premio.webp",
+        "alt": "Sewa Hiace Padang",
+        "type": "Van, 14-16 Penumpang"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah bisa sewa mobil untuk tour Sumatera Barat?",
+        "a": "Ya, termasuk Bukittinggi, Lembah Harau, dan Pantai Padang."
+      },
+      {
+        "q": "Apakah ada layanan antar jemput bandara?",
+        "a": "Ya, ke/dari Bandara Internasional Minangkabau."
+      }
+    ]
+  }
+]
