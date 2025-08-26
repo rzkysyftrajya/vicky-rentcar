@@ -184,19 +184,20 @@ export default function RootLayout({
           }}
         />
 
+        {/* REVISI: Gabungkan kedua skrip GTM menjadi satu tag Script yang lebih efisien */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          id="google-analytics"
           strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+          dangerouslySetInnerHTML={{
+            __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-XXXXXXXXXX');
             gtag('config', 'AW-17496627513');
-          `}
-        </Script>
+          `,
+          }}
+        />
 
         <Script
           id="structured-data"
