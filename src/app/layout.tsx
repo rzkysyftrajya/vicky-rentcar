@@ -39,6 +39,7 @@ export const metadata: Metadata = {
     "sewa mobil lepas kunci",
     "sewa mobil dengan sopir",
     "antar jemput bandara",
+    "sewa mobil vicky",
   ],
   verification: {
     google: "0e7tdpsZeFHt20H7FDiaoWypuVlVHKnJ7PGYqalg-6c",
@@ -65,14 +66,14 @@ const structuredData = {
   telephone: "+6282363389893",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Jl. Melati Raya No.5B",
-    addressLocality: "Medan",
-    addressRegion: "North Sumatra",
-    postalCode: "20122",
+    streetAddress: "Jl. Sempurna Gg. Mawar No.12 dusun II",
+    addressLocality: "Medan Tembung",
+    addressRegion: "Sumatera Utara",
+    postalCode: "20371",
     addressCountry: "ID",
   },
   priceRange: "$$",
-  hasMap: "https://maps.app.goo.gl/xxxxxx",
+  hasMap: "Https://maps.app.goo.gl/bXqcSpsHzM4TH6iHA",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -125,7 +126,7 @@ const dockItems = [
   },
   {
     icon: <IconMapPin className="w-5 h-5 text-red-500" />,
-    href: "https://maps.app.goo.gl/eSAPvoBukHM2iYCb7",
+    href: "Https://maps.app.goo.gl/bXqcSpsHzM4TH6iHA",
     title: "Lokasi",
   },
 ];
@@ -184,17 +185,21 @@ export default function RootLayout({
           }}
         />
 
-        {/* REVISI: Gabungkan kedua skrip GTM menjadi satu tag Script yang lebih efisien */}
+        {/* Script Google Analytics (gtag.js) */}
         <Script
           id="google-analytics"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17510183879"
+        />
+        <Script
+          id="google-analytics-config"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
-            gtag('config', 'AW-17496627513');
+            gtag('config', 'AW-17510183879');
           `,
           }}
         />
