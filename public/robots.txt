@@ -1,16 +1,30 @@
-# *
-User-agent: *
-Allow: /
+# ================================
+# Vicky Rentcar Nusantara – Robots.txt Advanced
+# ================================
 
-# *
+# Default untuk semua bot
 User-agent: *
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
 Disallow: /404
+Allow: /
 
-# Host
+# Crawl-delay untuk bot umum
+Crawl-delay: 10
+
+# Sitemap & host
 Host: https://vickyrentcarnusantara.com
-
-# Sitemaps
 Sitemap: https://vickyrentcarnusantara.com/sitemap.xml
+
+# ================================
+# Googlebot prioritization for city pages
+# ================================
+User-agent: Googlebot
+Allow: /medan
+Allow: /jakarta
+Allow: /bali
+Allow: /surabaya
+Allow: /yogyakarta
+Allow: /bandung
+Crawl-delay: 5
