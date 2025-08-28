@@ -12,13 +12,9 @@ export function generateStaticParams() {
   }));
 }
 
-// ✅ Metadata per kota (HARUS async)
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<Params>;
-}) {
-  const { city } = await params; // ✅ wajib di-await
+// ✅ Metadata per kota
+export async function generateMetadata({ params }: { params: Params }) {
+  const { city } = params;
   const cityData = cities.find((c) => c.slug === city);
 
   if (!cityData) {
@@ -34,9 +30,9 @@ export async function generateMetadata({
   };
 }
 
-// ✅ Render halaman per kota (HARUS async juga)
-export default async function Page({ params }: { params: Promise<Params> }) {
-  const { city } = await params; // ✅ wajib di-await
+// ✅ Render halaman per kota
+export default function Page({ params }: { params: Params }) {
+  const { city } = params;
   const cityData = cities.find((c) => c.slug === city);
 
   if (!cityData) {

@@ -134,8 +134,10 @@ export default function GalleryPage() {
                 <ImageZoom
                   src={image.src}
                   alt={image.alt}
+                  title={image.alt}
                   data-ai-hint={image.hint}
                   fill
+                  priority={index === 0}
                   className="object-cover"
                 />
               </div>
@@ -157,8 +159,10 @@ export default function GalleryPage() {
                 <ImageZoom
                   src={image.src}
                   alt={image.alt}
+                  title={image.alt}
                   data-ai-hint={image.hint}
                   fill
+                  priority={index === 0}
                   className="object-cover"
                 />
               </div>

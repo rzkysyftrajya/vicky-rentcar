@@ -5,7 +5,12 @@ module.exports = {
   sitemapSize: 5000,
   changefreq: "weekly",
   priority: 0.7,
-  exclude: ["/_not-found", "/privacy", "/terms"],
+  exclude: [
+    "/_not-found",
+    "/privacy",
+    "/terms",
+    "/server-sitemap.xml", // kalau lo generate dynamic sitemap
+  ],
 
   transform: async (config, path) => {
     let priority = 0.7;
@@ -34,21 +39,19 @@ module.exports = {
       path === "/about" ||
       path === "/contact" ||
       path === "/faq" ||
-      path === "/services"
+      path === "/services" ||
+      path === "/gallery" ||
+      path === "/testimonials"
     ) {
       priority = 0.6;
       changefreq = "monthly";
     }
-
-    // Catatan: Jika website Anda bukan multibahasa, jangan gunakan alternateRefs
-    // Menghapus baris hreflangs untuk menghindari tautan rusak.
 
     return {
       loc: path,
       changefreq,
       priority,
       lastmod: new Date().toISOString(),
-      // alternateRefs: hreflangs, // Baris ini dihapus
     };
   },
 
@@ -57,9 +60,20 @@ module.exports = {
       { userAgent: "*", allow: "/" },
       {
         userAgent: "*",
-        disallow: ["/api/", "/admin/", "/_next/", "/404", "/cdn-cgi/"],
+        disallow: [
+          "/api/",
+          "/admin/",
+          "/_next/",
+          "/404",
+          "/cdn-cgi/",
+          "/*.json$",
+          "/*.txt$",
+        ],
       },
     ],
-    additionalSitemaps: ["https://vickyrentcarnusantara.com/sitemap.xml"],
+    additionalSitemaps: [
+      "https://vickyrentcarnusantara.com/sitemap.xml",
+      "https://vickyrentcarnusantara.com/server-sitemap.xml", // kalau lo generate SSR sitemap
+    ],
   },
 };
