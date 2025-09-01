@@ -82,7 +82,7 @@ const fullFleet = [
     alt: "Sewa mobil Toyota Innova Reborn di seluruh Indonesia",
     rating: 4.9,
     capacity: 7,
-    fuel: "Bensin",
+    fuel: "Solar",
     prices: { manual: 550000, matic: 600000, driver: 900000 },
   },
   {
@@ -106,7 +106,7 @@ const fullFleet = [
     alt: "Sewa mobil Toyota Fortuner di seluruh Indonesia",
     rating: 4.9,
     capacity: 7,
-    fuel: "Bensin",
+    fuel: "Solar",
     prices: { driver: 1300000 },
   },
   {
