@@ -195,9 +195,9 @@ export default function FleetPage() {
                   className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all"
                 >
                   <a
-                    href={`https://wa.me/628123456789?text=Halo%20saya%20ingin%20sewa%20${encodeURIComponent(
+                    href={`https://wa.me/6282363389893?text=Halo%20saya%20ingin%20sewa%20${encodeURIComponent(
                       car.name
-                    )}`}
+                    )}%20melalui%20Vicky%20Rental%20Nusantara.%20Bisa%20dijelaskan%20lebih%20lanjut%20mengenai%20detail%20dan%20harganya?`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
