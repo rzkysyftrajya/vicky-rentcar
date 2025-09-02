@@ -8,7 +8,7 @@ const urlsToCache = [
   "/android-chrome-512x512.png",
 ];
 
-// Install SW & cache files
+// ✅ Install SW & cache files
 self.addEventListener("install", (event) => {
   console.log("[SW] Installing...");
   self.skipWaiting();
@@ -20,7 +20,7 @@ self.addEventListener("install", (event) => {
   );
 });
 
-// Activate SW & clear old cache
+// ✅ Activate SW & clear old cache
 self.addEventListener("activate", (event) => {
   console.log("[SW] Activating...");
   event.waitUntil(
@@ -38,7 +38,7 @@ self.addEventListener("activate", (event) => {
   return self.clients.claim();
 });
 
-// Fetch: cache-first untuk asset statis, network-first untuk HTML
+// ✅ Fetch strategy
 self.addEventListener("fetch", (event) => {
   const request = event.request;
 

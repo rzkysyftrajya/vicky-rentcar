@@ -8,7 +8,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { FloatingDock } from "@/components/ui/floating-dock";
-import { IconBrandWhatsapp, IconMapPin, IconPhone } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconPhone } from "@tabler/icons-react";
 import { AppContextProvider } from "./context/AppContext";
 import Script from "next/script";
 
@@ -123,11 +123,6 @@ const dockItems = [
     icon: <IconPhone className="w-5 h-5 text-primary" />,
     href: "tel:+6282363389893",
     title: "Telepon",
-  },
-  {
-    icon: <IconMapPin className="w-5 h-5 text-red-500" />,
-    href: "Https://maps.app.goo.gl/bXqcSpsHzM4TH6iHA",
-    title: "Lokasi",
   },
 ];
 
