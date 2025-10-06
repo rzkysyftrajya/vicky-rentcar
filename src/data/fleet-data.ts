@@ -1,0 +1,131 @@
+export const cars = [
+  {
+    name: "Alphard New",
+    image: "/armada/alphard-new.webp",
+    specs: ["7 Penumpang", "Matic", "Bensin"],
+    category: "Luxury",
+  },
+  {
+    name: "Fortuner",
+    image: "/armada/fortuner.webp",
+    specs: ["7 Penumpang", "Matic", "Diesel"],
+    category: "SUV",
+  },
+  {
+    name: "Innova Reborn",
+    image: "/armada/innova-reborn.webp",
+    specs: ["7 Penumpang", "Matic", "Bensin"],
+    category: "MPV",
+  },
+  {
+    name: "Innova Zenix",
+    image: "/armada/innova-zenix .webp",
+    specs: ["7 Penumpang", "Matic", "Hybrid"],
+    category: "MPV",
+  },
+  {
+    name: "Pajero",
+    image: "/armada/pajero.webp",
+    specs: ["7 Penumpang", "Matic", "Diesel"],
+    category: "SUV",
+  },
+  {
+    name: "Hiace Premio",
+    image: "/armada/hiace-premio.webp",
+    specs: ["14 Penumpang", "Manual", "Diesel"],
+    category: "Minibus",
+  },
+  {
+    name: "Hiace Premio Luxury",
+    image: "/armada/hiace-premio-luxury.webp",
+    specs: ["9 Penumpang", "Luxury Seat", "Diesel"],
+    category: "Luxury",
+  },
+  {
+    name: "Hiace Commuter",
+    image: "/armada/hiace-commuter.webp",
+    specs: ["14 Penumpang", "Manual", "Diesel"],
+    category: "Minibus",
+  },
+  {
+    name: "Isuzu Elf Minibus",
+    image: "/armada/isuzu-elf-minibus.webp",
+    specs: ["20 Penumpang", "Manual", "Diesel"],
+    category: "Minibus",
+  },
+  {
+    name: "Hilux Double Cabin",
+    image: "/armada/hilux-double-cabin.webp",
+    specs: ["5 Penumpang", "4x4", "Diesel"],
+    category: "SUV",
+  },
+  {
+    name: "Ertiga Hybrid",
+    image: "/armada/ertiga-hybrid.webp",
+    specs: ["7 Penumpang", "Matic", "Hybrid"],
+    category: "MPV",
+  },
+  {
+    name: "Suzuki XL7",
+    image: "/armada/suzuki-xl7.webp",
+    specs: ["7 Penumpang", "Matic", "Bensin"],
+    category: "MPV",
+  },
+  {
+    name: "Xpander",
+    image: "/armada/xpander.webp",
+    specs: ["7 Penumpang", "Matic", "Bensin"],
+    category: "MPV",
+  },
+  {
+    name: "Toyota Rush",
+    image: "/armada/toyota-rush.webp",
+    specs: ["7 Penumpang", "Matic", "Bensin"],
+    category: "SUV",
+  },
+  {
+    name: "Toyota Calya",
+    image: "/armada/toyota-calya.webp",
+    specs: ["7 Penumpang", "Matic", "Irit BBM"],
+    category: "MPV",
+  },
+  {
+    name: "Toyota Agya",
+    image: "/armada/toyota-agya.webp",
+    specs: ["4 Penumpang", "Matic", "Irit BBM"],
+    category: "City Car",
+  },
+  {
+    name: "Honda Brio",
+    image: "/armada/honda-brio.webp",
+    specs: ["4 Penumpang", "Matic", "Irit BBM"],
+    category: "City Car",
+  },
+  {
+    name: "Daihatsu Ayla",
+    image: "/armada/daihatsu-ayla.webp",
+    specs: ["4 Penumpang", "Matic", "Irit BBM"],
+    category: "City Car",
+  },
+  {
+    name: "Daihatsu Sigra",
+    image: "/armada/daihatsu-sigra.webp",
+    specs: ["7 Penumpang", "Matic", "Bensin"],
+    category: "MPV",
+  },
+  {
+    name: "Daihatsu Terios",
+    image: "/armada/daihatsu-terios.webp",
+    specs: ["7 Penumpang", "Matic", "Bensin"],
+    category: "SUV",
+  },
+];
+
+export const categories = [
+  "Semua",
+  "City Car",
+  "MPV",
+  "SUV",
+  "Luxury",
+  "Minibus",
+];
