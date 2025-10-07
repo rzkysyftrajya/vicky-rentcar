@@ -125,37 +125,37 @@ export const destinations = [
     name: "Tugu Pahlawan & Museum",
     category: "Sejarah",
     desc: "Ikon Surabaya yang wajib dikunjungi, simbol perjuangan arek-arek Suroboyo",
-    image: "/destinasi-wisata/tugu-pahlawan.jpg",
+    image: "/halaman-surabaya/tugu-pahlawan.jpeg",
   },
   {
     name: "House of Sampoerna",
     category: "Budaya",
     desc: "Museum heritage dengan arsitektur kolonial yang instagramable",
-    image: "/destinasi-wisata/house-of-sampoerna.jpg",
+    image: "/halaman-surabaya/house-of-sampoerna.jpeg",
   },
   {
     name: "Jembatan Suramadu",
     category: "Landmark",
     desc: "Jembatan terpanjang di Indonesia, spot foto sunset terbaik",
-    image: "/destinasi-wisata/jembatan-suramadu.jpg",
+    image: "/halaman-surabaya/jembatan-suramadu.jpg",
   },
   {
     name: "Kebun Binatang Surabaya",
     category: "Wisata Keluarga",
     desc: "Salah satu kebun binatang tertua di Asia Tenggara",
-    image: "/destinasi-wisata/kebun-binatang-surabaya.jpg",
+    image: "/halaman-surabaya/kebun-binatang-surabaya.jpg",
   },
   {
     name: "Pantai Kenjeran & Pagoda",
     category: "Pantai",
     desc: "Sunrise spektakuler & kuliner seafood segar",
-    image: "/destinasi-wisata/pantai-kenjeran.jpg",
+    image: "/halaman-surabaya/Pantai-Kenjeran-Pagoda.jpg",
   },
   {
     name: "Ciputra Waterpark",
     category: "Hiburan",
     desc: "Waterpark terbesar di Surabaya dengan berbagai wahana seru untuk keluarga",
-    image: "/destinasi-wisata/ciputra-waterpark.jpg",
+    image: "/halaman-surabaya/Ciputra-Waterpark.webp",
   },
 ];
 
@@ -245,5 +245,32 @@ export const googleReviews = [
     rating: 5,
     text: "Rekomendasi lah pokoknya pelayanannya bagus mobil bersih wangi dan bagus mantap best lah pokoknya",
     link: "https://maps.app.goo.gl/SaFbm6s5gPMX5TuN7",
+  },
+];
+
+export const hotelRecommendations = [
+  {
+    name: "Hotel Majapahit Surabaya",
+    stars: 5,
+    area: "Tunjungan",
+    desc: "Hotel heritage dengan arsitektur kolonial megah & layanan bintang lima.",
+    features: ["Pool", "Spa", "Restaurant"],
+    image: "/halaman-surabaya/Hotel-Majapahit-Surabaya.jpeg",
+  },
+  {
+    name: "JW Marriott Surabaya",
+    stars: 5,
+    area: "Embong Malang",
+    desc: "Kemewahan modern di pusat kota dengan fasilitas business center lengkap.",
+    features: ["Ballroom", "Gym", "Lounge"],
+    image: "/halaman-surabaya/JW-Marriott-Surabaya.jpg",
+  },
+  {
+    name: "Shangri-La Surabaya",
+    stars: 5,
+    area: "Darmo",
+    desc: "Resort city dengan nuansa tropis & kuliner internasional kelas dunia.",
+    features: ["Garden", "Bar", "Executive Floor"],
+    image: "/halaman-surabaya/Shangri-La-Surabaya.png",
   },
 ];

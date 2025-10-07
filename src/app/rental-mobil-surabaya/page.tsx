@@ -28,6 +28,7 @@ import {
   testimonials,
   faqs,
   googleReviews,
+  hotelRecommendations,
 } from "@/data/surabaya-page-data";
 import {
   Accordion,
@@ -77,7 +78,7 @@ export default function SurabayaPage() {
       name: "Kantor Utama Medan",
       province: "Sumatera Utara",
       embedUrl:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.103986349345!2d98.73182637497296!3d3.56350399640819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30313a3c1010b371%3A0x8046543e3b1c2f3d!2sVICKY%20RENTCAR%20MEDAN!5e0!3m2!1sen!2sid!4v1721890387733!5m2!1sen!2sid",
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.9722494114576!2d98.77453057381395!3d3.5938370502605745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303137a8ded38db1%3A0x698e30b68ac357e5!2sPT.VICKY%20RENTAL%20NUSANTARA!5e0!3m2!1sid!2sid!4v1759847076596!5m2!1sid!2sid",
     },
     {
       name: "Cabang Surabaya",
@@ -104,17 +105,37 @@ export default function SurabayaPage() {
         href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50"
+        className="fixed bottom-8 right-8 z-50 group"
       >
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 2, type: "spring", stiffness: 200 }}
-          whileHover={{ scale: 1.1 }}
-          className="bg-green-500 text-white p-4 rounded-full shadow-2xl"
-        >
-          <MessageSquare className="w-8 h-8" />
-        </motion.div>
+        <div className="relative">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 2, type: "spring", stiffness: 200 }}
+            whileHover={{ scale: 1.1 }}
+            className="w-16 h-16 rounded-full shadow-2xl overflow-hidden"
+          >
+            <Image
+              src="/icon/wa.png"
+              alt="Hubungi kami di WhatsApp"
+              width={64}
+              height={64}
+            />
+          </motion.div>
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+              delay: 2.5,
+              type: "spring",
+              stiffness: 300,
+              damping: 15,
+            }}
+            className="absolute -top-2 -left-32 bg-white text-blue-600 text-sm font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap"
+          >
+            Pesan Sekarang!
+          </motion.div>
+        </div>
       </Link>
 
       {/* HERO SECTION  */}
@@ -241,9 +262,15 @@ export default function SurabayaPage() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-${item.color}-500`}
               >
-                <div className={`text-${item.color}-600 mb-4`}>{item.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
+                <div
+                  className={`w-20 h-20 mb-6 rounded-full flex items-center justify-center bg-gradient-to-br from-${item.color}-100 to-${item.color}-200`}
+                >
+                  <div className={`text-${item.color}-600`}>{item.icon}</div>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-800">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -420,14 +447,17 @@ export default function SurabayaPage() {
                 whileHover={{ y: -5 }}
                 className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
               >
-                <Image
-                  src={place.image}
-                  alt={`Wisata ${place.name} di Surabaya`}
-                  width={300}
-                  height={200}
-                  className="w-full h-32 object-cover rounded-lg mb-4"
-                  loading="lazy"
-                />
+                <div className="relative h-40 w-full overflow-hidden rounded-lg mb-4">
+                  <Image
+                    src={place.image}
+                    alt={`Wisata ${place.name} di Surabaya`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
+                  />
+                </div>
+
                 <div className="mb-2">
                   <span className="inline-block bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full font-semibold">
                     {place.category}
@@ -904,29 +934,7 @@ export default function SurabayaPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Hotel Majapahit Surabaya",
-                stars: 5,
-                area: "Tunjungan",
-                desc: "Hotel heritage dengan arsitektur kolonial megah & layanan bintang lima.",
-                features: ["Pool", "Spa", "Restaurant"],
-              },
-              {
-                name: "JW Marriott Surabaya",
-                stars: 5,
-                area: "Embong Malang",
-                desc: "Kemewahan modern di pusat kota dengan fasilitas business center lengkap.",
-                features: ["Ballroom", "Gym", "Lounge"],
-              },
-              {
-                name: "Shangri-La Surabaya",
-                stars: 5,
-                area: "Darmo",
-                desc: "Resort city dengan nuansa tropis & kuliner internasional kelas dunia.",
-                features: ["Garden", "Bar", "Executive Floor"],
-              },
-            ].map((hotel, i) => (
+            {hotelRecommendations.map((hotel, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
@@ -936,8 +944,14 @@ export default function SurabayaPage() {
                 whileHover={{ y: -10 }}
                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
               >
-                <div className="h-48 bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center">
-                  <div className="text-white text-6xl">🏨</div>
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={hotel.image}
+                    alt={`Rekomendasi hotel ${hotel.name} di Surabaya`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                 </div>
 
                 <div className="p-6">
