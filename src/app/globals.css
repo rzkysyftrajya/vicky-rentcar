@@ -93,6 +93,18 @@
 }
 
 @layer utilities {
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+
   .animate-scroll {
     animation: scroll var(--animation-duration, 40s)
       var(--animation-direction, forwards) linear infinite;

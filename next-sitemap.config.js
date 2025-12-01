@@ -1,79 +1,38 @@
-/** @type {import('next-sitemap').IConfig} */
+const siteUrl = "https://www.vickyrentcar.com"; // Ganti dengan URL produksi Anda
+
 module.exports = {
-  siteUrl: process.env.SITE_URL || "https://vickyrentcarnusantara.com",
+  siteUrl,
   generateRobotsTxt: true,
-  sitemapSize: 5000,
-  changefreq: "weekly",
-  priority: 0.7,
-  exclude: [
-    "/_not-found",
-    "/privacy",
-    "/terms",
-    "/server-sitemap.xml", // kalau lo generate dynamic sitemap
-  ],
-
-  transform: async (config, path) => {
-    let priority = 0.7;
-    let changefreq = "weekly";
-
-    if (path === "/") {
-      priority = 1.0;
-      changefreq = "daily";
-    }
-
-    if (path.startsWith("/blog")) {
-      priority = 0.8;
-      changefreq = "daily";
-    }
-
-    if (
-      path.startsWith("/fleet") ||
-      path.startsWith("/rental") ||
-      path.startsWith("/sewa")
-    ) {
-      priority = 0.9;
-      changefreq = "daily";
-    }
-
-    if (
-      path === "/about" ||
-      path === "/contact" ||
-      path === "/faq" ||
-      path === "/services" ||
-      path === "/gallery" ||
-      path === "/testimonials"
-    ) {
-      priority = 0.6;
-      changefreq = "monthly";
-    }
-
-    return {
-      loc: path,
-      changefreq,
-      priority,
-      lastmod: new Date().toISOString(),
-    };
-  },
-
   robotsTxtOptions: {
     policies: [
       { userAgent: "*", allow: "/" },
-      {
-        userAgent: "*",
-        disallow: [
-          "/api/",
-          "/admin/",
-          "/_next/",
-          "/404",
-          "/cdn-cgi/",
-          "/*.json$",
-          "/*.txt$",
-        ],
-      },
+      // Anda bisa menambahkan aturan disallow di sini jika perlu
+      // { userAgent: 'Googlebot', disallow: ['/private'] },
     ],
     additionalSitemaps: [
-      "https://vickyrentcarnusantara.com/sitemap.xml",
-      "https://vickyrentcarnusantara.com/server-sitemap.xml", // kalau lo generate SSR sitemap
+      `${siteUrl}/server-sitemap.xml`, // Jika Anda menggunakan sitemap server-side
     ],
   },
+  // Opsi untuk mengecualikan halaman tertentu
+  exclude: [
+    "/server-sitemap.xml", // Sitemap server-side dikecualikan agar tidak diduplikasi
+    "/404",
+    "/[city]", // Mengecualikan halaman dinamis generik jika tidak ingin diindeks
+  ],
+  // Fungsi untuk menghasilkan URL dinamis, contohnya dari folder 'pages'
+  // Jika menggunakan App Router (Next.js 13+), konfigurasinya sedikit berbeda
+  // dan mungkin perlu penyesuaian.
+  // Untuk App Router, seringkali lebih baik mengandalkan generateStaticParams
+  // dan sitemap server-side.
+
+  // Contoh jika Anda masih ingin menambahkan URL secara manual:
+  // pages: [
+  //   '/about',
+  //   '/contact',
+  //   // ...halaman statis lainnya
+  // ],
+
+  // Jika Anda memiliki halaman dinamis yang TIDAK dibuat dengan getStaticPaths
+  // Anda mungkin perlu menambahkannya secara manual atau menggunakan
+  // sumber data eksternal.
 };
