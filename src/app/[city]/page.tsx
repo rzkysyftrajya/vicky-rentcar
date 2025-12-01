@@ -46,9 +46,14 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   return (
     <CityPage
       city={cityData.city}
+      province={cityData.province}
+      description={cityData.description}
       highlights={cityData.highlights}
       cars={cityData.cars}
-      faq={cityData.faq}
+      faq={cityData.faq?.map((item) => ({
+        question: item.q,
+        answer: item.a,
+      }))}
     />
   );
 }
