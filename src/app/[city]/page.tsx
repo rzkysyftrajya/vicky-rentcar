@@ -13,8 +13,12 @@ export function generateStaticParams() {
 }
 
 // ✅ Metadata per kota
-export async function generateMetadata({ params }: { params: Params }) {
-  const { city } = params;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
+  const { city } = await params;
   const cityData = cities.find((c) => c.slug === city);
 
   if (!cityData) {
@@ -31,8 +35,8 @@ export async function generateMetadata({ params }: { params: Params }) {
 }
 
 // ✅ Render halaman per kota
-export default function Page({ params }: { params: Params }) {
-  const { city } = params;
+export default async function Page({ params }: { params: Promise<Params> }) {
+  const { city } = await params;
   const cityData = cities.find((c) => c.slug === city);
 
   if (!cityData) {
