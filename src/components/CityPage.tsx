@@ -11,7 +11,7 @@ interface Car {
 
 interface CityPageProps {
   city: string;
-  province: string;
+  province?: string;
   description: string;
   highlights: string[];
   cars: Car[];
@@ -31,7 +31,7 @@ export default function CityPage({
     const ldJson: any = {
       "@context": "https://schema.org",
       "@type": "CarRental",
-      name: `Sewa Mobil ${city}, ${province}`,
+      name: `Sewa Mobil ${city}${province ? `, ${province}` : ""}`,
       description: description,
       areaServed: city,
       provider: {
