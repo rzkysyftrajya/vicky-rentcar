@@ -124,7 +124,7 @@ export default function RentalMobilSemarangPage() {
     return () => observer.disconnect();
   }, []);
 
-  const openCarModal = (car) => setSelectedCar(car);
+  const openCarModal = (car: any) => setSelectedCar(car);
   const closeCarModal = () => setSelectedCar(null);
 
   return (
