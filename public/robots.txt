@@ -2,19 +2,9 @@
 User-agent: *
 Allow: /
 
-# *
-User-agent: *
-Disallow: /api/
-Disallow: /admin/
-Disallow: /_next/
-Disallow: /404
-Disallow: /cdn-cgi/
-Disallow: /*.json$
-Disallow: /*.txt$
-
 # Host
-Host: https://vickyrentcarnusantara.com
+Host: https://www.vickyrentcar.com
 
 # Sitemaps
-Sitemap: https://vickyrentcarnusantara.com/sitemap.xml
-Sitemap: https://vickyrentcarnusantara.com/server-sitemap.xml
+Sitemap: https://www.vickyrentcar.com/sitemap.xml
+Sitemap: https://www.vickyrentcar.com/server-sitemap.xml

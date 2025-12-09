@@ -906,7 +906,7 @@ export default function RentalMobilSemarangPage() {
                     <div>
                       <h4 className="font-semibold mb-2">Fitur Utama:</h4>
                       <ul className="space-y-1">
-                        {selectedCar.features.map((f, idx) => (
+                        {selectedCar.features.map((f: string, idx: number) => (
                           <li
                             key={idx}
                             className="flex items-center gap-2 text-sm"
