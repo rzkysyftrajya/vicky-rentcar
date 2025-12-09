@@ -174,26 +174,40 @@ export const destinations = [
 export const culinarySpots = [
   {
     name: "Ayam Betutu",
+    icon: "🍗",
     image: "/kuliner/ayam-betutu.jpg",
     loc: "Jl. Sudirman",
   },
   {
     name: "Sate Padang",
+    icon: "🍢",
     image: "/kuliner/sate-padang.jpg",
     loc: "Jl. MH Thamrin",
   },
-  { name: "Bakso President", image: "/kuliner/bakso.jpg", loc: "Jl. Veteran" },
+  {
+    name: "Bakso President",
+    icon: "🍜",
+    image: "/kuliner/bakso.jpg",
+    loc: "Jl. Veteran",
+  },
   {
     name: "Nasi Uduk",
+    icon: "🍚",
     image: "/kuliner/nasi-uduk.jpg",
     loc: "Jl. Kramat Jati",
   },
   {
     name: "Kerak Telor",
+    icon: "🥚",
     image: "/kuliner/kerak-telor.jpg",
     loc: "Jl. I Gusti Ngurah Rai",
   },
-  { name: "Martabak", image: "/kuliner/martabak.jpg", loc: "Jl. Cikini" },
+  {
+    name: "Martabak",
+    icon: "🥞",
+    image: "/kuliner/martabak.jpg",
+    loc: "Jl. Cikini",
+  },
 ];
 
 export const testimonials = [
