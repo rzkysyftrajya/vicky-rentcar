@@ -105,7 +105,7 @@ export default function CityPage({
               <img
                 src={car.image}
                 alt={car.alt}
-                className="w-full h-40 object-cover rounded-md mb-3"
+                className="w-full h-40 object-contain rounded-md mb-3 bg-gray-50"
               />
               <figcaption className="text-center">
                 <h3 className="text-lg font-semibold">{car.name}</h3>

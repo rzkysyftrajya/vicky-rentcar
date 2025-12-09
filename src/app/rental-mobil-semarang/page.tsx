@@ -249,12 +249,12 @@ export default function RentalMobilSemarangPage() {
                   key={i}
                   className="bg-white border rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition"
                 >
-                  <div className="relative w-full h-44">
+                  <div className="relative w-full h-44 bg-gray-50">
                     <Image
                       src={car.image}
                       alt={car.name}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                     />
                   </div>
 

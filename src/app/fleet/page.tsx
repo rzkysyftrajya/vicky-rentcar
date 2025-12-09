@@ -51,7 +51,7 @@ export default function FleetPage() {
                   alt={car.name}
                   width={400}
                   height={250}
-                  className="w-full h-52 object-cover rounded-t-2xl"
+                  className="w-full h-52 object-contain rounded-t-2xl bg-gray-50"
                 />
                 <div className="p-5 text-center">
                   <h2 className="font-bold text-xl mb-3">{car.name}</h2>

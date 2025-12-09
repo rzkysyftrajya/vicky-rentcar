@@ -118,6 +118,15 @@ export const carOptions = [
     popular: false,
     image: "/armada/alphard-new.webp",
   },
+  {
+    name: "Land Cruiser",
+    type: "Luxury SUV",
+    capacity: "7 Orang",
+    price: "Mulai 2jt/hari",
+    features: ["Off-Road Capable", "Premium Interior", "Advanced Safety"],
+    popular: false,
+    image: "/armada/land-cruiser.webp",
+  },
 ];
 
 export const destinations = [

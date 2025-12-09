@@ -318,7 +318,7 @@ export default function SurabayaPage() {
                   alt={`Sewa ${car.name} di Surabaya - Vicky Rentcar Nusantara`}
                   width={400}
                   height={224}
-                  className="w-full h-56 object-cover rounded-t-3xl"
+                  className="w-full h-56 object-contain rounded-t-3xl bg-gray-50"
                   loading="lazy"
                 />
 
@@ -447,12 +447,12 @@ export default function SurabayaPage() {
                 whileHover={{ y: -5 }}
                 className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
               >
-                <div className="relative h-40 w-full overflow-hidden rounded-lg mb-4">
+                <div className="relative h-40 w-full overflow-hidden rounded-lg mb-4 bg-gray-50">
                   <Image
                     src={place.image}
                     alt={`Wisata ${place.name} di Surabaya`}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     loading="lazy"
                   />
