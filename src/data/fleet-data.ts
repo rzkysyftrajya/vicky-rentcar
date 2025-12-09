@@ -30,6 +30,12 @@ export const cars = [
     category: "SUV",
   },
   {
+    name: "Land Cruiser",
+    image: "/armada/land-cruiser.webp",
+    specs: ["7 Penumpang", "Matic", "Diesel"],
+    category: "SUV",
+  },
+  {
     name: "Hiace Premio",
     image: "/armada/hiace-premio.webp",
     specs: ["14 Penumpang", "Manual", "Diesel"],
