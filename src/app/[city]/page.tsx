@@ -1,10 +1,6 @@
 import cities from "@/data/cities.json";
 import CityPage from "@/components/CityPage";
 
-interface Params {
-  city: string;
-}
-
 // ✅ Generate URL statis dari cities.json
 export function generateStaticParams() {
   return cities.map((city) => ({
@@ -16,10 +12,11 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<Params>;
+  params: Promise<{ [key: string]: string | string[] }>;
 }) {
   const { city } = await params;
-  const cityData = cities.find((c) => c.slug === city);
+  const citySlug = Array.isArray(city) ? city[0] : city;
+  const cityData = cities.find((c) => c.slug === citySlug);
 
   if (!cityData) {
     return {
@@ -35,9 +32,14 @@ export async function generateMetadata({
 }
 
 // ✅ Render halaman per kota
-export default async function Page({ params }: { params: Promise<Params> }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ [key: string]: string | string[] }>;
+}) {
   const { city } = await params;
-  const cityData = cities.find((c) => c.slug === city);
+  const citySlug = Array.isArray(city) ? city[0] : city;
+  const cityData = cities.find((c) => c.slug === citySlug);
 
   if (!cityData) {
     return <div>Kota tidak ditemukan</div>;
