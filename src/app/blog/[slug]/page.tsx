@@ -106,9 +106,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = params; // ✅ perbaikan
+  const { slug } = await params;
   const post = blogPosts[slug as keyof typeof blogPosts];
 
   if (!post) {
@@ -131,8 +131,12 @@ export async function generateMetadata({
   };
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const { slug } = params; // ✅ perbaikan
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const post = blogPosts[slug as keyof typeof blogPosts];
 
   if (!post) {
