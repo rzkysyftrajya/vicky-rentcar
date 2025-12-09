@@ -2,6 +2,7 @@
   {
     "slug": "jakarta",
     "city": "Jakarta",
+    "province": "DKI Jakarta",
     "title": "Sewa Mobil Jakarta - Rental Mobil Murah Lepas Kunci & Sopir | PT.VRN",
     "description": "Rental mobil Jakarta murah dengan armada lengkap. Cocok untuk perjalanan bisnis, liburan, dan antar jemput Bandara Soekarno-Hatta.",
     "highlights": [
@@ -43,6 +44,7 @@
   {
     "slug": "medan",
     "city": "Medan",
+    "province": "Sumatera Utara",
     "title": "Sewa Mobil Medan - Rental Mobil Murah Lepas Kunci & Sopir | PT.VRN",
     "description": "Sewa mobil Medan murah untuk perjalanan ke Danau Toba, bisnis, dan antar jemput Bandara Kualanamu.",
     "highlights": [
@@ -84,6 +86,7 @@
   {
     "slug": "bandung",
     "city": "Bandung",
+    "province": "Jawa Barat",
     "title": "Sewa Mobil Bandung - Rental Murah Lepas Kunci & Sopir | PT.VRN",
     "description": "Rental mobil Bandung dengan harga terjangkau. Cocok untuk wisata Lembang, Ciwidey, dan city tour.",
     "highlights": [
