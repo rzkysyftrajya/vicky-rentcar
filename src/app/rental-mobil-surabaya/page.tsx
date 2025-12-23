@@ -119,9 +119,9 @@ export default function SurabayaPage() {
 
           <motion.h1
             className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-2xl"
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
             <span className="block text-yellow-400">Sewa Mobil Surabaya</span>
             <span className="block text-2xl sm:text-3xl md:text-5xl mt-2">
@@ -131,9 +131,9 @@ export default function SurabayaPage() {
 
           <motion.p
             className="text-lg md:text-xl text-white max-w-3xl mb-8 leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
           >
             Jelajahi Kota Pahlawan dengan nyaman! Armada lengkap, driver
             berpengalaman, harga transparan - cuma modal jempol langsung
@@ -150,20 +150,45 @@ export default function SurabayaPage() {
               href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
               target="_blank"
             >
+              <motion.div
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-block"
+              >
+                <Button
+                  size="lg"
+                  className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-2xl transition-all duration-300 flex items-center gap-3 group"
+                >
+                  <Phone className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
+                  Chat Sekarang
+                </Button>
+              </motion.div>
+            </Link>
+            <motion.div
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-block"
+            >
               <Button
                 size="lg"
-                className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3"
+                className="bg-white hover:bg-gray-100 text-blue-900 px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-2xl transition-all duration-300 group"
               >
-                <Phone className="w-6 h-6" />
-                Chat Sekarang
+                Lihat Harga
+                <svg
+                  className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
               </Button>
-            </Link>
-            <Button
-              size="lg" // Ukuran default dari komponen Button
-              className="bg-white hover:bg-gray-100 text-blue-900 px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-2xl hover:scale-105 transition-all duration-300"
-            >
-              Lihat Harga
-            </Button>
+            </motion.div>
           </motion.div>
 
           {/* Stats */}
@@ -290,10 +315,14 @@ export default function SurabayaPage() {
             {whyUsPoints.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{
+                  delay: i * 0.15,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
                 whileHover={{ y: -10, scale: 1.02 }}
                 className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 ${item.colorClasses.border}`}
               >
@@ -350,14 +379,20 @@ export default function SurabayaPage() {
                   </div>
                 )}
 
-                <Image
-                  src={car.image}
-                  alt={`Sewa ${car.name} di Surabaya - Vicky Rentcar Nusantara`}
-                  width={400}
-                  height={224}
-                  className="w-full h-56 object-contain rounded-t-3xl bg-gray-50"
-                  loading="lazy"
-                />
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="overflow-hidden rounded-t-3xl"
+                >
+                  <Image
+                    src={car.image}
+                    alt={`Sewa ${car.name} di Surabaya - Vicky Rentcar Nusantara`}
+                    width={400}
+                    height={224}
+                    className="w-full h-56 object-contain bg-gray-50 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </motion.div>
 
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-3">
@@ -391,9 +426,31 @@ export default function SurabayaPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
-                      Pesan Sekarang
-                    </Button>
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="group"
+                    >
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 rounded-xl text-lg font-semibold shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+                        <span>Pesan Sekarang</span>
+                        <motion.svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          initial={{ x: 0 }}
+                          whileHover={{ x: 3 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
+                        </motion.svg>
+                      </Button>
+                    </motion.div>
                   </Link>
                 </div>
               </motion.div>
@@ -482,18 +539,34 @@ export default function SurabayaPage() {
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <Link
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                "Halo VRN, saya mau lihat armada mobil secara langsung"
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              animate={{
+                boxShadow: [
+                  "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+                  "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                  "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+                ],
+              }}
+              transition={{
+                boxShadow: { duration: 3, repeat: Infinity },
+                scale: { duration: 0.2 },
+              }}
             >
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all flex items-center gap-3 mx-auto">
-                <Phone className="w-5 h-5" />
-                Konsultasi Armada Mobil
-              </Button>
-            </Link>
+              <Link
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                  "Halo VRN, saya mau lihat armada mobil secara langsung"
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-full shadow-lg transition-all flex items-center gap-3 mx-auto">
+                  <Phone className="w-5 h-5" />
+                  Lihat Armada Premium Sekarang
+                </Button>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -667,44 +740,81 @@ export default function SurabayaPage() {
               >
                 {testimonials.map((testi, i) => (
                   <div key={i} className="flex-shrink-0 w-full px-4">
-                    <div className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20 h-full">
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        delay: i * 0.1,
+                        duration: 0.6,
+                        ease: "easeOut",
+                      }}
+                      whileHover={{ y: -5 }}
+                      className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20 h-full"
+                    >
                       <div className="flex gap-1 mb-4">
                         {[...Array(testi.rating)].map((_, j) => (
-                          <Star
+                          <motion.div
                             key={j}
-                            className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                          />
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            transition={{
+                              delay: i * 0.1 + j * 0.1,
+                              duration: 0.3,
+                            }}
+                          >
+                            <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                          </motion.div>
                         ))}
                       </div>
-                      <p className="italic mb-4 text-slate-100 dark:text-slate-200">
-                        "{testi.text}"
+                      <p className="italic mb-4 text-slate-100 dark:text-slate-200 leading-relaxed">
+                        "
+                        {testi.text.split(" ").map((word, idx) => {
+                          const isHighlight = [
+                            "recommended",
+                            "perfect",
+                            "memuaskan",
+                            "bagus",
+                            "terpercaya",
+                            "professional",
+                          ].includes(word.toLowerCase());
+                          return (
+                            <span
+                              key={idx}
+                              className={
+                                isHighlight
+                                  ? "text-yellow-300 font-semibold"
+                                  : ""
+                              }
+                            >
+                              {word}{" "}
+                            </span>
+                          );
+                        })}
+                        "
                       </p>
-                      <div
-                        className="flex items-center gap-3"
-                        suppressHydrationWarning
-                      >
-                        <div
+                      <div className="flex items-center gap-3">
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          whileInView={{ scale: 1 }}
+                          transition={{
+                            delay: i * 0.1 + 0.3,
+                            duration: 0.3,
+                          }}
                           className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-xl"
-                          suppressHydrationWarning
                         >
                           {testi.name[0]}
-                        </div>
-                        <div suppressHydrationWarning>
-                          <h4
-                            className="font-bold text-slate-100 dark:text-slate-200"
-                            suppressHydrationWarning
-                          >
+                        </motion.div>
+                        <div>
+                          <h4 className="font-bold text-slate-100 dark:text-slate-200">
                             {testi.name}
                           </h4>
-                          <p
-                            className="text-sm text-slate-300 dark:text-slate-400"
-                            suppressHydrationWarning
-                          >
+                          <p className="text-sm text-slate-300 dark:text-slate-400">
                             {testi.city}
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 ))}
               </motion.div>
@@ -801,25 +911,71 @@ export default function SurabayaPage() {
             </p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {documentationPhotos.map((photo, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={400}
-                  height={400}
-                  className="w-full aspect-square object-cover hover:scale-110 transition-transform duration-300 rounded-xl"
-                  loading="lazy"
-                />
-              </motion.div>
-            ))}
+            {documentationPhotos.map((photo, i) => {
+              const isEven = i % 2 === 0;
+              const rowIndex = Math.floor(i / 4); // 4 columns per row
+              const isRowEven = rowIndex % 2 === 0;
+
+              return (
+                <motion.div
+                  key={i}
+                  initial={{
+                    opacity: 0,
+                    x: isRowEven ? -100 : 100,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                    y: 0,
+                  }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{
+                    delay: i * 0.08,
+                    duration: 0.6,
+                    ease: "easeOut",
+                  }}
+                  whileHover={{
+                    scale: 1.02,
+                    y: -5,
+                  }}
+                  className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 relative group"
+                >
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      width={400}
+                      height={400}
+                      className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                    />
+
+                    {/* Dark overlay on hover */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="text-center text-white">
+                        <div className="w-16 h-16 mx-auto mb-2 bg-white/20 rounded-full flex items-center justify-center">
+                          <svg
+                            className="w-8 h-8"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            />
+                          </svg>
+                        </div>
+                        <p className="font-semibold">VRN Surabaya</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -868,21 +1024,49 @@ export default function SurabayaPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              animate={{
+                boxShadow: [
+                  "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+                  "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                  "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+                ],
+              }}
+              transition={{
+                boxShadow: { duration: 2, repeat: Infinity },
+                scale: { duration: 0.2 },
+              }}
+            >
               <Link
                 href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
                 target="_blank"
               >
                 <Button className="bg-green-500 hover:bg-green-600 text-white px-12 py-7 text-xl rounded-full shadow-2xl flex items-center gap-3 font-bold">
                   <Phone className="w-6 h-6" />
-                  Chat WhatsApp
+                  Cek Ketersediaan Hari Ini
                 </Button>
               </Link>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              animate={{
+                boxShadow: [
+                  "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+                  "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                  "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+                ],
+              }}
+              transition={{
+                boxShadow: { duration: 2, repeat: Infinity, delay: 1 },
+                scale: { duration: 0.2 },
+              }}
+            >
               <Button className="bg-white hover:bg-gray-100 text-blue-900 px-12 py-7 text-xl rounded-full shadow-2xl font-bold">
-                Lihat Promo
+                Tanya Harga Sekarang
               </Button>
             </motion.div>
           </div>
@@ -1249,15 +1433,27 @@ export default function SurabayaPage() {
                   Chat langsung dengan tim kami untuk konsultasi gratis &
                   penawaran terbaik!
                 </p>
-                <Link
-                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-                  target="_blank"
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  animate={{
+                    scale: [1, 1.01, 1],
+                  }}
+                  transition={{
+                    scale: { duration: 2, repeat: Infinity },
+                    hover: { duration: 0.2 },
+                  }}
                 >
-                  <Button className="w-full bg-green-500 hover:bg-green-600 text-white py-6 text-lg rounded-xl shadow-lg flex items-center justify-center gap-3">
-                    <Phone className="w-5 h-5" />
-                    Chat WhatsApp Sekarang
-                  </Button>
-                </Link>
+                  <Link
+                    href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                    target="_blank"
+                  >
+                    <Button className="w-full bg-green-500 hover:bg-green-600 text-white py-6 text-lg rounded-xl shadow-lg flex items-center justify-center gap-3">
+                      <Phone className="w-5 h-5" />
+                      Booking Tanpa Ribet
+                    </Button>
+                  </Link>
+                </motion.div>
               </div>
             </div>
           </div>
