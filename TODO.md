@@ -1,14 +1,48 @@
-# TODO: Upgrade Rental Mobil Semarang Page
+# Hydration Error Fixes - TODO
 
-## Tasks to Complete
+## Issues Identified:
 
-- [ ] Update `src/data/semarang-page-data.tsx` to add detailed car specs and travel tips data
-- [ ] Enhance car cards in `src/app/rental-mobil-semarang/page.tsx` with hover animations, gradient backgrounds, badges, and modal for details
-- [ ] Improve destination cards with interactive hover effects and better layouts
-- [ ] Add animated counters for hero stats
-- [ ] Implement floating WhatsApp button for better engagement
-- [ ] Add new "Travel Tips" section with Semarang-specific advice
-- [ ] Enhance rich snippets in structured data for better SEO
-- [ ] Test page responsiveness and interactivity
-- [ ] Verify rich snippets in search results
-- [ ] Optimize images and performance
+1. **Math.random() usage** causing server/client mismatches
+2. **Direct DOM manipulation** during render
+3. **new Date() calls** with timing differences
+4. **Missing SSR guards** for client-only code
+
+## Files to Fix:
+
+### 1. Math.random() Issues
+
+- [ ] `src/components/ui/chart.tsx` - Replace Math.random() with useId()
+- [ ] `src/components/ui/colourful-text.tsx` - Replace Math.random() with useId() or stable hash
+- [ ] `src/components/ui/sidebar.tsx` - Replace Math.random() in SidebarMenuSkeleton
+
+### 2. Direct DOM Access Issues
+
+- [ ] `src/hooks/use-mobile.tsx` - Add SSR guards for window usage
+- [ ] `src/components/CityPage.tsx` - Move DOM manipulation to useEffect
+- [ ] `src/app/layout.tsx` - Add SSR guards for service worker registration
+
+### 3. Date Usage Issues
+
+- [ ] `src/components/layout/Footer.tsx` - Fix new Date() usage
+- [ ] `src/components/landing/sections/Footer.tsx` - Fix new Date() usage
+- [ ] `src/app/rental-mobil-semarang/page.tsx` - Fix new Date() usage
+
+### 4. Additional Client-Only Code
+
+- [ ] Add `use client` directives where needed
+- [ ] Add dynamic imports for client-heavy components
+
+## Progress:
+
+- [x] Identify all hydration issues
+- [ ] Fix Math.random() issues
+- [ ] Fix DOM access issues
+- [ ] Fix Date usage issues
+- [ ] Test fixes
+
+## Notes:
+
+- Maintain exact visual appearance
+- Ensure all functionality remains intact
+- Use React.useId() for stable identifiers
+- Use useEffect for client-only operations

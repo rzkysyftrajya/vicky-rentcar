@@ -11,6 +11,7 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
+import { ClientYear } from "@/components/ui/client-year";
 import {
   Car,
   Users,
@@ -1068,8 +1069,7 @@ export default function RentalMobilSemarangPage() {
           </div>
 
           <div className="max-w-6xl mx-auto mt-8 text-center text-sm text-gray-400">
-            © {new Date().getFullYear()} PT. VICKY RENTCAR NUSANTARA. Semua hak
-            dilindungi.
+            © <ClientYear /> PT. VICKY RENTCAR NUSANTARA. Semua hak dilindungi.
           </div>
         </footer>
       </div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Facebook, Twitter, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ImageZoom } from "../ui/image-zoom";
+import { ClientYear } from "@/components/ui/client-year";
 import Image from "next/image";
 
 export default function Footer() {
@@ -232,8 +233,8 @@ export default function Footer() {
         </div>
         <div className="mt-12 pt-8 border-t border-primary-foreground/30 text-center text-primary-foreground/80">
           <p>
-            &copy; {new Date().getFullYear()} PT.VICKY RENTCAR NUSANTARA. Semua
-            hak cipta dilindungi.
+            &copy; <ClientYear /> PT.VICKY RENTCAR NUSANTARA. Semua hak cipta
+            dilindungi.
           </p>
         </div>
       </div>

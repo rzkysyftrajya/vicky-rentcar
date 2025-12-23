@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
- 
+
 export function ColourfulText({ text }: { text: string }) {
   const colors = [
     "rgb(131, 179, 32)",
@@ -15,20 +15,22 @@ export function ColourfulText({ text }: { text: string }) {
     "rgb(232, 98, 63)",
     "rgb(249, 129, 47)",
   ];
- 
+
   const [currentColors, setCurrentColors] = React.useState(colors);
   const [count, setCount] = React.useState(0);
- 
+
   React.useEffect(() => {
     const interval = setInterval(() => {
-      const shuffled = [...colors].sort(() => Math.random() - 0.5);
-      setCurrentColors(shuffled);
+      // Use a deterministic rotation pattern instead of Math.random() to avoid hydration mismatches
+      const rotation = (count + 1) % colors.length;
+      const rotated = [...colors.slice(rotation), ...colors.slice(0, rotation)];
+      setCurrentColors(rotated);
       setCount((prev) => prev + 1);
     }, 5000);
- 
+
     return () => clearInterval(interval);
-  }, []);
- 
+  }, [count]);
+
   return text.split("").map((char, index) => (
     <motion.span
       key={`${char}-${count}-${index}`}
