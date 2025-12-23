@@ -672,26 +672,12 @@ export default function SewaMobilBulananSurabaya() {
                 </p>
 
                 <div className="flex items-center gap-3">
-                  <div
-                    suppressHydrationWarning
-                    className="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white font-bold text-xl"
-                    suppressHydrationWarning
-                  >
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white font-bold text-xl">
                     {testi.name[0]}
                   </div>
-                  <div suppressHydrationWarning>
-                    <h4
-                      className="font-bold text-gray-800"
-                      suppressHydrationWarning
-                    >
-                      {testi.name}
-                    </h4>
-                    <p
-                      className="text-sm text-gray-500"
-                      suppressHydrationWarning
-                    >
-                      {testi.city}
-                    </p>
+                  <div>
+                    <h4 className="font-bold text-gray-800">{testi.name}</h4>
+                    <p className="text-sm text-gray-500">{testi.city}</p>
                   </div>
                 </div>
               </motion.div>
