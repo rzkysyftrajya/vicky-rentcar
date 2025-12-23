@@ -1,48 +1,34 @@
-# Hydration Error Fixes - TODO
+# TODO: Update Tombol "Lihat Harga" di Hero Section
 
-## Issues Identified:
+## Informasi yang Dikumpulkan:
 
-1. **Math.random() usage** causing server/client mismatches
-2. **Direct DOM manipulation** during render
-3. **new Date() calls** with timing differences
-4. **Missing SSR guards** for client-only code
+- File yang akan diedit: `/home/roby047/vicky-rentcar/src/app/rental-mobil-surabaya/page.tsx`
+- Tombol "Lihat Harga" saat ini adalah Button biasa tanpa link
+- Perlu diubah menjadi Link ke WhatsApp
+- Pesan WhatsApp yang diminta: "halo vrn surabaya, saya ingin bertanya tentang harga sewa di surabaya"
+- Nomor WhatsApp yang sama: 6282363389893
 
-## Files to Fix:
+## Rencana Update:
 
-### 1. Math.random() Issues
+1. Ubah tombol "Lihat Harga" dari Button biasa menjadi Link yang mengarah ke WhatsApp
+2. Gunakan nomor WhatsApp yang sama: 6282363389893
+3. Pesan WhatsApp: "halo vrn surabaya, saya ingin bertanya tentang harga sewa di surabaya"
+4. Pertahankan styling dan animasi yang sama
+5. Pastikan tombol terbuka di tab baru (target="\_blank")
 
-- [ ] `src/components/ui/chart.tsx` - Replace Math.random() with useId()
-- [ ] `src/components/ui/colourful-text.tsx` - Replace Math.random() with useId() or stable hash
-- [ ] `src/components/ui/sidebar.tsx` - Replace Math.random() in SidebarMenuSkeleton
+## Langkah-langkah:
 
-### 2. Direct DOM Access Issues
+1. Edit file `/home/roby047/vicky-rentcar/src/app/rental-mobil-surabaya/page.tsx`
+2. Temukan tombol "Lihat Harga" di hero section
+3. Ubah dari Button biasa menjadi Link dengan href ke WhatsApp
+4. Test perubahan dengan membuka halaman
 
-- [ ] `src/hooks/use-mobile.tsx` - Add SSR guards for window usage
-- [ ] `src/components/CityPage.tsx` - Move DOM manipulation to useEffect
-- [ ] `src/app/layout.tsx` - Add SSR guards for service worker registration
+## Dependent Files:
 
-### 3. Date Usage Issues
+- Tidak ada file lain yang perlu diedit, hanya 1 file utama
 
-- [ ] `src/components/layout/Footer.tsx` - Fix new Date() usage
-- [ ] `src/components/landing/sections/Footer.tsx` - Fix new Date() usage
-- [ ] `src/app/rental-mobil-semarang/page.tsx` - Fix new Date() usage
+## Follow-up Steps:
 
-### 4. Additional Client-Only Code
-
-- [ ] Add `use client` directives where needed
-- [ ] Add dynamic imports for client-heavy components
-
-## Progress:
-
-- [x] Identify all hydration issues
-- [ ] Fix Math.random() issues
-- [ ] Fix DOM access issues
-- [ ] Fix Date usage issues
-- [ ] Test fixes
-
-## Notes:
-
-- Maintain exact visual appearance
-- Ensure all functionality remains intact
-- Use React.useId() for stable identifiers
-- Use useEffect for client-only operations
+- Test tombol berfungsi dengan benar
+- Pastikan link terbuka di tab baru
+- Verifikasi pesan WhatsApp sudah sesuai

@@ -164,31 +164,39 @@ export default function SurabayaPage() {
                 </Button>
               </motion.div>
             </Link>
-            <motion.div
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-block"
+            <Link
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                "halo vrn surabaya, saya ingin bertanya tentang harga sewa di surabaya"
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Button
-                size="lg"
-                className="bg-white hover:bg-gray-100 text-blue-900 px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-2xl transition-all duration-300 group"
+              <motion.div
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-block"
               >
-                Lihat Harga
-                <svg
-                  className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                <Button
+                  size="lg"
+                  className="bg-white hover:bg-gray-100 text-blue-900 px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-2xl transition-all duration-300 group"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Button>
-            </motion.div>
+                  Lihat Harga
+                  <svg
+                    className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </Button>
+              </motion.div>
+            </Link>
           </motion.div>
 
           {/* Stats */}
