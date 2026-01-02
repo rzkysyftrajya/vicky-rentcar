@@ -1,11 +1,16 @@
-
 "use client";
 
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import React, {
+  createContext,
+  useState,
+  useContext,
+  ReactNode,
+  useEffect,
+} from "react";
 
 // --- Type Definitions ---
-export type Currency = 'IDR' | 'USD' | 'SGD' | 'MYR';
-export type Language = 'id' | 'en';
+export type Currency = "IDR" | "USD" | "SGD" | "MYR";
+export type Language = "id" | "en";
 
 interface AppContextState {
   currency: Currency;
@@ -24,35 +29,39 @@ const exchangeRates: Record<Currency, number> = {
 };
 
 const currencySymbols: Record<Currency, string> = {
-    IDR: 'Rp',
-    USD: '$',
-    SGD: 'S$',
-    MYR: 'RM',
-}
+  IDR: "Rp",
+  USD: "$",
+  SGD: "S$",
+  MYR: "RM",
+};
 
 // --- Context Creation ---
 const AppContext = createContext<AppContextState | undefined>(undefined);
 
 // --- Provider Component ---
 export const AppContextProvider = ({ children }: { children: ReactNode }) => {
-  const [currency, setCurrency] = useState<Currency>('IDR');
-  const [language, setLanguage] = useState<Language>('id');
+  // Use lazy initial state to avoid hydration mismatch
+  const [currency, setCurrency] = useState<Currency>(() => "IDR");
+  const [language, setLanguage] = useState<Language>(() => "id");
+  const [isClient, setIsClient] = useState(false);
+
+  // Mark as client-side after mount
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const getFormattedPrice = (priceInIdr: number): string => {
     const rate = exchangeRates[currency];
     const convertedPrice = priceInIdr * rate;
-    
+
     // Use Intl.NumberFormat for proper formatting
-    const formatter = new Intl.NumberFormat('id-ID', {
-        // style: 'currency' is tricky without changing locale, so we handle symbol manually
-        // currency: currency, 
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0,
+    const formatter = new Intl.NumberFormat("id-ID", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     });
-    
+
     return `${currencySymbols[currency]} ${formatter.format(convertedPrice)}`;
   };
-
 
   const value = {
     currency,
@@ -60,6 +69,7 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
     language,
     setLanguage,
     getFormattedPrice,
+    isClient,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
@@ -69,7 +79,7 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
 export const useAppContext = (): AppContextState => {
   const context = useContext(AppContext);
   if (context === undefined) {
-    throw new Error('useAppContext must be used within an AppContextProvider');
+    throw new Error("useAppContext must be used within an AppContextProvider");
   }
   return context;
 };

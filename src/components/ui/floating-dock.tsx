@@ -11,7 +11,7 @@ import {
   useTransform,
 } from "framer-motion";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 export const FloatingDock = ({
   items,
@@ -21,8 +21,15 @@ export const FloatingDock = ({
   className?: string;
 }) => {
   let mouseX = useMotionValue(Infinity);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <motion.div
+      suppressHydrationWarning
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
@@ -31,7 +38,12 @@ export const FloatingDock = ({
       )}
     >
       {items.map((item) => (
-        <IconContainer mouseX={mouseX} key={item.title} {...item} />
+        <IconContainer
+          mouseX={mouseX}
+          key={item.title}
+          {...item}
+          isMounted={isMounted}
+        />
       ))}
     </motion.div>
   );
@@ -42,11 +54,13 @@ function IconContainer({
   title,
   icon,
   href,
+  isMounted,
 }: {
   mouseX: MotionValue;
   title: string;
   icon: React.ReactNode;
   href: string;
+  isMounted: boolean;
 }) {
   let ref = useRef<HTMLDivElement>(null);
 

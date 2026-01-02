@@ -137,12 +137,53 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2563eb" />
+
+        {/* Script to remove browser extension injected attributes */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                // Remove browser extension injected attributes before React hydrates
+                function removeInjectedAttributes() {
+                  const elements = document.querySelectorAll('[bis_skin_checked]');
+                  elements.forEach(el => {
+                    el.removeAttribute('bis_skin_checked');
+                  });
+
+                  // Also remove any other common extension attributes
+                  const allElements = document.querySelectorAll('*');
+                  allElements.forEach(el => {
+                    const attrs = el.attributes;
+                    for (let i = attrs.length - 1; i >= 0; i--) {
+                      const attr = attrs[i];
+                      if (attr.name.includes('bis_') ||
+                          attr.name.includes('extension') ||
+                          attr.name.includes('injected')) {
+                        el.removeAttribute(attr.name);
+                      }
+                    }
+                  });
+                }
+
+                // Run immediately and also after DOM is ready
+                removeInjectedAttributes();
+                if (document.readyState === 'loading') {
+                  document.addEventListener('DOMContentLoaded', removeInjectedAttributes);
+                }
+              })();
+            `,
+          }}
+        />
       </head>
       <body
+        suppressHydrationWarning
         className={cn(
           "min-h-screen bg-background font-sans antialiased overflow-x-hidden",
           inter.variable
         )}
+        // Ignore browser extension-injected attributes
+        data-bis-skin-checked-ignore="true"
+        data-extension-injected-ignore="true"
       >
         <AppContextProvider>
           <ThemeProvider

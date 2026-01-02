@@ -294,7 +294,10 @@ function MobileNavbar() {
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header
+      suppressHydrationWarning
+      className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+    >
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link
@@ -358,6 +361,6 @@ const MobileNavLink = ({
     onClick={onNavigate}
     className="flex items-center gap-4 text-lg font-medium text-foreground transition-colors hover:bg-primary/10 hover:text-primary py-3 px-4 rounded-lg"
   >
-    {children}
+    <>{children}</>
   </Link>
 );
