@@ -14,11 +14,11 @@ const Header = () => {
 
   const navigation = [
     { name: "Beranda", href: "/medan" },
-    { name: "Armada", href: "/medan#armada" },
-    { name: "Layanan", href: "/medan#layanan" },
-    { name: "Destinasi", href: "/medan#destinasi" },
-    { name: "Testimoni", href: "/medan#testimoni" },
-    { name: "Kontak", href: "/medan#kontak" },
+    { name: "Armada", href: "/medan/fleet" },
+    { name: "Layanan", href: "/medan/services" },
+    { name: "Destinasi", href: "/medan/tourism" },
+    { name: "Testimoni", href: "/medan/testimonials" },
+    { name: "Kontak", href: "/medan/contact" },
   ];
 
   return (
