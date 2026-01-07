@@ -166,7 +166,7 @@ const comparison = {
 
 export default function FeaturesPage() {
   const whatsappLink =
-    "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20keunggulan%20VRN%20Rent%20Car%20Medan";
+    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20keunggulan%20VRN%20Rent%20Car%20Medan";
 
   return (
     <main className={`${inter.className} min-h-screen`}>

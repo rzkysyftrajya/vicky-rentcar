@@ -128,7 +128,7 @@ const vipServices = [
 ];
 
 const ServicesSection = () => {
-  const whatsappLinkBase = "https://wa.me/6281234567890?text=";
+  const whatsappLinkBase = "https://wa.me/6282363389893?text=";
 
   const ServiceCard = ({ service }: { service: (typeof services)[0] }) => (
     <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200 h-full">

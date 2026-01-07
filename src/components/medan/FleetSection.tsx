@@ -10,164 +10,43 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { cars, Car, ServiceCategory } from "@/data/fleet-data";
 
-const fleet = [
-  {
-    name: "Toyota Avanza",
-    category: "MPV",
-    capacity: "7 Penumpang",
-    features: ["AC Dingin", "Audio System", "Full Insurance"],
-    image:
-      "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=800&auto=format&fit=crop",
-    popular: false,
-    price: "Rp 350rb",
-  },
-  {
-    name: "Daihatsu Xenia",
-    category: "MPV",
-    capacity: "7 Penumpang",
-    features: ["AC Dingin", "Audio System", "Hemat BBM"],
-    image:
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
-    popular: false,
-    price: "Rp 350rb",
-  },
-  {
-    name: "Toyota Innova Reborn",
-    category: "MPV",
-    capacity: "7 Penumpang",
-    features: ["AC Dual Zone", "Captain Seat", "Premium Audio"],
-    image:
-      "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?q=80&w=800&auto=format&fit=crop",
-    popular: true,
-    price: "Rp 500rb",
-  },
-  {
-    name: "Mitsubishi Xpander",
-    category: "MPV",
-    capacity: "7 Penumpang",
-    features: ["Desain Modern", "AC Dingin", "Bagasi Luas"],
-    image:
-      "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?q=80&w=800&auto=format&fit=crop",
-    popular: false,
-    price: "Rp 450rb",
-  },
-  {
-    name: "Toyota Fortuner",
-    category: "SUV",
-    capacity: "7 Penumpang",
-    features: ["4WD", "Leather Seat", "Premium Interior"],
-    image:
-      "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop",
-    popular: true,
-    price: "Rp 750rb",
-  },
-  {
-    name: "Toyota Alphard",
-    category: "Premium",
-    capacity: "7 Penumpang",
-    features: ["VIP Seat", "Full Entertainment", "Executive Class"],
-    image:
-      "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=800&auto=format&fit=crop",
-    popular: true,
-    price: "Rp 1.500rb",
-  },
-];
+// Service category display names
+const serviceCategoryNames: Record<ServiceCategory, string> = {
+  VIP: "VIP & Luxury",
+  Executive: "Executive & Corporate",
+  Group: "Group & Travel",
+  Special: "Special Purpose",
+};
 
-// VIP Cars - Luxury vehicles
-const vipCars = [
-  {
-    name: "Alphard New Gen 4",
-    category: "VIP Luxury",
-    capacity: "7 Penumpang",
-    features: ["Luxury Interior", "Captain Seat", "Premium Audio", "Chauffeur"],
-    image: "/armada/alphard-new.webp",
-    popular: true,
-    price: "Rp 1.500.000",
-    serviceCategory: "VIP",
-  },
-  {
-    name: "Mercedes-Benz",
-    category: "VIP Luxury",
-    capacity: "5 Penumpang",
-    features: [
-      "German Engineering",
-      "Premium Leather",
-      "Executive Class",
-      "Chauffeur",
-    ],
-    image: "/armada/mercedes-benz.webp",
-    popular: true,
-    price: "Rp 2.500.000",
-    serviceCategory: "VIP",
-  },
-  {
-    name: "Land Cruiser",
-    category: "VIP SUV",
-    capacity: "7 Penumpang",
-    features: ["Premium SUV", "4x4 Capability", "Luxury Cabin", "Chauffeur"],
-    image: "/armada/land-cruiser.webp",
-    popular: true,
-    price: "Rp 1.800.000",
-    serviceCategory: "VIP",
-  },
-  {
-    name: "Hiace Premio Luxury",
-    category: "VIP Van",
-    capacity: "9 Penumpang",
-    features: [
-      "Executive Lounge Seat",
-      "Premium Interior",
-      "VIP Configuration",
-      "Chauffeur",
-    ],
-    image: "/armada/hiace-premio-luxury.webp",
-    popular: true,
-    price: "Rp 1.200.000",
-    serviceCategory: "VIP",
-  },
-  {
-    name: "Fortuner GR 4x4",
-    category: "VIP SUV",
-    capacity: "7 Penumpang",
-    features: [
-      "GR Sport Design",
-      "4x4 Capability",
-      "Premium Interior",
-      "Chauffeur",
-    ],
-    image: "/armada/fortuner.webp",
-    popular: false,
-    price: "Rp 1.000.000",
-    serviceCategory: "VIP",
-  },
-  {
-    name: "Pajero Sport",
-    category: "VIP SUV",
-    capacity: "7 Penumpang",
-    features: ["Premium SUV", "4x4 Capability", "Luxury Interior", "Chauffeur"],
-    image: "/armada/pajero.webp",
-    popular: false,
-    price: "Rp 950.000",
-    serviceCategory: "VIP",
-  },
-];
-
-const categories = ["Semua", "MPV", "SUV", "Premium"];
+// Get unique categories for filter
+const allCategories = ["Semua", "VIP", "Executive", "Group", "Special"];
 
 const FleetSection = () => {
   const whatsappLink =
-    "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20tanya%20harga%20rental%20mobil";
+    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20tanya%20harga%20rental%20mobil";
   const ref = useRef(null);
   const [activeCategory, setActiveCategory] = useState("Semua");
 
-  const filteredFleet =
-    activeCategory === "Semua"
-      ? fleet
-      : fleet.filter((car) => car.category === activeCategory);
+  // Filter cars by service category
+  const getFilteredCars = (category: string) => {
+    if (category === "Semua") return cars;
+    return cars.filter((car) => car.serviceCategory === category);
+  };
 
-  const CarCard = ({ car }: { car: (typeof fleet)[0] }) => (
-    <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+  const filteredCars = getFilteredCars(activeCategory);
+
+  // Get cars by category for section display
+  const vipCars = cars.filter((car) => car.serviceCategory === "VIP");
+  const executiveCars = cars.filter(
+    (car) => car.serviceCategory === "Executive"
+  );
+  const groupCars = cars.filter((car) => car.serviceCategory === "Group");
+  const specialCars = cars.filter((car) => car.serviceCategory === "Special");
+
+  const CarCard = ({ car }: { car: Car }) => (
+    <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 h-full flex flex-col">
       {/* Image */}
       <div className="relative aspect-[16/10] overflow-hidden">
         <img
@@ -175,38 +54,50 @@ const FleetSection = () => {
           alt={car.name}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
-        {car.popular && (
-          <div className="absolute top-4 right-4 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
-            <Star className="w-3 h-3 fill-current" />
-            Populer
+        {car.category === "Luxury" && (
+          <div className="absolute top-4 right-4 bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
+            <Crown className="w-3 h-3 fill-current" />
+            Luxury
           </div>
         )}
         <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-gray-900/60 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-6 flex-1 flex flex-col">
         <div className="flex items-center justify-between mb-2">
           <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">
             {car.category}
           </span>
           <div className="flex items-center gap-1 text-sm text-gray-600">
             <Users className="w-4 h-4" />
-            {car.capacity}
+            {car.specs[0]}
           </div>
         </div>
 
         <h3 className="text-xl font-bold text-gray-900 mb-4">{car.name}</h3>
 
-        {/* Features */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {car.features.map((feature) => (
+        {/* Specs */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {car.specs.map((spec, index) => (
             <span
-              key={feature}
+              key={index}
+              className="inline-flex items-center text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded"
+            >
+              {spec}
+            </span>
+          ))}
+        </div>
+
+        {/* Highlights */}
+        <div className="flex flex-wrap gap-2 mb-6 flex-1">
+          {car.highlights.slice(0, 4).map((highlight) => (
+            <span
+              key={highlight}
               className="inline-flex items-center text-xs text-gray-600"
             >
               <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2" />
-              {feature}
+              {highlight}
             </span>
           ))}
         </div>
@@ -219,15 +110,15 @@ const FleetSection = () => {
             rel="noopener noreferrer"
           >
             <Briefcase className="w-4 h-4 mr-2" />
-            Cek Harga via WhatsApp
+            Cek Ketersediaan
           </a>
         </Button>
       </div>
     </div>
   );
 
-  const VIPCarCard = ({ car }: { car: (typeof vipCars)[0] }) => (
-    <div className="group bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-amber-500/30 h-full relative overflow-hidden">
+  const VIPCarCard = ({ car }: { car: Car }) => (
+    <div className="group bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-amber-500/30 h-full flex flex-col relative overflow-hidden">
       {/* Premium Background Effect */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
@@ -239,12 +130,12 @@ const FleetSection = () => {
         </div>
       </div>
 
-      {/* Popular Badge */}
-      {car.popular && (
+      {/* Luxury Badge */}
+      {car.category === "Luxury" && (
         <div className="absolute top-4 right-4 z-20">
-          <div className="flex items-center gap-1 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+          <div className="flex items-center gap-1 bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
             <Star className="w-3 h-3 fill-current" />
-            Populer
+            Luxury
           </div>
         </div>
       )}
@@ -257,39 +148,43 @@ const FleetSection = () => {
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
         <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-slate-900/90 to-transparent" />
-
-        {/* Price Overlay */}
-        <div className="absolute bottom-4 left-4 right-4">
-          <div className="bg-amber-500/90 backdrop-blur-sm rounded-lg px-3 py-2 inline-block">
-            <span className="text-lg font-bold text-black">{car.price}</span>
-            <span className="text-xs text-black/70 ml-1">/hari</span>
-          </div>
-        </div>
       </div>
 
       {/* Content */}
-      <div className="p-6 relative z-10">
+      <div className="p-6 relative z-10 flex flex-col flex-1">
         <div className="flex items-center justify-between mb-2">
           <span className="text-xs font-medium text-amber-400 bg-amber-500/10 px-2 py-1 rounded border border-amber-500/30">
             {car.category}
           </span>
           <div className="flex items-center gap-1 text-sm text-slate-400">
             <Users className="w-4 h-4" />
-            <span className="text-slate-300">{car.capacity}</span>
+            <span className="text-slate-300">{car.specs[0]}</span>
           </div>
         </div>
 
         <h3 className="text-xl font-bold text-white mb-4">{car.name}</h3>
 
-        {/* Features */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {car.features.map((feature) => (
+        {/* Specs */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {car.specs.map((spec, index) => (
             <span
-              key={feature}
+              key={index}
+              className="inline-flex items-center text-xs text-slate-300 bg-slate-800/50 px-2 py-1 rounded"
+            >
+              {spec}
+            </span>
+          ))}
+        </div>
+
+        {/* Highlights */}
+        <div className="flex flex-wrap gap-2 mb-6 flex-1">
+          {car.highlights.slice(0, 4).map((highlight) => (
+            <span
+              key={highlight}
               className="inline-flex items-center text-xs text-slate-300"
             >
               <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mr-2" />
-              {feature}
+              {highlight}
             </span>
           ))}
         </div>
@@ -312,52 +207,61 @@ const FleetSection = () => {
     </div>
   );
 
-  return (
-    <section id="armada" className="py-20 bg-gray-50" ref={ref}>
-      <div className="container mx-auto px-4">
-        {/* VIP Cars Section */}
-        <div className="mb-20">
-          {/* Section Header - Premium Style */}
-          <div className="text-center max-w-2xl mx-auto mb-12">
+  const renderCarSection = (
+    title: string,
+    sectionCars: Car[],
+    CardComponent: typeof CarCard,
+    description: string,
+    isVip: boolean = false
+  ) => {
+    if (sectionCars.length === 0) return null;
+
+    return (
+      <div className={isVip ? "" : "pt-16 border-t border-gray-200"}>
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          {isVip ? (
             <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-1.5 rounded-full text-sm font-bold mb-4">
               <Crown className="w-4 h-4" />
               Armada Premium
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
-              Armada VIP & Mobil Mewah
-            </h2>
-            <p className="text-slate-600">
-              Pilihan kendaraan premium terbaik untuk pengalaman perjalanan yang
-              eksklusif dan berkelas. Dilengkapi dengan layanan chauffeur
-              profesional.
-            </p>
-          </div>
+          ) : (
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">
+              Armada Kami
+            </span>
+          )}
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
+            {title}
+          </h2>
+          <p className="text-slate-600">{description}</p>
+        </div>
 
-          {/* Desktop Grid - VIP Cars */}
-          <div className="hidden lg:grid lg:grid-cols-3 gap-6">
-            {vipCars.map((car) => (
-              <VIPCarCard key={car.name} car={car} />
-            ))}
-          </div>
+        {/* Desktop Grid */}
+        <div className="hidden lg:grid lg:grid-cols-3 gap-6">
+          {sectionCars.map((car) => (
+            <CardComponent key={car.slug} car={car} />
+          ))}
+        </div>
 
-          {/* Mobile/Tablet Carousel - VIP Cars */}
-          <div className="lg:hidden">
-            <Carousel className="w-full">
-              <CarouselContent className="-ml-4">
-                {vipCars.map((car) => (
-                  <CarouselItem key={car.name} className="pl-4 sm:basis-1/2">
-                    <VIPCarCard car={car} />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="flex justify-center gap-4 mt-6">
-                <CarouselPrevious className="relative inset-0 translate-x-0 translate-y-0" />
-                <CarouselNext className="relative inset-0 translate-x-0 translate-y-0" />
-              </div>
-            </Carousel>
-          </div>
+        {/* Mobile/Tablet Carousel */}
+        <div className="lg:hidden">
+          <Carousel className="w-full">
+            <CarouselContent className="-ml-4">
+              {sectionCars.map((car) => (
+                <CarouselItem key={car.slug} className="pl-4 sm:basis-1/2">
+                  <CardComponent car={car} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center gap-4 mt-6">
+              <CarouselPrevious className="relative inset-0 translate-x-0 translate-y-0" />
+              <CarouselNext className="relative inset-0 translate-x-0 translate-y-0" />
+            </div>
+          </Carousel>
+        </div>
 
-          {/* VIP CTA */}
+        {/* CTA for VIP */}
+        {isVip && (
           <div className="text-center mt-10">
             <Button
               size="lg"
@@ -371,63 +275,117 @@ const FleetSection = () => {
               </a>
             </Button>
           </div>
+        )}
+      </div>
+    );
+  };
+
+  return (
+    <section id="armada" className="py-20 bg-gray-50" ref={ref}>
+      <div className="container mx-auto px-4">
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {allCategories.map((category) => (
+            <Button
+              key={category}
+              variant={activeCategory === category ? "default" : "outline"}
+              size="sm"
+              onClick={() => setActiveCategory(category)}
+            >
+              {category === "Semua" && <Filter className="w-4 h-4 mr-1" />}
+              {category === "VIP" && <Crown className="w-4 h-4 mr-1" />}
+              {category === "Executive" && (
+                <Briefcase className="w-4 h-4 mr-1" />
+              )}
+              {category === "Group" && <Users className="w-4 h-4 mr-1" />}
+              {category === "Special" && <Star className="w-4 h-4 mr-1" />}
+              {category === "Semua"
+                ? "Semua Armada"
+                : serviceCategoryNames[category as ServiceCategory] || category}
+            </Button>
+          ))}
         </div>
 
-        {/* Regular Fleet Section */}
-        <div className="pt-16 border-t border-gray-200">
-          {/* Section Header */}
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">
-              Armada Kami
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
-              Pilihan Mobil Terbaik
-            </h2>
-            <p className="text-gray-600">
-              Armada lengkap dari ekonomis hingga premium untuk berbagai
-              kebutuhan perjalanan Anda.
-            </p>
+        {/* Filtered Results View */}
+        {activeCategory !== "Semua" ? (
+          <div>
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+                {serviceCategoryNames[activeCategory as ServiceCategory] ||
+                  activeCategory}
+              </h2>
+              <p className="text-gray-600 mt-2">
+                Menampilkan {filteredCars.length} mobil
+              </p>
+            </div>
+            <div className="hidden lg:grid lg:grid-cols-3 gap-6">
+              {filteredCars.map((car) =>
+                activeCategory === "VIP" ? (
+                  <VIPCarCard key={car.slug} car={car} />
+                ) : (
+                  <CarCard key={car.slug} car={car} />
+                )
+              )}
+            </div>
+            <div className="lg:hidden">
+              <Carousel className="w-full">
+                <CarouselContent className="-ml-4">
+                  {filteredCars.map((car) => (
+                    <CarouselItem key={car.slug} className="pl-4 sm:basis-1/2">
+                      {activeCategory === "VIP" ? (
+                        <VIPCarCard car={car} />
+                      ) : (
+                        <CarCard car={car} />
+                      )}
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <div className="flex justify-center gap-4 mt-6">
+                  <CarouselPrevious className="relative inset-0 translate-x-0 translate-y-0" />
+                  <CarouselNext className="relative inset-0 translate-x-0 translate-y-0" />
+                </div>
+              </Carousel>
+            </div>
           </div>
+        ) : (
+          <>
+            {/* VIP Section */}
+            {renderCarSection(
+              "Armada VIP & Mobil Mewah",
+              vipCars,
+              VIPCarCard,
+              "Pilihan kendaraan premium terbaik untuk pengalaman perjalanan yang eksklusif dan berkelas. Dilengkapi dengan layanan chauffeur profesional.",
+              true
+            )}
 
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={activeCategory === category ? "default" : "outline"}
-                size="sm"
-                onClick={() => setActiveCategory(category)}
-              >
-                {category === "Semua" && <Filter className="w-4 h-4 mr-1" />}
-                {category}
-              </Button>
-            ))}
-          </div>
+            {/* Executive Section */}
+            {renderCarSection(
+              "Armada Executive & Corporate",
+              executiveCars,
+              CarCard,
+              "Kendaraan nyaman dan profesional untuk perjalanan bisnis dan kebutuhan korporasi Anda.",
+              false
+            )}
 
-          {/* Desktop Grid */}
-          <div className="hidden lg:grid lg:grid-cols-3 gap-6">
-            {filteredFleet.map((car) => (
-              <CarCard key={car.name} car={car} />
-            ))}
-          </div>
+            {/* Group Section */}
+            {renderCarSection(
+              "Armada Group & Travel",
+              groupCars,
+              CarCard,
+              "Solusi transportasi nyaman untuk keluarga besar, tur grup, dan perjalanan bersama.",
+              false
+            )}
 
-          {/* Mobile/Tablet Carousel */}
-          <div className="lg:hidden">
-            <Carousel className="w-full">
-              <CarouselContent className="-ml-4">
-                {filteredFleet.map((car) => (
-                  <CarouselItem key={car.name} className="pl-4 sm:basis-1/2">
-                    <CarCard car={car} />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="flex justify-center gap-4 mt-6">
-                <CarouselPrevious className="relative inset-0 translate-x-0 translate-y-0" />
-                <CarouselNext className="relative inset-0 translate-x-0 translate-y-0" />
-              </div>
-            </Carousel>
-          </div>
-        </div>
+            {/* Special Section */}
+            {renderCarSection(
+              "Armada Special Purpose",
+              specialCars,
+              CarCard,
+              "Kendaraan khusus untuk kebutuhan khusus seperti offroad dan petualangan.",
+              false
+            )}
+          </>
+        )}
       </div>
     </section>
   );

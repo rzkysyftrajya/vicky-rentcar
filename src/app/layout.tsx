@@ -138,37 +138,62 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2563eb" />
 
-        {/* Script to remove browser extension injected attributes */}
+        {/* Script to remove browser extension injected attributes BEFORE React hydrates */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                // Remove browser extension injected attributes before React hydrates
-                function removeInjectedAttributes() {
-                  const elements = document.querySelectorAll('[bis_skin_checked]');
-                  elements.forEach(el => {
-                    el.removeAttribute('bis_skin_checked');
-                  });
-
-                  // Also remove any other common extension attributes
-                  const allElements = document.querySelectorAll('*');
-                  allElements.forEach(el => {
-                    const attrs = el.attributes;
-                    for (let i = attrs.length - 1; i >= 0; i--) {
-                      const attr = attrs[i];
-                      if (attr.name.includes('bis_') ||
-                          attr.name.includes('extension') ||
-                          attr.name.includes('injected')) {
-                        el.removeAttribute(attr.name);
+                // Use MutationObserver to catch and remove extension attributes immediately
+                var observer = new MutationObserver(function(mutations) {
+                  mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName) {
+                      var attr = mutation.attributeName;
+                      if (attr.includes('bis_') || attr.includes('skin_checked')) {
+                        mutation.target.removeAttribute(attr);
                       }
                     }
                   });
+                });
+
+                function cleanElement(el) {
+                  try {
+                    var attrs = el.attributes;
+                    for (var i = attrs.length - 1; i >= 0; i--) {
+                      var attr = attrs[i];
+                      if (attr.name.includes('bis_') || attr.name.includes('skin_checked')) {
+                        el.removeAttribute(attr.name);
+                      }
+                    }
+                  } catch(e) {}
                 }
 
-                // Run immediately and also after DOM is ready
-                removeInjectedAttributes();
+                function scanAndClean() {
+                  try {
+                    var all = document.querySelectorAll('*');
+                    for (var i = 0; i < all.length; i++) {
+                      cleanElement(all[i]);
+                    }
+                  } catch(e) {}
+                }
+
+                // Run immediately
+                scanAndClean();
+
+                // Also observe for changes
+                if (document.body) {
+                  observer.observe(document.body, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['bis_skin_checked', 'data-bis-', 'bis-']
+                  });
+                }
+
+                // Run again after DOM is ready
                 if (document.readyState === 'loading') {
-                  document.addEventListener('DOMContentLoaded', removeInjectedAttributes);
+                  document.addEventListener('DOMContentLoaded', function() {
+                    scanAndClean();
+                  });
                 }
               })();
             `,

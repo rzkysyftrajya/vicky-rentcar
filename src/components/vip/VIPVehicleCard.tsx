@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Phone, Star, ArrowRight } from "lucide-react";
 import { Car } from "@/data/fleet-data";
-import { motion } from "framer-motion";
 
 interface VIPVehicleCardProps {
   car: Car;
@@ -18,11 +17,12 @@ export function VIPVehicleCard({ car, index }: VIPVehicleCardProps) {
   const encodedWaText = encodeURIComponent(waText);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+    <div
+      className="w-full animate-fade-in-up"
+      style={{
+        animationDelay: `${Math.min(index * 0.1, 0.5)}s`,
+        animationFillMode: "both",
+      }}
     >
       <Card className="overflow-hidden group bg-gradient-to-br from-background to-secondary/30 border-primary/20 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
         <CardContent className="p-0">
@@ -116,6 +116,6 @@ export function VIPVehicleCard({ car, index }: VIPVehicleCardProps) {
           </Button>
         </CardFooter>
       </Card>
-    </motion.div>
+    </div>
   );
 }

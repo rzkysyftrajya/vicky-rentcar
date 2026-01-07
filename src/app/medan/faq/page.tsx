@@ -44,7 +44,7 @@ const faqCategories = [
       {
         question: "Bagaimana cara memesan mobil di VRN Rent Car Medan?",
         answer:
-          "Anda dapat memesan melalui beberapa cara:\n\n1. WhatsApp: Hubungi kami di +6281234567890\n2. Telepon: Telpon langsung ke nomor yang tersedia\n3. Website: Isi form pemesanan di website kami\n4. Email: Kirim permintaan ke email resmi kami\n\nKami akan merespons dalam waktu kurang dari 5 menit untuk pemesanan via WhatsApp dan telepon.",
+          "Anda dapat memesan melalui beberapa cara:\n\n1. WhatsApp: Hubungi kami di +6282363389893\n2. Telepon: Telpon langsung ke nomor yang tersedia\n3. Website: Isi form pemesanan di website kami\n4. Email: Kirim permintaan ke email resmi kami\n\nKami akan merespons dalam waktu kurang dari 5 menit untuk pemesanan via WhatsApp dan telepon.",
       },
       {
         question: "Berapa lama proses konfirmasi pemesanan?",
@@ -257,7 +257,7 @@ const faqCategories = [
       {
         question: "Bagaimana cara memberikan kritik atau saran?",
         answer:
-          "Kami sangat menghargai feedback dari pelanggan. Anda dapat memberikan kritik atau saran melalui:\n\n• WhatsApp: +6281234567890\n• Email: feedback@vrnrentcarmedan.com\n• Form di website kami\n• Langsung kepada customer service\n\nSetiap feedback akan kami tindaklanjuti untuk meningkatkan kualitas layanan kami.",
+          "Kami sangat menghargai feedback dari pelanggan. Anda dapat memberikan kritik atau saran melalui:\n\n• WhatsApp: +6282363389893\n• Email: feedback@vrnrentcarmedan.com\n• Form di website kami\n• Langsung kepada customer service\n\nSetiap feedback akan kami tindaklanjuti untuk meningkatkan kualitas layanan kami.",
       },
     ],
   },
@@ -321,7 +321,7 @@ export default function FAQPage() {
   );
   const [searchQuery, setSearchQuery] = useState("");
   const whatsappLink =
-    "https://wa.me/6281234567890?text=Halo,%20saya%20ada%20pertanyaan%20tentang%20VRN%20Rent%20Car%20Medan";
+    "https://wa.me/6282363389893?text=Halo,%20saya%20ada%20pertanyaan%20tentang%20VRN%20Rent%20Car%20Medan";
 
   const toggleCategory = (categoryName: string) => {
     setExpandedCategory(

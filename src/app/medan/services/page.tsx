@@ -236,7 +236,7 @@ const addOns = [
 
 export default function ServicesPage() {
   const whatsappLink =
-    "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20memesan%20layanan%20rental%20mobil%20di%20Medan";
+    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20layanan%20rental%20mobil%20di%20Medan";
 
   return (
     <main className={`${inter.className} min-h-screen`}>

@@ -4,7 +4,7 @@ import { MessageCircle } from "lucide-react";
 
 const FloatingWhatsApp = () => {
   const whatsappLink =
-    "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20bertanya%20tentang%20rental%20mobil%20di%20Medan";
+    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20bertanya%20tentang%20rental%20mobil%20di%20Medan";
 
   return (
     <a

@@ -42,6 +42,19 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   const request = event.request;
 
+  // Skip non-GET requests (POST, PUT, DELETE, etc.)
+  if (request.method !== "GET") {
+    return;
+  }
+
+  // Skip chrome-extension and other non-http(s) requests
+  if (
+    !request.url.startsWith("http://") &&
+    !request.url.startsWith("https://")
+  ) {
+    return;
+  }
+
   // HTML pages → network first
   if (request.mode === "navigate") {
     event.respondWith(fetch(request).catch(() => caches.match("/")));
@@ -54,10 +67,14 @@ self.addEventListener("fetch", (event) => {
       return (
         response ||
         fetch(request).then((res) => {
-          return caches.open(CACHE_NAME).then((cache) => {
-            cache.put(request, res.clone());
-            return res;
-          });
+          // Only cache valid responses
+          if (res && res.status === 200 && res.type === "basic") {
+            const responseToCache = res.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(request, responseToCache);
+            });
+          }
+          return res;
         })
       );
     })

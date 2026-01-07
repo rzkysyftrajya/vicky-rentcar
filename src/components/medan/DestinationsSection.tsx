@@ -103,7 +103,7 @@ const DestinationsSection = () => {
   const ref = useRef(null);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const whatsappLink =
-    "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20booking%20wisata%20ke%20";
+    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20booking%20wisata%20ke%20";
 
   return (
     <section id="destinasi" className="py-20 bg-gray-50">

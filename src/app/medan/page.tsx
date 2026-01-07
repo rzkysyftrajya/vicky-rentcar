@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import Header from "@/components/medan/Header";
 import HeroSection from "@/components/medan/HeroSection";
 import StatsSection from "@/components/medan/StatsSection";
-import FeaturesSection from "@/components/medan/FeaturesSection";
 import Footer from "@/components/medan/Footer";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import Link from "next/link";
@@ -16,22 +16,17 @@ import {
   Users,
   Star,
   Phone,
-  Mail,
   Award,
   Crown,
   Sparkles,
   CheckCircle,
   DollarSign,
-  Heart,
   Briefcase,
-  Quote,
   BadgeCheck,
   Trophy,
-  Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { VIPVehicleCard } from "@/components/vip/VIPVehicleCard";
 import { cars } from "@/data/fleet-data";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -70,56 +65,56 @@ const pageLinks = [
     title: "Tentang Kami",
     description: "Kenali VRN Rent Car Medan lebih dekat",
     icon: Users,
-    color: "bg-blue-500",
+    color: "bg-blue-500 dark:bg-blue-600",
   },
   {
     href: "/medan/features",
     title: "Keunggulan",
     description: "5 keunggulan utama layanan kami",
     icon: Award,
-    color: "bg-green-500",
+    color: "bg-green-500 dark:bg-green-600",
   },
   {
     href: "/medan/services",
     title: "Layanan",
     description: "Rental harian, bulanan, dan wisata",
     icon: Car,
-    color: "bg-purple-500",
+    color: "bg-purple-500 dark:bg-purple-600",
   },
   {
     href: "/medan/tourism",
-    title: "Destinasi Wisata",
+    title: "Destinasi Wisaya",
     description: "Tour Medan dan Sumatera Utara",
     icon: MapPin,
-    color: "bg-orange-500",
+    color: "bg-orange-500 dark:bg-orange-600",
   },
   {
     href: "/medan/airport",
     title: "Antar Jemput Bandara",
     description: "Layanan bandara Kualanamu 24/7",
     icon: Clock,
-    color: "bg-red-500",
+    color: "bg-red-500 dark:bg-red-600",
   },
   {
     href: "/medan/fleet",
     title: "Armada Mobil",
     description: "Pilihan kendaraan terawat",
     icon: Car,
-    color: "bg-indigo-500",
+    color: "bg-indigo-500 dark:bg-indigo-600",
   },
   {
     href: "/medan/testimonials",
     title: "Ulasan Pelanggan",
     description: "Testimoni kepuasan pelanggan",
     icon: Star,
-    color: "bg-yellow-500",
+    color: "bg-yellow-500 dark:bg-yellow-600",
   },
   {
     href: "/medan/video",
     title: "Video Pengenalan",
     description: "Profil perusahaan dan armada",
     icon: Shield,
-    color: "bg-pink-500",
+    color: "bg-pink-500 dark:bg-pink-600",
   },
 ];
 
@@ -143,7 +138,7 @@ const vipServices = [
       "Sopir berjas rapi",
       "Photo session support",
     ],
-    price: "Mulai Rp 1.500.000",
+    price: "Hubungi untuk harga",
     image:
       "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=800&auto=format&fit=crop",
   },
@@ -173,7 +168,7 @@ const vipServices = [
       "Flight tracking",
       "Meet & greet",
     ],
-    price: "Mulai Rp 400.000",
+    price: "Hubungi untuk harga",
     image:
       "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop",
   },
@@ -188,7 +183,7 @@ const vipServices = [
       "Restaurant booking",
       "Personal guide",
     ],
-    price: "Mulai Rp 800.000/hari",
+    price: "Hubungi untuk harga",
     image:
       "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800&auto=format&fit=crop",
   },
@@ -215,50 +210,6 @@ const trustBadges = [
     icon: Star,
     title: "Rating 4.9/5.0",
     description: "Dari 500+ review pelanggan",
-  },
-];
-
-// Pricing overview
-const pricingCategories = [
-  {
-    category: "VIP & Luxury",
-    icon: Crown,
-    color: "from-amber-500 to-yellow-500",
-    items: [
-      { name: "Alphard New Gen 4", price: "Rp 1.500.000/hari" },
-      { name: "Mercedes-Benz", price: "Rp 1.800.000/hari" },
-      { name: "Land Cruiser", price: "Rp 1.600.000/hari" },
-    ],
-  },
-  {
-    category: "Executive SUV",
-    icon: Briefcase,
-    color: "from-blue-500 to-indigo-500",
-    items: [
-      { name: "Fortuner GR Sport", price: "Rp 750.000/hari" },
-      { name: "Pajero Sport", price: "Rp 700.000/hari" },
-      { name: "Innova Zenix Hybrid", price: "Rp 600.000/hari" },
-    ],
-  },
-  {
-    category: "MPV Family",
-    icon: Users,
-    color: "from-green-500 to-emerald-500",
-    items: [
-      { name: "Innova Reborn", price: "Rp 500.000/hari" },
-      { name: "Xpander", price: "Rp 450.000/hari" },
-      { name: "Avanza/Xenia", price: "Rp 350.000/hari" },
-    ],
-  },
-  {
-    category: "Group Travel",
-    icon: Car,
-    color: "from-purple-500 to-pink-500",
-    items: [
-      { name: "Hiace Premio Luxury", price: "Rp 1.200.000/hari" },
-      { name: "Hiace Commuter", price: "Rp 800.000/hari" },
-      { name: "Isuzu Elf (20 seat)", price: "Rp 1.000.000/hari" },
-    ],
   },
 ];
 
@@ -295,7 +246,8 @@ export default function MedanPage() {
     "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Medan";
 
   // Get VIP cars from fleet data
-  const vipCars = cars?.filter((car) => car.serviceCategory === "VIP").slice(0, 6) || [];
+  const vipCars =
+    cars?.filter((car) => car.serviceCategory === "VIP").slice(0, 6) || [];
 
   return (
     <main className={`${inter.className} min-h-screen`}>
@@ -303,19 +255,21 @@ export default function MedanPage() {
       <HeroSection />
 
       {/* Trust Badges Section */}
-      <section className="py-12 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-12 bg-gray-50 dark:bg-slate-900">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {trustBadges.map((badge, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow text-center"
+                className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow text-center border border-gray-100 dark:border-slate-700"
               >
-                <badge.icon className="w-10 h-10 text-blue-600 mx-auto mb-3" />
-                <h3 className="font-bold text-gray-900 text-sm mb-1">
+                <badge.icon className="w-10 h-10 text-blue-600 dark:text-blue-400 mx-auto mb-3" />
+                <h3 className="font-bold text-gray-900 dark:text-white text-sm mb-1">
                   {badge.title}
                 </h3>
-                <p className="text-xs text-gray-600">{badge.description}</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">
+                  {badge.description}
+                </p>
               </div>
             ))}
           </div>
@@ -323,7 +277,7 @@ export default function MedanPage() {
       </section>
 
       {/* VIP & Luxury Services Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 relative overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-yellow-500/20" />
@@ -336,17 +290,17 @@ export default function MedanPage() {
               <Crown className="w-5 h-5" />
               LAYANAN VIP & LUXURY
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white dark:text-white mb-6">
               Pengalaman Eksklusif
               <br />
               <span className="bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">
                 Premium Class Service
               </span>
             </h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Nikmati layanan transportasi premium dengan armada kendaraan mewah,
-              sopir profesional, dan pelayanan white-glove untuk momen spesial
-              Anda.
+            <p className="text-xl text-slate-300 dark:text-slate-300 max-w-3xl mx-auto">
+              Nikmati layanan transportasi premium dengan armada kendaraan
+              mewah, sopir profesional, dan pelayanan white-glove untuk momen
+              spesial Anda.
             </p>
           </div>
 
@@ -355,7 +309,7 @@ export default function MedanPage() {
             {vipServices.map((service, index) => (
               <div
                 key={index}
-                className="group bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl overflow-hidden border border-amber-500/20 hover:border-amber-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/20"
+                className="group bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-800 dark:to-slate-900 rounded-2xl overflow-hidden border border-amber-500/20 hover:border-amber-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/20"
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -374,10 +328,10 @@ export default function MedanPage() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                  <h3 className="text-xl font-bold text-white dark:text-white mb-2 group-hover:text-amber-400 transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-slate-400 text-sm mb-4 line-clamp-2">
+                  <p className="text-slate-400 dark:text-slate-400 text-sm mb-4 line-clamp-2">
                     {service.description}
                   </p>
 
@@ -386,13 +340,15 @@ export default function MedanPage() {
                     {service.features.slice(0, 3).map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2">
                         <CheckCircle className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                        <span className="text-sm text-slate-300">{feature}</span>
+                        <span className="text-sm text-slate-300 dark:text-slate-300">
+                          {feature}
+                        </span>
                       </div>
                     ))}
                   </div>
 
                   {/* Price */}
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-700">
+                  <div className="flex items-center justify-between pt-4 border-t border-slate-700 dark:border-slate-700">
                     <span className="text-amber-400 font-bold text-sm">
                       {service.price}
                     </span>
@@ -432,22 +388,22 @@ export default function MedanPage() {
       </section>
 
       {/* Premium Fleet Preview */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-20 bg-white dark:bg-slate-950">
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 px-6 py-2 rounded-full text-sm font-bold mb-6">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 text-blue-700 dark:text-blue-300 px-6 py-2 rounded-full text-sm font-bold mb-6">
               <Sparkles className="w-5 h-5" />
               ARMADA PREMIUM
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
               Kendaraan Mewah
               <br />
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-indigo-400">
                 Untuk Pengalaman Istimewa
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
               Pilihan kendaraan luxury dan premium yang terawat sempurna dengan
               interior mewah dan fitur terlengkap.
             </p>
@@ -455,9 +411,107 @@ export default function MedanPage() {
 
           {/* Fleet Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {vipCars.map((car, index) => (
-              <VIPVehicleCard key={car.slug} car={car} index={index} />
-            ))}
+            {vipCars.map((car, index) => {
+              const waText = `Halo, saya tertarik untuk menyewa ${car.name} untuk layanan VIP. Mohon informasinya.`;
+              const encodedWaText = encodeURIComponent(waText);
+              return (
+                <div
+                  key={car.slug}
+                  className="w-full animate-fade-in-up overflow-hidden rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 border border-gray-100 dark:border-slate-700 hover:border-gray-200 dark:hover:border-slate-600 transition-all duration-500 hover:shadow-2xl"
+                  style={{
+                    animationDelay: `${Math.min(index * 0.1, 0.5)}s`,
+                    animationFillMode: "both",
+                  }}
+                >
+                  {/* Image Container */}
+                  <div className="relative h-64 w-full overflow-hidden">
+                    <Image
+                      src={car.image}
+                      alt={car.name}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute top-4 left-4">
+                      <Badge className="bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-bold shadow-lg">
+                        <Star className="w-3 h-3 mr-1 fill-black" />
+                        VIP
+                      </Badge>
+                    </div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-2xl font-bold text-white drop-shadow-lg">
+                        {car.name}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 space-y-4">
+                    {/* Highlights */}
+                    <div className="flex flex-wrap gap-2">
+                      {car.highlights.slice(0, 3).map((highlight) => (
+                        <Badge
+                          key={highlight}
+                          variant="outline"
+                          className="text-xs border-gray-200 dark:border-slate-600 text-gray-700 dark:text-gray-300"
+                        >
+                          {highlight}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    {/* Specs */}
+                    <div className="grid grid-cols-3 gap-2 text-sm">
+                      {car.specs.map((spec, idx) => (
+                        <div
+                          key={idx}
+                          className="text-center p-2 bg-gray-50 dark:bg-slate-700/50 rounded-lg"
+                        >
+                          <span className="text-gray-500 dark:text-gray-400 text-xs">
+                            {spec}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">
+                      Pengalaman luxury dengan {car.name}. Dilengkapi dengan
+                      interior premium dan layanan chauffeur profesional untuk
+                      kenyamanan maksimal Anda.
+                    </p>
+                  </div>
+
+                  {/* Footer */}
+                  <div className="p-6 pt-0 flex gap-3">
+                    <Button
+                      asChild
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      <a
+                        href={`https://wa.me/6282363389893?text=${encodedWaText}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Phone className="w-4 h-4 mr-2" />
+                        Pesan via WA
+                      </a>
+                    </Button>
+                    <Button
+                      variant="outline"
+                      asChild
+                      className="flex-shrink-0 border-gray-200 dark:border-slate-600 hover:bg-gray-100 dark:hover:bg-slate-700"
+                    >
+                      <a href={`/fleet`}>
+                        Detail
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           {/* CTA */}
@@ -465,7 +519,7 @@ export default function MedanPage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold text-lg px-8"
+              className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-slate-900 font-bold text-lg px-8"
               asChild
             >
               <Link href="/medan/fleet">
@@ -477,99 +531,96 @@ export default function MedanPage() {
         </div>
       </section>
 
-      {/* Pricing Overview Section */}
-      <section className="py-20 bg-white">
+      {/* Konsultasi Sekarang Section */}
+      <section className="py-20 bg-white dark:bg-slate-950">
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-6 py-2 rounded-full text-sm font-bold mb-6">
-              <DollarSign className="w-5 h-5" />
-              HARGA TRANSPARAN
+            <div className="inline-flex items-center gap-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-6 py-2 rounded-full text-sm font-bold mb-6">
+              <Phone className="w-5 h-5" />
+              KONSULTASI SEKARANG
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-              Tarif Rental Mobil Medan
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
+              Rental Mobil Medan
               <br />
-              <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                Harga Kompetitif & Jelas
+              <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent dark:from-green-400 dark:to-emerald-400">
+                Harga Terbaik Untuk Anda
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Harga sudah termasuk sopir profesional, BBM dalam kota, dan asuransi.
-              Tidak ada biaya tersembunyi.
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Hubungi kami sekarang untuk mendapatkan informasi lengkap tentang
+              harga dan layanan rental mobil. Tim kami siap memberikan
+              konsultasi gratis untuk kebutuhan Anda.
             </p>
           </div>
 
-          {/* Pricing Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {pricingCategories.map((category, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-gray-200"
-              >
-                {/* Header */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div
-                    className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center shadow-lg`}
-                  >
-                    <category.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="font-bold text-gray-900">{category.category}</h3>
-                </div>
-
-                {/* Items */}
-                <div className="space-y-4">
-                  {category.items.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="flex justify-between items-start pb-3 border-b border-gray-200 last:border-0"
-                    >
-                      <span className="text-sm text-gray-700 font-medium">
-                        {item.name}
-                      </span>
-                      <span className="text-sm font-bold text-gray-900 whitespace-nowrap ml-2">
-                        {item.price}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* CTA */}
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="w-full mt-6 border-gray-300 hover:bg-gray-100"
-                  asChild
-                >
-                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                    <Phone className="w-4 h-4 mr-2" />
-                    Tanya Harga
-                  </a>
-                </Button>
-              </div>
-            ))}
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+            <Button
+              size="lg"
+              className="bg-green-600 hover:bg-green-700 dark:bg-green-600 dark:hover:bg-green-700 text-white text-lg px-8"
+              asChild
+            >
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <Phone className="w-5 h-5 mr-2" />
+                Konsultasi via WhatsApp
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white dark:border-green-400 dark:text-green-400 dark:hover:bg-green-400 dark:hover:text-slate-900 text-lg px-8"
+              asChild
+            >
+              <a href="tel:+6282363389893">
+                <Phone className="w-5 h-5 mr-2" />
+                Telepon Kami
+              </a>
+            </Button>
           </div>
 
-          {/* Price Note */}
-          <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center">
-            <p className="text-gray-700">
-              <strong>Catatan:</strong> Harga dapat berubah sewaktu-waktu tergantung
-              musim dan ketersediaan. Harga di atas sudah termasuk sopir, BBM dalam
-              kota Medan, dan asuransi. Untuk rental bulanan dan kontrak jangka
-              panjang, hubungi kami untuk harga spesial.
-            </p>
+          {/* Info Cards */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="text-center p-6 bg-blue-50 dark:bg-blue-900/30 rounded-2xl">
+              <Clock className="w-12 h-12 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                Respons Cepat
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                Kami merespons pesan Anda dalam hitungan menit
+              </p>
+            </div>
+            <div className="text-center p-6 bg-green-50 dark:bg-green-900/30 rounded-2xl">
+              <Award className="w-12 h-12 text-green-600 dark:text-green-400 mx-auto mb-4" />
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                Harga Bersaing
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                Offer terbaik untuk setiap kebutuhan rental Anda
+              </p>
+            </div>
+            <div className="text-center p-6 bg-purple-50 dark:bg-purple-900/30 rounded-2xl">
+              <Shield className="w-12 h-12 text-purple-600 dark:text-purple-400 mx-auto mb-4" />
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                Layanan Terpercaya
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                Bagian dari Vicky Rent Car Nusantara sejak 2018
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Navigation Cards Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 dark:bg-slate-900">
         <div className="container mx-auto px-4">
           <div>
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Jelajahi Layanan Kami
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                 Dapatkan informasi lengkap tentang semua layanan VRN Rent Car
                 Medan
               </p>
@@ -579,19 +630,19 @@ export default function MedanPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pageLinks.map((link) => (
               <Link key={link.href} href={link.href} className="block">
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full group">
+                <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full group border border-gray-100 dark:border-slate-700">
                   <div
                     className={`${link.color} w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
                   >
                     <link.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {link.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 text-sm">
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
                     {link.description}
                   </p>
-                  <div className="flex items-center text-blue-600 font-medium text-sm group-hover:text-blue-700">
+                  <div className="flex items-center text-blue-600 dark:text-blue-400 font-medium text-sm group-hover:text-blue-700 dark:group-hover:text-blue-300">
                     Pelajari Lebih Lanjut
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -603,60 +654,69 @@ export default function MedanPage() {
       </section>
 
       {/* Featured Services Preview */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-slate-950">
         <div className="container mx-auto px-4">
           <div>
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Layanan Unggulan
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                 Beberapa layanan paling populer yang kami tawarkan
               </p>
             </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-blue-50 rounded-2xl">
-              <Car className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
+            <div className="text-center p-8 bg-blue-50 dark:bg-blue-900/30 rounded-2xl">
+              <Car className="w-16 h-16 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                 Rental Mobil Harian
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
                 Sewa mobil untuk keperluan harian dengan sopir profesional
               </p>
               <Link href="/medan/services">
-                <Button variant="outline" className="w-full">
+                <Button
+                  variant="outline"
+                  className="w-full dark:border-slate-600 dark:text-gray-300 dark:hover:bg-slate-700"
+                >
                   Lihat Detail
                 </Button>
               </Link>
             </div>
 
-            <div className="text-center p-8 bg-green-50 rounded-2xl">
-              <Clock className="w-16 h-16 text-green-600 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
+            <div className="text-center p-8 bg-green-50 dark:bg-green-900/30 rounded-2xl">
+              <Clock className="w-16 h-16 text-green-600 dark:text-green-400 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                 Antar Jemput Bandara
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
                 Layanan antar jemput ke dan dari Bandara Kualanamu 24/7
               </p>
               <Link href="/medan/airport">
-                <Button variant="outline" className="w-full">
+                <Button
+                  variant="outline"
+                  className="w-full dark:border-slate-600 dark:text-gray-300 dark:hover:bg-slate-700"
+                >
                   Pesan Sekarang
                 </Button>
               </Link>
             </div>
 
-            <div className="text-center p-8 bg-purple-50 rounded-2xl">
-              <MapPin className="w-16 h-16 text-purple-600 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
+            <div className="text-center p-8 bg-purple-50 dark:bg-purple-900/30 rounded-2xl">
+              <MapPin className="w-16 h-16 text-purple-600 dark:text-purple-400 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                 Tour Medan & Sekelilingnya
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
                 Tour wisata ke destinasi populer di Sumatera Utara
               </p>
               <Link href="/medan/tourism">
-                <Button variant="outline" className="w-full">
+                <Button
+                  variant="outline"
+                  className="w-full dark:border-slate-600 dark:text-gray-300 dark:hover:bg-slate-700"
+                >
                   Lihat Destinasi
                 </Button>
               </Link>
@@ -666,20 +726,20 @@ export default function MedanPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600">
+      <section className="py-16 bg-blue-600 dark:bg-blue-700">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Siap Memulai Perjalanan Anda?
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-xl text-blue-100 dark:text-blue-200 mb-8">
               Hubungi kami sekarang untuk mendapatkan penawaran terbaik dan
               melayani kebutuhan rental mobil Anda
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white"
+                className="bg-green-600 hover:bg-green-700 dark:bg-green-600 dark:hover:bg-green-700 text-white"
                 asChild
               >
                 <a
@@ -694,10 +754,10 @@ export default function MedanPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-blue-600"
+                className="border-white text-white hover:bg-white hover:text-blue-600 dark:border-white/80 dark:text-white dark:hover:bg-white dark:hover:text-blue-600"
                 asChild
               >
-                <a href="tel:+6281234567890">
+                <a href="tel:+6282363389893">
                   <Phone className="w-5 h-5 mr-2" />
                   Telepon Kami
                 </a>

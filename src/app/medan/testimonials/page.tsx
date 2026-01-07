@@ -254,7 +254,7 @@ export default function TestimonialsPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortBy, setSortBy] = useState("recent");
   const whatsappLink =
-    "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20memesan%20layanan%20rental%20mobil%20setelah%20membaca%20testimoni%20yang%20menarik";
+    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20layanan%20rental%20mobil%20setelah%20membaca%20testimoni%20yang%20menarik";
 
   const filteredTestimonials =
     selectedCategory === "all"

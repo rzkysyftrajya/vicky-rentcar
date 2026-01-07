@@ -10,7 +10,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const whatsappLink =
-    "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20bertanya%20tentang%20rental%20mobil%20di%20Medan";
+    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20bertanya%20tentang%20rental%20mobil%20di%20Medan";
 
   const navigation = [
     { name: "Beranda", href: "/medan" },
@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-gray-200 dark:border-slate-700"
       suppressHydrationWarning
     >
       <div className="container mx-auto px-4" suppressHydrationWarning>
@@ -50,13 +50,13 @@ const Header = () => {
             </div>
             <div className="hidden sm:block" suppressHydrationWarning>
               <div
-                className="font-bold text-lg text-gray-900"
+                className="font-bold text-lg text-gray-900 dark:text-white"
                 suppressHydrationWarning
               >
                 VRN Rent Car
               </div>
               <div
-                className="text-xs text-blue-600 font-medium"
+                className="text-xs text-blue-600 dark:text-blue-400 font-medium"
                 suppressHydrationWarning
               >
                 Medan
@@ -73,7 +73,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200"
                 suppressHydrationWarning
               >
                 {item.name}
@@ -87,7 +87,7 @@ const Header = () => {
             suppressHydrationWarning
           >
             <div
-              className="flex items-center space-x-2 text-sm text-gray-600"
+              className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400"
               suppressHydrationWarning
             >
               <MapPin className="w-4 h-4" suppressHydrationWarning />
@@ -99,9 +99,9 @@ const Header = () => {
               size="sm"
               suppressHydrationWarning
             >
-              <a href="tel:+6281234567890" suppressHydrationWarning>
+              <a href="tel:+6282363389893" suppressHydrationWarning>
                 <Phone className="w-4 h-4 mr-2" suppressHydrationWarning />
-                <span suppressHydrationWarning>0812-3456-7890</span>
+                <span suppressHydrationWarning>0823-6338-9893</span>
               </a>
             </Button>
             <Button asChild size="sm" suppressHydrationWarning>
@@ -125,13 +125,13 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-80"
+              className="w-80 bg-white dark:bg-slate-900"
               suppressHydrationWarning
             >
               <div className="flex flex-col h-full" suppressHydrationWarning>
                 {/* Logo */}
                 <div
-                  className="flex items-center space-x-2 pb-6 border-b"
+                  className="flex items-center space-x-2 pb-6 border-b dark:border-slate-700"
                   suppressHydrationWarning
                 >
                   <div
@@ -147,13 +147,13 @@ const Header = () => {
                   </div>
                   <div suppressHydrationWarning>
                     <div
-                      className="font-bold text-lg text-gray-900"
+                      className="font-bold text-lg text-gray-900 dark:text-white"
                       suppressHydrationWarning
                     >
                       VRN Rent Car
                     </div>
                     <div
-                      className="text-sm text-blue-600 font-medium"
+                      className="text-sm text-blue-600 dark:text-blue-400 font-medium"
                       suppressHydrationWarning
                     >
                       Medan
@@ -168,7 +168,7 @@ const Header = () => {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+                        className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
                         onClick={() => setIsOpen(false)}
                         suppressHydrationWarning
                       >
@@ -180,11 +180,11 @@ const Header = () => {
 
                 {/* Contact Info */}
                 <div
-                  className="pt-6 border-t space-y-4"
+                  className="pt-6 border-t dark:border-slate-700 space-y-4"
                   suppressHydrationWarning
                 >
                   <div
-                    className="flex items-center space-x-2 text-sm text-gray-600"
+                    className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400"
                     suppressHydrationWarning
                   >
                     <MapPin className="w-4 h-4" suppressHydrationWarning />
@@ -194,15 +194,15 @@ const Header = () => {
                     <Button
                       asChild
                       variant="outline"
-                      className="w-full"
+                      className="w-full dark:border-slate-600 dark:text-gray-300"
                       suppressHydrationWarning
                     >
-                      <a href="tel:+6281234567890" suppressHydrationWarning>
+                      <a href="tel:+6282363389893" suppressHydrationWarning>
                         <Phone
                           className="w-4 h-4 mr-2"
                           suppressHydrationWarning
                         />
-                        <span suppressHydrationWarning>0812-3456-7890</span>
+                        <span suppressHydrationWarning>0823-6338-9893</span>
                       </a>
                     </Button>
                     <Button asChild className="w-full" suppressHydrationWarning>

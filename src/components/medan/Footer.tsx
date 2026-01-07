@@ -28,13 +28,13 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="https://wa.me/6281234567890"
+                  href="https://wa.me/6282363389893"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-gray-300 hover:text-blue-400 transition-colors"
                 >
                   <Phone className="w-5 h-5 text-blue-400" />
-                  +62 812-3456-7890
+                  +62 823-6338-9893
                 </a>
               </li>
               <li className="flex items-center gap-3 text-gray-300">

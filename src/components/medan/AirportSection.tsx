@@ -46,7 +46,7 @@ const processSteps = [
 
 const AirportSection = () => {
   const whatsappLink =
-    "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20booking%20antar%20jemput%20Bandara%20Kualanamu";
+    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20booking%20antar%20jemput%20Bandara%20Kualanamu";
 
   return (
     <section id="bandara" className="py-20 bg-white relative overflow-hidden">
