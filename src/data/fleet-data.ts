@@ -108,7 +108,7 @@ export const cars: Car[] = [
   },
   {
     name: "Hiace Premio Luxury",
-    image: "/medan/armada/HIACE-PREMIO-LUXURY.webp",
+    image: "/medan/armada/HIACE-PREMIO.webp",
     specs: ["9 Penumpang", "Luxury Seat", "Diesel"],
     category: "Luxury",
     serviceCategory: "VIP",
