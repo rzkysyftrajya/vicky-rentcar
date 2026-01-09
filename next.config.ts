@@ -16,18 +16,28 @@ const nextConfig: NextConfig = {
   },
   // Ensure proper module resolution for framer-motion
   transpilePackages: ["framer-motion"],
-  // Domain handling for vrnrentcarmedan.com rewrite
+  // Domain handling for Medan domains rewrite
   async rewrites() {
     return [
       {
-        source: "/(.*)",
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "pt.vrnrentcarmedan.com",
+          },
+        ],
+        destination: "/medan/:path*",
+      },
+      {
+        source: "/:path*",
         has: [
           {
             type: "host",
             value: "vrnrentcarmedan.com",
           },
         ],
-        destination: "/medan",
+        destination: "/medan/:path*",
       },
     ];
   },
