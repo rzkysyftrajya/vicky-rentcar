@@ -1,4 +1,4 @@
-"use client";
+export const revalidate = 0; // Nonaktifkan SSG / ISR
 
 import Image from "next/image";
 import Link from "next/link";
