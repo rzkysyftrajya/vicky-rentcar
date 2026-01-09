@@ -1,9 +1,3 @@
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
-
-// Make this page dynamic so middleware can process it
-export const dynamic = "force-dynamic";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
