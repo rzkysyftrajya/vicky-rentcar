@@ -1,5 +1,4 @@
-// Make this page dynamic for domain-based redirect
-export const dynamic = "force-dynamic";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
