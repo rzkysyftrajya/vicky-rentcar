@@ -10,11 +10,15 @@ import {
   Users,
   Star,
   Car,
+  Award,
+  CheckCircle,
+  Crown,
+  ThumbsUp,
 } from "lucide-react";
 
 const HeroSection = () => {
   const whatsappLink =
-    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Medan";
+    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20VIP%20di%20Medan";
 
   return (
     <section
@@ -28,34 +32,49 @@ const HeroSection = () => {
           backgroundImage: `url('/medan/hero-section.webp')`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 via-blue-800/75 to-blue-900/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-800/80 to-blue-900/90" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-5xl mx-auto space-y-8">
           {/* Trust Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
-            <Star className="w-4 h-4 text-yellow-400" />
+            <Crown className="w-4 h-4 text-yellow-400" />
             <span className="text-sm font-medium">
               Bagian dari Vicky Rent Car Nusantara
             </span>
           </div>
 
-          {/* Headline - Improved */}
+          {/* Headline - Updated dengan VIP & Pelayanan Premium */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
             Rental Mobil Medan Terpercaya
             <br className="hidden sm:block" />
-            <span className="text-blue-200">
-              Antar Jemput Bandara Kualanamu
-            </span>
+            <span className="text-yellow-400">VIP & Pelayanan Premium</span>
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">
-            Sewa mobil Medan untuk wisata, bisnis & keluarga. Sopir
-            berpengalaman, armada terawat, layanan 24 jam.
+          {/* Subheadline - Lebih meyakinkan untuk layanan VIP */}
+          <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
+            Pengalaman rental mobil mewah dengan pelayanan VIP. Sopir
+            profesional, armada premium terawat, dan layanan 24 jam untuk
+            kenyamanan Anda.
           </p>
+
+          {/* VRN Premium Guarantee Badge */}
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <div className="flex items-center gap-2 bg-gradient-to-r from-yellow-500/20 to-amber-500/20 backdrop-blur-sm border border-yellow-400/30 rounded-full px-4 py-2">
+              <Award className="w-5 h-5 text-yellow-400" />
+              <span className="text-sm font-bold">VRN Premium Guarantee</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
+              <Shield className="w-5 h-5 text-green-400" />
+              <span className="text-sm font-medium">Armada Terinsured</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
+              <CheckCircle className="w-5 h-5 text-blue-400" />
+              <span className="text-sm font-medium">Sopir Profesional</span>
+            </div>
+          </div>
 
           {/* CTA Buttons - WhatsApp Primary */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
@@ -72,14 +91,14 @@ const HeroSection = () => {
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-white/40 text-white hover:bg-white hover:text-blue-700 text-lg px-8 w-full sm:w-auto"
+              className="border-2 border-white/40 hover:bg-white hover:text-blue-700 text-white dark:text-white dark:hover:bg-white dark:hover:text-blue-700 text-lg px-8 w-full sm:w-auto bg-white/10 dark:bg-white/10"
               asChild
             >
-              <a href="#armada">Lihat Armada</a>
+              <a href="/medan/fleet">Lihat Armada VIP</a>
             </Button>
           </div>
 
-          {/* Trust Micro Points */}
+          {/* Trust Micro Points - Enhanced */}
           <div className="flex flex-wrap justify-center gap-4 md:gap-6 pt-6">
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <Star className="w-4 h-4 text-yellow-400" />
@@ -89,17 +108,15 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <Car className="w-4 h-4 text-blue-300" />
-              <span className="text-sm font-medium">Armada VIP & Luxury</span>
+              <span className="text-sm font-medium">50+ Armada Premium</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-              <Shield className="w-4 h-4 text-green-400" />
-              <span className="text-sm font-medium">
-                Sopir Profesional & Asuransi
-              </span>
+              <ThumbsUp className="w-4 h-4 text-green-400" />
+              <span className="text-sm font-medium">Sopir Berpengalaman</span>
             </div>
           </div>
 
-          {/* Trust Indicators */}
+          {/* Trust Indicators - Stats Enhanced */}
           <div className="flex flex-wrap justify-center gap-6 pt-8">
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <Users className="w-4 h-4 text-blue-300" />
@@ -112,14 +129,21 @@ const HeroSection = () => {
               <Clock className="w-4 h-4 text-blue-300" />
               <div>
                 <div className="text-xl font-bold">24/7</div>
-                <div className="text-xs text-blue-200">Layanan</div>
+                <div className="text-xs text-blue-200">Layanan Nonstop</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+              <Award className="w-4 h-4 text-blue-300" />
+              <div>
+                <div className="text-xl font-bold">10+</div>
+                <div className="text-xs text-blue-200">Tahun Pengalaman</div>
               </div>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <Shield className="w-4 h-4 text-blue-300" />
               <div>
-                <div className="text-xl font-bold">10+</div>
-                <div className="text-xs text-blue-200">Tahun Pengalaman</div>
+                <div className="text-xl font-bold">100%</div>
+                <div className="text-xs text-blue-200">Terjamin</div>
               </div>
             </div>
           </div>

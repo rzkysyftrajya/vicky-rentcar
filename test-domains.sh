@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Testing Multi-Domain Setup..."
+echo ""
+echo "1. Testing vickyrentcarnusantara.com:3000"
+curl -s -H "Host: vickyrentcarnusantara.com" http://localhost:3000 | grep -o "<title>[^<]*</title>"
+echo ""
+echo "2. Testing pt.vrnrentcarmedan.com:3000"
+curl -s -H "Host: pt.vrnrentcarmedan.com" http://localhost:3000 | grep -o "<title>[^<]*</title>"
+echo ""
+echo "Done!"

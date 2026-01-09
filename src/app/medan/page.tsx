@@ -24,6 +24,7 @@ import {
   Briefcase,
   BadgeCheck,
   Trophy,
+  ThumbsUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -185,27 +186,77 @@ const vipServices = [
   },
 ];
 
-// Trust badges
+// Trust badges - Enhanced with more trust elements
 const trustBadges = [
   {
     icon: BadgeCheck,
     title: "Terverifikasi & Terpercaya",
-    description: "Bagian dari Vicky Rent Car Nusantara",
+    description: "Bagian dari Vicky Rent Car Nusantara sejak 2018",
   },
   {
     icon: Shield,
     title: "Asuransi Comprehensive",
-    description: "Semua kendaraan fully insured",
+    description: "Semua kendaraan fully insured & tersertifikasi",
   },
   {
     icon: Trophy,
     title: "Award Winner",
-    description: "Rental terbaik di Medan",
+    description: "Rental mobil terbaik di Sumatera Utara",
   },
   {
     icon: Star,
     title: "Rating 4.9/5.0",
-    description: "Dari 500+ review pelanggan",
+    description: "Dari 500+ review pelanggan puas",
+  },
+  {
+    icon: Crown,
+    title: "Layanan VIP Premium",
+    description: "Sopir profesional & armada mewah terawat",
+  },
+  {
+    icon: ThumbsUp,
+    title: "Garansi Kepuasan",
+    description: "Layanan berkualitas atau uang kembali",
+  },
+];
+
+// Why Trust Us Section - Detailed trust building
+const whyTrustUsItems = [
+  {
+    icon: BadgeCheck,
+    title: "Legalitas Terpenuhi",
+    description: "Perusahaan resmi dengan izin usaha lengkap",
+    detail: "NPWP, SITU, dan izin operasional valid",
+  },
+  {
+    icon: Shield,
+    title: "Armada Ter-Asuransikan",
+    description: "Semua kendaraan memiliki asuransi komprehensif",
+    detail: "Perlindungan penuh untuk penumpang dan kendaraan",
+  },
+  {
+    icon: Award,
+    title: "Sopir Profesional",
+    description: "Sopir berpengalaman dengan training intensif",
+    detail: "SIM A profesional, english speaking, service excellent",
+  },
+  {
+    icon: Star,
+    title: "Rating Tertinggi",
+    description: "Rating 4.9 dari 500+ pelanggan",
+    detail: "Testimoni positif di Google dan media sosial",
+  },
+  {
+    icon: Clock,
+    title: "Layanan 24 Jam",
+    description: "Customer support siap membantu kapan saja",
+    detail: "Respon cepat via WhatsApp dan telepon",
+  },
+  {
+    icon: Crown,
+    title: "VRN Premium Guarantee",
+    description: "Jaminan layanan premium untuk semua pelanggan",
+    detail: "Kepuasan Anda adalah prioritas utama kami",
   },
 ];
 
@@ -253,14 +304,14 @@ export default function MedanPage() {
       {/* Trust Badges Section */}
       <section className="py-12 bg-gray-50 dark:bg-slate-900">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {trustBadges.map((badge, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow text-center border border-gray-100 dark:border-slate-700"
+                className="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow text-center border border-gray-100 dark:border-slate-700"
               >
-                <badge.icon className="w-10 h-10 text-blue-600 dark:text-blue-400 mx-auto mb-3" />
-                <h3 className="font-bold text-gray-900 dark:text-white text-sm mb-1">
+                <badge.icon className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-3" />
+                <h3 className="font-bold text-gray-900 dark:text-white text-xs mb-1">
                   {badge.title}
                 </h3>
                 <p className="text-xs text-gray-600 dark:text-gray-400">
@@ -268,6 +319,82 @@ export default function MedanPage() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Trust Us Section - Detailed Trust Building */}
+      <section className="py-20 bg-white dark:bg-slate-950">
+        <div className="container mx-auto px-4">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 text-blue-700 dark:text-blue-300 px-6 py-2 rounded-full text-sm font-bold mb-6">
+              <ThumbsUp className="w-5 h-5" />
+              MENGAPA KAMI TERPERCAYA
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
+              Bukti Kepercayaan
+              <br />
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-indigo-400">
+                500+ Pelanggan Puas
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Kami berkomitmen memberikan layanan rental mobil terbaik dengan
+              transparansi, profesionalisme, dan jaminan kualitas untuk setiap
+              pelanggan.
+            </p>
+          </div>
+
+          {/* Trust Items Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {whyTrustUsItems.map((item, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-gray-50 to-white dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                      {item.description}
+                    </p>
+                    <div className="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-3">
+                      <p className="text-xs text-blue-700 dark:text-blue-300 font-medium">
+                        ✓ {item.detail}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Trust Stats */}
+          <div className="mt-12 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 text-white">
+            <div className="grid md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div className="text-3xl md:text-4xl font-bold mb-2">10+</div>
+                <div className="text-sm text-blue-200">Tahun Pengalaman</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold mb-2">500+</div>
+                <div className="text-sm text-blue-200">Pelanggan Puas</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold mb-2">50+</div>
+                <div className="text-sm text-blue-200">Armada Ready</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold mb-2">4.9/5</div>
+                <div className="text-sm text-blue-200">Rating Pelanggan</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
