@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Medan Domain Sitemap for pt.vrnrentcarmedan.com -->
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://pt.vrnrentcarmedan.com/"/>
+  </url>
+  
+  <!-- Fleet Page -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/fleet</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://pt.vrnrentcarmedan.com/fleet"/>
+  </url>
+  
+  <!-- Services Page -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/services</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://pt.vrnrentcarmedan.com/services"/>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/contact</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://pt.vrnrentcarmedan.com/contact"/>
+  </url>
+  
+  <!-- FAQ Page -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/faq</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://pt.vrnrentcarmedan.com/faq"/>
+  </url>
+  
+  <!-- About Us Page -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/about-us</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://pt.vrnrentcarmedan.com/about-us"/>
+  </url>
+  
+  <!-- Features Page -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/features</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://pt.vrnrentcarmedan.com/features"/>
+  </url>
+  
+  <!-- Tourism Page -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/tourism</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://pt.vrnrentcarmedan.com/tourism"/>
+  </url>
+  
+  <!-- Airport Page -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/airport</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://pt.vrnrentcarmedan.com/airport"/>
+  </url>
+  
+  <!-- Testimonials Page -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/testimonials</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://pt.vrnrentcarmedan.com/testimonials"/>
+  </url>
+  
+  <!-- Video Page -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/video</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://pt.vrnrentcarmedan.com/video"/>
+  </url>
+  
+  <!-- Stats Page -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/stats</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://pt.vrnrentcarmedan.com/stats"/>
+  </url>
+
+  <!-- Layanan Pages -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/layanan/sewa-mobil-pengantin-medan</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/layanan/rental-mobil-untuk-event-medan</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/layanan/city-tour-medan</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Specific Car Rentals -->
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/rental-innova-medan</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/rental-hiace-medan</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pt.vrnrentcarmedan.com/rental-avanza-medan</loc>
+    <lastmod>2024-01-15T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
+

@@ -1,7 +1,3 @@
-// Medan-specific layout for pt.vrnrentcarmedan.com
-// This layout overrides the global RootLayout for all /medan routes
-// Domain middleware rewrites pt.vrnrentcarmedan.com to /medan
-
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
@@ -19,58 +15,115 @@ const inter = Inter({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://vrnrentcarmedan.com"),
-  title: {
-    default:
-      "VRN Rent Car Medan - Rental Mobil VIP & Luxury | Antar Jemput Bandara Kualanamu",
-    template: "%s | VRN Rent Car Medan",
-  },
-  description:
-    "VRN Rent Car Medan - Rental mobil terpercaya dengan layanan VIP & luxury. Alphard, Mercedes, Fortuner. Antar jemput Bandara Kualanamu, sopir profesional, armada terawat. Bagian dari Vicky Rent Car Nusantara.",
-  keywords: [
-    "rental mobil medan",
-    "sewa mobil medan",
-    "vrn rent car medan",
-    "rental mobil vip medan",
-    "sewa alphard medan",
-    "rental mercedes medan",
-    "rental mobil luxury medan",
-    "antar jemput bandara kualanamu",
-    "sewa mobil harian medan",
-    "rental mobil bulanan medan",
-  ],
-  verification: {
-    google: "0e7tdpsZeFHt20H7FDiaoWypuVlVHKnJ7PGYqalg-6c",
-  },
-  alternates: {
-    canonical: "https://vrnrentcarmedan.com",
-  },
-  openGraph: {
-    title:
-      "VRN Rent Car Medan - Rental Mobil VIP & Luxury | Antar Jemput Bandara",
+/**
+ * Get the canonical hostname for Medan domain
+ * This ensures proper SEO canonical URLs regardless of how users access the site
+ */
+function getMedanCanonicalHost(hostname: string): string {
+  // Normalize hostname: remove www. prefix for consistency
+  if (hostname.startsWith("www.")) {
+    return hostname.replace("www.", "");
+  }
+  return hostname;
+}
+
+/**
+ * Get the base URL for the current request
+ */
+function getBaseUrl(hostname: string): string {
+  const canonicalHost = getMedanCanonicalHost(hostname);
+  return `https://${canonicalHost}`;
+}
+
+interface MetadataProps {
+  children: React.ReactNode;
+  params: {
+    hostname?: string;
+  };
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { hostname?: string };
+}): Promise<Metadata> {
+  // Get hostname from params or use default
+  const hostname = params?.hostname || "pt.vrnrentcarmedan.com";
+  const baseUrl = getBaseUrl(hostname);
+
+  return {
+    metadataBase: new URL(baseUrl),
+    title: {
+      default:
+        "VRN Rent Car Medan - Rental Mobil VIP & Luxury | Antar Jemput Bandara Kualanamu",
+      template: "%s | VRN Rent Car Medan",
+    },
     description:
-      "VRN Rent Car Medan - Sewa mobil VIP & luxury untuk bisnis, wedding, dan perjalanan eksklusif. Layanan premium dengan armada Alphard, Mercedes, dan kendaraan mewah lainnya.",
-    type: "website",
-    url: "https://vrnrentcarmedan.com",
-    locale: "id_ID",
-    siteName: "VRN Rent Car Medan",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "VRN Rent Car Medan - Rental Mobil VIP & Luxury",
-    description:
-      "VRN Rent Car Medan - Sewa mobil VIP & luxury terpercaya di Medan dengan layanan premium.",
-  },
-};
+      "VRN Rent Car Medan - Rental mobil terpercaya dengan layanan VIP & luxury. Alphard, Mercedes, Fortuner. Antar jemput Bandara Kualanamu, sopir profesional, armada terawat. Bagian dari Vicky Rent Car Nusantara.",
+    keywords: [
+      "rental mobil medan",
+      "sewa mobil medan",
+      "vrn rent car medan",
+      "rental mobil vip medan",
+      "sewa alphard medan",
+      "rental mercedes medan",
+      "rental mobil luxury medan",
+      "antar jemput bandara kualanamu",
+      "sewa mobil harian medan",
+      "rental mobil bulanan medan",
+    ],
+    verification: {
+      google: "0e7tdpsZeFHt20H7FDiaoWypuVlVHKnJ7PGYqalg-6c",
+    },
+    alternates: {
+      canonical: baseUrl,
+    },
+    openGraph: {
+      title:
+        "VRN Rent Car Medan - Rental Mobil VIP & Luxury | Antar Jemput Bandara",
+      description:
+        "VRN Rent Car Medan - Sewa mobil VIP & luxury untuk bisnis, wedding, dan perjalanan eksklusif. Layanan premium dengan armada Alphard, Mercedes, dan kendaraan mewah lainnya.",
+      type: "website",
+      url: baseUrl,
+      locale: "id_ID",
+      siteName: "VRN Rent Car Medan",
+      images: [
+        {
+          url: `${baseUrl}/medan/hero-section.webp`,
+          width: 1200,
+          height: 630,
+          alt: "VRN Rent Car Medan - Rental Mobil VIP & Luxury",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "VRN Rent Car Medan - Rental Mobil VIP & Luxury",
+      description:
+        "VRN Rent Car Medan - Sewa mobil VIP & luxury terpercaya di Medan dengan layanan premium.",
+      images: [`${baseUrl}/medan/hero-section.webp`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+  };
+}
 
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "VRN Rent Car Medan",
-  url: "https://vrnrentcarmedan.com",
-  logo: "https://vrnrentcarmedan.com/logoVRN.png",
-  image: "https://vrnrentcarmedan.com/medan/hero-section.webp",
+  url: "https://pt.vrnrentcarmedan.com",
+  logo: "https://pt.vrnrentcarmedan.com/logoVRN.png",
+  image: "https://pt.vrnrentcarmedan.com/medan/hero-section.webp",
   description:
     "Layanan rental mobil VIP & luxury di Medan. Menyediakan Alphard, Mercedes, Fortuner untuk wedding, korporat, dan perjalanan istimewa.",
   telephone: "+6282363389893",
@@ -83,7 +136,7 @@ const structuredData = {
     addressCountry: "ID",
   },
   priceRange: "$$",
-  hasMap: "Https://maps.app.goo.gl/bXqcSpsHzM4TH6iHA",
+  hasMap: "https://maps.app.goo.gl/bXqcSpsHzM4TH6iHA",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -113,11 +166,11 @@ const structuredData = {
   },
 };
 
-export default function MedanLayout({
-  children,
-}: Readonly<{
+interface MedanLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+export default function MedanLayout({ children }: MedanLayoutProps) {
   return (
     <html lang="id" suppressHydrationWarning>
       <head>
