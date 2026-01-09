@@ -12,6 +12,22 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "vickyrentcarnusantara.com",
       },
+      {
+        protocol: "https",
+        hostname: "pt.vrnrentcarmedan.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.pt.vrnrentcarmedan.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.vickyrentcarnusantara.com",
+      },
+      {
+        protocol: "https",
+        hostname: "localhost",
+      },
     ],
     // Optimize images for performance
     formats: ["image/avif", "image/webp"],
@@ -33,6 +49,33 @@ const nextConfig: NextConfig = {
   // Redirects (use sparingly, prefer rewrites)
   async redirects() {
     return [];
+  },
+
+  // Host-based rewrites for multi-domain routing
+  // pt.vrnrentcarmedan.com → /medan/*
+  async rewrites() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "pt.vrnrentcarmedan.com",
+          },
+        ],
+        destination: "/medan/:path*",
+      },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.pt.vrnrentcarmedan.com",
+          },
+        ],
+        destination: "/medan/:path*",
+      },
+    ];
   },
   // Note: Host-based rewrites are handled in middleware.ts
   // for better performance and cleaner architecture
