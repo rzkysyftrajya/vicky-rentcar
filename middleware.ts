@@ -31,17 +31,15 @@ export function middleware(req: NextRequest) {
       return NextResponse.next();
     }
 
-    // Jika root, rewrite ke /medan
+    // Jika root, redirect ke /medan (pakai redirect agar browser URL berubah)
     if (pathname === "/") {
-      console.log(`[Middleware] Rewriting / to /medan`);
-      url.pathname = "/medan";
-      return NextResponse.rewrite(url);
+      console.log(`[Middleware] Redirecting / to /medan`);
+      return NextResponse.redirect(new URL("/medan", req.url));
     }
 
-    // Jika path lain, tambahkan /medan di depan
-    console.log(`[Middleware] Rewriting ${pathname} to /medan${pathname}`);
-    url.pathname = `/medan${pathname}`;
-    return NextResponse.rewrite(url);
+    // Jika path lain, redirect dengan /medan di depan
+    console.log(`[Middleware] Redirecting ${pathname} to /medan${pathname}`);
+    return NextResponse.redirect(new URL(`/medan${pathname}`, req.url));
   }
 
   return NextResponse.next();
