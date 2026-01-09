@@ -1,12 +1,27 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from "next/server";
 
-// This function can be marked `async` if using `await` inside
-export function middleware(request: NextRequest) {
-  return NextResponse.redirect(new URL('/home', request.url))
+export function middleware(req: NextRequest) {
+  const host = req.headers.get("host");
+  const url = req.nextUrl.clone();
+
+  // Domain khusus Medan (Ads landing)
+  if (host === "pt.vrnrentcarmedan.com") {
+    // Root → /medan
+    if (url.pathname === "/") {
+      url.pathname = "/medan";
+      return NextResponse.rewrite(url);
+    }
+
+    // Subpaths → /medan/*
+    if (!url.pathname.startsWith("/medan")) {
+      url.pathname = `/medan${url.pathname}`;
+      return NextResponse.rewrite(url);
+    }
+  }
+
+  return NextResponse.next();
 }
 
-// See "Matching Paths" below to learn more
 export const config = {
-  matcher: '/',
-}
+  matcher: ["/((?!_next|favicon.ico).*)"],
+};
