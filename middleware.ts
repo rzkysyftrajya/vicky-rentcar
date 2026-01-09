@@ -1,21 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(req: NextRequest) {
-  const host =
+  let host =
     req.headers.get("x-forwarded-host") || req.headers.get("host") || "";
 
-  const url = req.nextUrl.clone();
+  host = host.split(":")[0]; // penting: buang :443
 
-  const isMedanDomain = host.includes("pt.vrnrentcarmedan.com");
+  const url = req.nextUrl.clone();
+  const pathname = url.pathname;
+
+  const isMedanDomain =
+    host === "pt.vrnrentcarmedan.com" ||
+    host.endsWith(".pt.vrnrentcarmedan.com");
 
   if (isMedanDomain) {
-    if (url.pathname === "/") {
-      url.pathname = "/medan";
-      return NextResponse.rewrite(url);
-    }
-
-    if (!url.pathname.startsWith("/medan")) {
-      url.pathname = `/medan${url.pathname}`;
+    if (!pathname.startsWith("/medan")) {
+      url.pathname = pathname === "/" ? "/medan" : `/medan${pathname}`;
       return NextResponse.rewrite(url);
     }
   }
