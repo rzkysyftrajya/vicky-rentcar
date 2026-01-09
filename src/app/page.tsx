@@ -1,3 +1,6 @@
+// Make this page dynamic for domain-based redirect
+export const dynamic = "force-dynamic";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
