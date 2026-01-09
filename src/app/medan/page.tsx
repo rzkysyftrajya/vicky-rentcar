@@ -5,7 +5,6 @@ import Header from "@/components/medan/Header";
 import HeroSection from "@/components/medan/HeroSection";
 import StatsSection from "@/components/medan/StatsSection";
 import Footer from "@/components/medan/Footer";
-import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import KenapaVRNSection from "@/components/medan/KenapaVRNSection";
 import Link from "next/link";
 import {
@@ -769,7 +768,6 @@ export default function MedanPage() {
 
       <StatsSection />
       <Footer />
-      <FloatingWhatsApp />
     </main>
   );
 }
