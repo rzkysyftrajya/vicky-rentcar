@@ -11,8 +11,7 @@ const destinations = [
       "Danau vulkanik terbesar di dunia dengan pemandangan spektakuler",
     fullDescription:
       "Danau Toba adalah danau vulkanik terbesar di dunia dan salah satu danau terdalam. Terletak di Sumatera Utara, danau ini dikelilingi oleh pegunungan yang indah dan Pulau Samosir di tengahnya. Tempat yang sempurna untuk menikmati keindahan alam, budaya Batak, dan kuliner khas.",
-    image:
-      "https://images.unsplash.com/photo-1571366706805-9eba0a5f3c12?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/destinasi-wisata/danau-toba.webp",
     distance: "4-5 jam dari Medan",
     highlights: [
       "Pulau Samosir",
@@ -26,8 +25,7 @@ const destinations = [
     description: "Kota wisata pegunungan dengan udara sejuk dan pasar buah",
     fullDescription:
       "Berastagi adalah kota wisata di dataran tinggi Karo dengan udara yang sejuk dan pemandangan Gunung Sibayak serta Gunung Sinabung. Terkenal dengan pasar buah dan sayuran segar, serta berbagai objek wisata alam yang menarik.",
-    image:
-      "https://images.unsplash.com/photo-1586325194227-7625ed95172b?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/destinasi-wisata/sibayak.webp",
     distance: "1.5 jam dari Medan",
     highlights: [
       "Gunung Sibayak",
@@ -71,8 +69,7 @@ const destinations = [
     description: "Habitat orangutan sumatera dan wisata alam trekking",
     fullDescription:
       "Bukit Lawang adalah gerbang menuju Taman Nasional Gunung Leuser, salah satu hutan hujan tertua di dunia. Tempat ini terkenal sebagai habitat orangutan Sumatera dan menawarkan pengalaman trekking dan river tubing yang mendebarkan.",
-    image:
-      "https://images.unsplash.com/photo-1544979590-37e9b47eb705?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/destinasi-wisata/bukit-lawang.webp",
     distance: "3 jam dari Medan",
     highlights: [
       "Orangutan Sumatera",
@@ -87,8 +84,7 @@ const destinations = [
       "Air terjun tertinggi di Indonesia dengan pemandangan Danau Toba",
     fullDescription:
       "Air Terjun Sipiso-piso adalah salah satu air terjun tertinggi di Indonesia dengan ketinggian sekitar 120 meter. Terletak di tepi Danau Toba, air terjun ini menawarkan pemandangan yang spektakuler dengan latar belakang danau vulkanik terbesar di dunia.",
-    image:
-      "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/destinasi-wisata/air-terjun-sikulikap.webp",
     distance: "4 jam dari Medan",
     highlights: [
       "Ketinggian 120m",

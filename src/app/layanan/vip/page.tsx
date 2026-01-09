@@ -178,12 +178,12 @@ export default function VIPServicesPage() {
               >
                 <CardContent className="p-0">
                   {/* Image Container */}
-                  <div className="relative h-64 w-full overflow-hidden">
+                  <div className="relative w-full aspect-[2/3] overflow-hidden">
                     <Image
                       src={car.image}
                       alt={car.name}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     {/* Gradient Overlay */}

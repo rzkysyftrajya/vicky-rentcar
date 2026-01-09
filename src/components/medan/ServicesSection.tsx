@@ -22,7 +22,20 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const services = [
+interface Service {
+  icon: typeof Crown;
+  title: string;
+  description: string;
+  features: string[];
+  whatsappText: string;
+}
+
+interface VIPService extends Service {
+  price: string;
+  image: string;
+}
+
+const services: Service[] = [
   {
     icon: Calendar,
     title: "Rental Mobil Harian Medan",
@@ -64,7 +77,7 @@ const services = [
 ];
 
 // VIP Services - Premium tier for luxury vehicles
-const vipServices = [
+const vipServices: VIPService[] = [
   {
     icon: Crown,
     title: "VIP Wedding Car",
@@ -77,6 +90,7 @@ const vipServices = [
       "Photo session support",
     ],
     price: "Mulai Rp 1.500.000",
+    image: "/medan/layanan/VIP-WEDDING-CAR.webp",
     whatsappText:
       "Halo,%20saya%20ingin%20sewa%20VIP%20Wedding%20Car%20di%20Medan",
   },
@@ -92,6 +106,7 @@ const vipServices = [
       "Dedicated coordinator",
     ],
     price: "Hubungi untuk harga",
+    image: "/medan/layanan/EXECUTIVE-CORPORATE.webp",
     whatsappText:
       "Halo,%20saya%20ingin%20layanan%20Executive%20Corporate%20VIP",
   },
@@ -107,6 +122,7 @@ const vipServices = [
       "Meet & greet",
     ],
     price: "Mulai Rp 400.000",
+    image: "/medan/layanan/vip-airport-transfer.webp",
     whatsappText:
       "Halo,%20saya%20ingin%20VIP%20Airport%20Transfer%20di%20Medan",
   },
@@ -122,6 +138,7 @@ const vipServices = [
       "Personal guide",
     ],
     price: "Mulai Rp 800.000/hari",
+    image: "/medan/layanan/luxury-city-tour.webp",
     whatsappText:
       "Halo,%20saya%20ingin%20Luxury%20City%20Tour%20dengan%20mobil%20mewah",
   },
@@ -181,11 +198,7 @@ const ServicesSection = () => {
     </div>
   );
 
-  const VIPServiceCard = ({
-    service,
-  }: {
-    service: (typeof vipServices)[0];
-  }) => (
+  const VIPServiceCard = ({ service }: { service: VIPService }) => (
     <div className="group bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-amber-500/30 h-full relative overflow-hidden">
       {/* Premium Background Effect */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
@@ -198,6 +211,16 @@ const ServicesSection = () => {
       </div>
 
       <div className="flex flex-col h-full relative z-10">
+        {/* Image */}
+        <div className="relative h-40 mb-4 bg-slate-800 rounded-xl overflow-hidden">
+          <img
+            src={service.image}
+            alt={service.title}
+            className="w-full h-full object-contain p-3 transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
+        </div>
+
         {/* Icon & Title */}
         <div className="flex items-start gap-4 mb-4">
           <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-600/20 flex items-center justify-center shrink-0 border border-amber-500/30">

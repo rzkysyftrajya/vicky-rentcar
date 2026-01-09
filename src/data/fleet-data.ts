@@ -15,7 +15,7 @@ export const cars: Car[] = [
   // === VIP & LUXURY SERVICES ===
   {
     name: "Alphard New Gen 4",
-    image: "/armada/alphard-new.webp",
+    image: "/medan/armada/ALPHARD-GEN-4.webp",
     specs: ["7 Penumpang", "Matic", "Bensin"],
     category: "Luxury",
     serviceCategory: "VIP",
@@ -29,7 +29,7 @@ export const cars: Car[] = [
   },
   {
     name: "Alphard Gen 3",
-    image: "/armada/alphard-new.webp",
+    image: "/medan/armada/ALPHARD-GEN-3.webp",
     specs: ["7 Penumpang", "Matic", "Bensin"],
     category: "Luxury",
     serviceCategory: "VIP",
@@ -43,7 +43,7 @@ export const cars: Car[] = [
   },
   {
     name: "Land Cruiser",
-    image: "/armada/land-cruiser.webp",
+    image: "/medan/armada/LAND-CRUISER.webp",
     specs: ["7 Penumpang", "Matic", "Diesel"],
     category: "SUV",
     serviceCategory: "VIP",
@@ -52,7 +52,7 @@ export const cars: Car[] = [
   },
   {
     name: "Mercedes-Benz (Mercy)",
-    image: "/armada/mercedes-benz.webp",
+    image: "/medan/armada/MERCY-E-300.webp",
     specs: ["5 Penumpang", "Matic", "Bensin"],
     category: "Luxury",
     serviceCategory: "VIP",
@@ -66,7 +66,7 @@ export const cars: Car[] = [
   },
   {
     name: "Fortuner GR 4x2",
-    image: "/armada/fortuner.webp",
+    image: "/medan/armada/FORTUNER-GR-4X2.webp",
     specs: ["7 Penumpang", "Matic", "Diesel"],
     category: "SUV",
     serviceCategory: "VIP",
@@ -80,7 +80,7 @@ export const cars: Car[] = [
   },
   {
     name: "Fortuner GR 4x4",
-    image: "/armada/fortuner.webp",
+    image: "/medan/armada/FORTUNER-GR-4X4.webp",
     specs: ["7 Penumpang", "Matic", "Diesel"],
     category: "SUV",
     serviceCategory: "VIP",
@@ -94,7 +94,7 @@ export const cars: Car[] = [
   },
   {
     name: "Pajero",
-    image: "/armada/pajero.webp",
+    image: "/medan/armada/PAJERO.webp",
     specs: ["7 Penumpang", "Matic", "Diesel"],
     category: "SUV",
     serviceCategory: "VIP",
@@ -108,7 +108,7 @@ export const cars: Car[] = [
   },
   {
     name: "Hiace Premio Luxury",
-    image: "/armada/hiace-premio-luxury.webp",
+    image: "/medan/armada/HIACE-PREMIO-LUXURY.webp",
     specs: ["9 Penumpang", "Luxury Seat", "Diesel"],
     category: "Luxury",
     serviceCategory: "VIP",
@@ -123,7 +123,7 @@ export const cars: Car[] = [
   // === EXECUTIVE & CORPORATE SERVICES ===
   {
     name: "Innova Zenix",
-    image: "/armada/innova-zenix .webp",
+    image: "/medan/armada/INNOVA-ZENIX.webp",
     specs: ["7 Penumpang", "Matic", "Hybrid"],
     category: "MPV",
     serviceCategory: "Executive",
@@ -137,7 +137,7 @@ export const cars: Car[] = [
   },
   {
     name: "Innova Reborn",
-    image: "/armada/innova-reborn.webp",
+    image: "/medan/armada/INNOVA-REBORN.webp",
     specs: ["7 Penumpang", "Matic", "Bensin"],
     category: "MPV",
     serviceCategory: "Executive",
@@ -151,7 +151,7 @@ export const cars: Car[] = [
   },
   {
     name: "Fortuner",
-    image: "/armada/fortuner.webp",
+    image: "/medan/armada/FORTUNER.webp",
     specs: ["7 Penumpang", "Matic", "Diesel"],
     category: "SUV",
     serviceCategory: "Executive",
@@ -166,7 +166,7 @@ export const cars: Car[] = [
   // === GROUP & TRAVEL SERVICES ===
   {
     name: "Hiace Premio",
-    image: "/armada/hiace-premio.webp",
+    image: "/medan/armada/HIACE-PREMIO.webp",
     specs: ["14 Penumpang", "Manual", "Diesel"],
     category: "Minibus",
     serviceCategory: "Group",
@@ -175,7 +175,7 @@ export const cars: Car[] = [
   },
   {
     name: "Hiace Commuter",
-    image: "/armada/hiace-commuter.webp",
+    image: "/medan/armada/HIACE-COMMUTER.webp",
     specs: ["14 Penumpang", "Manual", "Diesel"],
     category: "Minibus",
     serviceCategory: "Group",
@@ -184,7 +184,7 @@ export const cars: Car[] = [
   },
   {
     name: "Isuzu Elf Minibus",
-    image: "/armada/isuzu-elf-minibus.webp",
+    image: "/medan/armada/ISUZU-ELF-MINIBUS.webp",
     specs: ["20 Penumpang", "Manual", "Diesel"],
     category: "Minibus",
     serviceCategory: "Group",
@@ -194,7 +194,7 @@ export const cars: Car[] = [
   // === SPECIAL PURPOSE VEHICLES ===
   {
     name: "Hilux Double Cabin 4x4",
-    image: "/armada/hilux-double-cabin.webp",
+    image: "/medan/armada/HILUX-DOUBLE-CABIN.webp",
     specs: ["5 Penumpang", "4x4", "Diesel"],
     category: "SUV",
     serviceCategory: "Special",
@@ -209,7 +209,7 @@ export const cars: Car[] = [
   // === STANDARD FLEET (City Car, MPV, SUV) ===
   {
     name: "Toyota Rush",
-    image: "/armada/toyota-rush.webp",
+    image: "/medan/armada/TOYOTA-RUSH.webp",
     specs: ["7 Penumpang", "Matic", "Bensin"],
     category: "SUV",
     serviceCategory: "Executive",
@@ -218,7 +218,7 @@ export const cars: Car[] = [
   },
   {
     name: "Toyota Calya",
-    image: "/armada/toyota-calya.webp",
+    image: "/medan/armada/CALYA.webp",
     specs: ["7 Penumpang", "Matic", "Irit BBM"],
     category: "MPV",
     serviceCategory: "Executive",
@@ -227,7 +227,7 @@ export const cars: Car[] = [
   },
   {
     name: "Toyota Agya",
-    image: "/armada/toyota-agya.webp",
+    image: "/medan/armada/TOYOTA-AGYA.webp",
     specs: ["4 Penumpang", "Matic", "Irit BBM"],
     category: "City Car",
     serviceCategory: "Executive",
@@ -236,7 +236,7 @@ export const cars: Car[] = [
   },
   {
     name: "Honda Brio",
-    image: "/armada/honda-brio.webp",
+    image: "/medan/armada/HONDA-BRIO.webp",
     specs: ["4 Penumpang", "Matic", "Irit BBM"],
     category: "City Car",
     serviceCategory: "Executive",
@@ -245,7 +245,7 @@ export const cars: Car[] = [
   },
   {
     name: "Daihatsu Ayla",
-    image: "/armada/daihatsu-ayla.webp",
+    image: "/medan/armada/DAIHATSU-AYLA.webp",
     specs: ["4 Penumpang", "Matic", "Irit BBM"],
     category: "City Car",
     serviceCategory: "Executive",
@@ -254,7 +254,7 @@ export const cars: Car[] = [
   },
   {
     name: "Daihatsu Sigra",
-    image: "/armada/daihatsu-sigra.webp",
+    image: "/medan/armada/DAIHATSU-SIGRA.webp",
     specs: ["7 Penumpang", "Matic", "Bensin"],
     category: "MPV",
     serviceCategory: "Executive",
@@ -263,7 +263,7 @@ export const cars: Car[] = [
   },
   {
     name: "Daihatsu Terios",
-    image: "/armada/daihatsu-terios.webp",
+    image: "/medan/armada/DAIHATSU-TERIOS-DOUBLE-CABIN.webp",
     specs: ["7 Penumpang", "Matic", "Bensin"],
     category: "SUV",
     serviceCategory: "Special",
@@ -272,7 +272,7 @@ export const cars: Car[] = [
   },
   {
     name: "Suzuki XL7",
-    image: "/armada/suzuki-xl7.webp",
+    image: "/medan/armada/SUZUKI-XL7.webp",
     specs: ["7 Penumpang", "Matic", "Bensin"],
     category: "MPV",
     serviceCategory: "Executive",
@@ -281,7 +281,7 @@ export const cars: Car[] = [
   },
   {
     name: "Xpander",
-    image: "/armada/xpander.webp",
+    image: "/medan/armada/XPANDER.webp",
     specs: ["7 Penumpang", "Matic", "Bensin"],
     category: "MPV",
     serviceCategory: "Executive",
@@ -295,7 +295,7 @@ export const cars: Car[] = [
   },
   {
     name: "Ertiga Hybrid",
-    image: "/armada/ertiga-hybrid.webp",
+    image: "/medan/armada/ERTIGA-HYBRID.webp",
     specs: ["7 Penumpang", "Matic", "Hybrid"],
     category: "MPV",
     serviceCategory: "Executive",

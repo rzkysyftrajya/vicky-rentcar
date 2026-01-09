@@ -139,8 +139,7 @@ const vipServices = [
       "Photo session support",
     ],
     price: "Hubungi untuk harga",
-    image:
-      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/layanan/VIP-WEDDING-CAR.webp",
   },
   {
     icon: Briefcase,
@@ -154,8 +153,7 @@ const vipServices = [
       "Dedicated coordinator",
     ],
     price: "Hubungi untuk harga",
-    image:
-      "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/layanan/EXECUTIVE-CORPORATE.webp",
   },
   {
     icon: Star,
@@ -169,8 +167,7 @@ const vipServices = [
       "Meet & greet",
     ],
     price: "Hubungi untuk harga",
-    image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/layanan/vip-airport-transfer.webp",
   },
   {
     icon: Sparkles,
@@ -184,8 +181,7 @@ const vipServices = [
       "Personal guide",
     ],
     price: "Hubungi untuk harga",
-    image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/layanan/luxury-city-tour.webp",
   },
 ];
 
@@ -312,11 +308,11 @@ export default function MedanPage() {
                 className="group bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-800 dark:to-slate-900 rounded-2xl overflow-hidden border border-amber-500/20 hover:border-amber-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/20"
               >
                 {/* Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative w-full aspect-square overflow-hidden bg-slate-800">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
                   <div className="absolute top-4 right-4">
@@ -424,15 +420,15 @@ export default function MedanPage() {
                   }}
                 >
                   {/* Image Container */}
-                  <div className="relative h-64 w-full overflow-hidden">
+                  <div className="relative w-full aspect-[2/3] overflow-hidden bg-gray-100">
                     <Image
                       src={car.image}
                       alt={car.name}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="object-contain transition-transform duration-700 group-hover:scale-110"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                     <div className="absolute top-4 left-4">
                       <Badge className="bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-bold shadow-lg">
                         <Star className="w-3 h-3 mr-1 fill-black" />
@@ -440,7 +436,7 @@ export default function MedanPage() {
                       </Badge>
                     </div>
                     <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-2xl font-bold text-white drop-shadow-lg">
+                      <h3 className="text-xl font-bold text-white drop-shadow-lg">
                         {car.name}
                       </h3>
                     </div>

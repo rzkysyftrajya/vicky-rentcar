@@ -139,14 +139,15 @@ export default function Home() {
                   className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
                   <CardHeader className="p-0">
-                    <ImageZoom
-                      src={car.image}
-                      alt={car.name}
-                      data-ai-hint={car.hint}
-                      width={600}
-                      height={400}
-                      className="object-cover"
-                    />
+                    <div className="relative w-full aspect-[2/3] overflow-hidden">
+                      <ImageZoom
+                        src={car.image}
+                        alt={car.name}
+                        data-ai-hint={car.hint}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </CardHeader>
                   <CardContent className="p-6">
                     <CardTitle className="text-xl">{car.name}</CardTitle>

@@ -27,12 +27,12 @@ export function VIPVehicleCard({ car, index }: VIPVehicleCardProps) {
       <Card className="overflow-hidden group bg-gradient-to-br from-background to-secondary/30 border-primary/20 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
         <CardContent className="p-0">
           {/* Image Container */}
-          <div className="relative h-64 w-full overflow-hidden">
+          <div className="relative w-full aspect-[2/3] overflow-hidden">
             <Image
               src={car.image}
               alt={car.name}
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              className="object-contain transition-transform duration-700 group-hover:scale-110"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
             {/* Gradient Overlay */}

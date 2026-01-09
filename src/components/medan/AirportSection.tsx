@@ -122,7 +122,7 @@ const AirportSection = () => {
             {/* Airport Image */}
             <div className="aspect-video rounded-3xl overflow-hidden shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop"
+                src="/medan/layanan/vip-airport-transfer.webp"
                 alt="Bandara Kualanamu Medan"
                 className="w-full h-full object-cover"
               />
