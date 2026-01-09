@@ -21,7 +21,7 @@ export function middleware(req: NextRequest) {
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/static") ||
-    pathname === "/favicon.ico" ||
+    pathname.startsWith("/favicon.ico") ||
     pathname.includes(".")
   ) {
     return NextResponse.next();
@@ -31,18 +31,25 @@ export function middleware(req: NextRequest) {
   if (isMedanDomain(hostname)) {
     // Redirect root "/" ke "/medan"
     if (pathname === "/") {
-      return NextResponse.redirect(new URL("/medan", req.url));
+      const redirectUrl = new URL("/medan", req.url);
+      const res = NextResponse.redirect(redirectUrl);
+      res.headers.set("cache-control", "no-cache, no-store, must-revalidate");
+      return res;
     }
 
     // Sudah di /medan, biarkan
     if (pathname.startsWith("/medan")) {
-      return NextResponse.next();
+      const res = NextResponse.next();
+      res.headers.set("cache-control", "no-cache, no-store, must-revalidate");
+      return res;
     }
 
     // Rewrite path lain ke /medan/...
     const rewriteUrl = new URL(`/medan${pathname}`, req.url);
     rewriteUrl.search = req.nextUrl.search;
-    return NextResponse.rewrite(rewriteUrl);
+    const res = NextResponse.rewrite(rewriteUrl);
+    res.headers.set("cache-control", "no-cache, no-store, must-revalidate");
+    return res;
   }
 
   // Semua domain lain tetap normal
