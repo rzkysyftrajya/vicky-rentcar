@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -32,34 +33,26 @@ const Header = () => {
           suppressHydrationWarning
         >
           {/* Logo */}
-          <Link
-            href="/medan"
-            className="flex items-center space-x-2"
-            suppressHydrationWarning
-          >
-            <div
-              className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center"
-              suppressHydrationWarning
-            >
-              <span
-                className="text-white font-bold text-sm"
-                suppressHydrationWarning
-              >
-                VRN
-              </span>
+          <Link href="/medan" className="flex items-center space-x-2">
+            <div className="relative w-10 h-10">
+              <Image
+                src="/logoVRN.png"
+                alt="VRN Rent Car Medan"
+                fill
+                className="object-contain"
+              />
             </div>
-            <div className="hidden sm:block" suppressHydrationWarning>
-              <div
-                className="font-bold text-lg text-gray-900 dark:text-white"
-                suppressHydrationWarning
-              >
+            <div className="hidden sm:block">
+              <div className="font-bold text-lg text-gray-900 dark:text-white">
                 VRN Rent Car
               </div>
-              <div
-                className="text-xs text-blue-600 dark:text-blue-400 font-medium"
-                suppressHydrationWarning
-              >
+              <div className="text-xs text-blue-600 dark:text-blue-400 font-medium">
                 Medan
+              </div>
+            </div>
+            <div className="block sm:hidden">
+              <div className="font-bold text-lg text-gray-900 dark:text-white">
+                VRN Rent Car Medan
               </div>
             </div>
           </Link>
@@ -130,32 +123,20 @@ const Header = () => {
             >
               <div className="flex flex-col h-full" suppressHydrationWarning>
                 {/* Logo */}
-                <div
-                  className="flex items-center space-x-2 pb-6 border-b dark:border-slate-700"
-                  suppressHydrationWarning
-                >
-                  <div
-                    className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center"
-                    suppressHydrationWarning
-                  >
-                    <span
-                      className="text-white font-bold text-sm"
-                      suppressHydrationWarning
-                    >
-                      VRN
-                    </span>
+                <div className="flex items-center space-x-2 pb-6 border-b dark:border-slate-700">
+                  <div className="relative w-10 h-10">
+                    <Image
+                      src="/logoVRN.png"
+                      alt="VRN Rent Car Medan"
+                      fill
+                      className="object-contain"
+                    />
                   </div>
-                  <div suppressHydrationWarning>
-                    <div
-                      className="font-bold text-lg text-gray-900 dark:text-white"
-                      suppressHydrationWarning
-                    >
+                  <div>
+                    <div className="font-bold text-lg text-gray-900 dark:text-white">
                       VRN Rent Car
                     </div>
-                    <div
-                      className="text-sm text-blue-600 dark:text-blue-400 font-medium"
-                      suppressHydrationWarning
-                    >
+                    <div className="text-sm text-blue-600 dark:text-blue-400 font-medium">
                       Medan
                     </div>
                   </div>

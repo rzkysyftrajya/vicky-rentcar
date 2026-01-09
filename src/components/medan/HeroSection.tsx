@@ -9,6 +9,7 @@ import {
   Clock,
   Users,
   Star,
+  Car,
 } from "lucide-react";
 
 const HeroSection = () => {
@@ -76,6 +77,26 @@ const HeroSection = () => {
             >
               <a href="#armada">Lihat Armada</a>
             </Button>
+          </div>
+
+          {/* Trust Micro Points */}
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 pt-6">
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+              <Star className="w-4 h-4 text-yellow-400" />
+              <span className="text-sm font-medium">
+                Rating 4.9/500+ Pelanggan
+              </span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+              <Car className="w-4 h-4 text-blue-300" />
+              <span className="text-sm font-medium">Armada VIP & Luxury</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+              <Shield className="w-4 h-4 text-green-400" />
+              <span className="text-sm font-medium">
+                Sopir Profesional & Asuransi
+              </span>
+            </div>
           </div>
 
           {/* Trust Indicators */}

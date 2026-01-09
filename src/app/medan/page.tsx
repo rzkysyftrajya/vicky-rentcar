@@ -6,6 +6,7 @@ import HeroSection from "@/components/medan/HeroSection";
 import StatsSection from "@/components/medan/StatsSection";
 import Footer from "@/components/medan/Footer";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
+import KenapaVRNSection from "@/components/medan/KenapaVRNSection";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -246,7 +247,7 @@ export default function MedanPage() {
     cars?.filter((car) => car.serviceCategory === "VIP").slice(0, 6) || [];
 
   return (
-    <main className={`${inter.className} min-h-screen`}>
+    <main className={`${inter.className} min-h-screen pb-24 md:pb-0`}>
       <Header />
       <HeroSection />
 
@@ -382,6 +383,9 @@ export default function MedanPage() {
           </div>
         </div>
       </section>
+
+      {/* Kenapa VRN Section */}
+      <KenapaVRNSection />
 
       {/* Premium Fleet Preview */}
       <section className="py-20 bg-white dark:bg-slate-950">
