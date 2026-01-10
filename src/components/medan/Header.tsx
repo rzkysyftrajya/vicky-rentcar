@@ -5,7 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+} from "@/components/ui/sheet";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -121,6 +126,7 @@ const Header = () => {
               className="w-80 bg-white dark:bg-slate-900"
               suppressHydrationWarning
             >
+              <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
               <div className="flex flex-col h-full" suppressHydrationWarning>
                 {/* Logo */}
                 <div className="flex items-center space-x-2 pb-6 border-b dark:border-slate-700">

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/medan/Header";
 import AboutSection from "@/components/medan/AboutSection";
-import Footer from "@/components/medan/Footer";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import { MotionDiv } from "@/components/animations/MotionDiv";
 import Link from "next/link";

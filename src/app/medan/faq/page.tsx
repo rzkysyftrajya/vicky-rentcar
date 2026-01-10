@@ -3,7 +3,6 @@
 import { Inter } from "next/font/google";
 import Header from "@/components/medan/Header";
 import FAQSection from "@/components/medan/FAQSection";
-import Footer from "@/components/medan/Footer";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import { motion } from "framer-motion";
 import Link from "next/link";

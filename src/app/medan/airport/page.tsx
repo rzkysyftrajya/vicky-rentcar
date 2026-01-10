@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/medan/Header";
 import AirportSection from "@/components/medan/AirportSection";
-import Footer from "@/components/medan/Footer";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -32,7 +31,6 @@ export default function AirportPage() {
     <main className={`${inter.className} min-h-screen`}>
       <Header />
       <AirportSection />
-      <Footer />
       <FloatingWhatsApp />
     </main>
   );

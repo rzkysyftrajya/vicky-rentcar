@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/medan/Header";
 import DestinationsSection from "@/components/medan/DestinationsSection";
-import Footer from "@/components/medan/Footer";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -32,7 +31,6 @@ export default function TourismPage() {
     <main className={`${inter.className} min-h-screen`}>
       <Header />
       <DestinationsSection />
-      <Footer />
       <FloatingWhatsApp />
     </main>
   );

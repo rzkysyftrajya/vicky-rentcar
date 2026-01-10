@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/medan/Header";
 import StatsSection from "@/components/medan/StatsSection";
-import Footer from "@/components/medan/Footer";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import StatsPageClient from "@/components/medan/StatsPageClient";
 
@@ -34,7 +33,6 @@ export default function StatsPage() {
       <Header />
       <StatsPageClient />
       <StatsSection />
-      <Footer />
       <FloatingWhatsApp />
     </main>
   );
