@@ -2,6 +2,7 @@
 
 import { Inter } from "next/font/google";
 import Header from "@/components/medan/Header";
+import Footer from "@/components/medan/Footer";
 import FAQSection from "@/components/medan/FAQSection";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import { motion } from "framer-motion";
