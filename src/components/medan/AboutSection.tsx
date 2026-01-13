@@ -18,7 +18,7 @@ const AboutSection = () => {
           <div className="relative order-2 lg:order-1">
             <div className="relative rounded-3xl overflow-hidden shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=800&auto=format&fit=crop"
+                src="/medan/tentang.jpeg"
                 alt="VRN Rent Car Office"
                 className="w-full aspect-[4/3] object-cover"
               />

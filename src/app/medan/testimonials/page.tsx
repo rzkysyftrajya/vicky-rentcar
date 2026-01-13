@@ -3,8 +3,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/medan/Header";
-import Footer from "@/components/medan/Footer";
-import TestimonialsSection from "@/components/medan/TestimonialsSection";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -500,9 +498,6 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Main Testimonials Section */}
-      <TestimonialsSection />
-
       {/* Detailed Testimonials */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -666,7 +661,6 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      <Footer />
       <FloatingWhatsApp />
     </main>
   );

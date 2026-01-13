@@ -83,7 +83,7 @@ const pageLinks = [
   },
   {
     href: "/medan/tourism",
-    title: "Destinasi Wisaya",
+    title: "Destinasi Wisata",
     description: "Tour Medan dan Sumatera Utara",
     icon: MapPin,
     color: "bg-orange-500 dark:bg-orange-600",
@@ -887,6 +887,79 @@ export default function MedanPage() {
                   Telepon Kami
                 </a>
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Kantor Kami Section - Video */}
+      <section className="py-20 bg-white dark:bg-slate-950">
+        <div className="container mx-auto px-4">
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 text-blue-700 dark:text-blue-300 px-6 py-2 rounded-full text-sm font-bold mb-6">
+              <MapPin className="w-5 h-5" />
+              KANTOR KAMI
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
+              Kunjungi Kantor
+              <br />
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-indigo-400">
+                VRN Rent Car Medan
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Kenali lebih dekat kami dengan menonton video profil perusahaan.
+              Kami siap melayani kebutuhan rental mobil Anda dengan layanan
+              terbaik.
+            </p>
+          </div>
+
+          {/* Video Container */}
+          <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl max-w-5xl mx-auto">
+            <video
+              src="/medan/video-pengenalan.mp4"
+              className="w-full h-full object-cover"
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster="/medan/tentang.jpeg"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          {/* Office Info Cards */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-12">
+            <div className="text-center p-6 bg-blue-50 dark:bg-blue-900/30 rounded-2xl">
+              <MapPin className="w-10 h-10 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                Alamat Kantor
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                Jl. Sempurna Gg. Mawar No.12 dusun II, sambirejo timur, Kec.
+                Medan Tembung, Kabupaten Deli Serdang, Sumatera Utara 20371
+              </p>
+            </div>
+            <div className="text-center p-6 bg-green-50 dark:bg-green-900/30 rounded-2xl">
+              <Phone className="w-10 h-10 text-green-600 dark:text-green-400 mx-auto mb-4" />
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                Hubungi Kami
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                +62 823-6338-9893
+              </p>
+            </div>
+            <div className="text-center p-6 bg-purple-50 dark:bg-purple-900/30 rounded-2xl">
+              <Clock className="w-10 h-10 text-purple-600 dark:text-purple-400 mx-auto mb-4" />
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                Jam Buka
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                24 Jam / 7 Hari Minggu
+              </p>
             </div>
           </div>
         </div>

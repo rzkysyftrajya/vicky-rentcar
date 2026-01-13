@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/medan/Header";
-import Footer from "@/components/medan/Footer";
 import AboutSection from "@/components/medan/AboutSection";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import { MotionDiv } from "@/components/animations/MotionDiv";
@@ -85,42 +84,13 @@ const milestones = [
   },
 ];
 
-const teamMembers = [
-  {
-    name: "Budi Santoso",
-    position: "Founder & CEO",
-    experience: "15+ tahun",
-    description: "Berpengalaman dalam industri transportasi dan hospitality",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop",
-  },
-  {
-    name: "Sari Dewi",
-    position: "Operations Manager",
-    experience: "12+ tahun",
-    description:
-      "Memastikan operasional harian berjalan lancar dan berkualitas",
-    image:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b829?q=80&w=400&auto=format&fit=crop",
-  },
-  {
-    name: "Ahmad Fadli",
-    position: "Fleet Manager",
-    experience: "10+ tahun",
-    description:
-      "Mengelola dan memelihara armada kendaraan dengan standar tinggi",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
-  },
-];
-
 const officeInfo = [
   {
     icon: MapPin,
     title: "Lokasi Strategis",
     description:
-      "Jl. Sisingamangaraja No. 123, Medan Kota, Sumatera Utara 20211",
-    detail: "Pusat kota Medan, mudah diakses dari berbagai lokasi",
+      "Jl. Sempurna Gg. Mawar No.12 dusun II, sambirejo timur, Kec. Medan Tembung, Kabupaten Deli Serdang, Sumatera Utara 20371",
+    detail: "Mudah diakses dari berbagai lokasi di Medan dan sekitarnya",
   },
   {
     icon: Clock,
@@ -244,56 +214,6 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <MotionDiv
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Tim Profesional Kami
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Bertemu dengan tim berpengalaman yang siap memberikan pelayanan
-              terbaik
-            </p>
-          </MotionDiv>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <MotionDiv
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="relative mb-6">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-blue-100"
-                  />
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {member.experience}
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-blue-600 font-medium mb-2">
-                  {member.position}
-                </p>
-                <p className="text-gray-600 text-sm">{member.description}</p>
-              </MotionDiv>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Office Information */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -383,7 +303,6 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      <Footer />
       <FloatingWhatsApp />
     </main>
   );

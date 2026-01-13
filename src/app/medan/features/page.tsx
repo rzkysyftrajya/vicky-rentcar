@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/medan/Header";
-import Footer from "@/components/medan/Footer";
 import FeaturesSection from "@/components/medan/FeaturesSection";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import { MotionDiv } from "@/components/animations/MotionDiv";
@@ -59,8 +58,7 @@ const detailedFeatures = [
       "Layanan 24/7 termasuk weekend dan hari libur",
     ],
     pricing: "Mulai dari Rp 150.000 per perjalanan",
-    image:
-      "https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/features/antar-jemput-bandara-kualanamu.webp",
     color: "bg-blue-500",
   },
   {
@@ -78,8 +76,7 @@ const detailedFeatures = [
       "Asuransi dan dokumen lengkap",
     ],
     pricing: "Mulai dari Rp 300.000 per hari",
-    image:
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/features/armada-mobil-terawat.jpg",
     color: "bg-green-500",
   },
   {
@@ -97,8 +94,7 @@ const detailedFeatures = [
       "Attitude ramah dan profesional",
     ],
     pricing: "Termasuk dalam paket rental",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/features/sopir-professional.jpeg",
     color: "bg-purple-500",
   },
   {
@@ -116,8 +112,7 @@ const detailedFeatures = [
       "Tracking kendaraan real-time",
     ],
     pricing: "Gratis konsultasi 24/7",
-    image:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/features/EXECUTIVE-CORPORATE.webp",
     color: "bg-orange-500",
   },
   {
@@ -135,8 +130,7 @@ const detailedFeatures = [
       "Harga kompetitif dan transparan",
     ],
     pricing: "Mulai dari Rp 500.000 per paket",
-    image:
-      "https://images.unsplash.com/photo-1539650116574-75c0c6d73ced?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/features/luxury-city-tour.webp",
     color: "bg-red-500",
   },
 ];
@@ -434,7 +428,6 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      <Footer />
       <FloatingWhatsApp />
     </main>
   );

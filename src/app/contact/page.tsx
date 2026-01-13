@@ -52,8 +52,8 @@ export default function ContactPage() {
                 <p className="flex items-start gap-4">
                   <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                   <span>
-                    Jalan Sempurna Dusun II Mawar, Desa Sambirejo Timur, Kec.
-                    Percut Sei Tuan, Deli Serdang, Sumatera Utara
+                    Jl. Sempurna Gg. Mawar No.12 dusun II, sambirejo timur, Kec.
+                    Medan Tembung, Kabupaten Deli Serdang, Sumatera Utara 20371
                   </span>
                 </p>
                 <a
@@ -77,7 +77,7 @@ export default function ContactPage() {
             {/* Google Maps Embed dengan pin merah */}
             <div className="h-96 w-full bg-muted rounded-lg overflow-hidden shadow-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.9722494114576!2d98.77453057381395!3d3.5938370502605745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303137a8ded38db1%3A0x698e30b68ac357e5!2sPT.VICKY%20RENTAL%20NUSANTARA!5e0!3m2!1sid!2sid!4v1755527831955!5m2!1sid!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.9722727809753!2d98.77453057416143!3d3.593831696380299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303137a8ded38db1%3A0x698e30b68ac357e5!2sPT.VICKY%20RENTAL%20NUSANTARA!5e0!3m2!1sid!2sid!4v1768310361303!5m2!1sid!2sid"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

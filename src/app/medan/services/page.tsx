@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/medan/Header";
-import Footer from "@/components/medan/Footer";
 import ServicesSection from "@/components/medan/ServicesSection";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import { MotionDiv } from "@/components/animations/MotionDiv";
@@ -16,7 +15,6 @@ import {
   Users,
   Phone,
   Clock,
-  DollarSign,
   CheckCircle,
   Star,
   Gift,
@@ -61,7 +59,6 @@ const services = [
       "Asuransi comprehensive",
       "Customer service 24/7",
     ],
-    pricing: "Mulai dari Rp 350.000/hari",
     popular: true,
     color: "bg-blue-500",
     image:
@@ -81,7 +78,6 @@ const services = [
       "Payment bulanan",
       "Driver opsional",
     ],
-    pricing: "Mulai dari Rp 8.000.000/bulan",
     popular: false,
     color: "bg-green-500",
     image:
@@ -101,16 +97,14 @@ const services = [
       "Harga fix tanpa tambahan",
       "Layanan weekend & hari libur",
     ],
-    pricing: "Mulai dari Rp 150.000/perjalanan",
     popular: true,
     color: "bg-purple-500",
-    image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/layanan/vip-airport-transfer.webp",
   },
   {
     id: "tour",
     icon: MapPin,
-    title: "Tour Medan & Sekitarnya",
+    title: "Tour Medan & Sekitanya",
     subtitle: "Jelajahi Sumatera Utara",
     description:
       "Tour ke destinasi wisata populer di Medan dan Sumatera Utara dengan paket lengkap include tour guide.",
@@ -121,11 +115,9 @@ const services = [
       "Paket fleksibel 1-7 hari",
       "Asuransi dan safety equipment",
     ],
-    pricing: "Mulai dari Rp 500.000/paket",
     popular: false,
     color: "bg-orange-500",
-    image:
-      "https://images.unsplash.com/photo-1539650116574-75c0c6d73ced?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/layanan/luxury-city-tour.webp",
   },
   {
     id: "corporate",
@@ -141,11 +133,9 @@ const services = [
       "Priority booking",
       "Corporate billing",
     ],
-    pricing: "Harga khusus korporasi",
     popular: false,
     color: "bg-indigo-500",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/layanan/EXECUTIVE-CORPORATE.webp",
   },
   {
     id: "wedding",
@@ -161,76 +151,9 @@ const services = [
       "Photo session support",
       "Paket hari penuh",
     ],
-    pricing: "Mulai dari Rp 1.500.000/hari",
     popular: false,
     color: "bg-pink-500",
-    image:
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop",
-  },
-];
-
-const pricingPlans = [
-  {
-    name: "Harian",
-    price: "350.000",
-    unit: "/hari",
-    features: [
-      "Sopir profesional",
-      "Bensin & tol included",
-      "Asuransi comprehensive",
-      "AC & audio system",
-      "Customer service 24/7",
-    ],
-    popular: false,
-  },
-  {
-    name: "Mingguan",
-    price: "2.100.000",
-    unit: "/minggu",
-    features: [
-      "Semua fitur harian",
-      "Diskon 15%",
-      "Flexibilitas waktu",
-      "Maintenance included",
-      "Priority support",
-    ],
-    popular: true,
-  },
-  {
-    name: "Bulanan",
-    price: "8.000.000",
-    unit: "/bulan",
-    features: [
-      "Semua fitur mingguan",
-      "Diskon 25%",
-      "Replace kendaraan gratis",
-      "Payment flexible",
-      "Dedicated support",
-    ],
-    popular: false,
-  },
-];
-
-const addOns = [
-  {
-    name: "GPS Navigator",
-    price: "50.000",
-    description: "GPS dengan suara bahasa Indonesia",
-  },
-  {
-    name: "Child Seat",
-    price: "30.000",
-    description: "Safety seat untuk anak-anak",
-  },
-  {
-    name: "WiFi Portable",
-    price: "25.000",
-    description: "Internet unlimited selama perjalanan",
-  },
-  {
-    name: "Extra Driver",
-    price: "100.000",
-    description: "Sopir cadangan untuk perjalanan jauh",
+    image: "/medan/layanan/VIP-WEDDING-CAR.webp",
   },
 ];
 
@@ -348,7 +271,7 @@ export default function ServicesPage() {
                     {service.description}
                   </p>
 
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-2 mb-6">
                     {service.features.slice(0, 3).map((feature, idx) => (
                       <div key={idx} className="flex items-center space-x-2">
                         <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
@@ -360,14 +283,6 @@ export default function ServicesPage() {
                         +{service.features.length - 3} fitur lainnya
                       </p>
                     )}
-                  </div>
-
-                  <div className="flex items-center justify-between mb-4">
-                    <div>
-                      <span className="text-2xl font-bold text-gray-900">
-                        {service.pricing}
-                      </span>
-                    </div>
                   </div>
 
                   <Button size="sm" className="w-full" asChild>
@@ -387,122 +302,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Pricing Plans */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <MotionDiv
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Paket Harga Terbaik
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Dapatkan harga terbaik dengan paket rental yang sesuai kebutuhan
-              Anda
-            </p>
-          </MotionDiv>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {pricingPlans.map((plan, index) => (
-              <MotionDiv
-                key={plan.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative bg-white rounded-2xl shadow-lg p-8 ${
-                  plan.popular ? "ring-2 ring-blue-500 scale-105" : ""
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium">
-                    Most Popular
-                  </div>
-                )}
-
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    {plan.name}
-                  </h3>
-                  <div className="text-4xl font-bold text-blue-600 mb-1">
-                    Rp {parseInt(plan.price).toLocaleString("id-ID")}
-                  </div>
-                  <div className="text-gray-600">{plan.unit}</div>
-                </div>
-
-                <div className="space-y-3 mb-8">
-                  {plan.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <Button
-                  size="lg"
-                  className={`w-full ${
-                    plan.popular ? "bg-blue-600 hover:bg-blue-700" : ""
-                  }`}
-                  variant={plan.popular ? "default" : "outline"}
-                  asChild
-                >
-                  <a
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Pilih Paket
-                  </a>
-                </Button>
-              </MotionDiv>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Add-ons */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <MotionDiv
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Layanan Tambahan
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Tingkatkan pengalaman perjalanan Anda dengan layanan tambahan
-              pilihan
-            </p>
-          </MotionDiv>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {addOns.map((addon, index) => (
-              <MotionDiv
-                key={addon.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center p-6 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors"
-              >
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  {addon.name}
-                </h3>
-                <div className="text-2xl font-bold text-blue-600 mb-2">
-                  Rp {addon.price}
-                </div>
-                <p className="text-gray-600 text-sm">{addon.description}</p>
-              </MotionDiv>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-16 bg-blue-600">
         <div className="container mx-auto px-4 text-center">
@@ -516,8 +315,8 @@ export default function ServicesPage() {
               Siap Memesan Layanan Kami?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Hubungi customer service kami untuk konsultasi dan dapatkan
-              penawaran terbaik
+              Hubungi customer service kami untuk konsultasi dan mendapatkan
+              informasi lebih lanjut
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -550,7 +349,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <Footer />
       <FloatingWhatsApp />
     </main>
   );

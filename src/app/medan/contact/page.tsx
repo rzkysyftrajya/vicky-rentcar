@@ -44,7 +44,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Telepon & WhatsApp",
-    details: ["+62 823-6338-9893", "+62 812-3456-7890"],
+    details: ["+62 823-6338-9893"],
     description: "Hubungi kami kapan saja, 24 jam sehari",
     action: "Call Now",
     href: "tel:+6282363389893",
@@ -153,12 +153,7 @@ export default function ContactPage() {
                   ))}
                 </div>
                 <p className="text-sm text-gray-600 mb-4">{item.description}</p>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="w-full"
-                  asChild
-                >
+                <Button size="sm" variant="outline" className="w-full" asChild>
                   <a
                     href={item.href}
                     target={item.href.startsWith("http") ? "_blank" : undefined}
@@ -218,12 +213,7 @@ export default function ContactPage() {
                     Telepon Sekarang
                   </a>
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="w-full"
-                  asChild
-                >
+                <Button size="lg" variant="outline" className="w-full" asChild>
                   <a href="mailto:info@vrnrentcarmedan.com">
                     <Mail className="w-5 h-5 mr-2" />
                     Kirim Email
@@ -295,7 +285,9 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-gray-900">Respon Cepat</p>
+                      <p className="font-semibold text-gray-900">
+                        Respon Cepat
+                      </p>
                       <p className="text-sm text-gray-600">
                         Kami merespon pertanyaan Anda dalam hitungan menit
                       </p>
@@ -376,17 +368,16 @@ export default function ContactPage() {
           </div>
 
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-            <div className="aspect-video bg-gray-200 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-600 font-medium">
-                  Medan, Sumatera Utara
-                </p>
-                <p className="text-sm text-gray-500 mt-2">
-                  Hubungi kami untuk informasi lokasi lengkap
-                </p>
-              </div>
-            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.9722727809753!2d98.77453057416143!3d3.593831696380299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303137a8ded38db1%3A0x698e30b68ac357e5!2sPT.VICKY%20RENTAL%20NUSANTARA!5e0!3m2!1sid!2sid!4v1768311197443!5m2!1sid!2sid"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Lokasi PT VICKY RENTAL NUSANTARA"
+            ></iframe>
           </div>
         </div>
       </section>
@@ -424,7 +415,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer />
       <FloatingWhatsApp />
     </main>
   );
