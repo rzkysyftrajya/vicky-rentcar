@@ -178,6 +178,16 @@ export default function MedanLayout({ children }: MedanLayoutProps) {
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2563eb" />
 
+        {/* Google Tag Manager Noscript (for users with JS disabled) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PL8H5WK"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+          />
+        </noscript>
+
         {/* Script to remove browser extension injected attributes BEFORE React hydrates */}
         <script
           dangerouslySetInnerHTML={{
@@ -240,7 +250,7 @@ export default function MedanLayout({ children }: MedanLayoutProps) {
         suppressHydrationWarning
         className={cn(
           "min-h-screen bg-background font-sans antialiased overflow-x-hidden",
-          inter.variable
+          inter.variable,
         )}
         data-bis-skin-checked-ignore="true"
         data-extension-injected-ignore="true"
@@ -284,7 +294,23 @@ export default function MedanLayout({ children }: MedanLayoutProps) {
           }}
         />
 
-        {/* Google Ads Tag (AW-11495200677) */}
+        {/* Google Tag Manager (GTM) for Google Ads & GA4 */}
+        <Script
+          id="google-tag-manager"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function(w,d,s,l,i){
+              w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+              var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+              j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+              f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PL8H5WK');
+          `,
+          }}
+        />
+
+        {/* Google Ads Tag (AW-11495200677) with GA4 */}
         <Script
           id="google-ads-tag"
           strategy="afterInteractive"
@@ -298,7 +324,62 @@ export default function MedanLayout({ children }: MedanLayoutProps) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-11495200677');
+            // GA4 Configuration
+            gtag('config', 'G-XXXXXXXXXX'); // Replace with actual GA4 Measurement ID
+            // Google Ads Conversion Tracking
+            gtag('config', 'AW-11495200677', {
+              'phone_conversion_number': '+6282363389893',
+              'phone_conversion_label': 'PhoneCallConversion',
+              'whatsapp_conversion_label': 'WhatsAppConversion'
+            });
+            // Enhanced conversions for better accuracy
+            gtag('set', 'user_data', {
+              'email': null, // Will be populated when available
+              'phone_number': null // Will be populated when available
+            });
+          `,
+          }}
+        />
+
+        {/* WhatsApp Click Conversion Tracking */}
+        <Script
+          id="whatsapp-tracking"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            document.addEventListener('DOMContentLoaded', function() {
+              // Track WhatsApp clicks
+              var whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+              whatsappLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                  if (typeof gtag !== 'undefined') {
+                    gtag('event', 'conversion', {
+                      'send_to': 'AW-11495200677/WhatsAppConversion',
+                      'value': 1.0,
+                      'currency': 'IDR',
+                      'transaction_id': 'WA_' + Date.now()
+                    });
+                    console.log('WhatsApp conversion tracked');
+                  }
+                });
+              });
+
+              // Track phone clicks
+              var phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+              phoneLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                  if (typeof gtag !== 'undefined') {
+                    gtag('event', 'conversion', {
+                      'send_to': 'AW-11495200677/PhoneCallConversion',
+                      'value': 1.0,
+                      'currency': 'IDR',
+                      'transaction_id': 'PHONE_' + Date.now()
+                    });
+                    console.log('Phone conversion tracked');
+                  }
+                });
+              });
+            });
           `,
           }}
         />

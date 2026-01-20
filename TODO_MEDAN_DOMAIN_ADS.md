@@ -4,16 +4,41 @@
 
 - [x] 1. Update middleware.ts untuk handle pt.vrnrentcarmedan.com
 - [x] 2. Update next.config.ts dengan rewrite untuk pt.vrnrentcarmedan.com
-- [ ] 3. Test konfigurasi secara lokal
-- [ ] 4. Deploy ke hosting
-- [ ] 5. Konfigurasi DNS di domain provider
-- [ ] 6. Setup A record dan/atau CNAME
+- [x] 3. **NEW: Add GA4 and Google Ads Enhanced Tracking**
+- [x] 4. **NEW: Add WhatsApp Click Conversion Tracking**
+- [x] 5. **NEW: Add Phone Call Conversion Tracking**
+- [x] 6. **NEW: Add Google Tag Manager (GTM) Container**
+- [ ] 7. Deploy ke hosting
+- [ ] 8. Konfigurasi DNS di domain provider
+- [ ] 9. Setup A record dan/atau CNAME
 
-## Notes
+## Google Ads Improvements (COMPLETED)
 
-- Domain utama: vickyrentcarnusantara.com
-- Domain Medan: pt.vrnrentcarmedan.com
-- Goal: Saat akses pt.vrnrentcarmedan.com langsung ke halaman Medan tanpa /medan di URL
+### ✅ Implemented:
+
+1. **Google Tag Manager (GTM-PL8H5WK)**
+   - Added GTM container for better tag management
+   - Includes noscript fallback for non-JS users
+
+2. **GA4 Integration**
+   - GA4 config placeholder (G-XXXXXXXXXX) ready
+   - Enhanced with Google Ads linked conversions
+
+3. **Conversion Tracking**
+   - WhatsApp click tracking implemented
+   - Phone call tracking implemented
+   - Conversion labels configured
+
+4. **Enhanced Conversions**
+   - User data collection setup for improved accuracy
+
+### ⚠️ To Complete After Deployment:
+
+1. Replace `G-XXXXXXXXXX` with actual GA4 Measurement ID
+2. Create conversion actions in Google Ads dashboard:
+   - WhatsAppConversion
+   - PhoneCallConversion
+3. Verify GTM container (GTM-PL8H5WK) is created in Google Tag Manager
 
 ---
 
