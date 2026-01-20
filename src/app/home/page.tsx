@@ -1,11 +1,67 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Car, MapPin, User } from "lucide-react";
+import {
+  ArrowRight,
+  Car,
+  MapPin,
+  User,
+  Star,
+  Quote,
+  CheckCircle,
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ImageZoom } from "@/components/ui/image-zoom";
+
+const testimonials = [
+  {
+    name: "Iffat Resources",
+    role: "Pelanggan dari Malaysia",
+    content:
+      "Terbaik! I have great experience renting with Vicky Rental Nusantara. Mr Vicky is best in client care, very communicative, fast responsive. I booked car all the way from Malaysia for my Husband arriving in Indonesia. Within 30 minutes, i was given choices to choose. Driver arrived before time with personalized arrival name plate. Perfect punctuality. The car was tip top condition. Highly recommend!",
+    rating: 5,
+    avatar: "IR",
+    verified: true,
+  },
+  {
+    name: "Dandia Agung",
+    role: "Pelanggan Tetap",
+    content:
+      "Mobil tersedia banyak pilihan, harga cukup bersahabat. Proses ambil & pengembalian juga cepat, tanpa ribet. Overall puas, bakal repeat order kalau keperluan lagi.",
+    rating: 5,
+    avatar: "DA",
+    verified: true,
+  },
+  {
+    name: "Arbanie Vinsmoke",
+    role: "Wisatawan",
+    content:
+      "Pelayanan ramah, unit mobil bersih dan terawat. Proses sewa juga gampang, admin fast respon. Cocok buat yang butuh kendaraan harian maupun perjalanan keluar kota. Recommended 👍",
+    rating: 5,
+    avatar: "AV",
+    verified: true,
+  },
+  {
+    name: "Balqis Khanza",
+    role: "Pelanggan Puas",
+    content:
+      "Rekomendasi lah pokoknya pelayanannya bagus mobil bersih wangi dan bagus mantap best lah pokoknya,,👍👍👍",
+    rating: 5,
+    avatar: "BK",
+    verified: true,
+  },
+  {
+    name: "Alif Hayza",
+    role: "Pelanggan",
+    content:
+      "Mantap pelayanan nya bagus, mobil nya bagus bersih wangi mantap lah...",
+    rating: 5,
+    avatar: "AH",
+    verified: true,
+  },
+];
 
 export default function Home() {
   const animationProps = {
@@ -157,6 +213,77 @@ export default function Home() {
             </div>
             <Button asChild variant="outline" className="mt-8">
               <Link href="/fleet">Lihat Semua Armada</Link>
+            </Button>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section id="testimonials" className="py-24 bg-white">
+          <div className="container mx-auto px-4 text-center">
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">
+              Testimoni
+            </span>
+            <h2 className="text-3xl font-bold mt-2 mb-4">
+              Apa Kata Pelanggan Kami
+            </h2>
+            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground mb-12">
+              Kepuasan pelanggan adalah prioritas utama kami. Berikut pengalaman
+              mereka bersama VRN Rent Car.
+            </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={testimonial.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-gray-50 rounded-2xl p-6 shadow-lg border border-gray-100 relative text-left"
+                >
+                  {/* Quote Icon */}
+                  <Quote className="absolute top-4 right-4 w-8 h-8 text-blue-600/10" />
+
+                  {/* Verified Badge */}
+                  {testimonial.verified && (
+                    <div className="absolute top-3 left-3 flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
+                      <CheckCircle className="w-3 h-3" />
+                      Ulasan Jujur
+                    </div>
+                  )}
+
+                  {/* Rating */}
+                  <div className="flex gap-0.5 mb-3 mt-3">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-4 h-4 text-yellow-400 fill-yellow-400"
+                      />
+                    ))}
+                  </div>
+
+                  {/* Content */}
+                  <p className="text-gray-700 mb-4 leading-relaxed text-sm relative z-10 line-clamp-4">
+                    "{testimonial.content}"
+                  </p>
+
+                  {/* Author */}
+                  <div className="flex items-center gap-3 pt-2 border-t border-gray-200">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 flex items-center justify-center text-white font-bold text-sm">
+                      {testimonial.avatar}
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900 text-sm">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-xs text-gray-600">
+                        {testimonial.role}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <Button asChild variant="outline" className="mt-12">
+              <Link href="/medan/testimonials">Lihat Semua Testimoni</Link>
             </Button>
           </div>
         </section>

@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import Header from "@/components/medan/Header";
 import Footer from "@/components/medan/Footer";
 import { AppContextProvider } from "../context/AppContext";
-import Script from "next/script";
+import MedanScripts from "@/components/medan/MedanScripts";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -172,226 +172,26 @@ interface MedanLayoutProps {
 
 export default function MedanLayout({ children }: MedanLayoutProps) {
   return (
-    <html lang="id" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" type="image/png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#2563eb" />
-
-        {/* Google Tag Manager Noscript (for users with JS disabled) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-PL8H5WK"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-
-        {/* Script to remove browser extension injected attributes BEFORE React hydrates */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                var observer = new MutationObserver(function(mutations) {
-                  mutations.forEach(function(mutation) {
-                    if (mutation.type === 'attributes' && mutation.attributeName) {
-                      var attr = mutation.attributeName;
-                      if (attr.includes('bis_') || attr.includes('skin_checked')) {
-                        mutation.target.removeAttribute(attr);
-                      }
-                    }
-                  });
-                });
-
-                function cleanElement(el) {
-                  try {
-                    var attrs = el.attributes;
-                    for (var i = attrs.length - 1; i >= 0; i--) {
-                      var attr = attrs[i];
-                      if (attr.name.includes('bis_') || attr.name.includes('skin_checked')) {
-                        el.removeAttribute(attr.name);
-                      }
-                    }
-                  } catch(e) {}
-                }
-
-                function scanAndClean() {
-                  try {
-                    var all = document.querySelectorAll('*');
-                    for (var i = 0; i < all.length; i++) {
-                      cleanElement(all[i]);
-                    }
-                  } catch(e) {}
-                }
-
-                scanAndClean();
-
-                if (document.body) {
-                  observer.observe(document.body, {
-                    childList: true,
-                    subtree: true,
-                    attributes: true,
-                    attributeFilter: ['bis_skin_checked', 'data-bis-', 'bis-']
-                  });
-                }
-
-                if (document.readyState === 'loading') {
-                  document.addEventListener('DOMContentLoaded', function() {
-                    scanAndClean();
-                  });
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
-      <body
-        suppressHydrationWarning
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased overflow-x-hidden",
-          inter.variable,
-        )}
-        data-bis-skin-checked-ignore="true"
-        data-extension-injected-ignore="true"
+    <AppContextProvider>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
       >
-        <AppContextProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <div className="flex flex-col w-full">
-              {/* Medan-specific Header (replaces global Navbar) */}
-              <Header />
+        <div className="flex flex-col w-full">
+          {/* Medan-specific Header (replaces global Navbar) */}
+          <Header />
 
-              {/* Main content */}
-              <main className="flex-grow">{children}</main>
+          {/* Main content */}
+          <main className="flex-grow">{children}</main>
 
-              {/* Medan-specific Footer (replaces global Footer) */}
-              <Footer />
-            </div>
-          </ThemeProvider>
-        </AppContextProvider>
-
-        {/* Service Worker registration */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/service-worker.js')
-                    .then(function(reg) {
-                      console.log('Service Worker registered with scope:', reg.scope);
-                    })
-                    .catch(function(err) {
-                      console.log('Service Worker registration failed:', err);
-                    });
-                });
-              }
-            `,
-          }}
-        />
-
-        {/* Google Tag Manager (GTM) for Google Ads & GA4 */}
-        <Script
-          id="google-tag-manager"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            (function(w,d,s,l,i){
-              w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-              var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-              j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-              f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-PL8H5WK');
-          `,
-          }}
-        />
-
-        {/* Google Ads Tag (AW-11495200677) with GA4 */}
-        <Script
-          id="google-ads-tag"
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=AW-11495200677"
-        />
-        <Script
-          id="google-ads-config"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            // GA4 Configuration
-            gtag('config', 'G-XXXXXXXXXX'); // Replace with actual GA4 Measurement ID
-            // Google Ads Conversion Tracking
-            gtag('config', 'AW-11495200677', {
-              'phone_conversion_number': '+6282363389893',
-              'phone_conversion_label': 'PhoneCallConversion',
-              'whatsapp_conversion_label': 'WhatsAppConversion'
-            });
-            // Enhanced conversions for better accuracy
-            gtag('set', 'user_data', {
-              'email': null, // Will be populated when available
-              'phone_number': null // Will be populated when available
-            });
-          `,
-          }}
-        />
-
-        {/* WhatsApp Click Conversion Tracking */}
-        <Script
-          id="whatsapp-tracking"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            document.addEventListener('DOMContentLoaded', function() {
-              // Track WhatsApp clicks
-              var whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
-              whatsappLinks.forEach(function(link) {
-                link.addEventListener('click', function() {
-                  if (typeof gtag !== 'undefined') {
-                    gtag('event', 'conversion', {
-                      'send_to': 'AW-11495200677/WhatsAppConversion',
-                      'value': 1.0,
-                      'currency': 'IDR',
-                      'transaction_id': 'WA_' + Date.now()
-                    });
-                    console.log('WhatsApp conversion tracked');
-                  }
-                });
-              });
-
-              // Track phone clicks
-              var phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-              phoneLinks.forEach(function(link) {
-                link.addEventListener('click', function() {
-                  if (typeof gtag !== 'undefined') {
-                    gtag('event', 'conversion', {
-                      'send_to': 'AW-11495200677/PhoneCallConversion',
-                      'value': 1.0,
-                      'currency': 'IDR',
-                      'transaction_id': 'PHONE_' + Date.now()
-                    });
-                    console.log('Phone conversion tracked');
-                  }
-                });
-              });
-            });
-          `,
-          }}
-        />
-
-        {/* Structured Data for SEO */}
-        <Script
-          id="structured-data"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-      </body>
-    </html>
+          {/* Medan-specific Footer (replaces global Footer) */}
+          <Footer />
+        </div>
+      </ThemeProvider>
+      {/* Medan-specific scripts for Google Ads & Analytics */}
+      <MedanScripts />
+    </AppContextProvider>
   );
 }

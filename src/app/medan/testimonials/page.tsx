@@ -29,174 +29,93 @@ const inter = Inter({ subsets: ["latin"] });
 const testimonials = [
   {
     id: 1,
-    name: "Ahmad Rizki",
-    location: "Jakarta",
-    service: "Rental Mobil Harian",
+    name: "Iffat Resources",
+    location: "Malaysia",
+    service: "Rental Mobil Antar Negara",
     rating: 5,
     date: "2024-01-15",
     comment:
-      "Pelayanan yang sangat memuaskan! Sopir profesional, kendaraan bersih dan nyaman. Harga transparan tanpa biaya tersembunyi. Pasti akan repeat order untuk viaje selanjutnya ke Medan.",
-    avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop",
+      "Terbaik! I have great experience renting with Vicky Rental Nusantara. Mr Vicky is best in client care, very communicative, fast responsive. I booked car all the way from Malaysia for my Husband arriving in Indonesia. Within 30 minutes, i was given choices to choose. Driver arrived before time with personalized arrival name plate. Perfect punctuality. The car was tip top condition. Highly recommend!",
+    avatar: "IR",
     verified: true,
     tripDetails: {
-      duration: "3 hari",
-      destination: "Tour Medan & Berastagi",
+      duration: "1 minggu",
+      destination: "Tour Medan & Sekitar",
       vehicle: "Toyota Innova Reborn",
     },
-    helpful: 23,
+    helpful: 45,
   },
   {
     id: 2,
-    name: "Sari Dewi",
-    location: "Surabaya",
-    service: "Antar Jemput Bandara",
+    name: "Dandia Agung",
+    location: "Jakarta",
+    service: "Rental Mobil Harian",
     rating: 5,
     date: "2024-01-20",
     comment:
-      "Services airport pickup yang sangat reliable. Sopir datang tepat waktu sesuai jadwal, menunggu dengan placard nama. Vehicle condition excellent, AC dingin, perjalanan lancar sampai hotel. Highly recommended!",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b829?q=80&w=150&auto=format&fit=crop",
+      "Mobil tersedia banyak pilihan, harga cukup bersahabat. Proses ambil & pengembalian juga cepat, tanpa ribet. Overall puas, bakal repeat order kalau keperluan lagi.",
+    avatar: "DA",
     verified: true,
     tripDetails: {
-      duration: "1 perjalanan",
-      destination: "Hotel ke Bandara Kualanamu",
-      vehicle: "Toyota Avanza",
+      duration: "3 hari",
+      destination: "Tour Medan",
+      vehicle: "Mitsubishi Xpander",
     },
-    helpful: 18,
+    helpful: 32,
   },
   {
     id: 3,
-    name: "Budi Santoso",
-    location: "Bandung",
-    service: "Tour Danau Toba",
+    name: "Arbanie Vinsmoke",
+    location: "Surabaya",
+    service: "Tour & Liburan",
     rating: 5,
     date: "2024-01-25",
     comment:
-      "Package tour Danau Toba yang luar biasa! Tour guide informative, vehicle comfortable untuk perjalanan jauh. Hotel recommendation bagus, meals included. Experience yang tak terlupakan di Sumatera Utara. Terima kasih VRN!",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop",
+      "Pelayanan ramah, unit mobil bersih dan terawat. Proses sewa juga gampang, admin fast respon. Cocok buat yang butuh kendaraan harian maupun perjalanan keluar kota. Recommended 👍",
+    avatar: "AV",
     verified: true,
     tripDetails: {
-      duration: "2 hari 1 malam",
-      destination: "Danau Toba & Pulau Samosir",
+      duration: "4 hari 3 malam",
+      destination: "Danau Toba & Berastagi",
       vehicle: "Toyota Fortuner",
     },
-    helpful: 31,
+    helpful: 28,
   },
   {
     id: 4,
-    name: "Maya Putri",
-    location: "Medan",
-    service: "Rental Mobil Bulanan",
+    name: "Balqis Khanza",
+    location: "Bandung",
+    service: "Wedding Car Rental",
     rating: 5,
     date: "2024-01-30",
     comment:
-      "Sebagai resident Medan, saya butuh kendaraan untuk keperluan bisnis harian. VRN memberikan service terbaik dengan harga kompetitif. Vehicle maintenance rutin, sopir disiplin. Sudah 6 bulan pakai dan sangat puas!",
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop",
-    verified: true,
-    tripDetails: {
-      duration: "6 bulan",
-      destination: "Kebutuhan Bisnis Harian",
-      vehicle: "Mitsubishi Xpander",
-    },
-    helpful: 15,
-  },
-  {
-    id: 5,
-    name: "Rizky Pratama",
-    location: "Palembang",
-    service: "Antar Jemput Bandara",
-    rating: 5,
-    date: "2024-02-05",
-    comment:
-      "Booking last minute untuk flight urgent, VRN tetap bisa handle dengan professional. Communication clear via WhatsApp, sopir helpful. Even membantu bawa luggage berat. Saved my day!",
-    avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop",
-    verified: true,
-    tripDetails: {
-      duration: "1 perjalanan",
-      destination: "Bandara ke Hotel",
-      vehicle: "Toyota Rush",
-    },
-    helpful: 27,
-  },
-  {
-    id: 6,
-    name: "Indira Sari",
-    location: "Yogyakarta",
-    service: "Wedding Car Rental",
-    rating: 5,
-    date: "2024-02-10",
-    comment:
-      "Memesan Alphard untuk wedding day, service yang sangat premium! Car decoration beautiful, sopir berjas rapi, on time 100%. Photoshoot session bantuan sopir juga. Perfect untuk hari bahagia!",
-    avatar:
-      "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?q=80&w=150&auto=format&fit=crop",
+      "Rekomendasi lah pokoknya pelayanannya bagus mobil bersih wangi dan bagus mantap best lah pokoknya,,👍👍👍",
+    avatar: "BK",
     verified: true,
     tripDetails: {
       duration: "1 hari",
       destination: "Pernikahan di Medan",
       vehicle: "Toyota Alphard",
     },
-    helpful: 22,
+    helpful: 55,
   },
   {
-    id: 7,
-    name: "David Wijaya",
-    location: "Batam",
-    service: "Corporate Rental",
+    id: 5,
+    name: "Alif Hayza",
+    location: "Yogyakarta",
+    service: "Rental Mobil Harian",
     rating: 5,
-    date: "2024-02-15",
+    date: "2024-02-05",
     comment:
-      "Perusahaan kami butuh rental untuk business trip ke Medan. VRN handle dengan sangat professional, fleet management system, billing clear. Sopir English speaking juga tersedia. Very satisfied!",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop",
+      "Mantap pelayanan nya bagus, mobil nya bagus bersih wangi mantap lah...",
+    avatar: "AH",
     verified: true,
     tripDetails: {
-      duration: "5 hari",
-      destination: "Business Trip Medan",
-      vehicle: "Toyota Innova + Fortuner",
+      duration: "2 hari",
+      destination: "Tour Medan Kota",
+      vehicle: "Toyota Avanza",
     },
-    helpful: 19,
-  },
-  {
-    id: 8,
-    name: "Lisa Maharani",
-    location: "Denpasar",
-    service: "Family Tour",
-    rating: 5,
-    date: "2024-02-20",
-    comment:
-      "Liburan keluarga ke Medan bersama anak-anak, VRN memberikan pengalaman yang aman dan nyaman. Child seat tersedia, sopir patient dengan anak kecil. Destinasi tour yang menarik dan informative.",
-    avatar:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop",
-    verified: true,
-    tripDetails: {
-      duration: "3 hari 2 malam",
-      destination: "Tour Keluarga Medan",
-      vehicle: "Mitsubishi Xpander",
-    },
-    helpful: 25,
-  },
-  {
-    id: 9,
-    name: "Andi Pratama",
-    location: "Makassar",
-    service: "Adventure Tour",
-    rating: 5,
-    date: "2024-02-25",
-    comment:
-      "Adventure tour ke Bukit Lawang dan Sipiso-piso dengan VRN! Vehicle 4x4 ready, tour guide experienced, safety equipment lengkap. Perjalanan off-road yang challenging tapi aman. Adventure yang unforgettable!",
-    avatar:
-      "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?q=80&w=150&auto=format&fit=crop",
-    verified: true,
-    tripDetails: {
-      duration: "4 hari 3 malam",
-      destination: "Bukit Lawang & Sipiso-piso",
-      vehicle: "Mitsubishi Pajero Sport",
-    },
-    helpful: 33,
+    helpful: 18,
   },
 ];
 
@@ -260,7 +179,7 @@ export default function TestimonialsPage() {
       : testimonials.filter((testimonial) =>
           testimonial.service
             .toLowerCase()
-            .includes(selectedCategory.toLowerCase())
+            .includes(selectedCategory.toLowerCase()),
         );
 
   const sortedTestimonials = [...filteredTestimonials].sort((a, b) => {
@@ -474,10 +393,10 @@ export default function TestimonialsPage() {
                   {category === "all"
                     ? "Semua Ulasan"
                     : category === "rental"
-                    ? "Rental Mobil"
-                    : category === "airport"
-                    ? "Antar Jemput"
-                    : "Tour"}
+                      ? "Rental Mobil"
+                      : category === "airport"
+                        ? "Antar Jemput"
+                        : "Tour"}
                 </button>
               ))}
             </div>
@@ -527,18 +446,19 @@ export default function TestimonialsPage() {
                 <div className="p-6">
                   {/* Header */}
                   <div className="flex items-start space-x-4 mb-4">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-green-600 to-teal-600 flex items-center justify-center text-white font-bold text-lg">
+                      {testimonial.avatar}
+                    </div>
                     <div className="flex-1">
                       <div className="flex items-center space-x-2">
                         <h3 className="font-bold text-gray-900">
                           {testimonial.name}
                         </h3>
                         {testimonial.verified && (
-                          <CheckCircle className="w-4 h-4 text-blue-500" />
+                          <span className="inline-flex items-center gap-1 bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-medium">
+                            <CheckCircle className="w-3 h-3" />
+                            Ulasan Jujur
+                          </span>
                         )}
                       </div>
                       <div className="text-sm text-gray-600">
@@ -552,7 +472,7 @@ export default function TestimonialsPage() {
                         </div>
                         <span className="text-xs text-gray-500">
                           {new Date(testimonial.date).toLocaleDateString(
-                            "id-ID"
+                            "id-ID",
                           )}
                         </span>
                       </div>
@@ -657,6 +577,49 @@ export default function TestimonialsPage() {
                 <a href="/medan/services">Lihat Layanan Kami</a>
               </Button>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Write Review CTA */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl mx-auto"
+          >
+            <div className="mb-6">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="w-10 h-10 text-green-600" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Berikan Ulasan Jujur Anda
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Pengalaman Anda sangat berharga bagi kami. Silakan berikan
+                ulasan jujur tentang layanan rental mobil kami di Google
+                Reviews.
+              </p>
+              <Button
+                size="lg"
+                className="bg-green-600 hover:bg-green-700 text-white"
+                asChild
+              >
+                <a
+                  href="https://g.page/r/CeVXw4q2MI5pEAE/review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Star className="w-5 h-5 mr-2" />
+                  Beri Ulasan di Google
+                </a>
+              </Button>
+            </div>
+            <p className="text-sm text-gray-500 mt-4">
+              Klik tombol di atas untuk memberikan ulasan jujur Anda
+            </p>
           </motion.div>
         </div>
       </section>

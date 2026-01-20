@@ -25,7 +25,7 @@ const whyChooseItems = [
   },
 ];
 
-const KenapaVRNSection = () => {
+function KenapaVRNSection() {
   return (
     <section className="py-16 bg-white dark:bg-slate-950">
       <div className="container mx-auto px-4">
@@ -62,6 +62,6 @@ const KenapaVRNSection = () => {
       </div>
     </section>
   );
-};
+}
 
 export default KenapaVRNSection;

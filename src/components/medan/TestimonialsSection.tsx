@@ -1,85 +1,106 @@
 "use client";
 
-import { Star, Quote, Crown, Heart, Building, Briefcase } from "lucide-react";
+import {
+  Star,
+  Quote,
+  Crown,
+  Heart,
+  Building,
+  Briefcase,
+  CheckCircle,
+} from "lucide-react";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
-    name: "Budi Santoso",
-    role: "Pengusaha",
+    name: "Iffat Resources",
+    role: "Pelanggan dari Malaysia",
     content:
-      "Pelayanan sangat memuaskan! Sopir ramah dan tepat waktu. Mobil bersih dan nyaman untuk perjalanan bisnis saya ke berbagai kota di Sumatera Utara.",
+      "Terbaik! I have great experience renting with Vicky Rental Nusantara. Mr Vicky is best in client care, very communicative, fast responsive. I booked car all the way from Malaysia for my Husband arriving in Indonesia. Within 30 minutes, i was given choices to choose. Driver arrived before time with personalized arrival name plate. Perfect punctuality. The car was tip top condition. Highly recommend!",
     rating: 5,
-    avatar: "BS",
+    avatar: "IR",
+    verified: true,
   },
   {
-    name: "Siti Rahmawati",
+    name: "Dandia Agung",
+    role: "Pelanggan Tetap",
+    content:
+      "Mobil tersedia banyak pilihan, harga cukup bersahabat. Proses ambil & pengembalian juga cepat, tanpa ribet. Overall puas, bakal repeat order kalau keperluan lagi.",
+    rating: 5,
+    avatar: "DA",
+    verified: true,
+  },
+  {
+    name: "Arbanie Vinsmoke",
     role: "Wisatawan",
     content:
-      "Liburan keluarga ke Danau Toba jadi sangat menyenangkan. Driver berpengalaman dan tahu spot-spot foto terbaik. Recommended banget!",
+      "Pelayanan ramah, unit mobil bersih dan terawat. Proses sewa juga gampang, admin fast respon. Cocok buat yang butuh kendaraan harian maupun perjalanan keluar kota. Recommended 👍",
     rating: 5,
-    avatar: "SR",
+    avatar: "AV",
+    verified: true,
   },
   {
-    name: "Ahmad Hidayat",
-    role: "Karyawan Swasta",
+    name: "Balqis Khanza",
+    role: "Pelanggan Puas",
     content:
-      "Sudah 3 kali pakai jasa VRN untuk antar jemput bandara. Selalu on-time dan profesional. Harga juga sangat bersaing.",
+      "Rekomendasi lah pokoknya pelayanannya bagus mobil bersih wangi dan bagus mantap best lah pokoknya,,👍👍👍",
+    rating: 5,
+    avatar: "BK",
+    verified: true,
+  },
+  {
+    name: "Alif Hayza",
+    role: "Pelanggan",
+    content:
+      "Mantap pelayanan nya bagus, mobil nya bagus bersih wangi mantap lah...",
     rating: 5,
     avatar: "AH",
-  },
-  {
-    name: "Linda Wijaya",
-    role: "Event Organizer",
-    content:
-      "Sewa mobil bulanan untuk keperluan event sangat membantu operasional kami. Unit selalu dalam kondisi prima dan support 24 jam.",
-    rating: 5,
-    avatar: "LW",
+    verified: true,
   },
 ];
 
 // VIP Testimonials - For premium services
 const vipTestimonials = [
   {
-    name: "Maria & Doni",
+    name: "Iffat Resources",
+    role: "Pelanggan VIP dari Malaysia",
+    content:
+      "Terbaik! Great experience dengan Vicky Rental Nusantara. Mr Vicky sangat communicative dan fast responsive. Dari Malaysia saya booking untuk suami yang tiba di Indonesia. Dalam 30 menit sudah dapat pilihan mobil. Driver datang sebelum waktu dengan name plate personalizado. Mobil dalam kondisi tip top. Highly recommend!",
+    rating: 5,
+    avatar: "IR",
+    type: "vip",
+    verified: true,
+  },
+  {
+    name: "Dandia Agung",
+    role: "Pelanggan Corporate",
+    content:
+      "Mobil banyak pilihan, harga bersahabat. Proses ambil & pengembalian cepat tanpa ribet. Overall puas!",
+    rating: 5,
+    avatar: "DA",
+    type: "corporate",
+    verified: true,
+  },
+  {
+    name: "Arbanie Vinsmoke",
+    role: "Tour Leader",
+    content:
+      "Pelayanan ramah, unit mobil bersih dan terawat. Proses sewa gampang, admin fast respon. Sangat Cocok untuk wisatawan!",
+    rating: 5,
+    avatar: "AV",
+    type: "vip",
+    verified: true,
+  },
+  {
+    name: "Balqis Khanza",
     role: "Pelanggan Wedding Car",
     content:
-      "PT.VICKY RENTCAR NUSANTARA membuat hari pernikahan kami lebih istimewa. Alphard mewahnya seperti mimpi dan sopirnya sangat profesional. Dekorasi mobil pengantinnya indah sekali!",
+      "Mobil bersih wangi, pelayanan bagus untuk wedding car. Dekorasi mobil pengantin sangat memukau!",
     rating: 5,
-    avatar: "MD",
+    avatar: "BK",
     type: "wedding",
-    image: "/testimoni/testimoni3.jpeg",
-  },
-  {
-    name: "David L.",
-    role: "Executive Director",
-    content:
-      "Saya menggunakan layanan Executive Corporate untuk delegasi visiting director dari Singapore. Layanan VIP dengan Mercedes-Benz sangat impressive. Sopir English-speaking dan sangat profesional.",
-    rating: 5,
-    avatar: "DL",
-    type: "corporate",
-    image: "/testimoni/testimoni2.jpeg",
-  },
-  {
-    name: "Emily R.",
-    role: "Business Traveler",
-    content:
-      "Pemesanan sangat mudah dan antar-jemput di Bandara Kualanamu Medan berjalan tanpa cela. Sopir sudah menunggu saya tepat waktu dengan welcome drink. bintang lima!",
-    rating: 5,
-    avatar: "ER",
-    type: "vip",
-    image: "/testimoni/testimoni4.jpeg",
-  },
-  {
-    name: "Robert Tan",
-    role: "CEO Perusahaan",
-    content:
-      "Layanan VIP untuk perjalanan bisnis ke Medan. Dari penjemputan bandara dengan Alphard hingga city tour dengan Mercedes. Service excellent dan profesional. Akan menggunakan lagi.",
-    rating: 5,
-    avatar: "RT",
-    type: "vip",
-    image: "/testimoni/testimoni1.jpeg",
+    verified: true,
   },
 ];
 
@@ -93,7 +114,7 @@ const TestimonialsSection = () => {
 
   const prevTestimonial = () => {
     setCurrentIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
     );
   };
 
@@ -125,6 +146,14 @@ const TestimonialsSection = () => {
               >
                 {/* Premium Background Effect */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+
+                {/* Verified Badge */}
+                {testimonial.verified && (
+                  <div className="absolute top-4 left-4 flex items-center gap-1 bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-medium">
+                    <CheckCircle className="w-3 h-3" />
+                    Ulasan Jujur
+                  </div>
+                )}
 
                 {/* Type Badge */}
                 <div className="absolute top-4 right-4">
@@ -208,6 +237,14 @@ const TestimonialsSection = () => {
                 key={testimonial.name}
                 className="bg-gray-50 rounded-2xl p-8 shadow-lg border border-gray-100 relative"
               >
+                {/* Verified Badge */}
+                {testimonial.verified && (
+                  <div className="absolute top-4 left-4 flex items-center gap-1 bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
+                    <CheckCircle className="w-3 h-3" />
+                    Ulasan Jujur
+                  </div>
+                )}
+
                 {/* Quote Icon */}
                 <Quote className="absolute top-6 right-6 w-10 h-10 text-blue-600/10" />
 
@@ -247,6 +284,14 @@ const TestimonialsSection = () => {
           {/* Mobile Carousel */}
           <div className="md:hidden relative">
             <div className="bg-gray-50 rounded-2xl p-8 shadow-lg border border-gray-100 relative">
+              {/* Verified Badge */}
+              {testimonials[currentIndex].verified && (
+                <div className="absolute top-4 left-4 flex items-center gap-1 bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
+                  <CheckCircle className="w-3 h-3" />
+                  Ulasan Jujur
+                </div>
+              )}
+
               {/* Quote Icon */}
               <Quote className="absolute top-6 right-6 w-10 h-10 text-blue-600/10" />
 
