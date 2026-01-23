@@ -6,7 +6,7 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "VRN Rent Car Medan",
-  url: "https://pt.vrnrentcarmedan.com",
+  url: "https://pt.vrnrentcarmedan.com/medan",
   logo: "https://pt.vrnrentcarmedan.com/logoVRN.png",
   image: "https://pt.vrnrentcarmedan.com/medan/hero-section.webp",
   description:
