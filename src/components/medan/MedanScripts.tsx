@@ -84,58 +84,74 @@ export default function MedanScripts() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            // GA4 Configuration for Medan
-            gtag('config', 'G-XXXXXXXXXX');
             // Google Ads Conversion Tracking for Medan
             gtag('config', 'AW-11495200677', {
               'phone_conversion_number': '+6282363389893',
-              'phone_conversion_label': 'PhoneCallConversion',
-              'whatsapp_conversion_label': 'WhatsAppConversion'
+              'phone_conversion_label': 'PhoneCallConversion'
             });
             // Enhanced conversions
             gtag('set', 'user_data', {
               'email': null,
               'phone_number': null
             });
+            // TODO: Add GA4 Measurement ID when available
+            // gtag('config', 'G-XXXXXXXXXX');
           `,
         }}
       />
 
-      {/* WhatsApp Click Conversion Tracking */}
+      {/* WhatsApp & Phone Click Conversion Tracking with Event Delay */}
       <Script
         id="whatsapp-tracking-medan"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-            document.addEventListener('DOMContentLoaded', function() {
-              var whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
-              whatsappLinks.forEach(function(link) {
-                link.addEventListener('click', function() {
-                  if (typeof gtag !== 'undefined') {
-                    gtag('event', 'conversion', {
-                      'send_to': 'AW-11495200677/WhatsAppConversion',
-                      'value': 1.0,
-                      'currency': 'IDR',
-                      'transaction_id': 'WA_' + Date.now()
-                    });
-                  }
-                });
-              });
-
-              var phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-              phoneLinks.forEach(function(link) {
-                link.addEventListener('click', function() {
-                  if (typeof gtag !== 'undefined') {
-                    gtag('event', 'conversion', {
-                      'send_to': 'AW-11495200677/PhoneCallConversion',
-                      'value': 1.0,
-                      'currency': 'IDR',
-                      'transaction_id': 'PHONE_' + Date.now()
-                    });
-                  }
-                });
-              });
-            });
+            (function() {
+              'use strict';
+              
+              // WhatsApp click handler with event delay
+              function handleWhatsAppClick(e) {
+                var link = e.target.closest('a[href*="wa.me"]');
+                if (!link) return;
+                
+                e.preventDefault();
+                e.stopPropagation();
+                
+                if (typeof gtag === 'function') {
+                  gtag('event', 'conversion', {
+                    'send_to': 'AW-11495200677/WhatsAppConversion',
+                    'value': 1.0,
+                    'currency': 'IDR',
+                    'transaction_id': 'WA_' + Date.now()
+                  });
+                }
+                
+                // Delay navigation to ensure conversion fires (350ms safe delay)
+                setTimeout(function() {
+                  window.open(link.href, '_blank');
+                }, 350);
+              }
+              
+              // Phone click handler (no delay needed, immediate call)
+              function handlePhoneClick(e) {
+                var link = e.target.closest('a[href^="tel:"]');
+                if (!link) return;
+                
+                if (typeof gtag === 'function') {
+                  gtag('event', 'conversion', {
+                    'send_to': 'AW-11495200677/PhoneCallConversion',
+                    'value': 1.0,
+                    'currency': 'IDR',
+                    'transaction_id': 'PHONE_' + Date.now()
+                  });
+                }
+                // Allow immediate navigation for phone calls
+              }
+              
+              // Use capture phase to intercept before other handlers
+              document.addEventListener('click', handleWhatsAppClick, { capture: true });
+              document.addEventListener('click', handlePhoneClick, { capture: true });
+            })();
           `,
         }}
       />
