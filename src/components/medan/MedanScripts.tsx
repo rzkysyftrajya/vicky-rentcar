@@ -54,7 +54,7 @@ const structuredData = {
 export default function MedanScripts() {
   return (
     <>
-      {/* Google Tag Manager (GTM) for Medan-specific tracking */}
+      {/* Google Tag Manager (GTM) - Primary tracking container */}
       <Script
         id="google-tag-manager-medan"
         strategy="afterInteractive"
@@ -70,37 +70,28 @@ export default function MedanScripts() {
         }}
       />
 
-      {/* Google Ads Tag (AW-11495200677) for Medan */}
+      {/* Google Ads Conversion Tracking for Medan - AW-11495200677 */}
+      {/* Note: AW-17510183879 is loaded globally in layout.tsx */}
       <Script
-        id="google-ads-tag-medan"
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=AW-11495200677"
-      />
-      <Script
-        id="google-ads-config-medan"
+        id="google-ads-medan-conversion"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
+            
+            // Medan-specific conversion tracking (AW-11495200677)
+            // Uses conversion_label for proper Tag Assistant identification
             gtag('js', new Date());
-            // Google Ads Conversion Tracking for Medan
             gtag('config', 'AW-11495200677', {
               'phone_conversion_number': '+6282363389893',
               'phone_conversion_label': 'PhoneCallConversion'
             });
-            // Enhanced conversions
-            gtag('set', 'user_data', {
-              'email': null,
-              'phone_number': null
-            });
-            // TODO: Add GA4 Measurement ID when available
-            // gtag('config', 'G-XXXXXXXXXX');
           `,
         }}
       />
 
-      {/* WhatsApp & Phone Click Conversion Tracking with Event Delay */}
+      {/* WhatsApp & Phone Click Conversion Tracking with event_callback */}
       <Script
         id="whatsapp-tracking-medan"
         strategy="afterInteractive"
@@ -109,7 +100,7 @@ export default function MedanScripts() {
             (function() {
               'use strict';
               
-              // WhatsApp click handler with event delay
+              // WhatsApp click handler with event_callback for guaranteed delivery
               function handleWhatsAppClick(e) {
                 var link = e.target.closest('a[href*="wa.me"]');
                 if (!link) return;
@@ -117,22 +108,31 @@ export default function MedanScripts() {
                 e.preventDefault();
                 e.stopPropagation();
                 
+                var waUrl = link.href;
+                var timestamp = Date.now();
+                
                 if (typeof gtag === 'function') {
                   gtag('event', 'conversion', {
                     'send_to': 'AW-11495200677/WhatsAppConversion',
                     'value': 1.0,
                     'currency': 'IDR',
-                    'transaction_id': 'WA_' + Date.now()
+                    'transaction_id': 'WA_' + timestamp,
+                    'event_callback': function() {
+                      // Guaranteed callback after conversion confirmed
+                      window.open(waUrl, '_blank');
+                    }
                   });
                 }
                 
-                // Delay navigation to ensure conversion fires (350ms safe delay)
+                // Fallback: if gtag fails to callback within 500ms, still open WhatsApp
                 setTimeout(function() {
-                  window.open(link.href, '_blank');
-                }, 350);
+                  if (document.hidden === false && !e.defaultPrevented) {
+                    window.open(waUrl, '_blank');
+                  }
+                }, 500);
               }
               
-              // Phone click handler (no delay needed, immediate call)
+              // Phone click handler (immediate call, conversion fires async)
               function handlePhoneClick(e) {
                 var link = e.target.closest('a[href^="tel:"]');
                 if (!link) return;
@@ -145,10 +145,10 @@ export default function MedanScripts() {
                     'transaction_id': 'PHONE_' + Date.now()
                   });
                 }
-                // Allow immediate navigation for phone calls
+                // Allow immediate phone call navigation
               }
               
-              // Use capture phase to intercept before other handlers
+              // Capture phase intercepts BEFORE default navigation
               document.addEventListener('click', handleWhatsAppClick, { capture: true });
               document.addEventListener('click', handlePhoneClick, { capture: true });
             })();

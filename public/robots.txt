@@ -1,20 +1,10 @@
-# Robots.txt for pt.vrnrentcarmedan.com
-# This file specifically controls the Medan domain
-
-# Allow all crawlers
+# *
 User-agent: *
 Allow: /
 
-# Disallow admin/internal paths
-Disallow: /api/
-Disallow: /_next/
-Disallow: /server-sitemap.xml
-Disallow: /*.json$
-Disallow: /*.xml$
-
-# Host directive
-Host: https://pt.vrnrentcarmedan.com
+# Host
+Host: https://www.vickyrentcar.com
 
 # Sitemaps
-Sitemap: https://pt.vrnrentcarmedan.com/pt-vrnrentcarmedan-sitemap.xml
-
+Sitemap: https://www.vickyrentcar.com/sitemap.xml
+Sitemap: https://www.vickyrentcar.com/server-sitemap.xml
