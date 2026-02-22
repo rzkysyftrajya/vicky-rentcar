@@ -5,6 +5,7 @@ import Header from "@/components/medan/Header";
 import HeroSection from "@/components/medan/HeroSection";
 import StatsSection from "@/components/medan/StatsSection";
 import KenapaVRNSection from "@/components/medan/KenapaVRNSection";
+import PromoLebaranSection from "@/components/medan/PromoLebaranSection";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -328,6 +329,9 @@ export default function MedanPage() {
     <main className={`${inter.className} min-h-screen pb-24 md:pb-0`}>
       <Header />
       <HeroSection />
+
+      {/* Promo Lebaran Section - Banner Promosi Ramadan/Lebaran */}
+      <PromoLebaranSection />
 
       {/* Trust Badges Section */}
       <section className="py-12 bg-gray-50 dark:bg-slate-900">
