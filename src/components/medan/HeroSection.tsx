@@ -18,7 +18,7 @@ import {
 
 const HeroSection = () => {
   const whatsappLink =
-    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20VIP%20di%20Medan";
+    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Medan";
 
   return (
     <section
@@ -46,26 +46,22 @@ const HeroSection = () => {
             </span>
           </div>
 
-          {/* Headline - Updated dengan VIP & Pelayanan Premium */}
+          {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
             Rental Mobil Medan Terpercaya
             <br className="hidden sm:block" />
-            <span className="text-yellow-400">VIP & Pelayanan Premium</span>
+            <span className="text-yellow-400">Sopir & Lepas Kunci</span>
           </h1>
 
-          {/* Subheadline - Lebih meyakinkan untuk layanan VIP */}
+          {/* Subheadline - Lebih inclusif untuk semua kebutuhan */}
           <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
-            Pengalaman rental mobil mewah dengan pelayanan VIP. Sopir
-            profesional, armada premium terawat, dan layanan 24 jam untuk
-            kenyamanan Anda.
+            Sewa mobil dengan sopir profesional ATAU lepas kunci tanpa sopir. 
+            Armada terawat, harga kompetitif, dan layanan 24 jam untuk 
+            kenyamanan perjalanan Anda di Medan dan Sumatera Utara.
           </p>
 
-          {/* VRN Premium Guarantee Badge */}
+          {/* Trust Badges */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <div className="flex items-center gap-2 bg-gradient-to-r from-yellow-500/20 to-amber-500/20 backdrop-blur-sm border border-yellow-400/30 rounded-full px-4 py-2">
-              <Award className="w-5 h-5 text-yellow-400" />
-              <span className="text-sm font-bold">VRN Premium Guarantee</span>
-            </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
               <Shield className="w-5 h-5 text-green-400" />
               <span className="text-sm font-medium">Armada Terinsured</span>
@@ -73,6 +69,10 @@ const HeroSection = () => {
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
               <CheckCircle className="w-5 h-5 text-blue-400" />
               <span className="text-sm font-medium">Sopir Profesional</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
+              <Car className="w-5 h-5 text-green-400" />
+              <span className="text-sm font-medium">Bisa Lepas Kunci</span>
             </div>
           </div>
 
@@ -94,7 +94,7 @@ const HeroSection = () => {
               className="border-2 border-white/40 hover:bg-white hover:text-blue-700 text-white dark:text-white dark:hover:bg-white dark:hover:text-blue-700 text-lg px-8 w-full sm:w-auto bg-white/10 dark:bg-white/10"
               asChild
             >
-              <a href="/medan/fleet">Lihat Armada VIP</a>
+              <a href="/medan/fleet">Lihat Armada</a>
             </Button>
           </div>
 

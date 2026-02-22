@@ -55,11 +55,11 @@ export async function generateMetadata({
     metadataBase: new URL(baseUrl),
     title: {
       default:
-        "VRN Rent Car Medan - Rental Mobil VIP & Luxury | Antar Jemput Bandara Kualanamu",
+        "VRN Rent Car Medan - Rental Mobil Terpercaya | Antar Jemput Bandara Kualanamu",
       template: "%s | VRN Rent Car Medan",
     },
     description:
-      "VRN Rent Car Medan - Rental mobil terpercaya dengan layanan VIP & luxury. Alphard, Mercedes, Fortuner. Antar jemput Bandara Kualanamu, sopir profesional, armada terawat. Bagian dari Vicky Rent Car Nusantara.",
+      "VRN Rent Car Medan - Rental mobil terpercaya dengan layanan terpercaya. Alphard, Mercedes, Fortuner. Antar jemput Bandara Kualanamu, sopir profesional, armada terawat. Bagian dari Vicky Rent Car Nusantara.",
     keywords: [
       "rental mobil medan",
       "sewa mobil medan",
@@ -80,9 +80,9 @@ export async function generateMetadata({
     },
     openGraph: {
       title:
-        "VRN Rent Car Medan - Rental Mobil VIP & Luxury | Antar Jemput Bandara",
+        "VRN Rent Car Medan - Rental Mobil Terpercaya | Antar Jemput Bandara",
       description:
-        "VRN Rent Car Medan - Sewa mobil VIP & luxury untuk bisnis, wedding, dan perjalanan eksklusif. Layanan premium dengan armada Alphard, Mercedes, dan kendaraan mewah lainnya.",
+        "VRN Rent Car Medan - Sewa mobil terpercaya untuk bisnis, wedding, dan perjalanan eksklusif. Layanan premium dengan armada Alphard, Mercedes, dan kendaraan mewah lainnya.",
       type: "website",
       url: baseUrl,
       locale: "id_ID",
@@ -92,15 +92,15 @@ export async function generateMetadata({
           url: `${baseUrl}/medan/hero-section.webp`,
           width: 1200,
           height: 630,
-          alt: "VRN Rent Car Medan - Rental Mobil VIP & Luxury",
+          alt: "VRN Rent Car Medan - Rental Mobil Terpercaya",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "VRN Rent Car Medan - Rental Mobil VIP & Luxury",
+      title: "VRN Rent Car Medan - Rental Mobil Terpercaya",
       description:
-        "VRN Rent Car Medan - Sewa mobil VIP & luxury terpercaya di Medan dengan layanan premium.",
+        "VRN Rent Car Medan - Sewa mobil terpercaya terpercaya di Medan dengan layanan premium.",
       images: [`${baseUrl}/medan/hero-section.webp`],
     },
     robots: {
@@ -125,7 +125,7 @@ const structuredData = {
   logo: "https://pt.vrnrentcarmedan.com/logoVRN.png",
   image: "https://pt.vrnrentcarmedan.com/medan/hero-section.webp",
   description:
-    "Layanan rental mobil VIP & luxury di Medan. Menyediakan Alphard, Mercedes, Fortuner untuk wedding, korporat, dan perjalanan istimewa.",
+    "Layanan rental mobil terpercaya di Medan. Menyediakan Alphard, Mercedes, Fortuner untuk wedding, korporat, dan perjalanan istimewa.",
   telephone: "+6282363389893",
   address: {
     "@type": "PostalAddress",
@@ -157,7 +157,7 @@ const structuredData = {
   serviceType: [
     "Car Rental",
     "Airport Transfer",
-    "Luxury Car Rental",
+    "Car Rental",
     "Wedding Car Service",
   ],
   areaServed: {

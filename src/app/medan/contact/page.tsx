@@ -23,7 +23,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Kontak Kami - VRN Rent Car Medan | Hubungi Rental Mobil Medan",
   description:
-    "Hubungi VRN Rent Car Medan untuk rental mobil, antar jemput bandara, dan layanan VIP. Tersedia 24/7. WhatsApp, telepon, atau kunjungi kantor kami di Medan.",
+    "Hubungi VRN Rent Car Medan untuk rental mobil, antar jemput bandara, dan layanan rental mobil. Tersedia 24/7. WhatsApp, telepon, atau kunjungi kantor kami di Medan.",
   keywords:
     "kontak rental mobil medan, hubungi vrn rent car, nomor rental mobil medan, alamat rental mobil medan, customer service rental mobil",
   robots: "index, follow",
@@ -88,7 +88,7 @@ const operationalHours = [
 const quickLinks = [
   { title: "Rental Mobil Harian", href: "/medan/services" },
   { title: "Antar Jemput Bandara", href: "/medan/airport" },
-  { title: "Layanan VIP & Luxury", href: "/medan/services" },
+  { title: "Layanan Rental Mobil", href: "/medan/services" },
   { title: "Armada Kendaraan", href: "/medan/fleet" },
   { title: "Destinasi Wisata", href: "/medan/tourism" },
   { title: "Testimoni Pelanggan", href: "/medan/testimonials" },
