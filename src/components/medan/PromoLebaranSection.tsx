@@ -1,133 +1,150 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import {
-  Gift,
-  Calendar,
-  Car,
-  Clock,
-  Phone,
-  ArrowRight,
-  Star,
-  Sparkles,
-  Tag,
-  CheckCircle,
-} from "lucide-react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
-const PromoLebaranSection = () => {
-  const whatsappLink =
-    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20info%20promo%20Lebaran%20dari%20VRN%20Rent%20Car%20Medan";
+export default function PromoLebaranSection() {
+  const targetDate = new Date("2026-03-16T00:00:00").getTime();
+
+  const [countdown, setCountdown] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        clearInterval(interval);
+        setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((difference / 1000 / 60) % 60);
+      const seconds = Math.floor((difference / 1000) % 60);
+
+      setCountdown({ days, hours, minutes, seconds });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [targetDate]);
 
   return (
-    <section className="py-16 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtOS45NDEgMC0xOCA4LjA1OS0xOCAxOHM4LjA1OSAxOCAxOCAxOCAxOC04LjA1OSAxOC0xOC04LjA1OS0xOC0xOC0xOHptMCAzMmMtNy43MzIgMC0xNC02LjI2OC0xNC0xNHM2LjI2OC0xNCAxNC0xNCAxNCA2LjI2OCAxNCAxNC02LjI2OCAxNC0xNCAxNHoiIGZpbGw9IiNmZmYiLz48L2c+PC9zdmc+')] bg-repeat" />
-      </div>
+    <section className="relative py-20 bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-900 text-white overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 text-center">
 
-      {/* Floating Elements */}
-      <div className="absolute top-4 left-4 w-16 h-16 bg-white/20 rounded-full blur-xl" />
-      <div className="absolute bottom-4 right-4 w-24 h-24 bg-white/20 rounded-full blur-xl" />
+        {/* Badge */}
+        <span className="inline-block bg-yellow-400 text-emerald-900 text-sm font-semibold px-4 py-1 rounded-full mb-6 shadow-md">
+          Promo Lebaran Medan 2026
+        </span>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <Badge className="bg-white text-amber-700 px-4 py-1 text-sm font-bold mb-4 shadow-lg">
-              <Sparkles className="w-4 h-4 mr-1" />
-              SPECIAL OFFER
-            </Badge>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-lg">
-              PROMO LEBARAN 2026
-            </h2>
-            <p className="text-amber-100 text-lg md:text-xl font-medium">
-              Ajukan sekarang sebelum kehabisan!-unit terbatas!
-            </p>
-          </div>
+        {/* Title */}
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+          Rental Mobil Lebaran di Medan
+        </h2>
 
-          {/* Promo Card */}
-          <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-8">
-            {/* Period */}
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-2 rounded-full">
-                <Calendar className="w-5 h-5" />
-                <span className="font-bold">18 FEBRUARI - 1 MARET 2026</span>
+        {/* Subheadline */}
+        <p className="text-lg md:text-xl text-emerald-100 max-w-3xl mx-auto mb-10">
+          Amankan kendaraan terbaik untuk mudik & perjalanan keluarga sebelum kehabisan unit.
+        </p>
+
+        {/* Countdown */}
+        <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto mb-12">
+          {Object.entries(countdown).map(([label, value]) => (
+            <div
+              key={label}
+              className="bg-white text-emerald-900 rounded-xl py-6 shadow-lg"
+            >
+              <div className="text-3xl md:text-4xl font-bold">
+                {value}
+              </div>
+              <div className="text-sm uppercase tracking-wide mt-1 font-medium">
+                {label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Info Box (FIX KONTRAS TOTAL) */}
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 max-w-4xl mx-auto mb-12 shadow-xl">
+          <div className="grid md:grid-cols-2 gap-6 text-left">
+
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-yellow-400 mt-2 rounded-full"></div>
+              <div>
+                <p className="font-bold text-white text-lg">
+                  Semua Tipe Mobil
+                </p>
+                <p className="text-emerald-100">
+                  Dari city car hingga premium
+                </p>
               </div>
             </div>
 
-            {/* Main Offer */}
-            <div className="text-center mb-8">
-              <p className="text-gray-600 mb-2">Sewa mobil Medan</p>
-              <div className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-yellow-600 mb-2">
-                SPECIAL PRICE
-              </div>
-              <p className="text-gray-500 text-sm">
-                Untuk penyewaan minimal 1 bulan
-              </p>
-            </div>
-
-            {/* Benefits */}
-            <div className="grid md:grid-cols-3 gap-4 mb-8">
-              <div className="bg-amber-50 rounded-xl p-4 text-center border border-amber-200">
-                <Car className="w-8 h-8 text-amber-600 mx-auto mb-2" />
-                <p className="font-bold text-gray-800">Semua Jenis Mobil</p>
-                <p className="text-xs text-gray-500">Dari Avanza hingga Alphard</p>
-              </div>
-              <div className="bg-amber-50 rounded-xl p-4 text-center border border-amber-200">
-                <Clock className="w-8 h-8 text-amber-600 mx-auto mb-2" />
-                <p className="font-bold text-gray-800">Minimal 1 Bulan</p>
-                <p className="text-xs text-gray-500">semakin lama semakin hemat</p>
-              </div>
-              <div className="bg-amber-50 rounded-xl p-4 text-center border border-amber-200">
-                <Gift className="w-8 h-8 text-amber-600 mx-auto mb-2" />
-                <p className="font-bold text-gray-800">Bonus Menarik</p>
-                <p className="text-xs text-gray-500">gratis antar jemput</p>
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-yellow-400 mt-2 rounded-full"></div>
+              <div>
+                <p className="font-bold text-white text-lg">
+                  Minimal 7 Hari
+                </p>
+                <p className="text-emerald-100">
+                  Cocok untuk mudik & perjalanan keluarga
+                </p>
               </div>
             </div>
 
-            {/* CTA */}
-            <div className="text-center">
-              <Button
-                size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6 shadow-lg w-full md:w-auto"
-                asChild
-              >
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Tanya Promo Sekarang
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </a>
-              </Button>
-              <p className="text-xs text-gray-400 mt-4">
-                <Star className="w-3 h-3 inline text-yellow-500" /> Syarat dan Ketentuan Berlaku
-              </p>
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-yellow-400 mt-2 rounded-full"></div>
+              <div>
+                <p className="font-bold text-white text-lg">
+                  Transparan & Profesional
+                </p>
+                <p className="text-emerald-100">
+                  Harga mengikuti tipe & durasi
+                </p>
+              </div>
             </div>
-          </div>
 
-          {/* Quick Info */}
-          <div className="flex flex-wrap justify-center gap-4 mt-6">
-            <div className="flex items-center gap-2 text-white/90 text-sm">
-              <CheckCircle className="w-4 h-4" />
-              <span>Armada terawat</span>
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-yellow-400 mt-2 rounded-full"></div>
+              <div>
+                <p className="font-bold text-white text-lg">
+                  Unit Terbatas
+                </p>
+                <p className="text-emerald-100">
+                  Booking lebih awal untuk hindari kehabisan
+                </p>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-white/90 text-sm">
-              <CheckCircle className="w-4 h-4" />
-              <span>Sopir profesional</span>
-            </div>
-            <div className="flex items-center gap-2 text-white/90 text-sm">
-              <CheckCircle className="w-4 h-4" />
-              <span>Asuransi lengkap</span>
-            </div>
-            <div className="flex items-center gap-2 text-white/90 text-sm">
-              <CheckCircle className="w-4 h-4" />
-              <span>24/7 layanan</span>
-            </div>
+
           </div>
         </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col md:flex-row justify-center gap-4">
+          <Link
+            href="/medan/fleet"
+            className="bg-yellow-400 hover:bg-yellow-500 text-emerald-900 font-bold px-8 py-4 rounded-xl shadow-lg transition"
+          >
+            Lihat Armada Medan
+          </Link>
+
+          <a
+            href="https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Medan%20untuk%20Lebaran%202026."
+            target="_blank"
+            className="bg-white text-emerald-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 transition"
+          >
+            Chat via WhatsApp
+          </a>
+        </div>
+
       </div>
     </section>
   );
-};
-
-export default PromoLebaranSection;
+}
