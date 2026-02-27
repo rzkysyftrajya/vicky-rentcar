@@ -13,22 +13,35 @@ import GoogleReviewsCTA from "@/components/batam/GoogleReviewsCTA";
 const inter = Inter({ subsets: ["latin"] });
 
 const photos = [
-  { id: 1, category: "Armada", src: "/galeri/galeri1.webp", alt: "Armada mobil premium" },
-  { id: 2, category: "Armada", src: "/galeri/galeri2.webp", alt: "Armada mobil keluarga" },
-  { id: 3, category: "Armada", src: "/galeri/galeri3.webp", alt: "Armada mobil SUV" },
-  { id: 4, category: "Armada", src: "/galeri/galeri4.webp", alt: "Armada mobil MPV" },
-  { id: 5, category: "Armada", src: "/galeri/galeri5.webp", alt: "Armada mobil ekonomis" },
-  { id: 6, category: "Armada", src: "/galeri/galeri6.webp", alt: "Armada mobil luxury" },
-  { id: 7, category: "Armada", src: "/galeri/galeri7.webp", alt: "Armada mobil hybrid" },
-  { id: 8, category: "Armada", src: "/galeri/galeri8.webp", alt: "Armada mobil lengkap" },
-  { id: 9, category: "Destinasi", src: "/galeri/destinasi1.webp", alt: "Nagoya Hill" },
-  { id: 10, category: "Destinasi", src: "/galeri/destinasi2.webp", alt: "Barelang Bridge" },
-  { id: 11, category: "Destinasi", src: "/galeri/destinasi3.webp", alt: "Batam Centre" },
-  { id: 12, category: "Destinasi", src: "/galeri/destinasi4.webp", alt: "Tanjung Uma" },
-  { id: 13, category: "Destinasi", src: "/galeri/destinasi5.webp", alt: "Mega Mall" },
-  { id: 14, category: "Destinasi", src: "/galeri/destinasi6.webp", alt: "Golden City" },
-  { id: 15, category: "Destinasi", src: "/galeri/destinasi7.webp", alt: "Pantai" },
-  { id: 16, category: "Destinasi", src: "/galeri/destinasi8.webp", alt: "Museum" },
+  { id: 1, category: "Semua", src: "/batam/galeri/galeri-1.webp" },
+  { id: 2, category: "Semua", src: "/batam/galeri/galeri-2.webp" },
+  { id: 3, category: "Semua", src: "/batam/galeri/galeri-3.webp" },
+  { id: 4, category: "Semua", src: "/batam/galeri/galeri-4.webp" },
+  { id: 5, category: "Semua", src: "/batam/galeri/galeri-5.webp" },
+  { id: 6, category: "Semua", src: "/batam/galeri/galeri-6.webp" },
+  { id: 7, category: "Semua", src: "/batam/galeri/galeri-7.webp" },
+  { id: 8, category: "Semua", src: "/batam/galeri/galeri-8.webp" },
+  { id: 9, category: "Semua", src: "/batam/galeri/galeri-9.webp" },
+  { id: 10, category: "Semua", src: "/batam/galeri/galeri-10.webp" },
+  { id: 11, category: "Semua", src: "/batam/galeri/galeri-11.webp" },
+  { id: 12, category: "Semua", src: "/batam/galeri/galeri-12.webp" },
+  { id: 13, category: "Semua", src: "/batam/galeri/galeri-13.webp" },
+  { id: 14, category: "Semua", src: "/batam/galeri/galeri-14.webp" },
+  { id: 15, category: "Semua", src: "/batam/galeri/galeri-15.webp" },
+  { id: 16, category: "Semua", src: "/batam/galeri/galeri-16.webp" },
+  { id: 17, category: "Semua", src: "/batam/galeri/galeri-17.webp" },
+  { id: 18, category: "Semua", src: "/batam/galeri/galeri-18.webp" },
+  { id: 19, category: "Semua", src: "/batam/galeri/galeri-19.webp" },
+  { id: 20, category: "Semua", src: "/batam/galeri/galeri-20.webp" },
+  { id: 21, category: "Semua", src: "/batam/galeri/galeri-21.webp" },
+  { id: 22, category: "Semua", src: "/batam/galeri/galeri-22.webp" },
+  { id: 23, category: "Semua", src: "/batam/galeri/galeri-23.webp" },
+  { id: 24, category: "Semua", src: "/batam/galeri/galeri-24.webp" },
+  { id: 25, category: "Semua", src: "/batam/galeri/galeri-25.webp" },
+  { id: 26, category: "Semua", src: "/batam/galeri/galeri-26.webp" },
+  { id: 27, category: "Semua", src: "/batam/galeri/galeri-27.webp" },
+  { id: 28, category: "Semua", src: "/batam/galeri/galeri-28.webp" },
+  { id: 29, category: "Semua", src: "/batam/galeri/galeri-29.webp" },
 ];
 
 const categories = ["Semua", "Armada", "Destinasi", "Event", "Team"];
@@ -113,9 +126,6 @@ export default function GaleriPage() {
                 </div>
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <Camera className="w-8 h-8 text-white" />
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                  <p className="text-white text-sm font-medium">{photo.alt}</p>
                 </div>
               </motion.div>
             ))}

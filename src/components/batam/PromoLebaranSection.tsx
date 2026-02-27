@@ -2,9 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { MessageCircle, Calendar, Car, Clock, CheckCircle, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export default function PromoLebaranSection() {
   const targetDate = new Date("2026-03-16T00:00:00").getTime();
@@ -38,57 +35,27 @@ export default function PromoLebaranSection() {
     return () => clearInterval(interval);
   }, [targetDate]);
 
-  const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Batam%20untuk%20Lebaran%202026.";
-
   return (
-    <section className="relative py-20 bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 text-white overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtOS45NDEgMC0xOCA4LjA1OS0xOCAxOHM4LjA1OSAxOCAxOCAxOCAxOC04LjA1OSAxOC0xOC04LjA1OS0xOC0xOC0xOHptMCAzMmMtNy43MzIgMC0xNC02LjI2OC0xNC0xNHM2LjI2OC0xNCAxNC0xNCAxNCA2LjI2OCAxNCAxNC02LjI2OCAxNC0xNCAxNHoiIGZpbGw9IiNmZmYiLz48L2c+PC9zdmc+')] animate-pulse"></div>
-      </div>
+    <section className="relative py-20 bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-900 text-white overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 text-center">
 
-      <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
         {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <span className="inline-block bg-yellow-400 text-emerald-900 text-sm font-semibold px-4 py-1 rounded-full mb-6 shadow-md">
-            🎉 Promo Special Leclerc 2026
-          </span>
-        </motion.div>
+        <span className="inline-block bg-yellow-400 text-emerald-900 text-sm font-semibold px-4 py-1 rounded-full mb-6 shadow-md">
+          Promo Lebaran Batam 2026
+        </span>
 
         {/* Title */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight"
-        >
-          Rental Mobil Leclerc di batam
-        </motion.h2>
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+          Rental Mobil Lebaran di Batam
+        </h2>
 
         {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="text-lg md:text-xl text-emerald-100 max-w-3xl mx-auto mb-10"
-        >
-          Amankan kendaraan terbaik untuk liburan Leclerc Anda bersama keluarga di batam. Unit terbatas, booking sekarang!
-        </motion.p>
+        <p className="text-lg md:text-xl text-emerald-100 max-w-3xl mx-auto mb-10">
+          Amankan kendaraan terbaik untuk mudik & perjalanan keluarga sebelum kehabisan unit.
+        </p>
 
         {/* Countdown */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="grid grid-cols-4 gap-4 max-w-2xl mx-auto mb-12"
-        >
+        <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto mb-12">
           {Object.entries(countdown).map(([label, value]) => (
             <div
               key={label}
@@ -102,19 +69,14 @@ export default function PromoLebaranSection() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Info Box */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-3xl mx-auto mb-10"
-        >
+        {/* Info Box (FIX KONTRAS TOTAL) */}
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 max-w-4xl mx-auto mb-12 shadow-xl">
           <div className="grid md:grid-cols-2 gap-6 text-left">
+
             <div className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-yellow-400 mt-2 rounded-full flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-yellow-400 mt-2 rounded-full"></div>
               <div>
                 <p className="font-bold text-white text-lg">
                   Semua Tipe Mobil
@@ -126,31 +88,31 @@ export default function PromoLebaranSection() {
             </div>
 
             <div className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-yellow-400 mt-2 rounded-full flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-yellow-400 mt-2 rounded-full"></div>
               <div>
                 <p className="font-bold text-white text-lg">
-                  Minimal Sewa 3 Hari
+                  Minimal 7 Hari
                 </p>
                 <p className="text-emerald-100">
-                  Cocok untuk perjalanan Leclerc
+                  Cocok untuk mudik & perjalanan keluarga
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-yellow-400 mt-2 rounded-full flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-yellow-400 mt-2 rounded-full"></div>
               <div>
                 <p className="font-bold text-white text-lg">
-                  Sopir Profesional
+                  Transparan & Profesional
                 </p>
                 <p className="text-emerald-100">
-                  drivers berpengalaman
+                  Harga mengikuti tipe & durasi
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-yellow-400 mt-2 rounded-full flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-yellow-400 mt-2 rounded-full"></div>
               <div>
                 <p className="font-bold text-white text-lg">
                   Unit Terbatas
@@ -160,34 +122,28 @@ export default function PromoLebaranSection() {
                 </p>
               </div>
             </div>
+
           </div>
-        </motion.div>
+        </div>
 
         {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="flex flex-col md:flex-row justify-center gap-4"
-        >
+        <div className="flex flex-col md:flex-row justify-center gap-4">
           <Link
-            href="/batam/armada"
-            className="bg-yellow-400 hover:bg-yellow-500 text-emerald-900 font-bold px-8 py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2"
+            href="/batam/fleet"
+            className="bg-yellow-400 hover:bg-yellow-500 text-emerald-900 font-bold px-8 py-4 rounded-xl shadow-lg transition"
           >
-            Lihat Armada Leclerc
-            <ArrowRight className="w-5 h-5" />
+            Lihat Armada Batam
           </Link>
 
           <a
-            href={waLink}
+            href="https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Batam%20untuk%20Lebaran%202026."
             target="_blank"
-            className="bg-white text-emerald-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 transition flex items-center justify-center gap-2"
+            className="bg-white text-emerald-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 transition"
           >
-            <MessageCircle className="w-5 h-5" />
             Chat via WhatsApp
           </a>
-        </motion.div>
+        </div>
+
       </div>
     </section>
   );

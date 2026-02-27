@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "@/components/batam/Navbar";
 import { 
   Phone, MapPin, Star, Clock, Shield, Award, Car, 
   CheckCircle, ArrowRight, MessageCircle, Users, Banknote,
@@ -12,6 +11,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cars } from "@/data/fleet-data";
+import Navbar from "@/components/batam/Navbar";
+import FaqSection from "@/components/batam/FaqSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,6 @@ export const metadata: Metadata = {
 
 const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Batam";
 
-// Layanan Utama dengan tema tropis
 const layanan = [
   { 
     icon: Calendar, 
@@ -59,10 +59,8 @@ const layanan = [
   },
 ];
 
-// Armada Unggulan
 const armadaUnggulan = cars.slice(0, 6);
 
-// Destinasi Populer dengan tema pulau
 const destinasi = [
   { 
     title: "Nagoya Hill", 
@@ -90,7 +88,6 @@ const destinasi = [
   },
 ];
 
-// Mengapa Memilih Kami - Island Theme
 const whyChooseUs = [
   { 
     icon: Waves, 
@@ -114,27 +111,45 @@ const whyChooseUs = [
   },
 ];
 
+const rekomendasiDestinasi = [
+  {
+    title: "Nagoya Hill",
+    desc: "Pusat perbelanjaan dan hiburan terbesar di batam dengan berbagai merek internasional.",
+    image: "/galeri/galeri1.webp",
+  },
+  {
+    title: "Pantai Nongsa",
+    desc: "Pantai indah dengan pasir putih dan air laut jernih, cocok untuk bersantai dan berenang.",
+    image: "/galeri/galeri2.webp",
+  },
+  {
+    title: "Jembatan Barelang",
+    desc: "Jembatan ikonik yang menghubungkan batam dan Bintan, pemandangan spektakuler saat matahari terbenam.",
+    image: "/galeri/galeri3.webp",
+  },
+  {
+    title: "Batam Center",
+    desc: "Pusat bisnis dan perdagangan di batam, dengan gedung-gedung modern dan restoran internasional.",
+    image: "/galeri/galeri4.webp",
+  }
+];
+
 export default function HomePage() {
   return (
     <main className={`${inter.className} min-h-screen bg-gradient-to-b from-teal-50 to-cyan-50`}>
       <Navbar />
 
-      {/* HERO SECTION - Island Theme */}
+      {/* HERO SECTION */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Animated Background - Island Theme */}
         <div className="absolute inset-0 bg-gradient-to-br from-teal-600 via-teal-700 to-cyan-800">
-          {/* Decorative Elements */}
           <div className="absolute top-20 left-10 w-40 h-40 bg-yellow-400/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-60 h-60 bg-cyan-400/20 rounded-full blur-3xl"></div>
           <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-teal-300/10 rounded-full blur-3xl"></div>
-          
-          {/* Wave Pattern */}
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cyan-900/30 to-transparent"></div>
         </div>
 
         <div className="container mx-auto px-4 pt-24 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
             <div className="text-center lg:text-left">
               <Badge className="bg-yellow-400 text-black text-lg px-4 py-2 mb-4">
                 🏝️ Rental Mobil Terbaik di batam
@@ -144,7 +159,7 @@ export default function HomePage() {
                 <span className="text-yellow-400"> batam</span> Bersama Kami
               </h1>
               <p className="text-xl text-teal-100 mb-8 max-w-xl">
-                Nikmati自由 mengeksplorasi keindahan kepulauan Riau dengan armada terbaik dan layanan profesional. Mulai petualangan island hopping Anda hari ini!
+                Nikmati kebebasan mengeksplorasi keindahan kepulauan Riau dengan armada terbaik dan layanan profesional.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -162,7 +177,6 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-white/20">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-white">500+</div>
@@ -179,10 +193,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Content - Featured Car Card */}
             <div className="hidden lg:block">
               <div className="relative">
-                {/* Floating Elements */}
                 <div className="absolute -top-4 -left-4 bg-white/20 backdrop-blur-sm rounded-2xl p-4 animate-pulse">
                   <div className="flex items-center gap-2 text-white">
                     <Sun className="w-6 h-6 text-yellow-400" />
@@ -192,11 +204,10 @@ export default function HomePage() {
                 <div className="absolute -bottom-4 -right-4 bg-white/20 backdrop-blur-sm rounded-2xl p-4">
                   <div className="flex items-center gap-2 text-white">
                     <Waves className="w-6 h-6 text-cyan-400" />
-                    <span className="font-semibold"> Island Hopping</span>
+                    <span className="font-semibold">Island Hopping</span>
                   </div>
                 </div>
 
-                {/* Main Card */}
                 <div className="bg-white rounded-3xl shadow-2xl p-8 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-bl-full"></div>
                   <div className="relative z-10">
@@ -233,7 +244,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Wave Divider */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="url(#paint0_linear)" fillOpacity="0.1"/>
@@ -247,7 +257,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LAYANAN SECTION - Island Cards */}
+      {/* LAYANAN SECTION */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -326,7 +336,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* DESTINASI SECTION - Island Theme */}
+      {/* DESTINASI SECTION */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -372,7 +382,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WHY CHOOSE US - Island Theme */}
+      {/* WHY CHOOSE US */}
       <section className="py-20 bg-gradient-to-r from-teal-600 to-cyan-700">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -398,6 +408,138 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* PROMO LEBARAN SECTION */}
+      <section className="py-20 bg-gradient-to-r from-yellow-400 to-orange-500">
+        <div className="container mx-auto px-4 text-center">
+          <Badge className="bg-white text-black mb-4">🎉 PROMO LEBARAN</Badge>
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+            Diskon Spesial Ramadan & Lebaran
+          </h2>
+          <p className="text-black/70 text-lg mb-8 max-w-2xl mx-auto">
+            Rayakan momen spesial dengan penawaran terbatas! Dapatkan diskon hingga 20% untuk rental mobil selama periode Ramadan dan Lebaran. Armada premium siap mengantar Anda ke berbagai destinasi wisata di batam.
+          </p>
+          <Button size="lg" className="bg-black hover:bg-gray-800 text-white text-lg px-8" asChild>
+            <Link href="/batam/armada">
+              <Car className="w-5 h-5 mr-2" />
+              Lihat Armada & Promo
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* REKOMENDASI DESTINASI BATAM SECTION */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge className="bg-teal-100 text-teal-700 mb-4">🌴 REKOMENDASI DESTINASI</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Rekomendasi Destinasi batam
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Temukan tempat-tempat terbaik di batam yang wajib Anda kunjungi. Dari pusat perbelanjaan hingga pantai indah, semua dalam jangkauan rental mobil kami.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {rekomendasiDestinasi.map((dest, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+              >
+                <div className="h-40 relative bg-gradient-to-br from-teal-400 to-cyan-600">
+                  <Image
+                    src={dest.image}
+                    alt={dest.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{dest.title}</h3>
+                  <p className="text-gray-600 mb-4">{dest.desc}</p>
+                  <Button className="w-full bg-teal-600 hover:bg-teal-700" asChild>
+                    <a href={waLink} target="_blank">Pesan Tour</a>
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GALERI FOTO SECTION */}
+      <section className="py-20 bg-gradient-to-b from-cyan-50 to-teal-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge className="bg-teal-100 text-teal-700 mb-4">📸 GALERI FOTO</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Galeri Foto batam
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Kumpulan foto kegiatan layanan VRN Rent Car batam
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { src: "/batam/galeri/galeri-1.webp" },
+              { src: "/batam/galeri/galeri-2.webp" },
+              { src: "/batam/galeri/galeri-3.webp" },
+              { src: "/batam/galeri/galeri-4.webp" },
+              { src: "/batam/galeri/galeri-5.webp" },
+              { src: "/batam/galeri/galeri-6.webp" },
+            ].map((photo, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+              >
+                <div className="h-48 relative bg-gradient-to-br from-teal-400 to-cyan-600">
+                  <Image
+                    src={photo.src}
+                    alt={`Galeri foto ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Button variant="outline" className="border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white" asChild>
+              <Link href="/batam/galeri">
+                Lihat Semua Galeri
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* RENTAL BANDARA HANG NADIM SECTION */}
+      <section className="py-20 bg-gradient-to-b from-cyan-50 to-teal-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <Badge className="bg-blue-100 text-blue-700 mb-4">✈️ BANDARA HANG NADIM</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Rental Bandara Hang Nadim
+            </h2>
+            <p className="text-gray-600 text-lg mb-8">
+              Layanan antar jemput bandara Hang Nadim tersedia 24/7 dengan sopir profesional dan armada yang siap menjemput Anda tepat waktu. Nikmati perjalanan nyaman dari bandara langsung ke destinasi Anda di batam tanpa khawatir transportasi.
+            </p>
+            <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white text-lg px-8" asChild>
+              <a href={waLink} target="_blank">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Booking Antar Jemput
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ BATAM SECTION - Client Component */}
+      <FaqSection />
 
       {/* CTA SECTION */}
       <section className="py-20 bg-yellow-400">
@@ -431,7 +573,6 @@ export default function HomePage() {
       <footer className="bg-gray-900 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
-            {/* Brand */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
@@ -446,7 +587,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Layanan */}
             <div>
               <h4 className="font-bold text-lg mb-4">Layanan</h4>
               <ul className="space-y-2 text-gray-400">
@@ -457,7 +597,6 @@ export default function HomePage() {
               </ul>
             </div>
 
-            {/* Tautan */}
             <div>
               <h4 className="font-bold text-lg mb-4">Tautan</h4>
               <ul className="space-y-2 text-gray-400">
@@ -468,7 +607,6 @@ export default function HomePage() {
               </ul>
             </div>
 
-            {/* Kontak */}
             <div>
               <h4 className="font-bold text-lg mb-4">Kontak</h4>
               <ul className="space-y-3 text-gray-400">
