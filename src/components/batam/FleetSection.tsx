@@ -48,11 +48,11 @@ const FleetSection = () => {
   const CarCard = ({ car }: { car: Car }) => (
     <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 h-full flex flex-col">
       {/* Image */}
-      <div className="relative w-full h-64 overflow-hidden bg-gray-100">
+      <div className="relative w-full aspect-[2/3] overflow-hidden bg-gray-100">
         <img
           src={car.image}
           alt={car.name}
-          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
         />
         {car.category === "Luxury" && (
           <div className="absolute top-4 right-4 bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
