@@ -324,11 +324,11 @@ export default function HomePage() {
                 key={index}
                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
               >
-                <div className="h-40 relative bg-gray-100 flex items-center justify-center overflow-hidden">
+                <div className="h-64 relative bg-gray-100 flex items-center justify-center overflow-hidden">
                   <img
                     src={car.image}
                     alt={car.name}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-6">
