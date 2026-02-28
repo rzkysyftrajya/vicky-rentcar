@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 
-export default function PromoLebaranSection() {
+export default function PromoLebaranSection({ className = "" }) {
   const targetDate = new Date("2026-03-16T00:00:00").getTime();
 
   const [countdown, setCountdown] = useState({
@@ -12,6 +12,26 @@ export default function PromoLebaranSection() {
     minutes: 0,
     seconds: 0,
   });
+
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -36,8 +56,69 @@ export default function PromoLebaranSection() {
   }, [targetDate]);
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-900 text-white overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 text-center">
+    <section 
+      ref={sectionRef}
+      className="relative py-20 overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, #065f46 0%, #047857 25%, #065f46 50%, #047857 75%, #065f46 100%)',
+        backgroundSize: '400% 400%',
+        animation: 'gradientShift 15s ease infinite',
+      }}
+    >
+      {/* Animated Gradient Background */}
+      <style jsx>{`
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-float-1 {
+          animation: float 6s ease-in-out infinite;
+        }
+        .animate-float-2 {
+          animation: float 8s ease-in-out infinite 1s;
+        }
+        .animate-float-3 {
+          animation: float 7s ease-in-out infinite 2s;
+        }
+        .animate-fade-in-up {
+          animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .animation-delay-100 {
+          animation-delay: 100ms;
+        }
+        .animation-delay-200 {
+          animation-delay: 200ms;
+        }
+        .animation-delay-300 {
+          animation-delay: 300ms;
+        }
+        .animation-delay-400 {
+          animation-delay: 400ms;
+        }
+      `}</style>
+
+      {/* Floating Blur Glow Elements */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-400/20 rounded-full blur-3xl animate-float-1"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl animate-float-2"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-300/15 rounded-full blur-3xl animate-float-3"></div>
+
+      {/* Content */}
+      <div className={`max-w-6xl mx-auto px-6 text-center relative z-10 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
 
         {/* Badge */}
         <span className="inline-block bg-yellow-400 text-emerald-900 text-sm font-semibold px-4 py-1 rounded-full mb-6 shadow-md">
@@ -45,7 +126,7 @@ export default function PromoLebaranSection() {
         </span>
 
         {/* Title */}
-        <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight text-white">
           Rental Mobil Lebaran di Batam
         </h2>
 
@@ -54,17 +135,22 @@ export default function PromoLebaranSection() {
           Amankan kendaraan terbaik untuk mudik & perjalanan keluarga sebelum kehabisan unit.
         </p>
 
-        {/* Countdown */}
-        <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto mb-12">
-          {Object.entries(countdown).map(([label, value]) => (
+        {/* Urgency Line */}
+        <p className="text-orange-300 font-semibold text-lg mb-4 animate-pulse">
+          ⚠️ Promo berakhir dalam:
+        </p>
+
+        {/* Countdown - Improved with glass effect and bigger numbers */}
+        <div className="grid grid-cols-4 gap-3 md:gap-6 max-w-3xl mx-auto mb-12">
+          {Object.entries(countdown).map(([label, value], index) => (
             <div
               key={label}
-              className="bg-white text-emerald-900 rounded-xl py-6 shadow-lg"
+              className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl py-6 md:py-8 shadow-xl hover:bg-white/20 transition-all duration-300 hover:scale-105"
             >
-              <div className="text-3xl md:text-4xl font-bold">
-                {value}
+              <div className="text-4xl md:text-5xl font-bold text-white">
+                {String(value).padStart(2, '0')}
               </div>
-              <div className="text-sm uppercase tracking-wide mt-1 font-medium">
+              <div className="text-xs md:text-sm uppercase tracking-wider mt-2 font-medium text-emerald-200">
                 {label}
               </div>
             </div>
@@ -126,11 +212,11 @@ export default function PromoLebaranSection() {
           </div>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col md:flex-row justify-center gap-4">
+        {/* CTA Buttons with hover animations */}
+        <div className="flex flex-col md:flex-row justify-center gap-4 mb-6">
           <Link
-            href="/batam/fleet"
-            className="bg-yellow-400 hover:bg-yellow-500 text-emerald-900 font-bold px-8 py-4 rounded-xl shadow-lg transition"
+            href="/batam/armada"
+            className="bg-yellow-400 hover:bg-yellow-500 text-emerald-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1"
           >
             Lihat Armada Batam
           </Link>
@@ -138,11 +224,16 @@ export default function PromoLebaranSection() {
           <a
             href="https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Batam%20untuk%20Lebaran%202026."
             target="_blank"
-            className="bg-white text-emerald-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 transition"
+            className="bg-white text-emerald-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1"
           >
             Chat via WhatsApp
           </a>
         </div>
+
+        {/* Trust Text */}
+        <p className="text-emerald-200 text-sm md:text-base">
+          ✅ <span className="font-semibold">500+ pelanggan Batam</span> sudah booking Lebaran 2026
+        </p>
 
       </div>
     </section>

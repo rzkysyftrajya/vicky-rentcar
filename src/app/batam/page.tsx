@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { cars } from "@/data/fleet-data";
 import Navbar from "@/components/batam/Navbar";
 import FaqSection from "@/components/batam/FaqSection";
+import PromoLebaranSection from "@/components/batam/PromoLebaranSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -62,29 +63,33 @@ const layanan = [
 const armadaUnggulan = cars.slice(0, 6);
 
 const destinasi = [
-  { 
-    title: "Nagoya Hill", 
+  {
+    title: "Nagoya Hill",
     desc: "Pusat perbelanjaan terbesar",
     emoji: "🛍️",
-    color: "bg-pink-500"
+    color: "bg-pink-500",
+    image: "/batam/destinasi/nagoya-hill.webp"
   },
-  { 
-    title: "Barelang Bridge", 
+  {
+    title: "Barelang Bridge",
     desc: "Ikon jembatan penghubung pulau",
     emoji: "🌉",
-    color: "bg-blue-500"
+    color: "bg-blue-500",
+    image: "/batam/destinasi/barelang-bridge.webp"
   },
-  { 
-    title: "Tanjung Uma", 
+  {
+    title: "Tanjung Uma",
     desc: "Kuliner seafood khas laut",
     emoji: "🦞",
-    color: "bg-orange-500"
+    color: "bg-orange-500",
+    image: "/batam/destinasi/tanjung-uma.webp"
   },
-  { 
-    title: "Mega Mall", 
+  {
+    title: "Mega Mall",
     desc: "Hiburan & Belanja modern",
     emoji: "🏬",
-    color: "bg-red-500"
+    color: "bg-red-500",
+    image: "/batam/destinasi/mega-mall.webp"
   },
 ];
 
@@ -137,18 +142,18 @@ const rekomendasiDestinasi = [
 export default function HomePage() {
   return (
     <main className={`${inter.className} min-h-screen bg-gradient-to-b from-teal-50 to-cyan-50`}>
-      <Navbar />
 
       {/* HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-600 via-teal-700 to-cyan-800">
-          <div className="absolute top-20 left-10 w-40 h-40 bg-yellow-400/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-60 h-60 bg-cyan-400/20 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-teal-300/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cyan-900/30 to-transparent"></div>
-        </div>
+ <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-br from-teal-600 via-teal-700 to-cyan-800">
+    <div className="absolute top-20 left-10 w-40 h-40 bg-yellow-400/20 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-20 right-10 w-60 h-60 bg-cyan-400/20 rounded-full blur-3xl"></div>
+    <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-teal-300/10 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cyan-900/30 to-transparent"></div>
+  </div>
 
-        <div className="container mx-auto px-4 pt-24 relative z-10">
+  {/* HAPUS pt-24 DI SINI */}
+  <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
               <Badge className="bg-yellow-400 text-black text-lg px-4 py-2 mb-4">
@@ -257,6 +262,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* PROMO LEBARAN SECTION - Inserted below Hero */}
+      <div className="-mt-20 relative z-20">
+        <PromoLebaranSection />
+      </div>
+
       {/* LAYANAN SECTION */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -351,12 +361,17 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {destinasi.map((place, index) => (
-              <div 
+              <div
                 key={index}
                 className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2"
               >
-                <div className={`h-48 ${place.color} flex items-center justify-center`}>
-                  <span className="text-6xl">{place.emoji}</span>
+                <div className="h-48 relative overflow-hidden rounded-t-3xl">
+                  <Image
+                    src={place.image}
+                    alt={place.title}
+                    fill
+                    className="object-cover rounded-xl transition-transform duration-300 group-hover:scale-110"
+                  />
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-20">
                   <h3 className="text-xl font-bold text-white mb-1">{place.title}</h3>
@@ -427,47 +442,6 @@ export default function HomePage() {
           </Button>
         </div>
       </section>
-
-      {/* REKOMENDASI DESTINASI BATAM SECTION */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="bg-teal-100 text-teal-700 mb-4">🌴 REKOMENDASI DESTINASI</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Rekomendasi Destinasi batam
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Temukan tempat-tempat terbaik di batam yang wajib Anda kunjungi. Dari pusat perbelanjaan hingga pantai indah, semua dalam jangkauan rental mobil kami.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {rekomendasiDestinasi.map((dest, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
-              >
-                <div className="h-40 relative bg-gradient-to-br from-teal-400 to-cyan-600">
-                  <Image
-                    src={dest.image}
-                    alt={dest.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{dest.title}</h3>
-                  <p className="text-gray-600 mb-4">{dest.desc}</p>
-                  <Button className="w-full bg-teal-600 hover:bg-teal-700" asChild>
-                    <a href={waLink} target="_blank">Pesan Tour</a>
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* GALERI FOTO SECTION */}
       <section className="py-20 bg-gradient-to-b from-cyan-50 to-teal-50">
         <div className="container mx-auto px-4">
@@ -540,7 +514,6 @@ export default function HomePage() {
 
       {/* FAQ BATAM SECTION - Client Component */}
       <FaqSection />
-
       {/* CTA SECTION */}
       <section className="py-20 bg-yellow-400">
         <div className="container mx-auto px-4 text-center">

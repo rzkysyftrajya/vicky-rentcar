@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Car, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -30,11 +31,17 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo - Island Theme */}
           <Link href="/batam" className="flex items-center gap-2">
-            <motion.div 
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg"
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              className="relative w-10 h-10"
             >
-              <span className="text-white text-lg">🏝️</span>
+              <Image
+                src="/logoVRN.png"
+                alt="VRN Rent Car Logo"
+                width={40}
+                height={40}
+                className="object-contain"
+              />
             </motion.div>
             <div className="text-white font-bold text-lg hidden sm:block">
               <span className="text-yellow-400">VRN</span> Rent Car
@@ -85,8 +92,14 @@ const Navbar = () => {
               <div className="flex flex-col gap-1 mt-8">
                 {/* Logo in mobile menu */}
                 <div className="flex items-center gap-2 mb-4 px-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xl">🏝️</span>
+                  <div className="relative w-12 h-12">
+                    <Image
+                      src="/logoVRN.png"
+                      alt="VRN Rent Car Logo"
+                      width={48}
+                      height={48}
+                      className="object-contain"
+                    />
                   </div>
                   <div className="text-white font-bold text-xl">
                     <span className="text-yellow-400">VRN</span> Rent Car

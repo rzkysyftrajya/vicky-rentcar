@@ -56,9 +56,9 @@ export default function GaleriPage() {
     : photos.filter(p => p.category === activeCategory);
 
   return (
-    <main className={`${inter.className} min-h-screen`}>
+    <div className={`${inter.className} min-h-screen`}>
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-teal-600 to-cyan-700 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -121,9 +121,11 @@ export default function GaleriPage() {
                 className="relative group cursor-pointer overflow-hidden rounded-xl"
                 onClick={() => setSelectedPhoto(photo.src)}
               >
-                <div className="aspect-square bg-gradient-to-br from-teal-400 to-cyan-600 flex items-center justify-center">
-                  <Camera className="w-12 h-12 text-white/50 group-hover:scale-110 transition-transform" />
-                </div>
+                <img
+                  src={photo.src}
+                  alt={`Galeri ${photo.id}`}
+                  className="w-full h-full object-cover aspect-square"
+                />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <Camera className="w-8 h-8 text-white" />
                 </div>
@@ -260,14 +262,16 @@ export default function GaleriPage() {
 
       {/* Modal for photo */}
       {selectedPhoto && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedPhoto(null)}
         >
           <div className="bg-white rounded-2xl p-4 max-w-4xl w-full">
-            <div className="aspect-video bg-gray-200 rounded-xl flex items-center justify-center">
-              <Camera className="w-24 h-24 text-gray-400" />
-            </div>
+            <img
+              src={selectedPhoto}
+              alt="Selected Photo"
+              className="w-full h-full object-cover rounded-xl aspect-video"
+            />
             <div className="flex justify-end mt-4">
               <Button variant="outline" onClick={() => setSelectedPhoto(null)}>
                 Tutup
@@ -276,6 +280,6 @@ export default function GaleriPage() {
           </div>
         </div>
       )}
-    </main>
+    </div>
   );
 }

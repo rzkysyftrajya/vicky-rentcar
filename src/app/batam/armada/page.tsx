@@ -19,7 +19,6 @@ export default function ArmadaPage() {
 
   return (
     <main className={`${inter.className} min-h-screen bg-gradient-to-b from-teal-50 to-cyan-50`}>
-      <Navbar />
       
       {/* Hero Section - Island Theme */}
       <section className="relative py-24 bg-gradient-to-r from-teal-600 via-teal-700 to-cyan-700 overflow-hidden">

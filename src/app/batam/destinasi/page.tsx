@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import Navbar from "@/components/batam/Navbar";
 import { MapPin, Phone, MessageCircle, ArrowRight, Star, Clock, Building, Utensils, ShoppingBag, Camera, Palmtree } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,77 +14,85 @@ export const metadata: Metadata = {
 };
 
 const destinations = [
-  { 
-    title: "Nagoya Hill Shopping Center", 
+  {
+    title: "Nagoya Hill Shopping Center",
     description: "Pusan terbesar di batat perbelanjaam dengan berbagai brand lokal & internasional. Fasilitas lengkap mulai dari belanja, makan, hingga hiburan.",
     icon: ShoppingBag,
     emoji: "🛍️",
     color: "bg-pink-500",
     jam: "10.00 - 22.00",
-    kategori: "Belanja"
+    kategori: "Belanja",
+    image: "/batam/destinasi/nagoya-hill.webp"
   },
-  { 
-    title: "Barelang Bridge", 
+  {
+    title: "Barelang Bridge",
     description: "Jembatan ikonik yang menghubungkan beberapa pulau di batam. Tempat sempurna untuk berfoto dengan pemandangan laut yang indah.",
     icon: MapPin,
     emoji: "🌉",
     color: "bg-blue-500",
     jam: "24 Jam",
-    kategori: "Wisata"
+    kategori: "Wisata",
+    image: "/batam/destinasi/barelang-bridge.webp"
   },
-  { 
-    title: "Batam Centre", 
+  {
+    title: "Batam Centre",
     description: "Pusat pemerintahan dan bisnis di kota batam. Area modern dengan berbagai fasilitas publik.",
     icon: Building,
     emoji: "🏛️",
     color: "bg-purple-500",
     jam: "24 Jam",
-    kategori: "Bisnis"
+    kategori: "Bisnis",
+    image: "/batam/destinasi/batam-centre.webp"
   },
-  { 
-    title: "Tanjung Uma", 
+  {
+    title: "Tanjung Uma",
     description: "Kawasan kuliner tradisional dan oleh-oleh khas batam. Nikmati seafood segar dan makanan khas kepulauan.",
     icon: Utensils,
     emoji: "🦞",
     color: "bg-orange-500",
     jam: "08.00 - 23.00",
-    kategori: "Kuliner"
+    kategori: "Kuliner",
+    image: "/batam/destinasi/tanjung-uma.webp"
   },
-  { 
-    title: "Mega Mall batam", 
+  {
+    title: "Mega Mall batam",
     description: "Mall modern dengan berbagai hiburan dan restoran. Tempat sempurna untuk menghabiskan waktu bersama keluarga.",
     icon: ShoppingBag,
     emoji: "🏬",
     color: "bg-red-500",
     jam: "10.00 - 22.00",
-    kategori: "Belanja"
+    kategori: "Belanja",
+    image: "/batam/destinasi/mega-mall.webp"
   },
-  { 
-    title: "Golden City", 
+  {
+    title: "Golden City",
     description: "Area rekreasi dengan berbagai wahana menarik. Cocok untuk keluarga dan anak-anak.",
     icon: Palmtree,
     emoji: "🎡",
     color: "bg-yellow-500",
     jam: "09.00 - 18.00",
-    kategori: "Rekreasi"
+    kategori: "Rekreasi",
+    image: "/batam/destinasi/golden-city.webp"
   },
-  { 
-    title: "Botanical Garden", 
+  {
+    title: "Botanical Garden",
     description: "Taman hijau dengan berbagai tanaman eksotis. Tempat rileks dan edukatif.",
     icon: Palmtree,
     emoji: "🌿",
     color: "bg-green-500",
     jam: "07.00 - 17.00",
-    kategori: "Wisata"
+    kategori: "Wisata",
+    image: "/batam/destinasi/botanical-garden.webp"
   },
-  { 
-    title: "Kei Market", 
+  {
+    title: "Kei Market",
     description: "Pasar tradisional yang menjual oleh-oleh khas batam dan kepulauan Riau.",
     icon: ShoppingBag,
     emoji: "🛒",
     color: "bg-teal-500",
     jam: "06.00 - 18.00",
-    kategori: "Belanja"
+    kategori: "Belanja",
+    image: "/batam/destinasi/kei-market.webp"
   },
 ];
 
@@ -121,10 +130,15 @@ export default function DestinasiPage() {
             {destinations.map((place, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-gray-100 hover:border-teal-200 hover:-translate-y-2"
+                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-gray-100 hover:border-teal-200 hover:-translate-y-2 group"
               >
-                <div className={`h-40 ${place.color} flex items-center justify-center relative`}>
-                  <span className="text-6xl">{place.emoji}</span>
+                <div className="h-40 relative overflow-hidden rounded-t-3xl">
+                  <Image
+                    src={place.image}
+                    alt={place.title}
+                    fill
+                    className="object-cover rounded-xl transition-transform duration-300 group-hover:scale-110"
+                  />
                   <Badge className="absolute top-3 right-3 bg-white/90 text-gray-800 text-xs">
                     {place.kategori}
                   </Badge>

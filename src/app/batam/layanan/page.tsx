@@ -5,6 +5,7 @@ import { Car, Briefcase, MapPin, Plane, Crown, Clock, Phone, CheckCircle, Messag
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,52 +16,24 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    icon: Car,
-    title: "Rental Harian",
-    description: "Sewa mobil per hari dengan harga kompetitif. Cocok untuk kebutuhan sehari-hari, wisata, atau urusan bisnis.",
-    emoji: "☀️",
-    features: ["Harga mulai Rp 300rb", "Mobil terawat", "Bebas pilih mobil", "Sopir profesional"],
-    gradient: "from-orange-400 to-red-500"
+    title: "Lepas Kunci",
+    description: "Kebebasan penuh menjelajahi batam tanpa sopir",
+    image: "/batam/layanan/lepas-kunci.webp"
   },
   {
-    icon: Briefcase,
-    title: "Rental Bulanan",
-    description: "Solusi ekonomis untuk kebutuhan transportasi bulanan. Diskon khusus untuk jangka panjang.",
-    emoji: "🏢",
-    features: ["Diskon khusus", "Mobil replacement", "Service include", "Priority booking"],
-    gradient: "from-purple-400 to-pink-500"
+    title: "Dengan Sopir",
+    description: "Sopir profesional mengantar Anda ke mana saja",
+    image: "/batam/layanan/dengan-sopir.webp"
   },
   {
-    icon: Plane,
     title: "Antar Jemput Bandara",
-    description: "Layanan antar jemput ke bandara Hang Nadim. Harga fix all-in termasuk toll dan parking.",
-    emoji: "✈️",
-    features: ["Harga fix", "On-time", "Flight tracking", "Gratis waiting"],
-    gradient: "from-blue-400 to-cyan-500"
+    description: "Layanan antar jemput bandara Hang Nadim 24/7",
+    image: "/batam/layanan/antar-jemput-bandara.webp"
   },
   {
-    icon: MapPin,
-    title: "City Tour",
-    description: "Jelajahi batam dengan sopir berpengalaman. Paket fleksibel sesuai keinginan Anda.",
-    emoji: "🗺️",
-    features: ["Sopir lokal", "Paket fleksibel", "Destinasi pilihan", "Waktu fleksibel"],
-    gradient: "from-green-400 to-teal-500"
-  },
-  {
-    icon: Crown,
-    title: "Wedding Car",
-    description: "Mobil mewah untuk hari bahagia Anda. Alphard, Camry Hybrid dengan dekorasi eksklusif.",
-    emoji: "💒",
-    features: ["Mobil premium", "Dekorasi mobil", "Driver profesional", "Jas rapi"],
-    gradient: "from-yellow-400 to-orange-500"
-  },
-  {
-    icon: Briefcase,
-    title: "Korporat/Event",
-    description: "Layanan rental untuk kebutuhan perusahaan, operasional, atau event khusus.",
-    emoji: "🏛️",
-    features: ["Kontrak panjang", "Driver standby", "Priority service", "Faktur resmi"],
-    gradient: "from-indigo-400 to-purple-500"
+    title: "Rental Bulanan",
+    description: "Solusi ekonomis untuk kebutuhan jangka panjang",
+    image: "/batam/layanan/rental-bulanan.webp"
   },
 ];
 
@@ -69,15 +42,14 @@ export default function LayananPage() {
 
   return (
     <main className={`${inter.className} min-h-screen bg-gradient-to-b from-teal-50 to-cyan-50`}>
-      <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-r from-teal-600 via-teal-700 to-cyan-700 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 left-20 w-40 h-40 bg-yellow-400 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-20 w-60 h-60 bg-cyan-300 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 pt-20 text-center relative z-10">
           <Badge className="bg-yellow-400 text-black text-lg px-4 py-2 mb-4">
             🌊 Layanan Kami
@@ -92,37 +64,42 @@ export default function LayananPage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-black">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div 
-                key={index}
-                className="group bg-gray-50 rounded-3xl p-8 hover:shadow-2xl transition-all border border-gray-100 hover:border-teal-200 hover:-translate-y-2"
-              >
-                <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 text-4xl group-hover:scale-110 transition-transform`}>
-                  {service.emoji}
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                
-                <div className="space-y-2 mb-6">
-                  {service.features.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-teal-500" />
-                      {feature}
-                    </div>
-                  ))}
-                </div>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Layanan Premium
+            </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+              Pilihan layanan rental mobil terbaik di batam untuk kebutuhan perjalanan Anda
+            </p>
+          </div>
 
-                <Button className="w-full bg-teal-600 hover:bg-teal-700" asChild>
-                  <a href={waLink} target="_blank">
-                    Pesan Sekarang
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </a>
-                </Button>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service, index) => (
+              <div key={index} className="group relative overflow-hidden rounded-2xl h-80 cursor-pointer transform transition-transform duration-300 hover:scale-105">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
+                  <p className="text-gray-200 text-sm">{service.description}</p>
+                </div>
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white font-bold text-lg px-8" asChild>
+              <a href={waLink} target="_blank">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Pesan Sekarang via WhatsApp
+              </a>
+            </Button>
           </div>
         </div>
       </section>

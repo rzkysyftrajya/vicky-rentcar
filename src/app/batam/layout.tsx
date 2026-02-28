@@ -12,17 +12,22 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Rental Mobil batam - Sewa Mobil Harian & Bulanan | VRN",
-  description: "Sewa mobil batam terpercaya. Armada terawat, driver profesional, harga transparan.",
+  description:
+    "Sewa mobil batam terpercaya. Armada terawat, driver profesional, harga transparan.",
 };
 
-export default function batamLayout({ children }: { children: React.ReactNode }) {
+export default function BatamLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="id">
-      <body className={inter.className}>
+      <body className={`${inter.className} m-0 p-0`}>
         <AppContextProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Navbar />
-            <main className="pt-16">{children}</main>
+            <main>{children}</main>
           </ThemeProvider>
         </AppContextProvider>
       </body>
