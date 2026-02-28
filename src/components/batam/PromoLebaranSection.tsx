@@ -118,7 +118,7 @@ export default function PromoLebaranSection({ className = "" }) {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-300/15 rounded-full blur-3xl animate-float-3"></div>
 
       {/* Content */}
-      <div className={`max-w-6xl mx-auto px-6 text-center relative z-10 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+      <div className={`container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
 
         {/* Badge */}
         <span className="inline-block bg-yellow-400 text-emerald-900 text-sm font-semibold px-4 py-1 rounded-full mb-6 shadow-md">

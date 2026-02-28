@@ -1,6 +1,6 @@
 
 
-import type { Metadata } from "next";
+ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/batam/Navbar";
 import { Car, Briefcase, MapPin, Plane, Crown, Clock, Phone, CheckCircle, MessageCircle, ArrowRight } from "lucide-react";
@@ -52,7 +52,7 @@ export default function LayananPage() {
           <div className="absolute bottom-20 right-20 w-60 h-60 bg-cyan-300 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="container mx-auto px-4 pt-20 text-center relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 text-center relative z-10">
           <Badge className="bg-yellow-400 text-black text-lg px-4 py-2 mb-4">
             🌊 Layanan Kami
           </Badge>
@@ -67,7 +67,7 @@ export default function LayananPage() {
 
       {/* Services Section */}
       <section className="py-20 bg-gradient-to-b from-teal-50 to-cyan-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Layanan Premium
@@ -79,7 +79,7 @@ export default function LayananPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-2xl h-80 cursor-pointer transform transition-transform duration-300 hover:scale-105">
+              <div key={index} className="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer transform transition-transform duration-300 hover:scale-105">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -108,7 +108,7 @@ export default function LayananPage() {
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-teal-600 to-cyan-700">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Butuh bantuan memilih layanan?
           </h2>
@@ -134,7 +134,7 @@ export default function LayananPage() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">

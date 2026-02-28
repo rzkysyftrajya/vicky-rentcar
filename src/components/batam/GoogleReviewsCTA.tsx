@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 export default function GoogleReviewsCTA() {
   return (
     <section className="py-16 bg-gradient-to-r from-teal-600 to-cyan-700">
-      <div className="container mx-auto px-4 text-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-2xl mx-auto">
           <div className="mb-6">
             <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">

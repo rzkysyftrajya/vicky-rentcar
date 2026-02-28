@@ -57,7 +57,7 @@ const trustBadges = [
 export default function TrustBadgesSection() {
   return (
     <section className="py-12 bg-gradient-to-br from-teal-50 via-cyan-50 to-yellow-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
           {trustBadges.map((badge, index) => (
             <div

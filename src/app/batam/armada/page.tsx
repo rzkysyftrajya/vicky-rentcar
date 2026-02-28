@@ -18,7 +18,7 @@ export default function ArmadaPage() {
   const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Batam";
 
   return (
-    <main className={`${inter.className} min-h-screen bg-gradient-to-b from-teal-50 to-cyan-50`}>
+    <main className={`${inter.className} min-h-screen bg-gradient-to-b from-teal-50 to-cyan-50 overflow-x-hidden`}>
       
       {/* Hero Section - Island Theme */}
       <section className="relative py-24 bg-gradient-to-r from-teal-600 via-teal-700 to-cyan-700 overflow-hidden">
@@ -27,7 +27,7 @@ export default function ArmadaPage() {
           <div className="absolute bottom-20 right-20 w-60 h-60 bg-cyan-300 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="container mx-auto px-4 pt-20 text-center relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 text-center relative z-10">
           <Badge className="bg-yellow-400 text-black text-lg px-4 py-2 mb-4">
             🏝️ Armada Kami
           </Badge>
@@ -42,32 +42,34 @@ export default function ArmadaPage() {
 
       {/* Fleet Section */}
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {cars.map((car, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-xl transition border border-gray-100 hover:border-teal-200">
-                <div className="h-64 relative bg-gray-100 flex items-center justify-center overflow-hidden">
+              <div key={index} className="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-xl transition border border-gray-100 hover:border-teal-200 flex flex-col">
+                <div className="aspect-[4/3] relative bg-gray-100 flex items-center justify-center overflow-hidden">
                   <img
                     src={car.image}
                     alt={car.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-bold mb-2 text-gray-900">{car.name}</h3>
-                  <div className="flex flex-wrap gap-2 mb-3">
+                <div className="p-6">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 line-clamp-1">{car.name}</h3>
+                  <div className="flex flex-wrap gap-2 mb-3 min-h-[2.5rem]">
                     {car.specs.map((spec, i) => (
                       <span key={i} className="text-xs bg-teal-100 text-teal-600 px-2 py-1 rounded">
                         {spec}
                       </span>
                     ))}
                   </div>
-                  <Button className="w-full bg-teal-600 hover:bg-teal-700" asChild>
-                    <a href={waLink} target="_blank">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      Booking Sekarang
-                    </a>
-                  </Button>
+                  <div className="mt-auto">
+                    <Button className="w-full bg-teal-600 hover:bg-teal-700" asChild>
+                      <a href={waLink} target="_blank">
+                        <Calendar className="w-4 h-4 mr-2" />
+                        Booking Sekarang
+                      </a>
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -77,7 +79,7 @@ export default function ArmadaPage() {
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-teal-600 to-cyan-700">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Tidak menemukan mobil yang cocok?
           </h2>
@@ -103,7 +105,7 @@ export default function ArmadaPage() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">

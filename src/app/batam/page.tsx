@@ -133,7 +133,7 @@ const rekomendasiDestinasi = [
 
 export default function HomePage() {
   return (
-    <main className={`${inter.className} min-h-screen bg-gradient-to-b from-teal-50 to-cyan-50`}>
+    <main className={`${inter.className} min-h-screen bg-gradient-to-b from-teal-50 to-cyan-50 overflow-x-hidden`}>
 
       {/* HERO SECTION */}
  <section className="relative min-h-[90vh] flex items-center overflow-hidden">
@@ -145,7 +145,7 @@ export default function HomePage() {
   </div>
 
   {/* HAPUS pt-24 DI SINI */}
-  <div className="container mx-auto px-4 relative z-10">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
               <Badge className="bg-yellow-400 text-black text-lg px-4 py-2 mb-4">
@@ -159,7 +159,7 @@ export default function HomePage() {
                 Nikmati kebebasan mengeksplorasi keindahan kepulauan Riau dengan armada terbaik dan layanan profesional.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
                 <Button size="lg" className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold text-lg px-8" asChild>
                   <a href={waLink} target="_blank">
                     <MessageCircle className="w-5 h-5 mr-2" />
@@ -261,7 +261,7 @@ export default function HomePage() {
 
       {/* LAYANAN SECTION - PREMIUM */}
       <section className="py-20 bg-gradient-to-b from-teal-50 to-cyan-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Layanan Premium
@@ -271,9 +271,9 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {layanan.map((item, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-2xl h-80 cursor-pointer transform transition-transform duration-300 hover:scale-105">
+              <div key={index} className="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer transform transition-transform duration-300 hover:scale-105">
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -302,7 +302,7 @@ export default function HomePage() {
 
       {/* ARMADA SECTION */}
       <section className="py-20 bg-gradient-to-b from-teal-50 to-cyan-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center mb-12">
             <div>
               <Badge className="bg-yellow-400 text-black mb-4">🚗 ARMADA KAMI</Badge>
@@ -318,13 +318,13 @@ export default function HomePage() {
             </Button>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {armadaUnggulan.map((car, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 flex flex-col"
               >
-                <div className="h-64 relative bg-gray-100 flex items-center justify-center overflow-hidden">
+                <div className="aspect-[4/3] relative bg-gray-100 flex items-center justify-center overflow-hidden">
                   <img
                     src={car.image}
                     alt={car.name}
@@ -332,17 +332,19 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{car.name}</h3>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-1">{car.name}</h3>
+                  <div className="flex flex-wrap gap-2 mb-4 min-h-[2.5rem]">
                     {car.specs.slice(0, 3).map((spec, i) => (
                       <span key={i} className="text-xs bg-teal-50 text-teal-600 px-2 py-1 rounded">
                         {spec}
                       </span>
                     ))}
                   </div>
-                  <Button className="w-full bg-teal-600 hover:bg-teal-700" asChild>
-                    <a href={waLink} target="_blank">Booking</a>
-                  </Button>
+                  <div className="mt-auto">
+                    <Button className="w-full bg-teal-600 hover:bg-teal-700" asChild>
+                      <a href={waLink} target="_blank">Booking</a>
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -352,7 +354,7 @@ export default function HomePage() {
 
       {/* DESTINASI SECTION */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Badge className="bg-cyan-100 text-cyan-700 mb-4">🗺️ DESTINASI</Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -363,13 +365,13 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {destinasi.map((place, index) => (
               <div
                 key={index}
                 className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2"
               >
-                <div className="h-48 relative overflow-hidden rounded-t-3xl">
+                <div className="aspect-[4/3] relative overflow-hidden rounded-t-3xl">
                   <Image
                     src={place.image}
                     alt={place.title}
@@ -385,9 +387,9 @@ export default function HomePage() {
                   <Button size="sm" className="bg-yellow-500 hover:bg-yellow-400 text-black" asChild>
                     <a href={waLink} target="_blank">Tour</a>
                   </Button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
 
           <div className="text-center mt-8">
@@ -403,7 +405,7 @@ export default function HomePage() {
 
       {/* WHY CHOOSE US */}
       <section className="py-20 bg-gradient-to-r from-teal-600 to-cyan-700">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Badge className="bg-yellow-400 text-black mb-4">💎 KENAPA PILIH KAMI</Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -411,7 +413,7 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyChooseUs.map((item, index) => (
               <div 
                 key={index}
@@ -430,7 +432,7 @@ export default function HomePage() {
 
       {/* PROMO LEBARAN SECTION */}
       <section className="py-20 bg-gradient-to-r from-yellow-400 to-orange-500">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Badge className="bg-white text-black mb-4">🎉 PROMO LEBARAN</Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
             Diskon Spesial Ramadan & Lebaran
@@ -448,7 +450,7 @@ export default function HomePage() {
       </section>
       {/* GALERI FOTO SECTION */}
       <section className="py-20 bg-gradient-to-b from-cyan-50 to-teal-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Badge className="bg-teal-100 text-teal-700 mb-4">📸 GALERI FOTO</Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -459,7 +461,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { src: "/batam/galeri/galeri-1.webp" },
               { src: "/batam/galeri/galeri-2.webp" },
@@ -472,7 +474,7 @@ export default function HomePage() {
                 key={index}
                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
               >
-                <div className="h-48 relative bg-gradient-to-br from-teal-400 to-cyan-600">
+                <div className="aspect-video relative bg-gradient-to-br from-teal-400 to-cyan-600">
                   <Image
                     src={photo.src}
                     alt={`Galeri foto ${index + 1}`}
@@ -497,7 +499,7 @@ export default function HomePage() {
 
       {/* RENTAL BANDARA HANG NADIM SECTION */}
       <section className="py-20 bg-gradient-to-b from-cyan-50 to-teal-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="bg-blue-100 text-blue-700 mb-4">✈️ BANDARA HANG NADIM</Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -520,7 +522,7 @@ export default function HomePage() {
       <FaqSection />
       {/* CTA SECTION */}
       <section className="py-20 bg-yellow-400">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
               Siap Menjelajahi batam?
@@ -548,7 +550,7 @@ export default function HomePage() {
 
       {/* FOOTER */}
       <footer className="bg-gray-900 text-white py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">

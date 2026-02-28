@@ -12,7 +12,7 @@ export default function StatsSection() {
 
   return (
     <section className="py-16 bg-gradient-to-r from-[#0d6efd] to-[#0056b3]">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">

@@ -66,7 +66,7 @@ export default function GaleriPage() {
           <div className="absolute bottom-20 right-20 w-60 h-60 bg-yellow-300 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="container mx-auto px-4 pt-16 text-center relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ export default function GaleriPage() {
 
       {/* Gallery Content */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-2 mb-12">
             {categories.map((category) => (
@@ -144,7 +144,7 @@ export default function GaleriPage() {
 
       {/* Video Section */}
       <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -188,7 +188,7 @@ export default function GaleriPage() {
 
       {/* Social Media */}
       <section className="py-16 bg-gradient-to-r from-teal-600 to-cyan-700">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -223,7 +223,7 @@ export default function GaleriPage() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <h4 className="font-bold text-xl mb-4">🏝️ VRN Rent Car batam</h4>

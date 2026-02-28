@@ -282,7 +282,7 @@ const FleetSection = () => {
 
   return (
     <section id="armada" className="py-20 bg-gray-50" ref={ref}>
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {allCategories.map((category) => (
