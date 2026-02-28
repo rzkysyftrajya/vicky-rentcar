@@ -5,7 +5,7 @@ import Navbar from "@/components/batam/Navbar";
 import { Car, CheckCircle, Phone, ArrowRight, MapPin, MessageCircle, Star, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { cars } from "@/data/fleet-data";
+import { batamCars as cars } from "@/data/batam-fleet-data";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,8 +46,12 @@ export default function ArmadaPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {cars.map((car, index) => (
               <div key={index} className="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-xl transition border border-gray-100 hover:border-teal-200">
-                <div className="h-40 bg-gradient-to-br from-teal-400 to-cyan-600 flex items-center justify-center">
-                  <Car className="w-16 h-16 text-white" />
+                <div className="h-64 relative bg-gray-100 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={car.image}
+                    alt={car.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="p-5">
                   <h3 className="text-lg font-bold mb-2 text-gray-900">{car.name}</h3>

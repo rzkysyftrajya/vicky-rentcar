@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { cars } from "@/data/fleet-data";
+import { batamCars as cars } from "@/data/batam-fleet-data";
 import Navbar from "@/components/batam/Navbar";
 import FaqSection from "@/components/batam/FaqSection";
 import PromoLebaranSection from "@/components/batam/PromoLebaranSection";
@@ -31,32 +31,24 @@ const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%
 
 const layanan = [
   { 
-    icon: Calendar, 
-    title: "Rental Harian", 
-    desc: "Nikmati kebebasan mengeksplorasi pulau",
-    emoji: "☀️",
-    gradient: "from-orange-400 to-pink-500"
+    title: "Lepas Kunci", 
+    desc: "Kebebasan penuh menjelajahi batam tanpa sopir",
+    image: "/batam/layanan/lepas-kunci.webp"
   },
   { 
-    icon: Building, 
+    title: "Dengan Sopir", 
+    desc: "Sopir profesional mengantar Anda ke mana saja",
+    image: "/batam/layanan/dengan-sopir.webp"
+  },
+  { 
+    title: "Antar Jemput Bandara", 
+    desc: "Layanan antar jemput bandara Hang Nadim 24/7",
+    image: "/batam/layanan/antar-jemput-bandara.webp"
+  },
+  { 
     title: "Rental Bulanan", 
-    desc: "Solusi sempurna untuk jangka panjang",
-    emoji: "🏨",
-    gradient: "from-purple-400 to-pink-500"
-  },
-  { 
-    icon: Plane, 
-    title: "Antar Jemput", 
-    desc: "Dari/ke Bandara Hang Nadim",
-    emoji: "✈️",
-    gradient: "from-blue-400 to-cyan-500"
-  },
-  { 
-    icon: Palmtree, 
-    title: "Island Tour", 
-    desc: "Jelajahi pesona pulau batam",
-    emoji: "🌴",
-    gradient: "from-green-400 to-teal-500"
+    desc: "Solusi ekonomis untuk kebutuhan jangka panjang",
+    image: "/batam/layanan/rental-bulanan.webp"
   },
 ];
 
@@ -267,35 +259,43 @@ export default function HomePage() {
         <PromoLebaranSection />
       </div>
 
-      {/* LAYANAN SECTION */}
-      <section className="py-20 bg-white">
+      {/* LAYANAN SECTION - PREMIUM */}
+      <section className="py-20 bg-gradient-to-b from-teal-50 to-cyan-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="bg-teal-100 text-teal-700 mb-4">🌊 LAYANAN KAMI</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Pilihan Layanan Rental
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Layanan Premium
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Kami menyediakan berbagai layanan rental mobil yang disesuaikan dengan kebutuhan perjalanan Anda di pulau batam
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Pilihan layanan rental mobil terbaik di batam untuk kebutuhan perjalanan Anda
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {layanan.map((item, index) => (
-              <div 
-                key={index}
-                className="group bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-teal-200 hover:-translate-y-2"
-              >
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 text-3xl group-hover:scale-110 transition-transform`}>
-                  {item.emoji}
+              <div key={index} className="group relative overflow-hidden rounded-2xl h-80 cursor-pointer transform transition-transform duration-300 hover:scale-105">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-gray-200 text-sm">{item.desc}</p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600 mb-4">{item.desc}</p>
-                <Link href="/batam/layanan" className="text-teal-600 font-semibold inline-flex items-center hover:gap-2 transition-all">
-                  Selengkapnya <ArrowRight className="w-4 h-4 ml-1" />
-                </Link>
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-lg px-8" asChild>
+              <a href={waLink} target="_blank">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Pesan Sekarang via WhatsApp
+              </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -324,8 +324,12 @@ export default function HomePage() {
                 key={index}
                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
               >
-                <div className="h-40 bg-gradient-to-br from-teal-400 to-cyan-600 flex items-center justify-center">
-                  <Car className="w-16 h-16 text-white" />
+                <div className="h-40 relative bg-gray-100 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={car.image}
+                    alt={car.name}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{car.name}</h3>

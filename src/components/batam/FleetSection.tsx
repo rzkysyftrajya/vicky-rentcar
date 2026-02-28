@@ -10,7 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { cars, Car, ServiceCategory } from "@/data/fleet-data";
+import { batamCars as cars, Car, ServiceCategory } from "@/data/batam-fleet-data";
 
 // Service category display names
 const serviceCategoryNames: Record<ServiceCategory, string> = {

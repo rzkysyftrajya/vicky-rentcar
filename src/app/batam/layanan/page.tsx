@@ -1,3 +1,5 @@
+
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/batam/Navbar";
@@ -64,13 +66,13 @@ export default function LayananPage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-black">
+      <section className="py-20 bg-gradient-to-b from-teal-50 to-cyan-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Layanan Premium
             </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               Pilihan layanan rental mobil terbaik di batam untuk kebutuhan perjalanan Anda
             </p>
           </div>
