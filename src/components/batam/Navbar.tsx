@@ -43,7 +43,10 @@ const Navbar = () => {
                 className="object-contain"
               />
             </motion.div>
-            <div className="text-white font-bold text-lg hidden sm:block">
+            <div className="text-white font-semibold text-sm md:hidden">
+              VICKY RENTCAR BATAM
+            </div>
+            <div className="text-white font-bold text-lg hidden md:block">
               <span className="text-yellow-400">VRN</span> Rent Car
             </div>
           </Link>

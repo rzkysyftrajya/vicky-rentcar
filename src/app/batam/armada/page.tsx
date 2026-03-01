@@ -29,7 +29,7 @@ export default function ArmadaPage() {
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 text-center relative z-10">
           <Badge className="bg-yellow-400 text-black text-lg px-4 py-2 mb-4">
-            🏝️ Armada Kami
+             Armada Kami
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Armada Mobil Terbaik
@@ -45,13 +45,14 @@ export default function ArmadaPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {cars.map((car, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-xl transition border border-gray-100 hover:border-teal-200 flex flex-col">
-                <div className="aspect-[4/3] relative bg-gray-100 flex items-center justify-center overflow-hidden">
+              <div key={index} className="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-xl transition border border-gray-100 hover:border-teal-200 flex flex-col group">
+                <div className="relative w-full aspect-[2/3] overflow-hidden bg-gray-100">
                   <img
                     src={car.image}
                     alt={car.name}
-                    className="w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-gray-900/50 to-transparent" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold mb-2 text-gray-900 line-clamp-1">{car.name}</h3>
