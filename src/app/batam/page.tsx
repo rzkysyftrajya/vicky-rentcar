@@ -138,11 +138,11 @@ export default function HomePage() {
 
       {/* HERO SECTION */}
  <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-  <div className="absolute inset-0 bg-gradient-to-br from-teal-800 via-emerald-700 to-cyan-900">
+  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/batam/hero-section.webp')" }}></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-teal-800/90 via-emerald-700/80 to-cyan-900/90">
     <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-400/10 rounded-full blur-[100px]"></div>
     <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-400/10 rounded-full blur-[100px]"></div>
     <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-teal-300/5 rounded-full blur-[120px]"></div>
-    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cyan-900/30 to-transparent"></div>
   </div>
 
   {/* HAPUS pt-24 DI SINI */}
