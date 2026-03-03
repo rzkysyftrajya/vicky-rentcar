@@ -23,27 +23,25 @@ export default function BatamLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id">
-      <body className={`${inter.className} m-0 p-0`}>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17357105664"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics-batam" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17357105664');
-          `}
-        </Script>
-        <AppContextProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Navbar />
-            <main>{children}</main>
-          </ThemeProvider>
-        </AppContextProvider>
-      </body>
-    </html>
+    <>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-17357105664"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics-batam" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-17357105664');
+        `}
+      </Script>
+      <AppContextProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navbar />
+          <main>{children}</main>
+        </ThemeProvider>
+      </AppContextProvider>
+    </>
   );
 }

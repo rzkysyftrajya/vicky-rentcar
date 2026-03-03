@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: "Armada", href: "/batam/armada" },
     { name: "Layanan", href: "/batam/layanan" },
     { name: "Destinasi", href: "/batam/destinasi" },
+    { name: "Rekomendasi Hotel", href: "/batam/rekomendasi-hotel" },
     { name: "Galeri", href: "/batam/galeri" },
     { name: "FAQ", href: "/batam/faq" },
     { name: "Kontak", href: "/batam/kontak" },

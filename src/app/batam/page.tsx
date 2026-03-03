@@ -6,7 +6,7 @@ import {
   Phone, MapPin, Star, Clock, Shield, Award, Car, 
   CheckCircle, ArrowRight, MessageCircle, Users, Banknote,
   Calendar, Palmtree, Building, Plane, Utensils, ShoppingBag,
-  Waves, Sun, Compass, Island, Wind, Anchor
+  Waves, Sun, Compass, Island, Wind, Anchor, Play
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -147,8 +147,8 @@ export default function HomePage() {
 
   {/* HAPUS pt-24 DI SINI */}
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
+          <div className="grid lg:grid-cols-1 gap-12 items-center">
+            <div className="text-center">
               <Badge className="bg-amber-400 text-black text-sm md:text-base px-4 py-1.5 mb-6 shadow-lg shadow-amber-400/20 border-0">
                 Rental Mobil Terbaik di batam
               </Badge>
@@ -161,7 +161,7 @@ export default function HomePage() {
                 Batam sebagai kota bisnis dan transit menuntut mobilitas cepat; kami hadir untuk mendukung meeting, proyek, dan perjalanan singkat Anda.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
                 <Button size="lg" className="bg-amber-500 hover:bg-amber-400 text-black font-bold text-lg px-8 shadow-xl shadow-amber-500/20 transition-all hover:scale-105" asChild>
                   <a href={waLink} target="_blank">
                     <MessageCircle className="w-5 h-5 mr-2" />
@@ -191,55 +191,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-
-            <SafeMotionDiv className="hidden lg:block" initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-              <div className="relative">
-                <div className="absolute -top-4 -left-4 bg-white/20 backdrop-blur-sm rounded-2xl p-4 animate-pulse">
-                  <div className="flex items-center gap-2 text-white">
-                    <Sun className="w-6 h-6 text-yellow-400" />
-                    <span className="font-semibold">Cuaca: Cerah</span>
-                  </div>
-                </div>
-                <div className="absolute -bottom-4 -right-4 bg-white/20 backdrop-blur-sm rounded-2xl p-4">
-                  <div className="flex items-center gap-2 text-white">
-                    <Waves className="w-6 h-6 text-cyan-400" />
-                    <span className="font-semibold">Island Hopping</span>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-3xl shadow-2xl p-8 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-bl-full"></div>
-                  <div className="relative z-10">
-                    <Badge className="bg-teal-100 text-teal-700 mb-4">⭐ Armada Pilihan</Badge>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Toyota Alphard</h3>
-                    <p className="text-gray-500 mb-6">Premium MPV untuk perjalanan nyaman</p>
-                    
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="bg-gray-50 rounded-xl p-3 text-center">
-                        <Car className="w-6 h-6 text-teal-600 mx-auto mb-1" />
-                        <span className="text-sm text-gray-600">7 Kursi</span>
-                      </div>
-                      <div className="bg-gray-50 rounded-xl p-3 text-center">
-                        <Shield className="w-6 h-6 text-teal-600 mx-auto mb-1" />
-                        <span className="text-sm text-gray-600">Full Insurance</span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-baseline gap-2 mb-6">
-                      <span className="text-4xl font-bold text-teal-600">Rp 1.500.000</span>
-                      <span className="text-gray-400">/hari</span>
-                    </div>
-
-                    <Button className="w-full bg-teal-600 hover:bg-teal-700" asChild>
-                      <a href={waLink} target="_blank">
-                        Booking Sekarang
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </SafeMotionDiv>
           </div>
         </div>
 
@@ -598,22 +549,74 @@ export default function HomePage() {
       </section>
 
       {/* RENTAL BANDARA HANG NADIM SECTION */}
-      <section className="py-20 bg-gradient-to-b from-cyan-50 to-teal-50">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge className="bg-blue-100 text-blue-700 mb-4">✈️ BANDARA HANG NADIM</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Rental Bandara Hang Nadim
-            </h2>
-            <p className="text-gray-600 text-lg mb-8">
-              Layanan antar jemput bandara Hang Nadim tersedia 24/7 dengan sopir profesional dan armada yang siap menjemput Anda tepat waktu. Nikmati perjalanan nyaman dari bandara langsung ke destinasi Anda di batam tanpa khawatir transportasi.
-            </p>
-            <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white text-lg px-8" asChild>
-              <a href={waLink} target="_blank">
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Booking Antar Jemput
-              </a>
-            </Button>
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <Badge className="bg-blue-100 text-blue-700 mb-4">✈️ ANTAR JEMPUT BANDARA</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Layanan Penjemputan Bandara Hang Nadim
+              </h2>
+              <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                Kami menyediakan layanan antar jemput Bandara Hang Nadim (BTH) yang tepat waktu dan nyaman. Sopir kami akan menunggu kedatangan Anda dengan papan nama, membantu bagasi, dan mengantar langsung ke hotel atau tujuan bisnis Anda.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center text-teal-600">
+                    <CheckCircle className="w-4 h-4" />
+                  </div>
+                  <span className="text-gray-700">Monitoring jadwal penerbangan (Flight Tracking)</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center text-teal-600">
+                    <CheckCircle className="w-4 h-4" />
+                  </div>
+                  <span className="text-gray-700">Bebas biaya tunggu delay pesawat</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center text-teal-600">
+                    <CheckCircle className="w-4 h-4" />
+                  </div>
+                  <span className="text-gray-700">Unit bersih & AC dingin</span>
+                </li>
+              </ul>
+              <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white text-lg px-8" asChild>
+                <a href={waLink} target="_blank">
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Booking Penjemputan
+                </a>
+              </Button>
+            </div>
+
+            {/* Video Testimonial Main */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-gray-900 aspect-video">
+                <video
+                  src="/batam/bandara/bandara1.mp4"
+                  poster="/batam/bandara/bandara1.webp"
+                  controls
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute -z-10 top-10 -right-10 w-32 h-32 bg-yellow-400/20 rounded-full blur-3xl"></div>
+              <div className="absolute -z-10 -bottom-10 -left-10 w-32 h-32 bg-teal-400/20 rounded-full blur-3xl"></div>
+            </div>
+          </div>
+
+          {/* More Testimonials Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="md:col-start-2 bg-gray-50 rounded-xl p-4 border border-gray-100">
+              <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200">
+                <video
+                  src="/batam/bandara/bandara2.mp4"
+                  poster="/batam/bandara/bandara2.webp"
+                  controls
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
