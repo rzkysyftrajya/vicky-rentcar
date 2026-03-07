@@ -56,7 +56,7 @@ export default function SurabayaPage() {
     <div className="flex flex-col">
       <PromoLebaranModal 
         city="Surabaya"
-        imageSrc="/surabaya/promo-lebaran.webp"
+        imageSrc="/halaman-surabaya/promo-lebaran.webp"
         waText="Halo, saya tertarik dengan Promo Lebaran VRN Rent Car Surabaya"
       />
       {/* Floating WhatsApp Button */}
