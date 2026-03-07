@@ -729,7 +729,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* 💬 TESTIMONI - Social Proof */}
-      <section className="py-20 bg-gradient-to-b from-slate-50 to-blue-900 dark:from-slate-900 dark:to-slate-800">
+      <section className="py-20 bg-gradient-to-b from-blue-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -737,10 +737,10 @@ export default function SurabayaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-700 dark:text-slate-200">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-blue-900">
               Apa Kata Mereka tentang kami?
             </h2>
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300">
+            <p className="text-lg md:text-xl text-gray-600">
               Ribuan pelanggan puas dari seluruh Indonesia
             </p>
           </motion.div>
@@ -764,7 +764,7 @@ export default function SurabayaPage() {
                         ease: "easeOut",
                       }}
                       whileHover={{ y: -5 }}
-                      className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20 h-full"
+                      className="bg-white p-8 rounded-2xl shadow-lg h-full border border-blue-100"
                     >
                       <div className="flex gap-1 mb-4">
                         {[...Array(testi.rating)].map((_, j) => (
@@ -781,7 +781,7 @@ export default function SurabayaPage() {
                           </motion.div>
                         ))}
                       </div>
-                      <p className="italic mb-4 text-slate-100 dark:text-slate-200 leading-relaxed">
+                      <p className="italic mb-4 text-gray-700 leading-relaxed">
                         "
                         {testi.text.split(" ").map((word, idx) => {
                           const isHighlight = [
@@ -797,7 +797,7 @@ export default function SurabayaPage() {
                               key={idx}
                               className={
                                 isHighlight
-                                  ? "text-yellow-300 font-semibold"
+                                  ? "text-blue-600 font-semibold"
                                   : ""
                               }
                             >
@@ -815,15 +815,15 @@ export default function SurabayaPage() {
                             delay: i * 0.1 + 0.3,
                             duration: 0.3,
                           }}
-                          className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-xl"
+                          className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xl"
                         >
                           {testi.name[0]}
                         </motion.div>
                         <div>
-                          <h4 className="font-bold text-slate-100 dark:text-slate-200">
+                          <h4 className="font-bold text-gray-800">
                             {testi.name}
                           </h4>
-                          <p className="text-sm text-slate-300 dark:text-slate-400">
+                          <p className="text-sm text-gray-500">
                             {testi.city}
                           </p>
                         </div>
@@ -836,7 +836,7 @@ export default function SurabayaPage() {
             <Button
               variant="outline"
               size="icon"
-              className="absolute top-1/2 -translate-y-1/2 left-0 bg-white/20 hover:bg-white/30 border-none"
+              className="absolute top-1/2 -translate-y-1/2 left-0 bg-white hover:bg-blue-50 border-blue-200 text-blue-600"
               onClick={() =>
                 setCurrentTestimonial((prev) => (prev === 0 ? 2 : prev - 1))
               }
@@ -846,7 +846,7 @@ export default function SurabayaPage() {
             <Button
               variant="outline"
               size="icon"
-              className="absolute top-1/2 -translate-y-1/2 right-0 bg-white/20 hover:bg-white/30 border-none"
+              className="absolute top-1/2 -translate-y-1/2 right-0 bg-white hover:bg-blue-50 border-blue-200 text-blue-600"
               onClick={() =>
                 setCurrentTestimonial((prev) => (prev === 2 ? 0 : prev + 1))
               }
@@ -909,7 +909,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* 📸 DOKUMENTASI VRN SURABAYA */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-900">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -917,10 +917,10 @@ export default function SurabayaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-700 dark:text-slate-200">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-blue-900">
               DOKUMENTASI VRN SURABAYA
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-300">
+            <p className="text-xl text-gray-600">
               Momen-momen dari layanan rental mobil terpercaya di Surabaya
             </p>
           </motion.div>
@@ -953,7 +953,7 @@ export default function SurabayaPage() {
                     scale: 1.02,
                     y: -5,
                   }}
-                  className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 relative group"
+                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 relative group"
                 >
                   <div className="relative overflow-hidden">
                     <Image
@@ -995,7 +995,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* 🚗 CTA FINAL - Strong Call to Action */}
-      <section className="py-24 bg-gradient-to-r from-blue-900 via-blue-700 to-cyan-600 text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-10">
           <motion.div
@@ -1103,7 +1103,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* ❓ FAQ SECTION */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-900">
+      <section className="py-20 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1111,10 +1111,10 @@ export default function SurabayaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-700 dark:text-slate-200">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-blue-900">
               Pertanyaan yang Sering Ditanyakan
             </h2>
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300">
+            <p className="text-lg md:text-xl text-gray-600">
               Semua yang perlu Anda tahu sebelum booking
             </p>
           </motion.div>
@@ -1122,11 +1122,11 @@ export default function SurabayaPage() {
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, i) => (
               <AccordionItem value={`item-${i}`} key={i}>
-                <AccordionTrigger className="text-left text-lg font-semibold text-slate-700 dark:text-slate-200 hover:no-underline">
+                <AccordionTrigger className="text-left text-lg font-semibold text-gray-700 hover:no-underline">
                   {faq.q}
                 </AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed">
                     {faq.a}
                   </p>
                 </AccordionContent>
@@ -1137,7 +1137,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* GOOGLE MAPS REVIEWS */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-900">
+      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1145,11 +1145,11 @@ export default function SurabayaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-700 dark:text-slate-200">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-blue-900">
               Ulasan Asli dari{" "}
               <span className="text-blue-600">Google Maps</span>
             </h2>
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300">
+            <p className="text-lg md:text-xl text-gray-600">
               Kepercayaan Anda adalah prioritas kami. Lihat apa kata mereka di
               platform terpercaya.
             </p>
@@ -1163,7 +1163,7 @@ export default function SurabayaPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-slate-700 flex flex-col"
+                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 flex flex-col"
               >
                 <div className="flex items-center gap-4 mb-4">
                   <Image
@@ -1174,7 +1174,7 @@ export default function SurabayaPage() {
                     className="rounded-full"
                   />
                   <div>
-                    <h4 className="font-bold text-slate-700 dark:text-slate-200">
+                    <h4 className="font-bold text-gray-700 text-gray-400">
                       {review.name}
                     </h4>
                     <div className="flex items-center gap-1">
@@ -1187,7 +1187,7 @@ export default function SurabayaPage() {
                     </div>
                   </div>
                 </div>
-                <p className="text-slate-600 dark:text-slate-300 italic mb-4 flex-grow">
+                <p className="text-gray-600 text-gray-500 italic mb-4 flex-grow">
                   "{review.text}"
                 </p>
                 <Link
@@ -1211,7 +1211,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* 🏨 HOTEL RECOMMENDATIONS */}
-      <section className="py-20 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+      <section className="py-20 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1219,11 +1219,11 @@ export default function SurabayaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-700 dark:text-slate-200">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-700 text-gray-400">
               Rekomendasi Hotel di{" "}
               <span className="text-blue-600">Surabaya</span>
             </h2>
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300">
+            <p className="text-lg md:text-xl text-gray-600 text-gray-500">
               Pilihan akomodasi terbaik untuk perjalanan bisnis & wisata Anda
             </p>
           </motion.div>
@@ -1237,7 +1237,7 @@ export default function SurabayaPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
                 whileHover={{ y: -10 }}
-                className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
               >
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
@@ -1259,15 +1259,15 @@ export default function SurabayaPage() {
                     ))}
                   </div>
 
-                  <h3 className="text-xl font-bold mb-2 text-slate-700 dark:text-slate-200">
+                  <h3 className="text-xl font-bold mb-2 text-gray-700 text-gray-400">
                     {hotel.name}
                   </h3>
-                  <div className="flex items-center gap-2 mb-3 text-sm text-slate-600 dark:text-slate-300">
+                  <div className="flex items-center gap-2 mb-3 text-sm text-gray-600 text-gray-500">
                     <MapPin className="w-4 h-4" />
                     <span>{hotel.area}</span>
                   </div>
 
-                  <p className="text-slate-600 dark:text-slate-300 text-sm mb-4">
+                  <p className="text-gray-600 text-gray-500 text-sm mb-4">
                     {hotel.desc}
                   </p>
 
@@ -1298,7 +1298,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* ✈️ TRAVEL TIPS */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-900">
+      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1306,10 +1306,10 @@ export default function SurabayaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-700 dark:text-slate-200">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-700 text-gray-400">
               Tips Perjalanan di Surabaya
             </h2>
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300">
+            <p className="text-lg md:text-xl text-gray-600 text-gray-500">
               Panduan praktis dari driver berpengalaman kami
             </p>
           </motion.div>
@@ -1360,13 +1360,13 @@ export default function SurabayaPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ scale: 1.03 }}
-                className={`bg-gradient-to-br from-${tip.color}-50 to-white dark:from-slate-800 dark:to-slate-700 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all border-l-4 border-${tip.color}-500`}
+                className={`bg-gradient-to-br from-${tip.color}-50 to-white from-slate-800 to-slate-700 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all border-l-4 border-${tip.color}-500`}
               >
                 <div className="text-5xl mb-4">{tip.icon}</div>
-                <h3 className="text-xl font-bold mb-3 text-slate-700 dark:text-slate-200">
+                <h3 className="text-xl font-bold mb-3 text-gray-700 text-gray-400">
                   {tip.title}
                 </h3>
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-gray-600 text-gray-500 leading-relaxed">
                   {tip.desc}
                 </p>
               </motion.div>
@@ -1376,12 +1376,12 @@ export default function SurabayaPage() {
       </section>
 
       {/* 📞 CONTACT INFO */}
-      <section className="py-16 bg-slate-50 dark:bg-slate-900">
+      <section className="py-16 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl p-8 md:p-12">
+          <div className="bg-white bg-slate-800 rounded-3xl shadow-xl p-8 md:p-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-3xl font-bold mb-6 text-slate-700 dark:text-slate-200">
+                <h3 className="text-3xl font-bold mb-6 text-gray-700 text-gray-400">
                   Hubungi Kami
                 </h3>
 
@@ -1391,13 +1391,13 @@ export default function SurabayaPage() {
                       <Phone className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <div className="font-semibold text-slate-700 dark:text-slate-200">
+                      <div className="font-semibold text-gray-700 text-gray-400">
                         WhatsApp / Telepon
                       </div>
                       <div className="text-blue-600 font-bold text-lg">
                         +62 823-6338-9893
                       </div>
-                      <div className="text-sm text-slate-600 dark:text-slate-300">
+                      <div className="text-sm text-gray-600 text-gray-500">
                         Available 24/7
                       </div>
                     </div>
@@ -1408,13 +1408,13 @@ export default function SurabayaPage() {
                       <MapPin className="w-6 h-6 text-green-600" />
                     </div>
                     <div>
-                      <div className="font-semibold text-slate-700 dark:text-slate-200">
+                      <div className="font-semibold text-gray-700 text-gray-400">
                         Area Layanan
                       </div>
-                      <div className="text-slate-600 dark:text-slate-300">
+                      <div className="text-gray-600 text-gray-500">
                         Surabaya & Sekitanya
                       </div>
-                      <div className="text-sm text-slate-600 dark:text-slate-300">
+                      <div className="text-sm text-gray-600 text-gray-500">
                         Malang, Bromo, Batu, Bali
                       </div>
                     </div>
@@ -1425,13 +1425,13 @@ export default function SurabayaPage() {
                       <Clock className="w-6 h-6 text-purple-600" />
                     </div>
                     <div>
-                      <div className="font-semibold text-slate-700 dark:text-slate-200">
+                      <div className="font-semibold text-gray-700 text-gray-400">
                         Jam Operasional
                       </div>
-                      <div className="text-slate-600 dark:text-slate-300">
+                      <div className="text-gray-600 text-gray-500">
                         24 Jam / 7 Hari
                       </div>
-                      <div className="text-sm text-slate-600 dark:text-slate-300">
+                      <div className="text-sm text-gray-600 text-gray-500">
                         Termasuk hari libur
                       </div>
                     </div>
@@ -1439,11 +1439,11 @@ export default function SurabayaPage() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-6 flex flex-col justify-center">
-                <h4 className="text-2xl font-bold mb-4 text-slate-700 dark:text-slate-200">
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 from-slate-800 to-slate-700 rounded-2xl p-6 flex flex-col justify-center">
+                <h4 className="text-2xl font-bold mb-4 text-gray-700 text-gray-400">
                   Siap Berangkat?
                 </h4>
-                <p className="text-slate-600 dark:text-slate-300 mb-6">
+                <p className="text-gray-600 text-gray-500 mb-6">
                   Chat langsung dengan tim kami untuk konsultasi gratis &
                   penawaran terbaik!
                 </p>
@@ -1476,3 +1476,4 @@ export default function SurabayaPage() {
     </div>
   );
 }
+

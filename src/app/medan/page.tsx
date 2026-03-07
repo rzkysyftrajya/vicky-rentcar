@@ -3,8 +3,6 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import Header from "@/components/medan/Header";
 import HeroSection from "@/components/medan/HeroSection";
-import StatsSection from "@/components/medan/StatsSection";
-import KenapaVRNSection from "@/components/medan/KenapaVRNSection";
 import PromoLebaranSection from "@/components/medan/PromoLebaranSection";
 import Link from "next/link";
 import {
@@ -23,15 +21,11 @@ import {
   DollarSign,
   Briefcase,
   BadgeCheck,
-  Trophy,
   ThumbsUp,
   Key,
-  Wallet,
-  FileCheck,
   Smile,
-  CircleCheck,
-  HandHeart,
   Gauge,
+  Quote,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -67,72 +61,6 @@ export const metadata: Metadata = {
       "VRN Rent Car Medan - Sewa mobil terpercaya di Medan dengan layanan profesional.",
   },
 };
-
-const pageLinks = [
-  {
-    href: "/medan/about-us",
-    title: "Tentang Kami",
-    description: "Kenali VRN Rent Car Medan lebih dekat",
-    icon: Users,
-    color: "bg-blue-500 dark:bg-blue-600",
-  },
-  {
-    href: "/medan/features",
-    title: "Keunggulan",
-    description: "5 keunggulan utama layanan kami",
-    icon: Award,
-    color: "bg-green-500 dark:bg-green-600",
-  },
-  {
-    href: "/medan/services",
-    title: "Layanan",
-    description: "Rental harian, bulanan, dan wisata",
-    icon: Car,
-    color: "bg-purple-500 dark:bg-purple-600",
-  },
-  {
-    href: "/medan/tourism",
-    title: "Destinasi Wisata",
-    description: "Tour Medan dan Sumatera Utara",
-    icon: MapPin,
-    color: "bg-orange-500 dark:bg-orange-600",
-  },
-  {
-    href: "/medan/airport",
-    title: "Antar Jemput Bandara",
-    description: "Layanan bandara Kualanamu 24/7",
-    icon: Clock,
-    color: "bg-red-500 dark:bg-red-600",
-  },
-  {
-    href: "/medan/fleet",
-    title: "Armada Mobil",
-    description: "Pilihan kendaraan terawat",
-    icon: Car,
-    color: "bg-indigo-500 dark:bg-indigo-600",
-  },
-  {
-    href: "/medan/testimonials",
-    title: "Ulasan Pelanggan",
-    description: "Testimoni kepuasan pelanggan",
-    icon: Star,
-    color: "bg-yellow-500 dark:bg-yellow-600",
-  },
-  {
-    href: "/medan/video",
-    title: "Video Pengenalan",
-    description: "Profil perusahaan dan armada",
-    icon: Shield,
-    color: "bg-pink-500 dark:bg-pink-600",
-  },
-];
-
-const quickStats = [
-  { value: "500+", label: "Pelanggan Puas", icon: Users },
-  { value: "24/7", label: "Layanan", icon: Clock },
-  { value: "10+", label: "Tahun Pengalaman", icon: Award },
-  { value: "50+", label: "Armada Tersedia", icon: Car },
-];
 
 // VIP Services for premium showcase
 const vipServices = [
@@ -191,50 +119,6 @@ const vipServices = [
     ],
     price: "Hubungi untuk harga",
     image: "/medan/layanan/luxury-city-tour.webp",
-  },
-];
-
-// Trust badges - Enhanced with more trust elements
-const trustBadges = [
-  {
-    icon: BadgeCheck,
-    title: "Terverifikasi & Terpercaya",
-    description: "Bagian dari Vicky Rent Car Nusantara sejak 2018",
-  },
-  {
-    icon: Shield,
-    title: "Asuransi Comprehensive",
-    description: "Semua kendaraan fully insured & tersertifikasi",
-  },
-  {
-    icon: Trophy,
-    title: "Award Winner",
-    description: "Rental mobil terbaik di Sumatera Utara",
-  },
-  {
-    icon: Star,
-    title: "Rating 4.9/5.0",
-    description: "Dari 500+ review pelanggan puas",
-  },
-  {
-    icon: Crown,
-    title: "Layanan Terbaik",
-    description: "Sopir profesional & armada terawat",
-  },
-  {
-    icon: ThumbsUp,
-    title: "Garansi Kepuasan",
-    description: "Layanan berkualitas atau uang kembali",
-  },
-  {
-    icon: Wallet,
-    title: "Harga Kompetitif",
-    description: "Harga terbaik untuk setiap tipe kendaraan",
-  },
-  {
-    icon: FileCheck,
-    title: "Proses Sewa Mudah",
-    description: "Tanpa ribet, cepat dan praktis",
   },
 ];
 
@@ -333,33 +217,16 @@ export default function MedanPage() {
         imageSrc="/medan/promo-lebaran.webp"
         waText="Halo, saya tertarik dengan Promo Lebaran VRN Rent Car Medan"
       />
-      <Header />
+      
+      {/* Navbar Wrapper to prevent crash/overlap */}
+      <div className="relative z-50">
+        <Header />
+      </div>
+
       <HeroSection />
 
       {/* Promo Lebaran Section - Banner Promosi Ramadan/Lebaran */}
       <PromoLebaranSection />
-
-      {/* Trust Badges Section */}
-      <section className="py-12 bg-gray-50 dark:bg-slate-900">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
-            {trustBadges.map((badge, index) => (
-              <div
-                key={index}
-                className="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow text-center border border-gray-100 dark:border-slate-700"
-              >
-                <badge.icon className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-3" />
-                <h3 className="font-bold text-gray-900 dark:text-white text-xs mb-1">
-                  {badge.title}
-                </h3>
-                <p className="text-xs text-gray-600 dark:text-gray-400">
-                  {badge.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Why Trust Us Section - Detailed Trust Building */}
       <section className="py-20 bg-white dark:bg-slate-950">
@@ -474,10 +341,12 @@ export default function MedanPage() {
               >
                 {/* Image */}
                 <div className="relative w-full aspect-square overflow-hidden bg-slate-800">
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.title}
-                    className="absolute inset-0 w-full h-full object-contain"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
                   <div className="absolute top-4 right-4">
@@ -670,9 +539,6 @@ export default function MedanPage() {
           </div>
         </div>
       </section>
-
-      {/* Kenapa VRN Section */}
-      <KenapaVRNSection />
 
       {/* Armada Pilihan */}
       <section className="py-20 bg-white dark:bg-slate-950">
@@ -899,47 +765,6 @@ export default function MedanPage() {
         </div>
       </section>
 
-      {/* Navigation Cards Section */}
-      <section className="py-16 bg-gray-50 dark:bg-slate-900">
-        <div className="container mx-auto px-4">
-          <div>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                Jelajahi Layanan Kami
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Dapatkan informasi lengkap tentang semua layanan VRN Rent Car
-                Medan
-              </p>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {pageLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="block">
-                <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full group border border-gray-100 dark:border-slate-700">
-                  <div
-                    className={`${link.color} w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
-                  >
-                    <link.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    {link.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
-                    {link.description}
-                  </p>
-                  <div className="flex items-center text-blue-600 dark:text-blue-400 font-medium text-sm group-hover:text-blue-700 dark:group-hover:text-blue-300">
-                    Pelajari Lebih Lanjut
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Featured Services Preview */}
       <section className="py-16 bg-white dark:bg-slate-950">
         <div className="container mx-auto px-4">
@@ -1026,6 +851,49 @@ export default function MedanPage() {
                 </Button>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section - Added to use the data and provide social proof */}
+      <section className="py-20 bg-gray-50 dark:bg-slate-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 px-6 py-2 rounded-full text-sm font-bold mb-6">
+              <Star className="w-5 h-5" />
+              TESTIMONI
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
+              Apa Kata Mereka?
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonialsPreview.map((item, index) => (
+              <div key={index} className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-slate-700 relative">
+                <Quote className="w-10 h-10 text-blue-100 dark:text-blue-900/50 absolute top-6 right-6" />
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="relative w-14 h-14 rounded-full overflow-hidden bg-gray-200">
+                    {/* Fallback if image fails or is missing */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-blue-100 text-blue-600 font-bold text-xl">
+                      {item.name.charAt(0)}
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 dark:text-white">{item.name}</h4>
+                    <p className="text-sm text-blue-600 dark:text-blue-400">{item.role}</p>
+                  </div>
+                </div>
+                <div className="flex mb-4">
+                  {[...Array(item.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 italic">
+                  "{item.content}"
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -1144,8 +1012,6 @@ export default function MedanPage() {
           </div>
         </div>
       </section>
-
-      <StatsSection />
 
       {/* Write Review CTA */}
       <section className="py-16 bg-green-600">
