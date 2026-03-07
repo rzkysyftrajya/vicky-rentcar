@@ -36,6 +36,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import PromoLebaranModal from "@/components/batam/PromoLebaranModal";
 
 export default function SurabayaPage() {
   const whatsappNumber = "6282363389893";
@@ -53,6 +54,11 @@ export default function SurabayaPage() {
 
   return (
     <div className="flex flex-col">
+      <PromoLebaranModal 
+        city="Surabaya"
+        imageSrc="/surabaya/promo-lebaran.webp"
+        waText="Halo, saya tertarik dengan Promo Lebaran VRN Rent Car Surabaya"
+      />
       {/* Floating WhatsApp Button */}
       <Link
         href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}

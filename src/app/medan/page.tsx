@@ -36,6 +36,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cars } from "@/data/fleet-data";
+import PromoLebaranModal from "@/components/batam/PromoLebaranModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -327,6 +328,11 @@ export default function MedanPage() {
 
   return (
     <main className={`${inter.className} min-h-screen pb-24 md:pb-0`}>
+      <PromoLebaranModal 
+        city="Medan"
+        imageSrc="/medan/promo-lebaran.webp"
+        waText="Halo, saya tertarik dengan Promo Lebaran VRN Rent Car Medan"
+      />
       <Header />
       <HeroSection />
 
