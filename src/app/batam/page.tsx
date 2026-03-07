@@ -14,6 +14,7 @@ import { batamCars as cars } from "@/data/batam-fleet-data";
 import Navbar from "@/components/batam/Navbar";
 import FaqSection from "@/components/batam/FaqSection";
 import PromoLebaranSection from "@/components/batam/PromoLebaranSection";
+import PromoLebaranModal from "@/components/batam/PromoLebaranModal";
 import { SafeMotionDiv } from "@/components/ui/safe-motion";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -135,6 +136,12 @@ const rekomendasiDestinasi = [
 export default function HomePage() {
   return (
     <main className={`${inter.className} min-h-screen bg-gradient-to-b from-teal-50 to-cyan-50 overflow-x-hidden`}>
+      {/* Pop-up Promo Lebaran */}
+      <PromoLebaranModal 
+        city="Batam"
+        imageSrc="/batam/promo-lebaran.webp"
+        waText="Halo, saya tertarik dengan Promo Lebaran VRN Rent Car Batam"
+      />
 
       {/* HERO SECTION */}
  <section className="relative min-h-[90vh] flex items-center overflow-hidden">
