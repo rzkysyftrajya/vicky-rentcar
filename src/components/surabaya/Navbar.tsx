@@ -27,7 +27,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 shadow-lg border-b border-white/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-lg shadow-lg border-b border-white/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -48,7 +48,7 @@ const Navbar = () => {
               VICKY RENTCAR SURABAYA
             </div>
             <div className="text-white font-bold text-lg hidden md:block">
-              <span className="text-yellow-400">VRN</span> Rent Car
+              <span className="text-orange-500">VRN</span> Rent Car
             </div>
           </Link>
 
@@ -63,7 +63,7 @@ const Navbar = () => {
               >
                 <Link 
                   href={item.href} 
-                  className="text-white/90 hover:text-yellow-300 hover:bg-white/10 font-medium transition px-3 py-2 rounded-lg text-sm"
+                  className="text-white/90 hover:text-orange-400 hover:bg-white/10 font-medium transition px-3 py-2 rounded-lg text-sm"
                 >
                   {item.name}
                 </Link>
@@ -74,7 +74,7 @@ const Navbar = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button asChild className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-5 shadow-lg">
+              <Button asChild className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-5 shadow-lg">
                 <a href={waLink} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-4 h-4 mr-2" />
                   Chat WhatsApp
@@ -92,7 +92,7 @@ const Navbar = () => {
                 </svg>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80 bg-gradient-to-b from-blue-900 to-blue-950 overflow-y-auto">
+            <SheetContent side="right" className="w-80 bg-slate-900 overflow-y-auto">
               <div className="flex flex-col gap-1 mt-8">
                 {/* Logo in mobile menu */}
                 <div className="flex items-center gap-2 mb-4 px-4">
@@ -106,7 +106,7 @@ const Navbar = () => {
                     />
                   </div>
                   <div className="text-white font-bold text-xl">
-                    <span className="text-yellow-400">VRN</span> Rent Car
+                    <span className="text-orange-500">VRN</span> Rent Car
                   </div>
                 </div>
                 
@@ -124,7 +124,7 @@ const Navbar = () => {
                 ))}
                 
                 <div className="mt-4 pt-4 border-t border-white/20">
-                  <Button asChild className="w-full bg-yellow-500 hover:bg-yellow-400 text-black font-bold">
+                  <Button asChild className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold">
                     <a href={waLink} target="_blank">
                       <MessageCircle className="w-4 h-4 mr-2" />
                       Chat WhatsApp
@@ -141,4 +141,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

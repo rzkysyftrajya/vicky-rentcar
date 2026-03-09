@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   ChevronLeft,
   ChevronRight,
+  Sparkles,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import {
@@ -53,7 +54,7 @@ export default function SurabayaPage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-slate-50 font-sans">
       <PromoLebaranModal 
         city="Surabaya"
         imageSrc="/halaman-surabaya/promo-lebaran.webp"
@@ -109,7 +110,7 @@ export default function SurabayaPage() {
         <div className="absolute inset-0 bg-black/50 z-10" />
 
         {/* Animated Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-slate-50 z-10" />
 
         {/* Content */}
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6">
@@ -118,7 +119,7 @@ export default function SurabayaPage() {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="bg-yellow-400 text-blue-900 px-6 py-2 rounded-full font-bold text-sm mb-6 shadow-lg"
+            className="bg-orange-500/90 backdrop-blur-sm text-white px-6 py-2 rounded-full font-bold text-sm mb-6 shadow-lg border border-orange-400/50"
           >
             #1 Rental Mobil Terpercaya di Surabaya
           </motion.div>
@@ -129,7 +130,7 @@ export default function SurabayaPage() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
-            <span className="block text-yellow-400">Sewa Mobil Surabaya</span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">Sewa Mobil Surabaya</span>
             <span className="block text-2xl sm:text-3xl md:text-5xl mt-2">
               Vicky Rentcar Nusantara – Teman Setia Perjalanan Anda di Surabaya
             </span>
@@ -139,7 +140,7 @@ export default function SurabayaPage() {
             className="text-lg md:text-xl text-white max-w-3xl mb-8 leading-relaxed"
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
             Jelajahi Kota Pahlawan dengan nyaman! Armada lengkap, driver
             berpengalaman, harga transparan - cuma modal jempol langsung
@@ -152,57 +153,51 @@ export default function SurabayaPage() {
             transition={{ delay: 0.8, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Link
-              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-              target="_blank"
+            <Button
+              asChild
+              size="lg"
+              className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-2xl shadow-orange-500/30 transition-all duration-300 flex items-center gap-3 group border border-orange-400/20"
             >
-              <motion.div
+              <motion.a
+                href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                target="_blank"
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-block"
               >
-                <Button
-                  size="lg"
-                  className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-2xl transition-all duration-300 flex items-center gap-3 group"
-                >
-                  <Phone className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
-                  Chat Sekarang
-                </Button>
-              </motion.div>
-            </Link>
-            <Link
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                "halo vrn surabaya, saya ingin bertanya tentang harga sewa di surabaya"
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
+                <Phone className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
+                Chat Sekarang
+              </motion.a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border border-white/30 px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-xl transition-all duration-300 group"
             >
-              <motion.div
+              <motion.a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                  "halo vrn surabaya, saya ingin bertanya tentang harga sewa di surabaya"
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-block"
               >
-                <Button
-                  size="lg"
-                  className="bg-white hover:bg-gray-100 text-blue-900 px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-2xl transition-all duration-300 group"
+                Lihat Harga
+                <svg
+                  className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  Lihat Harga
-                  <svg
-                    className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </Button>
-              </motion.div>
-            </Link>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </motion.a>
+            </Button>
           </motion.div>
 
           {/* Stats */}
@@ -214,7 +209,7 @@ export default function SurabayaPage() {
           >
             {heroStats.map((stat, i) => (
               <div key={i} className="text-center">
-                <div className="text-4xl font-bold text-yellow-400">
+                <div className="text-4xl font-bold text-orange-400 drop-shadow-md">
                   {stat.num}
                 </div>
                 <div className="text-white text-sm mt-1">{stat.label}</div>
@@ -225,7 +220,11 @@ export default function SurabayaPage() {
       </section>
 
       {/* 🏢 VIDEO PENGENALAN KANTOR */}
-      <section className="py-20 bg-gradient-to-b from-white to-blue-50">
+      <section className="py-24 bg-white relative overflow-hidden">
+        {/* Decorative Background */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-orange-100 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 opacity-50" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 opacity-50" />
+
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -234,8 +233,8 @@ export default function SurabayaPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Kenalan dengan Kantor{" "}
-              <span className="text-blue-600">VRN Surabaya</span>
+              Kenalan dengan Kantor
+              <span className="block text-orange-500 mt-2">VRN Surabaya</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Lihat langsung kantor dan tim profesional kami yang siap
@@ -249,7 +248,7 @@ export default function SurabayaPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+            className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100"
           >
             <div className="relative">
               <video
@@ -271,8 +270,8 @@ export default function SurabayaPage() {
             <div className="p-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                 <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                    <ShieldCheck className="w-8 h-8 text-blue-600" />
+                  <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 text-blue-600">
+                    <ShieldCheck className="w-8 h-8 text-orange-500" />
                   </div>
                   <h3 className="text-lg font-bold mb-2">Kantor Resmi</h3>
                   <p className="text-gray-600 text-sm">
@@ -282,8 +281,8 @@ export default function SurabayaPage() {
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                    <Users className="w-8 h-8 text-green-600" />
+                  <div className="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mb-4 text-green-600">
+                    <Users className="w-8 h-8 text-orange-500" />
                   </div>
                   <h3 className="text-lg font-bold mb-2">Tim Profesional</h3>
                   <p className="text-gray-600 text-sm">
@@ -292,8 +291,8 @@ export default function SurabayaPage() {
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                    <CheckCircle className="w-8 h-8 text-purple-600" />
+                  <div className="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mb-4 text-purple-600">
+                    <CheckCircle className="w-8 h-8 text-orange-500" />
                   </div>
                   <h3 className="text-lg font-bold mb-2">Layanan Terpercaya</h3>
                   <p className="text-gray-600 text-sm">
@@ -307,7 +306,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* 🎯 KENAPA PILIH VRN - Enhanced Design */}
-      <section className="py-20 bg-gradient-to-b from-white to-blue-50">
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -316,8 +315,8 @@ export default function SurabayaPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Kenapa Pilih{" "}
-              <span className="text-blue-600">VICKY RENTCAR NUSANTARA</span>?
+              Kenapa Pilih
+              <span className="block text-orange-500 mt-2">VICKY RENTCAR NUSANTARA</span>?
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
               Solusi rental mobil terbaik untuk perjalanan bisnis & wisata di
@@ -338,19 +337,19 @@ export default function SurabayaPage() {
                   ease: "easeOut",
                 }}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 ${item.colorClasses.border}`}
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group"
               >
                 <div
-                  className={`w-20 h-20 mb-6 rounded-full flex items-center justify-center ${item.colorClasses.bgGradient}`}
+                  className="w-16 h-16 mb-6 rounded-2xl flex items-center justify-center bg-orange-50 group-hover:bg-orange-500 transition-colors duration-300"
                 >
-                  <div className={`${item.colorClasses.textColor}`}>
+                  <div className="text-orange-500 group-hover:text-white transition-colors duration-300">
                     {item.icon}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-800">
+                <h3 className="text-xl font-bold mb-3 text-slate-800">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                <p className="text-slate-600 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -358,7 +357,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* 🚘 ARMADA MOBIL - Enhanced Cards */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -367,8 +366,8 @@ export default function SurabayaPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Pilihan Armada Mobil{" "}
-              <span className="text-blue-600">Terbaik</span>
+              Pilihan Armada
+              <span className="block text-orange-500 mt-2">Terbaik & Terawat</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600">
               Dari city car hingga premium, semua siap antar Anda ke destinasi
@@ -384,12 +383,12 @@ export default function SurabayaPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                whileHover={{ y: -10 }}
-                className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 relative"
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="bg-slate-800/50 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 relative border border-slate-700 group"
               >
                 {car.popular && (
-                  <div className="absolute top-4 right-4 bg-yellow-400 text-blue-900 px-4 py-1 rounded-full text-sm font-bold z-10 shadow-lg">
-                    🔥 Paling Laris
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-1 rounded-full text-xs font-bold z-10 shadow-lg flex items-center gap-1">
+                    ⭐ Paling Laris
                   </div>
                 )}
 
@@ -403,7 +402,7 @@ export default function SurabayaPage() {
                     alt={`Sewa ${car.name} di Surabaya - Vicky Rentcar Nusantara`}
                     width={400}
                     height={224}
-                    className="w-full h-56 object-contain bg-gray-50 transition-transform duration-300"
+                    className="w-full h-56 object-contain bg-gradient-to-b from-slate-700 to-slate-800 transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                   />
                 </motion.div>
@@ -412,11 +411,11 @@ export default function SurabayaPage() {
                   <div className="flex justify-between items-start mb-3">
                     <div>
                       <h3 className="text-2xl font-bold mb-1">{car.name}</h3>
-                      <p className="text-gray-500 text-sm">{car.type}</p>
+                      <p className="text-slate-400 text-sm">{car.type}</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 mb-4 text-gray-600">
+                  <div className="flex items-center gap-2 mb-4 text-slate-400 bg-slate-900/50 w-fit px-3 py-1 rounded-full">
                     <Users className="w-4 h-4" />
                     <span className="text-sm">{car.capacity}</span>
                   </div>
@@ -425,27 +424,27 @@ export default function SurabayaPage() {
                     {car.features.map((feature, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center gap-2 text-sm text-gray-600"
+                        className="flex items-center gap-2 text-sm text-slate-300/90"
                       >
-                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <CheckCircle className="w-4 h-4 text-orange-500" />
                         <span>{feature}</span>
                       </div>
                     ))}
                   </div>
 
-                  <Link
-                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                      `Halo VRN, saya mau booking ${car.name}`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group"
                   >
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="group"
-                    >
-                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 rounded-xl text-lg font-semibold shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+                    <Button asChild className="w-full bg-orange-500 hover:bg-orange-600 text-white py-6 rounded-xl text-lg font-semibold shadow-lg transition-all duration-300 flex items-center justify-center gap-2 mt-2">
+                      <Link
+                        href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                          `Halo VRN, saya mau booking ${car.name}`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <span>Pesan Sekarang</span>
                         <motion.svg
                           className="w-5 h-5"
@@ -463,9 +462,9 @@ export default function SurabayaPage() {
                             d="M17 8l4 4m0 0l-4 4m4-4H3"
                           />
                         </motion.svg>
-                      </Button>
-                    </motion.div>
-                  </Link>
+                      </Link>
+                    </Button>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
@@ -474,7 +473,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* 🎬 VIDEO CINEMATIC ARMADA */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -483,8 +482,8 @@ export default function SurabayaPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Armada Mobil{" "}
-              <span className="text-blue-600">Video Cinematik</span>
+              Armada Mobil
+              <span className="block text-orange-500 mt-2">Dalam Video Sinematik</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600">
               Lihat langsung koleksi armada mobil premium kami dalam video
@@ -568,25 +567,24 @@ export default function SurabayaPage() {
                 scale: { duration: 0.2 },
               }}
             >
-              <Link
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                  "Halo VRN, saya mau lihat armada mobil secara langsung"
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-full shadow-lg transition-all flex items-center gap-3 mx-auto">
+              <Button asChild className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 text-lg rounded-full shadow-xl transition-all flex items-center gap-3 mx-auto">
+                <Link
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                    "Halo VRN, saya mau lihat armada mobil secara langsung"
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Phone className="w-5 h-5" />
                   Lihat Armada Premium Sekarang
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </motion.div>
           </motion.div>
         </div>
       </section>
-
       {/* HOW TO BOOK SECTION */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -595,7 +593,7 @@ export default function SurabayaPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Booking Semudah <span className="text-blue-600">1-2-3</span>
+              Booking Semudah <span className="text-orange-500">1-2-3</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600">
               Proses cepat, tanpa ribet, mobil langsung siap untuk Anda.
@@ -627,10 +625,10 @@ export default function SurabayaPage() {
                 transition={{ delay: i * 0.15 }}
                 className="p-8"
               >
-                <div className="w-20 h-20 mx-auto mb-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-4xl font-bold shadow-lg">
+                <div className="w-20 h-20 mx-auto mb-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-4xl font-bold shadow-lg">
                   {item.step}
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
+                <h3 className="text-2xl font-bold mb-3 text-slate-800">{item.title}</h3>
                 <p className="text-gray-600">{item.desc}</p>
               </motion.div>
             ))}
@@ -639,7 +637,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* 🏞️ DESTINASI WISATA - Surabaya Specific */}
-      <section className="py-20 bg-gradient-to-b from-white to-blue-50">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -648,7 +646,7 @@ export default function SurabayaPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Jelajahi <span className="text-blue-600">Kota Pahlawan</span>
+              Jelajahi <span className="text-orange-500">Kota Pahlawan</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600">
               Dari Tugu Pahlawan hingga Jembatan Suramadu, kami antar Anda ke
@@ -665,9 +663,9 @@ export default function SurabayaPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group"
               >
-                <div className="relative h-40 w-full overflow-hidden rounded-lg mb-4 bg-gray-50">
+                <div className="relative h-48 w-full overflow-hidden bg-gray-100">
                   <Image
                     src={place.image}
                     alt={`Wisata ${place.name} di Surabaya`}
@@ -676,15 +674,17 @@ export default function SurabayaPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80" />
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <span className="inline-block bg-orange-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-1">
+                      {place.category}
+                    </span>
+                    <h3 className="text-xl font-bold">{place.name}</h3>
+                  </div>
                 </div>
-
-                <div className="mb-2">
-                  <span className="inline-block bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full font-semibold">
-                    {place.category}
-                  </span>
+                <div className="p-6">
+                  <p className="text-gray-600 text-sm leading-relaxed">{place.desc}</p>
                 </div>
-                <h3 className="text-xl font-bold mb-2">{place.name}</h3>
-                <p className="text-gray-600 text-sm">{place.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -692,7 +692,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* 🍜 KULINER KHAS - Surabaya Street Food */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -701,7 +701,7 @@ export default function SurabayaPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Kuliner Khas <span className="text-blue-600">Surabaya</span>
+              Kuliner Khas <span className="text-orange-500">Surabaya</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600">
               Driver kami tahu spot kuliner legendaris yang wajib dicoba!
@@ -717,7 +717,7 @@ export default function SurabayaPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all text-center"
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all text-center border border-gray-100"
               >
                 <div className="text-4xl mb-2">{food.icon}</div>
                 <h4 className="font-bold text-sm mb-1">{food.name}</h4>
@@ -729,7 +729,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* 💬 TESTIMONI - Social Proof */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 via-white to-blue-50">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -737,7 +737,7 @@ export default function SurabayaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-blue-900">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900">
               Apa Kata Mereka tentang kami?
             </h2>
             <p className="text-lg md:text-xl text-gray-600">
@@ -764,7 +764,7 @@ export default function SurabayaPage() {
                         ease: "easeOut",
                       }}
                       whileHover={{ y: -5 }}
-                      className="bg-white p-8 rounded-2xl shadow-lg h-full border border-blue-100"
+                      className="bg-slate-50 p-8 rounded-2xl shadow-sm h-full border border-slate-100"
                     >
                       <div className="flex gap-1 mb-4">
                         {[...Array(testi.rating)].map((_, j) => (
@@ -795,11 +795,7 @@ export default function SurabayaPage() {
                           return (
                             <span
                               key={idx}
-                              className={
-                                isHighlight
-                                  ? "text-blue-600 font-semibold"
-                                  : ""
-                              }
+                              className={isHighlight ? "text-orange-500 font-semibold" : ""}
                             >
                               {word}{" "}
                             </span>
@@ -815,7 +811,7 @@ export default function SurabayaPage() {
                             delay: i * 0.1 + 0.3,
                             duration: 0.3,
                           }}
-                          className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xl"
+                          className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white font-bold text-xl"
                         >
                           {testi.name[0]}
                         </motion.div>
@@ -836,7 +832,7 @@ export default function SurabayaPage() {
             <Button
               variant="outline"
               size="icon"
-              className="absolute top-1/2 -translate-y-1/2 left-0 bg-white hover:bg-blue-50 border-blue-200 text-blue-600"
+              className="absolute top-1/2 -translate-y-1/2 left-0 bg-white hover:bg-orange-50 border-gray-200 text-slate-600 shadow-md"
               onClick={() =>
                 setCurrentTestimonial((prev) => (prev === 0 ? 2 : prev - 1))
               }
@@ -846,7 +842,7 @@ export default function SurabayaPage() {
             <Button
               variant="outline"
               size="icon"
-              className="absolute top-1/2 -translate-y-1/2 right-0 bg-white hover:bg-blue-50 border-blue-200 text-blue-600"
+              className="absolute top-1/2 -translate-y-1/2 right-0 bg-white hover:bg-orange-50 border-gray-200 text-slate-600 shadow-md"
               onClick={() =>
                 setCurrentTestimonial((prev) => (prev === 2 ? 0 : prev + 1))
               }
@@ -854,62 +850,11 @@ export default function SurabayaPage() {
               <ChevronRight className="w-6 h-6" />
             </Button>
           </div>
-          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Andi Prasetyo",
-                city: "Jakarta",
-                text: "Driver VRN sangat profesional! Tahu jalan tikus ke Bromo jadi hemat waktu 2 jam. Recommended!",
-                rating: 5,
-              },
-              {
-                name: "Maya Sari",
-                city: "Surabaya",
-                text: "Booking gampang banget, mobil bersih, driver ramah. Harga juga masuk akal. Pasti pakai lagi!",
-                rating: 5,
-              },
-              {
-                name: "Kevin Tan",
-                city: "Singapore",
-                text: "Perfect service for tourists! Driver speaks English and very helpful. Great experience!",
-                rating: 5,
-              },
-            ].map((testi, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                whileHover={{ y: -5 }}
-                className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20"
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testi.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-                <p className="italic mb-4 text-blue-100">"{testi.text}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-xl">
-                    {testi.name[0]}
-                  </div>
-                  <div>
-                    <h4 className="font-bold">{testi.name}</h4>
-                    <p className="text-sm text-blue-200">{testi.city}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div> */}
         </div>
       </section>
 
       {/* 📸 DOKUMENTASI VRN SURABAYA */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -917,7 +862,7 @@ export default function SurabayaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-blue-900">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">
               DOKUMENTASI VRN SURABAYA
             </h2>
             <p className="text-xl text-gray-600">
@@ -995,7 +940,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* 🚗 CTA FINAL - Strong Call to Action */}
-      <section className="py-24 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white relative overflow-hidden">
+      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-10">
           <motion.div
@@ -1021,7 +966,7 @@ export default function SurabayaPage() {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            className="inline-block bg-yellow-400 text-blue-900 px-6 py-2 rounded-full font-bold mb-6"
+            className="inline-block bg-orange-500 text-white px-6 py-2 rounded-full font-bold mb-6 shadow-lg shadow-orange-500/30"
           >
             Promo Spesial Hari Ini!
           </motion.div>
@@ -1031,7 +976,7 @@ export default function SurabayaPage() {
           </h2>
 
           <p className="text-xl md:text-2xl mb-10 text-blue-100">
-            <span className="font-bold text-yellow-400">Booking sekarang</span>{" "}
+            <span className="font-bold text-orange-400">Booking sekarang</span>{" "}
             dan dapatkan diskon spesial!
             <br />
             Cuma modal jempol, perjalanan jadi mudah!
@@ -1053,15 +998,15 @@ export default function SurabayaPage() {
                 scale: { duration: 0.2 },
               }}
             >
-              <Link
-                href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-                target="_blank"
-              >
-                <Button className="bg-green-500 hover:bg-green-600 text-white px-12 py-7 text-xl rounded-full shadow-2xl flex items-center gap-3 font-bold">
+              <Button asChild className="bg-orange-500 hover:bg-orange-600 text-white px-12 py-7 text-xl rounded-full shadow-2xl flex items-center gap-3 font-bold">
+                <Link
+                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                  target="_blank"
+                >
                   <Phone className="w-6 h-6" />
                   Cek Ketersediaan Hari Ini
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </motion.div>
 
             <motion.div
@@ -1079,7 +1024,7 @@ export default function SurabayaPage() {
                 scale: { duration: 0.2 },
               }}
             >
-              <Button className="bg-white hover:bg-gray-100 text-blue-900 px-12 py-7 text-xl rounded-full shadow-2xl font-bold">
+              <Button className="bg-white hover:bg-gray-100 text-slate-900 px-12 py-7 text-xl rounded-full shadow-2xl font-bold">
                 Tanya Harga Sekarang
               </Button>
             </motion.div>
@@ -1103,7 +1048,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* ❓ FAQ SECTION */}
-      <section className="py-20 bg-gradient-to-b from-white to-blue-50">
+      <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1111,7 +1056,7 @@ export default function SurabayaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-blue-900">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900">
               Pertanyaan yang Sering Ditanyakan
             </h2>
             <p className="text-lg md:text-xl text-gray-600">
@@ -1122,7 +1067,7 @@ export default function SurabayaPage() {
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, i) => (
               <AccordionItem value={`item-${i}`} key={i}>
-                <AccordionTrigger className="text-left text-lg font-semibold text-gray-700 hover:no-underline">
+                <AccordionTrigger className="text-left text-lg font-semibold text-slate-800 hover:text-orange-600 hover:no-underline">
                   {faq.q}
                 </AccordionTrigger>
                 <AccordionContent>
@@ -1137,7 +1082,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* GOOGLE MAPS REVIEWS */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1145,9 +1090,9 @@ export default function SurabayaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-blue-900">
-              Ulasan Asli dari{" "}
-              <span className="text-blue-600">Google Maps</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900">
+              Ulasan Asli dari
+              <span className="block text-orange-500 mt-2">Google Maps</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600">
               Kepercayaan Anda adalah prioritas kami. Lihat apa kata mereka di
@@ -1174,7 +1119,7 @@ export default function SurabayaPage() {
                     className="rounded-full"
                   />
                   <div>
-                    <h4 className="font-bold text-gray-700 text-gray-400">
+                    <h4 className="font-bold text-slate-800">
                       {review.name}
                     </h4>
                     <div className="flex items-center gap-1">
@@ -1187,23 +1132,25 @@ export default function SurabayaPage() {
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-600 text-gray-500 italic mb-4 flex-grow">
+                <p className="text-slate-600 italic mb-4 flex-grow">
                   "{review.text}"
                 </p>
-                <Link
-                  href={review.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto"
-                >
+                <div className="mt-auto">
                   <Button
+                    asChild
                     variant="outline"
-                    className="w-full border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700"
+                    className="w-full border-orange-500 text-orange-600 hover:bg-orange-50 hover:text-orange-700"
                   >
-                    <ShieldCheck className="w-4 h-4 mr-2" />
+                    <Link
+                      href={review.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                    <Image src="/icon/google.png" alt="Google" width={16} height={16} className="mr-2" />
                     Lihat di Google Maps
+                    </Link>
                   </Button>
-                </Link>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -1211,7 +1158,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* 🏨 HOTEL RECOMMENDATIONS */}
-      <section className="py-20 bg-gradient-to-b from-white to-blue-50">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1219,11 +1166,11 @@ export default function SurabayaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-700 text-gray-400">
-              Rekomendasi Hotel di{" "}
-              <span className="text-blue-600">Surabaya</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900">
+              Rekomendasi Hotel di
+              <span className="block text-orange-500 mt-2">Surabaya</span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 text-gray-500">
+            <p className="text-lg md:text-xl text-gray-600">
               Pilihan akomodasi terbaik untuk perjalanan bisnis & wisata Anda
             </p>
           </motion.div>
@@ -1259,15 +1206,15 @@ export default function SurabayaPage() {
                     ))}
                   </div>
 
-                  <h3 className="text-xl font-bold mb-2 text-gray-700 text-gray-400">
+                  <h3 className="text-xl font-bold mb-2 text-slate-800">
                     {hotel.name}
                   </h3>
-                  <div className="flex items-center gap-2 mb-3 text-sm text-gray-600 text-gray-500">
+                  <div className="flex items-center gap-2 mb-3 text-sm text-slate-500">
                     <MapPin className="w-4 h-4" />
                     <span>{hotel.area}</span>
                   </div>
 
-                  <p className="text-gray-600 text-gray-500 text-sm mb-4">
+                  <p className="text-slate-600 text-sm mb-4">
                     {hotel.desc}
                   </p>
 
@@ -1275,21 +1222,20 @@ export default function SurabayaPage() {
                     {hotel.features.map((feature, idx) => (
                       <span
                         key={idx}
-                        className="bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-full"
+                        className="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full"
                       >
                         {feature}
                       </span>
                     ))}
                   </div>
-
-                  <Link
-                    href="https://www.traveloka.com/id-id/hotel/indonesia/region/surabaya-87731"
-                    target="_blank"
-                  >
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700 rounded-xl">
+                  <Button asChild className="w-full bg-orange-500 hover:bg-orange-600 rounded-xl">
+                    <Link
+                      href="https://www.traveloka.com/id-id/hotel/indonesia/region/surabaya-87731"
+                      target="_blank"
+                    >
                       Cek Harga Hotel
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                 </div>
               </motion.div>
             ))}
@@ -1298,7 +1244,7 @@ export default function SurabayaPage() {
       </section>
 
       {/* ✈️ TRAVEL TIPS */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1306,10 +1252,10 @@ export default function SurabayaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-700 text-gray-400">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900">
               Tips Perjalanan di Surabaya
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 text-gray-500">
+            <p className="text-lg md:text-xl text-gray-600">
               Panduan praktis dari driver berpengalaman kami
             </p>
           </motion.div>
@@ -1359,14 +1305,14 @@ export default function SurabayaPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                whileHover={{ scale: 1.03 }}
-                className={`bg-gradient-to-br from-${tip.color}-50 to-white from-slate-800 to-slate-700 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all border-l-4 border-${tip.color}-500`}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className={`bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all border-l-4 border-orange-500`}
               >
                 <div className="text-5xl mb-4">{tip.icon}</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-700 text-gray-400">
+                <h3 className="text-xl font-bold mb-3 text-slate-800">
                   {tip.title}
                 </h3>
-                <p className="text-gray-600 text-gray-500 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed">
                   {tip.desc}
                 </p>
               </motion.div>
@@ -1376,62 +1322,62 @@ export default function SurabayaPage() {
       </section>
 
       {/* 📞 CONTACT INFO */}
-      <section className="py-16 bg-gradient-to-b from-white to-blue-50">
+      <section className="py-24 bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <div className="bg-white bg-slate-800 rounded-3xl shadow-xl p-8 md:p-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-3xl font-bold mb-6 text-gray-700 text-gray-400">
+                <h3 className="text-3xl font-bold mb-6 text-slate-800">
                   Hubungi Kami
                 </h3>
 
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <Phone className="w-6 h-6 text-blue-600" />
+                    <div className="bg-orange-100 p-3 rounded-lg">
+                      <Phone className="w-6 h-6 text-orange-600" />
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-700 text-gray-400">
+                      <div className="font-semibold text-slate-700">
                         WhatsApp / Telepon
                       </div>
-                      <div className="text-blue-600 font-bold text-lg">
+                      <div className="text-orange-600 font-bold text-lg">
                         +62 823-6338-9893
                       </div>
-                      <div className="text-sm text-gray-600 text-gray-500">
+                      <div className="text-sm text-slate-500">
                         Available 24/7
                       </div>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="bg-green-100 p-3 rounded-lg">
-                      <MapPin className="w-6 h-6 text-green-600" />
+                    <div className="bg-orange-100 p-3 rounded-lg">
+                      <MapPin className="w-6 h-6 text-orange-600" />
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-700 text-gray-400">
+                      <div className="font-semibold text-slate-700">
                         Area Layanan
                       </div>
-                      <div className="text-gray-600 text-gray-500">
+                      <div className="text-slate-600">
                         Surabaya & Sekitanya
                       </div>
-                      <div className="text-sm text-gray-600 text-gray-500">
+                      <div className="text-sm text-slate-500">
                         Malang, Bromo, Batu, Bali
                       </div>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="bg-purple-100 p-3 rounded-lg">
-                      <Clock className="w-6 h-6 text-purple-600" />
+                    <div className="bg-orange-100 p-3 rounded-lg">
+                      <Clock className="w-6 h-6 text-orange-600" />
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-700 text-gray-400">
+                      <div className="font-semibold text-slate-700">
                         Jam Operasional
                       </div>
-                      <div className="text-gray-600 text-gray-500">
+                      <div className="text-slate-600">
                         24 Jam / 7 Hari
                       </div>
-                      <div className="text-sm text-gray-600 text-gray-500">
+                      <div className="text-sm text-slate-500">
                         Termasuk hari libur
                       </div>
                     </div>
@@ -1439,11 +1385,11 @@ export default function SurabayaPage() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 from-slate-800 to-slate-700 rounded-2xl p-6 flex flex-col justify-center">
-                <h4 className="text-2xl font-bold mb-4 text-gray-700 text-gray-400">
+              <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-6 flex flex-col justify-center">
+                <h4 className="text-2xl font-bold mb-4 text-slate-800">
                   Siap Berangkat?
                 </h4>
-                <p className="text-gray-600 text-gray-500 mb-6">
+                <p className="text-slate-600 mb-6">
                   Chat langsung dengan tim kami untuk konsultasi gratis &
                   penawaran terbaik!
                 </p>
@@ -1458,15 +1404,15 @@ export default function SurabayaPage() {
                     hover: { duration: 0.2 },
                   }}
                 >
-                  <Link
-                    href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-                    target="_blank"
-                  >
-                    <Button className="w-full bg-green-500 hover:bg-green-600 text-white py-6 text-lg rounded-xl shadow-lg flex items-center justify-center gap-3">
+                  <Button asChild className="w-full bg-orange-500 hover:bg-orange-600 text-white py-6 text-lg rounded-xl shadow-lg flex items-center justify-center gap-3">
+                    <Link
+                      href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                      target="_blank"
+                    >
                       <Phone className="w-5 h-5" />
                       Booking Tanpa Ribet
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                 </motion.div>
               </div>
             </div>
@@ -1476,4 +1422,3 @@ export default function SurabayaPage() {
     </div>
   );
 }
-
