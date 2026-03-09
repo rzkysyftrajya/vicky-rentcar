@@ -118,7 +118,7 @@ export default function DestinasiPage() {
             Jelajahi batam
           </h1>
           <p className="text-teal-100 max-w-2xl mx-auto text-lg">
-            Destinasi populer yang bisa Anda посещ dengan rental mobil kami
+            Destinasi populer yang bisa Anda kunjungi dengan rental mobil kami
           </p>
         </div>
       </section>
