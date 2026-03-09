@@ -388,39 +388,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* GOOGLE REVIEWS SECTION */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-              Dipercaya oleh Pelanggan Lokal & Internasional
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto mb-4">
-              Lihat apa kata mereka tentang kami di Google.
-            </p>
-            <a href="https://g.co/kgs/y23qc2P" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-600 font-semibold">
-              Lihat Semua 50+ Ulasan <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {googleReviews.map((review, index) => (
-              <div key={index} className="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col h-full">
-                <div className="flex items-center mb-4">
-                  <div className="flex-grow flex">
-                    {[...Array(review.rating)].map((_, k) => (
-                      <Star key={k} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-                    ))}
-                  </div>
-                  <Image src="/google-icon.svg" alt="Google Icon" width={24} height={24} />
-                </div>
-                <p className="italic text-gray-600 mb-4 flex-grow">"{review.comment}"</p>
-                <p className="font-bold text-gray-800 mt-auto">{review.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* SERVICES SECTION */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -507,6 +474,35 @@ export default function HomePage() {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* GOOGLE REVIEWS SECTION - Moved below Armada */}
+      <section className="py-20 bg-slate-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              Dipercaya oleh Pelanggan Lokal & Internasional
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Lihat apa kata mereka tentang kami.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {googleReviews.map((review, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl border border-slate-100 flex flex-col h-full">
+                <div className="flex items-center mb-4">
+                  <div className="flex-grow flex">
+                    {[...Array(review.rating)].map((_, k) => (
+                      <Star key={k} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
+                </div>
+                <p className="italic text-gray-600 mb-4 flex-grow">"{review.comment}"</p>
+                <p className="font-bold text-gray-800 mt-auto">{review.name}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
