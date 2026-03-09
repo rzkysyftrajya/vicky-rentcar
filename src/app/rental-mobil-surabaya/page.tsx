@@ -153,51 +153,52 @@ export default function SurabayaPage() {
             transition={{ delay: 0.8, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Button
-              asChild
-              size="lg"
-              className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-2xl shadow-orange-500/30 transition-all duration-300 flex items-center gap-3 group border border-orange-400/20"
-            >
-              <motion.a
-                href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-                target="_blank"
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.98 }}
+            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.98 }}>
+              <Button
+                asChild
+                size="lg"
+                className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-2xl shadow-orange-500/30 transition-all duration-300 flex items-center gap-3 group border border-orange-400/20"
               >
-                <Phone className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
-                Chat Sekarang
-              </motion.a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border border-white/30 px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-xl transition-all duration-300 group"
-            >
-              <motion.a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                  "halo vrn surabaya, saya ingin bertanya tentang harga sewa di surabaya"
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Lihat Harga
-                <svg
-                  className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </motion.a>
-            </Button>
+                  <Phone className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
+                  Chat Sekarang
+                </a>
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.98 }}>
+              <Button
+                asChild
+                size="lg"
+                className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border border-white/30 px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-xl transition-all duration-300 group"
+              >
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                    "halo vrn surabaya, saya ingin bertanya tentang harga sewa di surabaya"
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Lihat Harga
+                  <svg
+                    className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </a>
+              </Button>
+            </motion.div>
           </motion.div>
 
           {/* Stats */}

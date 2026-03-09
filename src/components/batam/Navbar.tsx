@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, Car, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
@@ -93,6 +93,7 @@ const Navbar = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-80 bg-gradient-to-b from-teal-700 to-cyan-800 overflow-y-auto">
+              <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
               <div className="flex flex-col gap-1 mt-8">
                 {/* Logo in mobile menu */}
                 <div className="flex items-center gap-2 mb-4 px-4">

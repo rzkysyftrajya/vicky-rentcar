@@ -96,10 +96,10 @@ export default function PromoLebaranModal({ city, imageSrc, waText }: PromoLebar
                 Amankan unit mobil pilihan Anda sekarang untuk kenyamanan perjalanan di {city}. Harga spesial untuk pemesanan awal!
                 </p>
 
-                <Button className="w-full bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-emerald-950 font-bold text-lg h-12 rounded-xl shadow-lg shadow-yellow-500/20 group-hover:shadow-yellow-500/40 transition-all">
+                <div className="w-full bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-emerald-950 font-bold text-lg h-12 rounded-xl shadow-lg shadow-yellow-500/20 group-hover:shadow-yellow-500/40 transition-all flex items-center justify-center">
                     Ambil Promo
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                </div>
             </div>
             </Link>
 
