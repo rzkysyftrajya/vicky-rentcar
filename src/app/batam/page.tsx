@@ -52,7 +52,7 @@ const popularCars = [
   {
     name: "Toyota Innova Reborn",
     label: "Paling Laris",
-    image: "/batam/armada/innova-reborn.webp",
+    image: "/batam/armada/INNOVA-REBORN.webp",
     price: "Mulai 500rb",
     specs: ["7 Seater", "Diesel/Bensin", "Nyaman"],
   },
@@ -73,7 +73,7 @@ const popularCars = [
   {
     name: "Toyota Innova Zenix",
     label: "Premium Choice",
-    image: "/batam/armada/innova-zenix.webp",
+    image: "/batam/armada/INNOVA-ZENIX.webp",
     price: "Mulai 800rb",
     specs: ["7 Seater", "Hybrid", "Mewah"],
   },
@@ -87,14 +87,14 @@ const popularCars = [
   {
     name: "Toyota Fortuner",
     label: "Paling Laris",
-    image: "/batam/armada/fortuner.webp",
+    image: "/batam/armada/FORTUNER.webp",
     price: "Mulai 1.2jt",
     specs: ["7 Seater", "Sporty", "Tangguh"],
   },
   {
     name: "Mitsubishi Pajero",
     label: "Unit Favorit",
-    image: "/batam/armada/pajero.webp",
+    image: "/batam/armada/PAJERO.webp",
     price: "Mulai 1.2jt",
     specs: ["7 Seater", "Sporty", "Premium"],
   },
