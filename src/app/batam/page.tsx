@@ -465,7 +465,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {tourPackages.map((tour, index) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
-                <div className="relative h-40 overflow-hidden">
+                <div className="relative w-full aspect-[1080/1350] overflow-hidden">
                   <Image
                     src={tour.image}
                     alt={tour.name}

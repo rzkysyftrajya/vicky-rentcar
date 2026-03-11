@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Clock, MapPin, MessageCircle, CheckCircle } from "lucide-react";
+import { ArrowLeft, MessageCircle, MapPin, CheckCircle } from "lucide-react";
 import Footer from "@/components/batam/Footer";
 
 export const metadata: Metadata = {
   title: "Paket Tour Batam – Singapore Malaysia Thailand | VRN Rent Car",
-  description: "Paket tour dari Batam ke Singapore, Malaysia, Thailand serta wisata populer seperti Ranoh Island, Kepri Coral, Pulau Abang dan Bintan.",
+  description: "Paket wisata dari Batam ke Singapore, Malaysia, Thailand serta destinasi populer seperti Ranoh Island, Kepri Coral, Pulau Abang dan Bintan.",
 };
 
 const tourPackages = [
@@ -16,7 +16,7 @@ const tourPackages = [
     name: "Paket Tour 3D2N Singapore – Malaysia",
     description: "Nikmati pengalaman tak terlupakan mengeksplorasi Singapore dan Malaysia dalam 3 hari 2 malam. Kombinasi sempurna antara modernitas dan tradisi.",
     duration: "3 Hari 2 Malam",
-    destinations: ["Johor", "Melaka", "Kuala Lumpur", "Genting Highland", "Batu Caves", "Singapore"],
+    destinations: ["Johor", "Melaka", "Kuala Lumpur", "Genting", "Batu Caves", "Singapore"],
     image: "/batam/PAKET-TOUR/3D2N-SINGAPORE-MALAYSIA.webp",
     highlights: ["Genting Highland", "Batu Caves", "Melaka Historic City"],
   },
@@ -25,14 +25,14 @@ const tourPackages = [
     name: "Paket Tour 5 Hari 3 Negara",
     description: "Petualangan luar biasa menjelajahi Singapore, Malaysia, dan Thailand dalam 5 hari. Pengalaman budaya yang kaya dan pemandangan menakjubkan.",
     duration: "5 Hari 3 Negara",
-    destinations: ["Johor", "Melaka", "Kuala Lumpur", "Hatyai Thailand", "Genting Highland", "Singapore"],
+    destinations: ["Johor", "Melaka", "Kuala Lumpur", "Hatyai", "Genting", "Singapore"],
     image: "/batam/PAKET-TOUR/5-HARI-3-NEGARA.webp",
     highlights: ["Hatyai Thailand", "Kuala Lumpur", "Genting Highland"],
   },
   {
     id: 3,
     name: "One Day Tour Singapore",
-    description: "Nikmati keindahan Singapore dalam sehari. Dari landmark ikonik hingga belanja modern, semua dalam satu hari yang mengesankan.",
+    description: "Nikmati keindahan Singapore dalam sehari. Dari landmark ikonik hingga pusat belanja modern, semua dalam satu hari yang mengesankan.",
     duration: "1 Hari",
     destinations: ["Garden by the Bay", "Merlion Park", "Masjid Sultan", "Bugis Street", "Sentosa Island", "Vivo City"],
     image: "/batam/PAKET-TOUR/ONE-DAY-TOUR-SINGAPORE.webp",
@@ -235,4 +235,3 @@ export default function PaketTourPage() {
     </>
   );
 }
-
