@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
@@ -5,7 +7,8 @@ import Navbar from "@/components/batam/Navbar";
 import { Car, CheckCircle, Phone, ArrowRight, MapPin, MessageCircle, Star, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { batamCars as cars } from "@/data/batam-fleet-data";
+import { batamCars as allCars, categories } from "@/data/batam-fleet-data";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,12 +19,18 @@ export const metadata: Metadata = {
 
 export default function ArmadaPage() {
   const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Batam";
+  const [activeCategory, setActiveCategory] = useState("Semua");
+
+  const filteredCars = activeCategory === "Semua" 
+    ? allCars 
+    : allCars.filter(car => car.category === activeCategory);
 
   return (
     <main className={`${inter.className} min-h-screen bg-gradient-to-b from-teal-50 to-cyan-50 overflow-x-hidden`}>
+      <Navbar />
       
       {/* Hero Section - Island Theme */}
-      <section className="relative py-24 bg-gradient-to-r from-teal-600 via-teal-700 to-cyan-700 overflow-hidden">
+      <section className="relative py-24 bg-gradient-to-r from-teal-600 via-teal-700 to-cyan-700 overflow-hidden mt-16">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 left-20 w-40 h-40 bg-yellow-400 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-20 w-60 h-60 bg-cyan-300 rounded-full blur-3xl"></div>
@@ -40,11 +49,36 @@ export default function ArmadaPage() {
         </div>
       </section>
 
+      {/* Filter Section */}
+      <section className="py-8 bg-white border-b">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap gap-3 justify-center">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={activeCategory === category ? "default" : "outline"}
+                onClick={() => setActiveCategory(category)}
+                className={`${
+                  activeCategory === category 
+                    ? "bg-teal-600 hover:bg-teal-700 text-white" 
+                    : "border-teal-600 text-teal-600 hover:bg-teal-50"
+                }`}
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
+          <p className="text-center text-gray-500 mt-4 text-sm">
+            Menampilkan {filteredCars.length} mobil{activeCategory !== "Semua" ? ` dalam kategori ${activeCategory}` : ""}
+          </p>
+        </div>
+      </section>
+
       {/* Fleet Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {cars.map((car, index) => (
+            {filteredCars.map((car, index) => (
               <div key={index} className="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-xl transition border border-gray-100 hover:border-teal-200 flex flex-col group">
                 <div className="relative w-full aspect-[2/3] overflow-hidden bg-gray-100">
                   <img
@@ -55,6 +89,11 @@ export default function ArmadaPage() {
                   <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-gray-900/50 to-transparent" />
                 </div>
                 <div className="p-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Badge variant="outline" className="text-xs text-teal-600 border-teal-600">
+                      {car.category}
+                    </Badge>
+                  </div>
                   <h3 className="text-lg font-bold mb-2 text-gray-900 line-clamp-1">{car.name}</h3>
                   <div className="flex flex-wrap gap-2 mb-3 min-h-[2.5rem]">
                     {car.specs.map((spec, i) => (
@@ -75,6 +114,19 @@ export default function ArmadaPage() {
               </div>
             ))}
           </div>
+
+          {filteredCars.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg">Tidak ada mobil dalam kategori ini.</p>
+              <Button 
+                variant="link" 
+                onClick={() => setActiveCategory("Semua")}
+                className="text-teal-600 mt-2"
+              >
+                Lihat semua armada
+              </Button>
+            </div>
+          )}
         </div>
       </section>
 

@@ -222,6 +222,45 @@ const services = [
   },
 ];
 
+const tourPackages = [
+  {
+    name: "Paket Tour 3D2N Singapore – Malaysia",
+    description: "Nikmati pengalaman tak terlupakan mengeksplorasi Singapore dan Malaysia.",
+    duration: "3 Hari 2 Malam",
+    image: "/tour-guide/singapore.webp",
+  },
+  {
+    name: "Paket Tour 5 Hari 3 Negara",
+    description: "Petualangan luar biasa menjelajahi Singapore, Malaysia, dan Thailand.",
+    duration: "5 Hari 3 Negara",
+    image: "/tour-guide/gili-islands.webp",
+  },
+  {
+    name: "One Day Tour Singapore",
+    description: "Nikmati keindahan Singapore dalam sehari dengan destinasi pilihan.",
+    duration: "1 Hari",
+    image: "/tour-guide/ubud-bali.webp",
+  },
+  {
+    name: "Tour Ranoh Island",
+    description: "Nikmati keindahan pulau Ranoh dengan berbagai aktivitas air seru.",
+    duration: "1 Hari",
+    image: "/tour-guide/raja-ampat.webp",
+  },
+  {
+    name: "One Day Tour Bintan",
+    description: "Jelajahi keindahan Bintan dalam sehari.",
+    duration: "1 Hari",
+    image: "/tour-guide/taman-komodo.webp",
+  },
+  {
+    name: "Tour Pulau Abang",
+    description: "Eksplorasi Pulau Abang dengan snorkeling dan island hopping.",
+    duration: "1 Hari",
+    image: "/tour-guide/raja-ampat.webp",
+  },
+];
+
 const galleryItems = [
   {
     type: "image",
@@ -409,6 +448,53 @@ export default function HomePage() {
                 <p className="text-xs text-gray-500">{service.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TOUR PACKAGES SECTION */}
+      <section className="py-20 bg-slate-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Paket Tour Populer
+            </h2>
+            <p className="text-gray-600 max-w-xl mx-auto">
+              Pilihan paket wisata terbaik dari Batam untuk liburan Anda.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {tourPackages.map((tour, index) => (
+              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div className="relative h-40 overflow-hidden">
+                  <Image
+                    src={tour.image}
+                    alt={tour.name}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 right-3 bg-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    {tour.duration}
+                  </div>
+                </div>
+                <div className="p-5 flex flex-col flex-grow">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{tour.name}</h3>
+                  <p className="text-gray-600 text-sm mb-4 flex-grow">{tour.description}</p>
+                  <Button className="w-full bg-teal-600 hover:bg-teal-700 font-bold" asChild>
+                    <Link href="/batam/paket-tour">
+                      Lihat Detail
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Button size="lg" className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold" asChild>
+              <Link href="/batam/paket-tour">
+                LIHAT SEMUA PAKET TOUR
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

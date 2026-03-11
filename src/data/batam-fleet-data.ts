@@ -212,6 +212,15 @@ export const batamCars: Car[] = [
     slug: "toyota-agya",
   },
   {
+    name: "Toyota Avanza",
+    image: "/batam/armada/TOYOA-AVANZA.webp",
+    specs: ["7 Penumpang", "Matic", "Irit BBM"],
+    category: "MPV",
+    serviceCategory: "Executive",
+    highlights: ["7-Seater", "Family Friendly", "Fuel Efficient", "Spacious"],
+    slug: "toyota-avanza",
+  },
+  {
     name: "Honda Brio",
     image: "/batam/armada/HONDA-BRIO.webp",
     specs: ["4 Penumpang", "Matic", "Irit BBM"],

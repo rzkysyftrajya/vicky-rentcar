@@ -18,6 +18,7 @@ const Navbar = () => {
     { name: "Beranda", href: "/batam" },
     { name: "Armada", href: "/batam/armada" },
     { name: "Layanan", href: "/batam/layanan" },
+    { name: "Paket Tour", href: "/batam/paket-tour" },
     { name: "Destinasi", href: "/batam/destinasi" },
     { name: "Rekomendasi Hotel", href: "/batam/rekomendasi-hotel" },
     { name: "Galeri", href: "/batam/galeri" },
@@ -116,7 +117,7 @@ const Navbar = () => {
                 {navItems.map((item) => (
                   <Link 
                     key={item.name}
-                    href={item.href} 
+                    href={item.href}
                     onClick={() => setIsOpen(false)} 
                     className="text-white text-base font-medium py-3 px-4 hover:bg-white/10 rounded-lg transition"
                   >
