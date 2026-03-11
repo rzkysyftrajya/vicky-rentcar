@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import Navbar from "@/components/batam/Navbar";
@@ -11,11 +10,6 @@ import { batamCars as allCars, categories } from "@/data/batam-fleet-data";
 import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Armada - VRN Rent Car batam | Sewa Mobil Terbaik di Kepulauan Riau",
-  description: "Daftar armada mobil rental di batam: Alphard, Fortuner, Innova, Hiace dan lainnya. Armada terawat dengan harga terbaik.",
-};
 
 export default function ArmadaPage() {
   const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Batam";

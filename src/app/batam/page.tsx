@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -227,37 +226,37 @@ const tourPackages = [
     name: "Paket Tour 3D2N Singapore – Malaysia",
     description: "Nikmati pengalaman tak terlupakan mengeksplorasi Singapore dan Malaysia.",
     duration: "3 Hari 2 Malam",
-    image: "/tour-guide/singapore.webp",
+    image: "/batam/PAKET-TOUR/3D2N-SINGAPORE-MALAYSIA.webp",
   },
   {
     name: "Paket Tour 5 Hari 3 Negara",
     description: "Petualangan luar biasa menjelajahi Singapore, Malaysia, dan Thailand.",
     duration: "5 Hari 3 Negara",
-    image: "/tour-guide/gili-islands.webp",
+    image: "/batam/PAKET-TOUR/5-HARI-3-NEGARA.webp",
   },
   {
     name: "One Day Tour Singapore",
     description: "Nikmati keindahan Singapore dalam sehari dengan destinasi pilihan.",
     duration: "1 Hari",
-    image: "/tour-guide/ubud-bali.webp",
+    image: "/batam/PAKET-TOUR/ONE-DAY-TOUR-SINGAPORE.webp",
   },
   {
     name: "Tour Ranoh Island",
     description: "Nikmati keindahan pulau Ranoh dengan berbagai aktivitas air seru.",
     duration: "1 Hari",
-    image: "/tour-guide/raja-ampat.webp",
+    image: "/batam/PAKET-TOUR/TOUR-RANOH-ISLAND.webp",
   },
   {
     name: "One Day Tour Bintan",
     description: "Jelajahi keindahan Bintan dalam sehari.",
     duration: "1 Hari",
-    image: "/tour-guide/taman-komodo.webp",
+    image: "/batam/PAKET-TOUR/ONE-DAY-TOUR-BINTAN.webp",
   },
   {
     name: "Tour Pulau Abang",
     description: "Eksplorasi Pulau Abang dengan snorkeling dan island hopping.",
     duration: "1 Hari",
-    image: "/tour-guide/raja-ampat.webp",
+    image: "/batam/PAKET-TOUR/TOUR-PULAU-ABANG.webp",
   },
 ];
 
