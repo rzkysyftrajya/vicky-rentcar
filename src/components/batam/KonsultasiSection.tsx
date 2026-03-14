@@ -4,7 +4,7 @@ import { Phone, Clock, Award, Shield, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function KonsultasiSection() {
-  const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20konsultasi%20tentang%20rental%20mobil%20di%20Batam";
+  const waLink = "https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20batam%2C%20saya%20ingin%20konsultasi%20tentang%20rental%20mobil%20di%20Batam";
 
   return (
     <section className="py-20 bg-white">

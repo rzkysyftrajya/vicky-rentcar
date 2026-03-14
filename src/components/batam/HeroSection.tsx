@@ -22,8 +22,7 @@ import {
 } from "lucide-react";
 
 const HeroSection = () => {
-  const whatsappLink =
-    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Batam";
+const whatsappLink =\n    "https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20batam%2C%20saya%20mau%20booking%20mobil%20di%20Batam";
 
   return (
     <section

@@ -15,8 +15,7 @@ import {
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const whatsappLink =
-    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20bertanya%20tentang%20rental%20mobil%20di%20Batam";
+const whatsappLink =\n    "https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20batam%2C%20saya%20ingin%20bertanya%20tentang%20rental%20mobil%20di%20Batam";
 
   const navigation = [
     { name: "Beranda", href: "/batam" },

@@ -28,7 +28,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="https://wa.me/6282363389893"
+href="https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20batam%2C%20saya%20mau%20booking%20mobil%20di%20Batam"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-gray-300 hover:text-blue-400 transition-colors"

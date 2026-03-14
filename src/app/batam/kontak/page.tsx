@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function KontakPage() {
-  const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20menghubungi%20VRN%20Rent%20Car%20Batam";
+  const waLink = "https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20batam%2C%20saya%20ingin%20menghubungi%20VRN%20Rent%20Car%20Batam";
 
   return (
     <main className={`${inter.className} min-h-screen bg-gradient-to-b from-teal-50 to-cyan-50`}>
@@ -77,7 +77,7 @@ export default function KontakPage() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-green-500 hover:bg-green-600 text-white text-lg px-8" asChild>
-              <a href={waLink} target="_blank">
+              <a href={waLink} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Chat WhatsApp
               </a>

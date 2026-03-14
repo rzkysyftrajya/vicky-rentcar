@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Batam";
+const waLink = "https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20batam%2C%20saya%20mau%20booking%20mobil%20di%20Batam";
 
   // Hanya halaman yang ada
   const navItems = [

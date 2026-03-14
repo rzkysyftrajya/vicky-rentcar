@@ -1,31 +1,12 @@
-# TODO - Rental Mobil Surabaya Pages
+# Batam WA Message Update TODO
 
-## Phase 1: Create Surabaya Navbar Component
-- [x] Create src/components/surabaya/Navbar.tsx
+## Plan Steps:
+1. [ ] Read key component files (Footer.tsx, Navbar.tsx, Header.tsx, FleetSection.tsx, etc.)
+2. [ ] Batch edit WA links with "Halo vicky rentcar batam, " prefix + context
+3. [ ] Read/verify app page files (batam/page.tsx, kontak/page.tsx, etc.)
+4. [ ] Batch edit app pages
+5. [ ] Final verification: All ~64 WA instances updated, dynamics preserved
+6. [ ] Mark complete & attempt_completion
 
-## Phase 2: Create Surabaya Layout
-- [x] Create src/app/surabaya/layout.tsx
-
-## Phase 3: Create Surabaya Pages
-- [x] Create src/app/surabaya/armada/page.tsx
-- [x] Create src/app/surabaya/layanan/page.tsx
-- [x] Create src/app/surabaya/destinasi/page.tsx
-- [x] Create src/app/surabaya/rekomendasi-hotel/page.tsx
-- [x] Create src/app/surabaya/galeri/page.tsx
-- [x] Create src/app/surabaya/faq/page.tsx
-- [x] Create src/app/surabaya/kontak/page.tsx
-- [x] Create src/app/surabaya/tentang/page.tsx
-- [x] Create src/app/surabaya/promo/page.tsx
-- [x] Create src/app/surabaya/testimoni/page.tsx
-- [x] Create src/app/surabaya/harga/page.tsx
-
-## Phase 4: Fix Color Issues in Main Page
-- [x] Fix Testimonial Section - improve gradient contrast
-- [x] Fix Dokumentasi Section - add contrast
-- [x] Fix FAQ Section - add contrast
-- [x] Fix CTA Final Section - smooth gradient transition
-- [x] Fix Google Reviews Section
-- [x] Fix Hotel Recommendations Section
-- [x] Fix Travel Tips Section
-- [x] Fix Contact Info Section
+1. [x] Read key component files (Footer.tsx, Navbar.tsx, Header.tsx, FleetSection.tsx, etc.)\n2. [x] Batch edit WA links with prefix (Footer, Navbar, Header, Fleet, Konsultasi)\n
 

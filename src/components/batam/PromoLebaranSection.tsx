@@ -222,7 +222,7 @@ export default function PromoLebaranSection({ className = "" }) {
           </Link>
 
           <a
-            href="https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Batam%20untuk%20Lebaran%202026."
+            href="https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20batam%2C%20saya%20ingin%20memesan%20rental%20mobil%20di%20Batam%20untuk%20Lebaran%202026."
             target="_blank"
             className="bg-white text-emerald-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1"
           >

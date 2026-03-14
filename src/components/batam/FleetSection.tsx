@@ -25,7 +25,7 @@ const allCategories = ["Semua", "VIP", "Executive", "Group", "Special"];
 
 const FleetSection = () => {
   const whatsappLink =
-    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20tanya%20harga%20rental%20mobil%20di%20Batam";
+"https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20batam%2C%20saya%20ingin%20tanya%20harga%20rental%20mobil%20di%20Batam"
   const ref = useRef(null);
   const [activeCategory, setActiveCategory] = useState("Semua");
 

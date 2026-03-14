@@ -38,7 +38,7 @@ import Footer from "@/components/batam/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 const waLink =
-  "https://wa.me/6282363389893?text=Halo,%20saya%20mau%20tanya%20ketersediaan%20mobil%20di%20Batam";
+"https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20batam%2C%20saya%20mau%20tanya%20ketersediaan%20mobil%20di%20Batam"
 
 const popularCars = [
   {
@@ -542,7 +542,7 @@ export default function HomePage() {
                   </div>
                   <div className="mt-auto">
                     <Button className="w-full bg-teal-600 hover:bg-teal-700 h-9 sm:h-10 text-xs sm:text-sm font-bold shadow-sm" asChild>
-                      <a href={`${waLink}&text=Halo,%20saya%20mau%20cek%20ketersediaan%20${car.name}`} target="_blank">
+                      <a href={`${waLink}&text=Halo%20vicky%20rentcar%20batam%2C%20saya%20mau%20cek%20ketersediaan%20${car.name}`} target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
                         Pesan Sekarang
                       </a>

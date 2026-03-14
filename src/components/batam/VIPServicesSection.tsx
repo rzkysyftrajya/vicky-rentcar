@@ -59,7 +59,7 @@ const vipServices = [
 ];
 
 export default function VIPServicesSection() {
-  const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20layanan%20VIP%20di%20Batam";
+  const waLink = "https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20batam%2C%20saya%20ingin%20memesan%20layanan%20VIP%20di%20Batam";
 
   return (
     <section className="py-20 bg-gradient-to-br from-teal-900 via-teal-800 to-cyan-900 relative overflow-hidden">

@@ -4,7 +4,7 @@ import { Key, DollarSign, Gauge, Shield, Clock, CheckCircle, Phone } from "lucid
 import { Button } from "@/components/ui/button";
 
 export default function LepasKunciSection() {
-  const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20menyewa%20mobil%20lepas%20kunci%20di%20Batam";
+  const waLink = "https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20batam%2C%20saya%20ingin%20menyewa%20mobil%20lepas%20kunci%20di%20Batam";
 
   return (
     <section className="py-20 bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 relative overflow-hidden">
