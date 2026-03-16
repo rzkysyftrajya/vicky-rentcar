@@ -55,7 +55,7 @@ export default function SurabayaReligiTourPage() {
     <div className="flex flex-col bg-slate-50 min-h-screen">
       <section className="relative h-screen w-full overflow-hidden">
         <Image
-          src="/halaman-surabaya/house-of-sampoerna.jpeg"
+          src="/halaman-surabaya/PAKET-TOUR/SURABAYA-RELIGI-TOUR.webp"
           alt="Paket Surabaya Religi Tour"
           fill
           className="object-cover"
@@ -138,7 +138,7 @@ export default function SurabayaReligiTourPage() {
               className="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl"
             >
               <Image
-                src="/halaman-surabaya/house-of-sampoerna.jpeg"
+                src="/halaman-surabaya/PAKET-TOUR/SURABAYA-RELIGI-TOUR.webp"
                 alt="Surabaya Religi Tour Itinerary"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-500"

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function KontakPage() {
-  const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20menghubungi%20VRN%20Surabaya";
+  const waLink = "https://wa.me/6282363389893?text=Halo%20Vicky%20Rentcar%20Surabaya%2C%20saya%20ingin%20menghubungi%20untuk%20pemesanan";
 
   return (
     <main className={`${inter.className} min-h-screen bg-gradient-to-b from-blue-50 to-white`}>
@@ -130,4 +130,3 @@ export default function KontakPage() {
     </main>
   );
 }
-

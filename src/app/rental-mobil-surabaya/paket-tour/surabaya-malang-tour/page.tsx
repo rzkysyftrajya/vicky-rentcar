@@ -56,7 +56,7 @@ export default function SurabayaMalangTourPage() {
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
         <Image
-          src="/halaman-surabaya/jembatan-suramadu.jpg"
+          src="/halaman-surabaya/PAKET-TOUR/SURABAYA-MALANG-BATU-TOUR.webp"
           alt="Paket Surabaya Malang Batu Tour"
           fill
           className="object-cover"
@@ -142,7 +142,7 @@ export default function SurabayaMalangTourPage() {
               className="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl"
             >
               <Image
-                src="/halaman-surabaya/jembatan-suramadu.jpg"
+                src="/halaman-surabaya/PAKET-TOUR/SURABAYA-MALANG-BATU-TOUR.webp"
                 alt="Itinerary Surabaya Malang Batu Tour"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-500"

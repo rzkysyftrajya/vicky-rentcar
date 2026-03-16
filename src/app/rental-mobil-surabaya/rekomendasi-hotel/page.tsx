@@ -70,7 +70,7 @@ const hotels = [
 ];
 
 export default function RekomendasiHotelPage() {
-  const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20mau%20booking%20hotel%20di%20Surabaya";
+?text=Halo%20Vicky%20Rentcar%20Surabaya,%20saya%20mau%20booking%20hotel
 
   return (
     <main className={`${inter.className} min-h-screen bg-gradient-to-b from-blue-50 to-white`}>

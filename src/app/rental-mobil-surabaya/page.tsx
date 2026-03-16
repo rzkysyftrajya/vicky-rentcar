@@ -53,7 +53,7 @@ export default function SurabayaPage() {
       title: "Surabaya City Tour 1 Hari",
       description: "Wisata sehari menjelajahi destinasi populer Surabaya seperti Tugu Pahlawan, Monkasel, Taman Bungkul, Pantai Kenjeran dan Jembatan Suramadu.",
       duration: "1 Hari",
-      image: "/halaman-surabaya/tugu-pahlawan.jpeg", // Corrected path
+      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-CITY-TOUR-1-HARI.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-city-tour-1-hari",
     },
     {
@@ -61,7 +61,7 @@ export default function SurabayaPage() {
       title: "Surabaya City Tour 2 Hari 1 Malam",
       description: "Nikmati perjalanan wisata Surabaya selama 2 hari 1 malam dengan mengunjungi berbagai tempat wisata ikonik kota Surabaya.",
       duration: "2H1M",
-      image: "/destinasi-wisata/surabaya.jpg",
+      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-CITY-TOUR-2-HARI-1-MALAM.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-city-tour-2h1m",
     },
     {
@@ -69,7 +69,7 @@ export default function SurabayaPage() {
       title: "Bromo Midnight Tour dari Surabaya",
       description: "Tour sunrise Gunung Bromo dari Surabaya menggunakan jeep dengan pengalaman melihat matahari terbit yang spektakuler.",
       duration: "1 Hari",
-      image: "/tour-guide/gunung-bromo.webp",
+      image: "/halaman-surabaya/PAKET-TOUR/BROMO-MIDNIGHT_TOUR-DARI-SURABAYA.webp",
       link: "/rental-mobil-surabaya/paket-tour/bromo-midnight-tour-surabaya",
     },
     {
@@ -77,7 +77,7 @@ export default function SurabayaPage() {
       title: "Surabaya – Malang Batu Tour",
       description: "Perjalanan wisata ke Malang dan Batu mengunjungi Jatim Park, Museum Angkut, dan berbagai destinasi populer lainnya.",
       duration: "2H1M",
-      image: "/halaman-surabaya/jembatan-suramadu.jpg", // Corrected path
+      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-MALANG-BATU-TOUR.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-malang-tour",
     },
     {
@@ -85,7 +85,7 @@ export default function SurabayaPage() {
       title: "Surabaya Religi Tour",
       description: "Wisata religi mengunjungi Masjid Al Akbar Surabaya, Makam Sunan Ampel, Kampung Arab Ampel dan Masjid Cheng Ho.",
       duration: "1 Hari",
-      image: "/halaman-surabaya/house-of-sampoerna.jpeg", // Corrected path
+      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-RELIGI-TOUR.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-religi-tour",
     },
     {
@@ -93,12 +93,12 @@ export default function SurabayaPage() {
       title: "Surabaya – Madura Tour",
       description: "Tour ke Pulau Madura mengunjungi Jembatan Suramadu, Bukit Jaddih, Mercusuar Sembilangan dan wisata kuliner khas Madura.",
       duration: "1 Hari",
-      image: "/halaman-surabaya/jembatan-suramadu.jpg",
+      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-MADURA-TOUR.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-madura-tour",
     },
   ];
   const whatsappMessage = encodeURIComponent(
-    "Halo VRN, saya mau booking mobil di Surabaya"
+"Halo Vicky Rentcar Surabaya, saya mau booking mobil di Surabaya"
   );
 
   // Gallery documentation photos - 29 foto dari dokumentasi
@@ -114,7 +114,7 @@ export default function SurabayaPage() {
       <PromoLebaranModal 
         city="Surabaya" // Pastikan props ini sesuai
         imageSrc="/halaman-surabaya/promo-lebaran.webp"
-        waText="Halo, saya tertarik dengan Promo Lebaran VRN Rent Car Surabaya"
+waText="Halo Vicky Rentcar Surabaya, saya tertarik dengan Promo Lebaran"
       />
       {/* Floating WhatsApp Button */}
       <Link
@@ -232,7 +232,7 @@ export default function SurabayaPage() {
               >
                 <a
                   href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                    "halo vrn surabaya, saya ingin bertanya tentang harga sewa di surabaya"
+"Halo Vicky Rentcar Surabaya, saya ingin bertanya tentang harga sewa di Surabaya"
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -420,7 +420,7 @@ className="w-full h-[450px] object-cover bg-gradient-to-b from-slate-700 to-slat
                     <Button asChild className="w-full bg-orange-500 hover:bg-orange-600 text-white py-6 rounded-xl text-lg font-semibold shadow-lg transition-all duration-300"> 
                       <Link
                         href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                          `Halo VRN, saya mau booking ${car.name}`
+`Halo Vicky Rentcar Surabaya, saya mau booking ${car.name}`
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -677,7 +677,7 @@ className="w-full h-[450px] object-cover bg-gradient-to-b from-slate-700 to-slat
               <Button asChild className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 text-lg rounded-full shadow-xl transition-all flex items-center gap-3 mx-auto">
                 <Link
                   href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                    "Halo VRN, saya mau lihat armada mobil secara langsung"
+"Halo Vicky Rentcar Surabaya, saya mau lihat armada mobil secara langsung"
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"

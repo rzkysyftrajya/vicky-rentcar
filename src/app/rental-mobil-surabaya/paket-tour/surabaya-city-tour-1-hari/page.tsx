@@ -55,7 +55,7 @@ export default function SurabayaCityTourPage() {
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
         <Image
-          src="/destinasi-wisata/surabaya.jpg"
+          src="/halaman-surabaya/PAKET-TOUR/SURABAYA-CITY-TOUR-1-HARI.webp"
           alt="Paket Surabaya City Tour 1 Hari"
           fill
           className="object-cover"
@@ -141,7 +141,7 @@ export default function SurabayaCityTourPage() {
               className="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl"
             >
               <Image
-                src="/halaman-surabaya/tugu-pahlawan.jpeg"
+                src="/halaman-surabaya/PAKET-TOUR/SURABAYA-CITY-TOUR-1-HARI.webp"
                 alt="Itinerary Surabaya City Tour"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-500"

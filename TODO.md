@@ -1,8 +1,13 @@
-# Task: Fix unterminated string constant in page.tsx
+# Paket Tour Image Update Plan Progress
 
-## Steps:
-- [x] 1. Plan approved by user
-- [x] 2. Edit problematic className at line 50 in src/app/rental-mobil-surabaya/paket-tour/surabaya-city-tour-2h1m/page.tsx
-- [ ] 3. Verify build works (user will test)
-- [ ] 4. Complete task
+## Steps from Approved Plan (Total: 8 files + TODO)
 
+### 1. Create TODO.md ✅
+### 2. Update tourPackages arrays in rental-mobil-surabaya/page.tsx & paket-tour/page.tsx
+### 3. Update hero in surabaya-religi-tour/page.tsx 
+### 4. Update hero in surabaya-malang-tour/page.tsx
+### 5. Update hero in surabaya-madura-tour/page.tsx
+### 6. Update hero in surabaya-city-tour-1-hari/page.tsx
+### 7. Update hero in surabaya-city-tour-2h1m/page.tsx
+### 8. Update hero in bromo-midnight-tour-surabaya/page.tsx + main page hero
+### 9. Verify all images (user runs npm run dev)

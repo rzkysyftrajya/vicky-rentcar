@@ -13,7 +13,7 @@ export default function PaketTourSurabaya() {
       title: "Surabaya City Tour 1 Hari",
       description: "Wisata sehari menjelajahi destinasi populer Surabaya seperti Tugu Pahlawan, Monkasel, Taman Bungkul, Pantai Kenjeran dan Jembatan Suramadu.",
       duration: "1 Hari",
-      image: "/halaman-surabaya/tugu-pahlawan.jpeg",
+      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-CITY-TOUR-1-HARI.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-city-tour-1-hari",
     },
     {
@@ -21,7 +21,7 @@ export default function PaketTourSurabaya() {
       title: "Surabaya City Tour 2 Hari 1 Malam",
       description: "Nikmati perjalanan wisata Surabaya selama 2 hari 1 malam dengan mengunjungi berbagai tempat wisata ikonik kota Surabaya.",
       duration: "2H1M",
-      image: "/destinasi-wisata/surabaya.jpg",
+      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-CITY-TOUR-2-HARI-1-MALAM.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-city-tour-2h1m",
     },
     {
@@ -29,7 +29,7 @@ export default function PaketTourSurabaya() {
       title: "Bromo Midnight Tour dari Surabaya",
       description: "Tour sunrise Gunung Bromo dari Surabaya menggunakan jeep dengan pengalaman melihat matahari terbit yang spektakuler.",
       duration: "1 Hari",
-      image: "/tour-guide/gunung-bromo.webp",
+      image: "/halaman-surabaya/PAKET-TOUR/BROMO-MIDNIGHT_TOUR-DARI-SURABAYA.webp",
       link: "/rental-mobil-surabaya/paket-tour/bromo-midnight-tour-surabaya",
     },
     {
@@ -37,7 +37,7 @@ export default function PaketTourSurabaya() {
       title: "Surabaya – Malang Batu Tour",
       description: "Perjalanan wisata ke Malang dan Batu mengunjungi Jatim Park, Museum Angkut, dan berbagai destinasi populer lainnya.",
       duration: "2H1M",
-      image: "/halaman-surabaya/jembatan-suramadu.jpg",
+      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-MALANG-BATU-TOUR.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-malang-tour",
     },
     {
@@ -45,7 +45,7 @@ export default function PaketTourSurabaya() {
       title: "Surabaya Religi Tour",
       description: "Wisata religi mengunjungi Masjid Al Akbar Surabaya, Makam Sunan Ampel, Kampung Arab Ampel dan Masjid Cheng Ho.",
       duration: "1 Hari",
-      image: "/halaman-surabaya/house-of-sampoerna.jpeg",
+      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-RELIGI-TOUR.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-religi-tour",
     },
     {
@@ -53,7 +53,7 @@ export default function PaketTourSurabaya() {
       title: "Surabaya – Madura Tour",
       description: "Tour ke Pulau Madura mengunjungi Jembatan Suramadu, Bukit Jaddih, Mercusuar Sembilangan dan wisata kuliner khas Madura.",
       duration: "1 Hari",
-      image: "/halaman-surabaya/jembatan-suramadu.jpg",
+      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-MADURA-TOUR.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-madura-tour",
     },
   ];

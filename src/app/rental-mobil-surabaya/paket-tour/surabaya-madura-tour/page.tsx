@@ -21,7 +21,7 @@ import {
 export default function SurabayaMaduraTourPage() {
   const whatsappNumber = "6282363389893";
   const whatsappMessage = encodeURIComponent(
-    "Halo VRN, saya tertarik dengan Paket Surabaya Madura Tour. Mohon info lengkap dan harga."
+"Halo Vicky Rentcar Surabaya, saya tertarik dengan Paket Surabaya Madura Tour. Mohon info lengkap dan harga."
   );
 
   const itinerary = [
@@ -56,7 +56,7 @@ export default function SurabayaMaduraTourPage() {
     <div className="flex flex-col bg-slate-50 min-h-screen">
       <section className="relative h-screen w-full overflow-hidden">
         <Image
-          src="/halaman-surabaya/jembatan-suramadu.jpg"
+          src="/halaman-surabaya/PAKET-TOUR/SURABAYA-MADURA-TOUR.webp"
           alt="Paket Surabaya Madura Tour"
           fill
           className="object-cover"
@@ -139,7 +139,7 @@ export default function SurabayaMaduraTourPage() {
               className="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl"
             >
               <Image
-                src="/halaman-surabaya/jembatan-suramadu.jpg"
+                src="/halaman-surabaya/PAKET-TOUR/SURABAYA-MADURA-TOUR.webp"
                 alt="Suramadu Bridge Madura Tour"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-500"

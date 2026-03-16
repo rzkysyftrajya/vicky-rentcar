@@ -37,7 +37,7 @@ const services = [
 ];
 
 export default function LayananPage() {
-  const waLink = "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Surabaya";
+?text=Halo%20Vicky%20Rentcar%20Surabaya,%20saya%20ingin%20memesan%20layanan%20rental%20mobil
 
   return (
     <main className={`${inter.className} min-h-screen bg-gradient-to-b from-blue-50 to-white`}>
