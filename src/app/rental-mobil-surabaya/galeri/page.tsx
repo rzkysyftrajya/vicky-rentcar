@@ -19,7 +19,7 @@ const galleryItems = Array.from({ length: 24 }, (_, i) => ({
 }));
 
 export default function GaleriPage() {
-?text=Halo%20Vicky%20Rentcar%20Surabaya,%20saya%20ingin%20melihat%20galeri%20armada
+  const waLink = "https://wa.me/6282363389893?text=Halo%20Vicky%20Rentcar%20Surabaya,%20saya%20ingin%20melihat%20galeri%20armada";
 
   return (
     <main className={`${inter.className} min-h-screen bg-gradient-to-b from-blue-50 to-white`}>
@@ -142,4 +142,3 @@ export default function GaleriPage() {
     </main>
   );
 }
-

@@ -77,7 +77,7 @@ const faqCategories = [
 ];
 
 export default function FAQPage() {
-?text=Halo%20Vicky%20Rentcar%20Surabaya,%20saya%20ada%20pertanyaan%20tentang%20rental%20mobil
+  const waLink = "https://wa.me/6282363389893?text=Halo%20Vicky%20Rentcar%20Surabaya,%20saya%20ada%20pertanyaan%20tentang%20rental%20mobil";
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState(0);
 
@@ -265,4 +265,3 @@ export default function FAQPage() {
     </main>
   );
 }
-
