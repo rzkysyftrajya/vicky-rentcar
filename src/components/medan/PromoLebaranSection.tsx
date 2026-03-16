@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function PromoLebaranSection() {
-  const targetDate = new Date("2026-03-16T00:00:00").getTime();
+const targetDate = new Date("2026-03-19T00:00:00").getTime();
 
   const [countdown, setCountdown] = useState({
     days: 0,

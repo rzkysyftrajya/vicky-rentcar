@@ -60,7 +60,7 @@ const targetDate = new Date("2026-03-19T00:00:00").getTime();
       ref={sectionRef}
       className="relative py-20 overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #065f46 0%, #047857 25%, #065f46 50%, #047857 75%, #065f46 100%)',
+        background: 'linear-gradient(135deg, #c2410c 0%, #ea580c 25%, #c2410c 50%, #ea580c 75%, #c2410c 100%)',
         backgroundSize: '400% 400%',
         animation: 'gradientShift 15s ease infinite',
       }}
@@ -98,51 +98,39 @@ const targetDate = new Date("2026-03-19T00:00:00").getTime();
         .animate-fade-in-up {
           animation: fadeInUp 0.8s ease-out forwards;
         }
-        .animation-delay-100 {
-          animation-delay: 100ms;
-        }
-        .animation-delay-200 {
-          animation-delay: 200ms;
-        }
-        .animation-delay-300 {
-          animation-delay: 300ms;
-        }
-        .animation-delay-400 {
-          animation-delay: 400ms;
-        }
       `}</style>
 
       {/* Floating Blur Glow Elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-400/20 rounded-full blur-3xl animate-float-1"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl animate-float-2"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-300/15 rounded-full blur-3xl animate-float-3"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-400/20 rounded-full blur-3xl animate-float-2"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-orange-300/15 rounded-full blur-3xl animate-float-3"></div>
 
       {/* Content */}
       <div className={`container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
 
         {/* Badge */}
-        <span className="inline-block bg-yellow-400 text-emerald-900 text-sm font-semibold px-4 py-1 rounded-full mb-6 shadow-md">
-          Promo Lebaran Batam 2026
+        <span className="inline-block bg-yellow-400 text-orange-900 text-sm font-semibold px-4 py-1 rounded-full mb-6 shadow-md">
+          Promo Lebaran Surabaya 2026
         </span>
 
         {/* Title */}
         <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight text-white">
-          Rental Mobil Lebaran di Batam
+          Rental Mobil Lebaran di Surabaya
         </h2>
 
         {/* Subheadline */}
-        <p className="text-lg md:text-xl text-emerald-100 max-w-3xl mx-auto mb-10">
+        <p className="text-lg md:text-xl text-orange-100 max-w-3xl mx-auto mb-10">
           Amankan kendaraan terbaik untuk mudik & perjalanan keluarga sebelum kehabisan unit.
         </p>
 
         {/* Urgency Line */}
-        <p className="text-orange-300 font-semibold text-lg mb-4 animate-pulse">
+        <p className="text-yellow-300 font-semibold text-lg mb-4 animate-pulse">
           ⚠️ Promo berakhir dalam:
         </p>
 
-        {/* Countdown - Improved with glass effect and bigger numbers */}
+        {/* Countdown */}
         <div className="grid grid-cols-4 gap-3 md:gap-6 max-w-3xl mx-auto mb-12">
-          {Object.entries(countdown).map(([label, value], index) => (
+          {Object.entries(countdown).map(([label, value]) => (
             <div
               key={label}
               className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl py-6 md:py-8 shadow-xl hover:bg-white/20 transition-all duration-300 hover:scale-105"
@@ -150,14 +138,14 @@ const targetDate = new Date("2026-03-19T00:00:00").getTime();
               <div className="text-4xl md:text-5xl font-bold text-white">
                 {String(value).padStart(2, '0')}
               </div>
-              <div className="text-xs md:text-sm uppercase tracking-wider mt-2 font-medium text-emerald-200">
+              <div className="text-xs md:text-sm uppercase tracking-wider mt-2 font-medium text-orange-200">
                 {label}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Info Box (FIX KONTRAS TOTAL) */}
+        {/* Info Box */}
         <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 max-w-4xl mx-auto mb-12 shadow-xl">
           <div className="grid md:grid-cols-2 gap-6 text-left">
 
@@ -167,7 +155,7 @@ const targetDate = new Date("2026-03-19T00:00:00").getTime();
                 <p className="font-bold text-white text-lg">
                   Semua Tipe Mobil
                 </p>
-                <p className="text-emerald-100">
+                <p className="text-orange-100">
                   Dari city car hingga premium
                 </p>
               </div>
@@ -179,7 +167,7 @@ const targetDate = new Date("2026-03-19T00:00:00").getTime();
                 <p className="font-bold text-white text-lg">
                   Minimal 7 Hari
                 </p>
-                <p className="text-emerald-100">
+                <p className="text-orange-100">
                   Cocok untuk mudik & perjalanan keluarga
                 </p>
               </div>
@@ -191,7 +179,7 @@ const targetDate = new Date("2026-03-19T00:00:00").getTime();
                 <p className="font-bold text-white text-lg">
                   Transparan & Profesional
                 </p>
-                <p className="text-emerald-100">
+                <p className="text-orange-100">
                   Harga mengikuti tipe & durasi
                 </p>
               </div>
@@ -203,7 +191,7 @@ const targetDate = new Date("2026-03-19T00:00:00").getTime();
                 <p className="font-bold text-white text-lg">
                   Unit Terbatas
                 </p>
-                <p className="text-emerald-100">
+                <p className="text-orange-100">
                   Booking lebih awal untuk hindari kehabisan
                 </p>
               </div>
@@ -212,27 +200,27 @@ const targetDate = new Date("2026-03-19T00:00:00").getTime();
           </div>
         </div>
 
-        {/* CTA Buttons with hover animations */}
+        {/* CTA Buttons */}
         <div className="flex flex-col md:flex-row justify-center gap-4 mb-6">
           <Link
-            href="/batam/armada"
-            className="bg-yellow-400 hover:bg-yellow-500 text-emerald-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+            href="/rental-mobil-surabaya/armada"
+            className="bg-yellow-400 hover:bg-yellow-500 text-orange-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1"
           >
-            Lihat Armada Batam
+            Lihat Armada Surabaya
           </Link>
 
           <a
-            href="https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20batam%2C%20saya%20ingin%20memesan%20rental%20mobil%20di%20Batam%20untuk%20Lebaran%202026."
+            href="https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20surabaya%2C%20saya%20ingin%20memesan%20rental%20mobil%20di%20Surabaya%20untuk%20Lebaran%202026."
             target="_blank"
-            className="bg-white text-emerald-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+            className="bg-white text-orange-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1"
           >
             Chat via WhatsApp
           </a>
         </div>
 
         {/* Trust Text */}
-        <p className="text-emerald-200 text-sm md:text-base">
-          ✅ <span className="font-semibold">500+ pelanggan Batam</span> sudah booking Lebaran 2026
+        <p className="text-orange-200 text-sm md:text-base">
+          ✅ <span className="font-semibold">300+ pelanggan Surabaya</span> sudah booking Lebaran 2026
         </p>
 
       </div>

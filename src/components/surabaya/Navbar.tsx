@@ -16,6 +16,7 @@ const Navbar = () => {
   // Halaman navigasi Surabaya - khusus untuk rental-mobil-surabaya
   const navItems = [
     { name: "Beranda", href: "/rental-mobil-surabaya" },
+    { name: "Paket Tour", href: "/rental-mobil-surabaya/paket-tour" },
     { name: "Armada", href: "/rental-mobil-surabaya/armada" },
     { name: "Layanan", href: "/rental-mobil-surabaya/layanan" },
     { name: "Destinasi", href: "/rental-mobil-surabaya/destinasi" },
