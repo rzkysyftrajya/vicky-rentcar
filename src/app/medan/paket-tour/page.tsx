@@ -70,12 +70,12 @@ export default function PaketTourPage() {
             {tourPackages.map((tour) => (
               <div key={tour.id} className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2">
                 {/* Image */}
-                <div className="relative overflow-hidden w-full aspect-[4/5] max-w-[644px] mx-auto h-[805px] md:h-auto">
+                <div className="relative overflow-hidden w-full aspect-[4/5] max-w-[644px] mx-auto">
                   <Image
                     src={tour.image}
                     alt={tour.name}
                     fill
-                    className="object-contain group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute top-4 left-4">
                     <Badge variant="secondary" className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-bold shadow-lg">
@@ -135,4 +135,3 @@ export default function PaketTourPage() {
     </main>
   );
 }
-

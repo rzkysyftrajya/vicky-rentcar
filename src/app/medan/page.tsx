@@ -231,13 +231,21 @@ export default function MedanPage() {
   const whatsappLink =
     "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Medan";
 
-// Get Popular cars with price teasers
+  // Get Popular cars with price teasers
+  const popularCarNames = [
+    "Toyota Avanza",
+    "Innova Reborn",
+    "Innova Zenix",
+    "Honda Brio",
+    "Toyota Agya",
+    "Alphard Gen 3",
+    "Hiace Premio",
+  ];
   const popularCars = cars
-    ?.filter((car) => car.serviceCategory !== "VIP")
-    .slice(0, 6)
+    ?.filter((car) => popularCarNames.includes(car.name))
     .map((car) => ({
       ...car,
-      priceTeaser: car.name.includes("Innova") ? "Rp450K" : car.name.includes("Fortuner") ? "Rp650K" : "Rp350K",
+      priceTeaser: car.name.includes("Innova") ? "Rp450K" : car.name.includes("Alphard") ? "Rp1.2Jt" : car.name.includes("Hiace") ? "Rp1Jt" : "Rp350K",
     })) || [];
 
   return (
@@ -729,8 +737,8 @@ export default function MedanPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {topTourPackages.map((tour, index) => (
               <div key={tour.id} className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border hover:border-emerald-300">
-                <div className="relative w-full aspect-[4/5] h-[402px] md:h-[805px] overflow-hidden">
-                  <Image src={tour.image} alt={tour.name} fill className="object-contain group-hover:scale-105 transition-transform" />
+                <div className="relative w-full aspect-[4/5] overflow-hidden">
+                  <Image src={tour.image} alt={tour.name} fill className="object-cover group-hover:scale-105 transition-transform" />
                   <div className="absolute top-4 right-4">
                     <Badge className="bg-white/90 backdrop-blur text-emerald-700 font-bold">
                       {tour.duration}

@@ -221,7 +221,6 @@ export default function HiacePage() {
                     className="object-contain transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent md:hidden" />
                   
                   {pkg.isPopular && (
                     <div className="absolute top-4 left-4">
@@ -328,4 +327,3 @@ export default function HiacePage() {
     </main>
   );
 }
-

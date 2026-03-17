@@ -244,6 +244,15 @@ export const cars: Car[] = [
     slug: "honda-brio",
   },
   {
+    name: "Toyota Avanza",
+    image: "/medan/armada/TOYOTA-AVANZA.webp",
+    specs: ["7 Penumpang", "Matic", "Bensin"],
+    category: "MPV",
+    serviceCategory: "Executive",
+    highlights: ["7-Seater", "Family Friendly", "Fuel Efficient", "Spacious"],
+    slug: "toyota-avanza",
+  },
+  {
     name: "Daihatsu Ayla",
     image: "/medan/armada/DAIHATSU-AYLA.webp",
     specs: ["4 Penumpang", "Matic", "Irit BBM"],
