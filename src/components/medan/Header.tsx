@@ -21,15 +21,15 @@ const Header = () => {
   const navigation = [
     { name: "Beranda", href: "/medan" },
     { name: "Armada", href: "/medan/fleet" },
+    { name: "Paket Tour", href: "/medan/paket-tour" },
+    { name: "Paket Hiace", href: "/medan/hiace" },
     { name: "Layanan", href: "/medan/services" },
-    { name: "Destinasi", href: "/medan/tourism" },
-    { name: "Testimoni", href: "/medan/testimonials" },
     { name: "Kontak", href: "/medan/contact" },
   ];
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-gray-200 dark:border-slate-700"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-sm border-b border-gray-200/50 dark:border-slate-700/50"
       suppressHydrationWarning
     >
       <div className="container mx-auto px-4" suppressHydrationWarning>
@@ -68,14 +68,14 @@ const Header = () => {
             suppressHydrationWarning
           >
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200"
-                suppressHydrationWarning
-              >
-                {item.name}
-              </Link>
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="px-3 py-2 rounded-lg font-semibold text-sm transition-all duration-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/50 hover:text-emerald-600 dark:hover:text-emerald-400 text-gray-700 dark:text-gray-300"
+                  suppressHydrationWarning
+                >
+                  {item.name}
+                </Link>
             ))}
           </nav>
 
@@ -84,32 +84,16 @@ const Header = () => {
             className="hidden lg:flex items-center space-x-4"
             suppressHydrationWarning
           >
-            <div
-              className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400"
-              suppressHydrationWarning
-            >
-              <MapPin className="w-4 h-4" suppressHydrationWarning />
-              <span suppressHydrationWarning>Medan & Sekitanya</span>
-            </div>
             <Button
               asChild
               variant="outline"
               size="sm"
+              className="border-emerald-200 hover:bg-emerald-50 hover:border-emerald-300 text-emerald-700 font-semibold shadow-md hover:shadow-emerald-200"
               suppressHydrationWarning
             >
               <a href="tel:+6282363389893" suppressHydrationWarning>
                 <Phone className="w-4 h-4 mr-2" suppressHydrationWarning />
                 <span suppressHydrationWarning>0823-6338-9893</span>
-              </a>
-            </Button>
-            <Button asChild size="sm" suppressHydrationWarning>
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                suppressHydrationWarning
-              >
-                WhatsApp
               </a>
             </Button>
           </div>

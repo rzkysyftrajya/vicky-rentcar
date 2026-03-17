@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from 'react';
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Phone,
   MapPin,
@@ -14,11 +16,16 @@ import {
   CheckCircle,
   Crown,
   ThumbsUp,
+  Calendar,
 } from "lucide-react";
 
 const HeroSection = () => {
   const whatsappLink =
-    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20memesan%20rental%20mobil%20di%20Medan";
+    "https://wa.me/6282363389893?text=Halo VRN,%20saya mau sewa mobil Medan. Pickup: [tanggal], Return: [tanggal]. Kirim list unit & promo ya!";
+
+  const [pickupDate, setPickupDate] = useState("");
+  const [returnDate, setReturnDate] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false); 
 
   return (
     <section
@@ -76,27 +83,79 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* CTA Buttons - WhatsApp Primary */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+  {/* Quick Search Form */}
+          <div className="max-w-md mx-auto space-y-4 mb-8">
             <Button
-              size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 shadow-lg w-full sm:w-auto"
-              asChild
+              variant="ghost"
+              size="sm"
+              onClick={() => setSearchOpen(!searchOpen)}
+              className="w-full justify-between text-left text-white hover:bg-white/10 border border-white/20"
             >
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                <Phone className="w-5 h-5 mr-2" />
-                Pesan via WhatsApp
-              </a>
+              <span className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                Pilih Tanggal Sewa
+              </span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${searchOpen ? 'rotate-180' : ''}`} />
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-2 border-white/40 hover:bg-white hover:text-blue-700 text-white dark:text-white dark:hover:bg-white dark:hover:text-blue-700 text-lg px-8 w-full sm:w-auto bg-white/10 dark:bg-white/10"
-              asChild
-            >
-              <a href="/medan/fleet">Lihat Armada</a>
-            </Button>
+            
+            {searchOpen && (
+              <div className="space-y-3 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-sm text-blue-100 mb-1 block">Pickup Date</label>
+                    <Input
+                      type="date"
+                      value={pickupDate}
+                      onChange={(e) => setPickupDate(e.target.value)}
+                      className="bg-white/80 border-white/50 focus:border-emerald-400"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm text-blue-100 mb-1 block">Return Date</label>
+                    <Input
+                      type="date"
+                      value={returnDate}
+                      onChange={(e) => setReturnDate(e.target.value)}
+                      className="bg-white/80 border-white/50 focus:border-emerald-400"
+                    />
+                  </div>
+                </div>
+                <Button
+                  size="lg"
+                  className="w-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg"
+                  onClick={() => {
+                    const text = `Halo VRN, mau sewa mobil Medan. Pickup: ${pickupDate || '[tanggal]'}, Return: ${returnDate || '[tanggal]'} . Kirim list unit ready & promo ya!`;
+                    window.open(`https://wa.me/6282363389893?text=${encodeURIComponent(text)}`, '_blank');
+                  }}
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  Cek Ketersediaan (WA)
+                </Button>
+              </div>
+            )}
           </div>
+
+  {/* CTA Buttons */}
+  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+    <Button
+      size="lg"
+      className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 shadow-lg"
+      asChild
+    >
+      <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+        <Phone className="w-5 h-5 mr-2" />
+        Chat Langsung WA
+      </a>
+    </Button>
+    <Button
+      variant="outline"
+      size="lg"
+      className="border-2 border-white/50 hover:bg-white hover:text-blue-900 text-white text-lg px-8 bg-white/10"
+      asChild
+    >
+      <a href="/medan/fleet">Lihat Semua Armada</a>
+    </Button>
+  </div>
 
           {/* Trust Micro Points - Enhanced */}
           <div className="flex flex-wrap justify-center gap-4 md:gap-6 pt-6">
@@ -108,7 +167,7 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <Car className="w-4 h-4 text-blue-300" />
-              <span className="text-sm font-medium">50+ Armada Premium</span>
+              <span className="text-sm font-medium">50+ Armada Terawat</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <ThumbsUp className="w-4 h-4 text-green-400" />
