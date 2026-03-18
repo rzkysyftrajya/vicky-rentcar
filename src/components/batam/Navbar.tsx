@@ -18,6 +18,7 @@ const waLink = "https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20batam%
     { name: "Beranda", href: "/batam" },
     { name: "Armada", href: "/batam/armada" },
     { name: "Layanan", href: "/batam/layanan" },
+    { name: "Hiace", href: "/batam/hiace" },
     { name: "Paket Tour", href: "/batam/paket-tour" },
     { name: "Destinasi", href: "/batam/destinasi" },
     { name: "Rekomendasi Hotel", href: "/batam/rekomendasi-hotel" },

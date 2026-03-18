@@ -1,12 +1,14 @@
-# Task: Update Medan page to include Toyota Avanza ✅
+# Hiace Package Pages Implementation
+Current working directory: d:/rizky/vicky-rentcar
 
-## TODO Steps:
-- [x] 1. Add Toyota Avanza to src/data/fleet-data.ts
-- [x] 2. Verify /medan Armada Favorit shows Avanza (added between Brio & Ayla, will appear in first 6 non-VIP)
-- [x] 3. Test npm run dev (server started successfully)
-- [x] 4. Task complete - Medan page now includes Toyota Avanza in fleet display
+## Plan Breakdown
+1. ✅ [DONE] Create TODO.md
+2. ✅ [DONE] Create src/app/rental-mobil-surabaya/hiace/page.tsx (Surabaya Hiace page)
+3. ✅ [DONE] Create src/app/batam/hiace/page.tsx (Batam Hiace page) 
+4. ✅ [DONE] Edit src/components/surabaya/Navbar.tsx (add Hiace nav link)
+5. ✅ [DONE] Edit src/components/batam/Navbar.tsx (add Hiace nav link)
+6. ✅ [USER] Test with npm run dev
+7. Update TODO.md with completion
+8. attempt_completion
 
-**Changes made:**
-- Added Toyota Avanza entry to `src/data/fleet-data.ts` with correct image path
-- Now appears in /medan Armada Favorit section (popularCars)
-
+**Progress: 6/8**

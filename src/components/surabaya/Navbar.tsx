@@ -17,13 +17,11 @@ const Navbar = () => {
   const navItems = [
     { name: "Beranda", href: "/rental-mobil-surabaya" },
     { name: "Paket Tour", href: "/rental-mobil-surabaya/paket-tour" },
+    { name: "Hiace", href: "/rental-mobil-surabaya/hiace" },
     { name: "Armada", href: "/rental-mobil-surabaya/armada" },
-    { name: "Layanan", href: "/rental-mobil-surabaya/layanan" },
-    { name: "Destinasi", href: "/rental-mobil-surabaya/destinasi" },
     { name: "Rekomendasi Hotel", href: "/rental-mobil-surabaya/rekomendasi-hotel" },
     { name: "Galeri", href: "/rental-mobil-surabaya/galeri" },
     { name: "FAQ", href: "/rental-mobil-surabaya/faq" },
-    { name: "Kontak", href: "/rental-mobil-surabaya/kontak" },
     { name: "Tentang", href: "/rental-mobil-surabaya/tentang" },
   ];
 
