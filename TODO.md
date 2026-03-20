@@ -1,1 +1,6 @@
-# TODO: Fix Hiace Page Image URL Error\n\n- [ ] Step 1: Fix invalid image path in hiacePackages array (hiace-airport-xl package)\n- [ ] Step 2: Test page loads without URL error\n- [ ] Step 3: Mark complete
+# Task: Update images on /batam/hiace page
+
+## Steps:
+- [ ] 1. Map and update hiacePackages images to /batam/paket-hiace/*.webp
+- [ ] 2. Update hero/lepas-kunci images and remove all zoom effects (group-hover:scale-105)
+- [ ] 3. Verify display and complete

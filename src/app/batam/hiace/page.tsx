@@ -53,7 +53,7 @@ const hiacePackages: HiacePackage[] = [
     id: "hiace-ranoh",
     name: "Hiace Ranoh Island Group Tour",
     tagline: "Pulau Eksotis",
-    image: "/batam/PAKET-TOUR/TOUR-RANOH-ISLAND.webp",
+    image: "/batam/paket-hiace/paket-hiace-ranoh-island-group-tour.webp",
     capacity: "Max 14 Penumpang",
     description: "Transportasi nyaman ke pelabuhan + wisata Ranoh Island. Snorkeling, banana boat untuk rombongan besar.",
     highlights: ["Snorkeling", "Banana Boat", "Beach Hopping"],
@@ -64,7 +64,7 @@ const hiacePackages: HiacePackage[] = [
     id: "hiace-abang",
     name: "Hiace Pulau Abang Island Hopping",
     tagline: "Underwater Paradise",
-    image: "/batam/PAKET-TOUR/TOUR-PULAU-ABANG.webp",
+    image: "/batam/paket-hiace/hiace-pulau-abang-island-hopping.webp",
     capacity: "Max 14 Penumpang",
     description: "Hiace premium ke Abang untuk snorkeling + dokumentasi gratis. Cocok keluarga atau kantor.",
     highlights: ["Underwater Photo", "Island Hopping", "Gear Lengkap"],
@@ -74,7 +74,7 @@ const hiacePackages: HiacePackage[] = [
     id: "hiace-batam-city",
     name: "Hiace Batam City & Barelang Tour",
     tagline: "Kota Batam",
-    image: "/armada/hiace-commuter.webp",
+    image: "/batam/paket-hiace/hiace-batam-city-barelang-tour.webp",
     capacity: "Kapasitas Besar",
     description: "Jelajahi Jembatan Barelang, Nagoya Hill, Masjid Sultan dengan sopir lokal berpengalaman.",
     highlights: ["Barelang Full Tour", "Shopping Nagoya", "Kuliner Batam"],
@@ -85,7 +85,7 @@ const hiacePackages: HiacePackage[] = [
     id: "hiace-ferry-singapore",
     name: "Hiace Ferry Singapore-Malaysia",
     tagline: "Cross Border",
-    image: "/armada/hiace-premio.webp",
+    image: "/batam/paket-hiace/hiace-ferry-singapore-malaysia.webp",
     capacity: "12-14 Penumpang",
     description: "Transportasi aman ke pelabuhan ferry Batam Centre/Sekupang untuk Singapore/Johor. Bagasi XL.",
     highlights: ["Ferry Assistance", "Border Support", "VIP Waiting"],
@@ -95,7 +95,7 @@ const hiacePackages: HiacePackage[] = [
     id: "hiace-bintan",
     name: "Hiace Bintan Treasure Bay Tour",
     tagline: "Wisata Bintan",
-    image: "/batam/PAKET-TOUR/ONE-DAY-TOUR-BINTAN.webp",
+    image: "/batam/paket-hiace/hiace-bintan-treasure-bay-tour.webp",
     capacity: "Max 14 Penumpang",
     description: "Ferry ke Bintan + wisata Gurun Pasir, Telaga Biru, Treasure Bay dengan armada nyaman.",
     highlights: ["Treasure Bay", "Telaga Biru", "Ferry Ticket"],
@@ -105,7 +105,7 @@ const hiacePackages: HiacePackage[] = [
     id: "hiace-premium",
     name: "Hiace Premio Luxury Batam",
     tagline: "VIP & Wedding",
-    image: "/armada/hiace-premio-luxury.webp",
+    image: "/batam/paket-hiace/hiace-premio-luxury-batam.webp",
     capacity: "VIP Guests",
     description: "Unit mewah untuk event wedding, corporate gathering atau tamu VIP di Batam.",
     highlights: ["Interior Premium", "Sound System", "AC Super Dingin"],
@@ -115,7 +115,7 @@ const hiacePackages: HiacePackage[] = [
     id: "hiace-golf",
     name: "Hiace Golf Tour Batam",
     tagline: "Sport & Leisure",
-    image: "/armada/hiace-premio.webp",
+    image: "/batam/paket-hiace/hiace-golf-tour-batam.webp",
     capacity: "Max 8 Golfer + Bag",
     description: "Transportasi spesialis golfer. Bagasi luas muat 8-10 golf bag tanpa sesak. Antar jemput Palm Springs, Southlinks, Indah Puri tepat waktu.",
     highlights: ["Golf Bag Handling", "VIP Service", "Club Transfer"],
@@ -125,7 +125,7 @@ const hiacePackages: HiacePackage[] = [
     id: "hiace-kuliner",
     name: "Hiace Kuliner & Durian Batam",
     tagline: "Foodie Adventure",
-    image: "/armada/hiace-commuter.webp",
+    image: "/batam/paket-hiace/hiace-kuliner-durian-batam.webp",
     capacity: "Max 14 Penumpang",
     description: "Puaskan selera dengan seafood kelong Piayu/Barelang dan hunting durian Musang King. Driver kami tahu spot kuliner lokal terbaik.",
     highlights: ["Seafood Kelong", "Wisata Durian", "Oleh-oleh Khas"],
@@ -136,7 +136,7 @@ const hiacePackages: HiacePackage[] = [
     id: "hiace-religi",
     name: "Hiace Wisata Religi Batam",
     tagline: "Spiritual Journey",
-    image: "/armada/hiace-commuter.webp",
+    image: "/batam/paket-hiace/hiace-wisata-religi-batam.webp",
     capacity: "Kapasitas Besar",
     description: "Ziarah ke Masjid Sultan Mahmud Riayat Syah (Masjid Agung), Vihara Duta Maitreya, dan ikon religi lainnya. Ideal untuk rombongan keluarga/majelis.",
     highlights: ["Masjid Sultan", "Vihara Terbesar", "Masjid Cheng Ho"],
@@ -324,13 +324,13 @@ export default function BatamHiacePage() {
                   key={pkg.id}
                   className="group bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col border border-slate-100 hover:border-teal-200 h-full relative"
                 >
-                  <div className="relative h-64 w-full overflow-hidden">
+                  <div className="relative aspect-[4/5] w-full overflow-hidden">
                     <Image
                       src={pkg.image}
                       alt={pkg.name}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
                     {pkg.isPopular && (
