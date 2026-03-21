@@ -31,8 +31,6 @@ import { Badge } from "@/components/ui/badge";
 import { SafeMotionDiv } from "@/components/ui/safe-motion";
 
 import FaqSection from "@/components/batam/FaqSection";
-import PromoLebaranModal from "@/components/batam/PromoLebaranModal";
-import PromoLebaranSection from "@/components/batam/PromoLebaranSection";
 import Footer from "@/components/batam/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -260,6 +258,30 @@ const tourPackages = [
   },
 ];
 
+const hiacePackagesList = [
+  {
+    name: "Hiace City Tour Batam",
+    description: "Paket all-in keliling Jembatan Barelang, Welcome to Batam, dan wisata belanja Nagoya.",
+    price: "Best Deal",
+    image: "/batam/paket-hiace/hiace-batam-city-barelang-tour.webp",
+    features: ["Include BBM & Driver", "Durasi 12 Jam", "Kapasitas 14 Seat"]
+  },
+  {
+    name: "Hiace Drop Pelabuhan",
+    description: "Layanan antar jemput rombongan ke Pelabuhan Ferry Batam Centre / Sekupang.",
+    price: "Terjangkau",
+    image: "/batam/paket-hiace/hiace-ferry-singapore-malaysia.webp",
+    features: ["Tepat Waktu", "Bagasi Luas", "Driver Ramah"]
+  },
+  {
+    name: "Hiace Wisata Pulau",
+    description: "Transportasi rombongan menuju pelabuhan wisata Ranoh Island atau Pulau Abang.",
+    price: "Nego",
+    image: "/batam/paket-hiace/paket-hiace-ranoh-island-group-tour.webp",
+    features: ["Start Pagi", "Standby di Lokasi", "Unit Nyaman"]
+  }
+];
+
 const galleryItems = [
   {
     type: "image",
@@ -340,12 +362,6 @@ export default function HomePage() {
 
   return (
     <main className={`${inter.className} min-h-screen bg-white overflow-x-hidden pb-20 md:pb-0`}>
-      <PromoLebaranModal
-        city="Batam"
-        imageSrc="/batam/promo-lebaran.webp"
-        waText="Halo, saya tertarik dengan Promo Lebaran VRN Rent Car Batam"
-      />
-
       {/* HERO */}
       <section className="relative min-h-[90vh] flex items-center justify-center text-center bg-gray-900">
         <Image
@@ -393,11 +409,6 @@ export default function HomePage() {
           </Button>
         </div>
       </section>
-
-      {/* PROMO LEBARAN SECTION */}
-      <div className="-mt-10 relative z-20">
-        <PromoLebaranSection />
-      </div>
 
       {/* WHY CHOOSE US - Expanded */}
       <section className="py-20 bg-slate-50">
@@ -498,8 +509,75 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* HIACE PACKAGES SECTION */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-teal-100 text-teal-800 hover:bg-teal-200">SPESIAL GROUP</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Paket Sewa Hiace Batam
+            </h2>
+            <p className="text-gray-600 max-w-xl mx-auto">
+              Solusi transportasi terbaik untuk rombongan keluarga, kantor, atau grup wisata.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {hiacePackagesList.map((pkg, index) => (
+              <div key={index} className="group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-teal-200 hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100">
+                  <Image
+                    src={pkg.image}
+                    alt={pkg.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 w-full p-6 text-white">
+                    <Badge className="bg-teal-500/90 hover:bg-teal-600 text-white border-0 mb-3 backdrop-blur-sm shadow-sm">
+                      {pkg.price}
+                    </Badge>
+                    <h3 className="text-2xl font-bold leading-tight group-hover:text-teal-300 transition-colors">
+                      {pkg.name}
+                    </h3>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed line-clamp-3">
+                    {pkg.description}
+                  </p>
+                  <div className="space-y-3 mb-8 flex-1">
+                    {pkg.features.map((feat, idx) => (
+                      <div key={idx} className="flex items-center text-sm text-slate-700">
+                        <div className="w-6 h-6 rounded-full bg-teal-50 flex items-center justify-center mr-3 flex-shrink-0">
+                          <CheckCircle className="w-3.5 h-3.5 text-teal-600" />
+                        </div>
+                        {feat}
+                      </div>
+                    ))}
+                  </div>
+                  <Button className="w-full bg-slate-900 hover:bg-teal-600 text-white font-bold h-12 rounded-xl transition-all shadow-lg hover:shadow-teal-500/25" asChild>
+                    <a href={`${waLink}&text=Halo%20VRN,%20saya%20tertarik%20${encodeURIComponent(pkg.name)}`} target="_blank">
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      Booking Hiace
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Button size="lg" variant="outline" className="border-2 border-teal-600 text-teal-600 hover:bg-teal-50" asChild>
+              <Link href="/batam/hiace">
+                LIHAT SEMUA PAKET HIACE
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* POPULAR CARS - Restored Design */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -564,7 +642,7 @@ export default function HomePage() {
       </section>
 
       {/* GOOGLE REVIEWS SECTION - Moved below Armada */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
