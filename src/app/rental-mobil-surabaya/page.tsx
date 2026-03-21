@@ -20,6 +20,7 @@ import {
   Ticket,
   Utensils,
   Building2,
+  CalendarCheck,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -41,8 +42,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import PromoLebaranModal from "@/components/batam/PromoLebaranModal";
-import PromoLebaranSection from "@/components/surabaya/PromoLebaranSection";
+import { Badge } from "@/components/ui/badge";
 
 export default function SurabayaPage() {
   const whatsappNumber = "6282363389893";
@@ -50,53 +50,78 @@ export default function SurabayaPage() {
   const tourPackages = [
     {
       id: 1,
-      title: "Surabaya City Tour 1 Hari",
-      description: "Wisata sehari menjelajahi destinasi populer Surabaya seperti Tugu Pahlawan, Monkasel, Taman Bungkul, Pantai Kenjeran dan Jembatan Suramadu.",
+      title: "City Tour Surabaya Iconic",
+      description: "Jelajahi sejarah Kota Pahlawan dalam satu hari. Dari kemegahan Tugu Pahlawan, House of Sampoerna, hingga sunset di Jembatan Suramadu.",
       duration: "1 Hari",
       image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-CITY-TOUR-1-HARI.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-city-tour-1-hari",
     },
     {
       id: 2,
-      title: "Surabaya City Tour 2 Hari 1 Malam",
-      description: "Nikmati perjalanan wisata Surabaya selama 2 hari 1 malam dengan mengunjungi berbagai tempat wisata ikonik kota Surabaya.",
+      title: "Surabaya Full Experience 2D1N",
+      description: "Puas keliling Surabaya! Kombinasi wisata sejarah, belanja oleh-oleh, dan kuliner malam yang legendaris tanpa buru-buru.",
       duration: "2H1M",
       image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-CITY-TOUR-2-HARI-1-MALAM.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-city-tour-2h1m",
     },
     {
       id: 3,
-      title: "Bromo Midnight Tour dari Surabaya",
-      description: "Tour sunrise Gunung Bromo dari Surabaya menggunakan jeep dengan pengalaman melihat matahari terbit yang spektakuler.",
+      title: "Bromo Midnight Adventure",
+      description: "Saksikan sunrise terbaik di dunia tanpa menginap. Berangkat malam dari Surabaya, pagi hari sudah di kawah Bromo. Praktis & Hemat.",
       duration: "1 Hari",
       image: "/halaman-surabaya/PAKET-TOUR/BROMO-MIDNIGHT_TOUR-DARI-SURABAYA.webp",
       link: "/rental-mobil-surabaya/paket-tour/bromo-midnight-tour-surabaya",
     },
     {
       id: 4,
-      title: "Surabaya – Malang Batu Tour",
-      description: "Perjalanan wisata ke Malang dan Batu mengunjungi Jatim Park, Museum Angkut, dan berbagai destinasi populer lainnya.",
+      title: "Wisata Dingin Malang & Batu",
+      description: "Kabur sejenak dari panasnya Surabaya ke kesejukan Batu. Petik Apel, Museum Angkut, dan Jatim Park dalam jangkauan.",
       duration: "2H1M",
       image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-MALANG-BATU-TOUR.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-malang-tour",
     },
     {
       id: 5,
-      title: "Surabaya Religi Tour",
-      description: "Wisata religi mengunjungi Masjid Al Akbar Surabaya, Makam Sunan Ampel, Kampung Arab Ampel dan Masjid Cheng Ho.",
+      title: "Ziarah Wali & Religi Surabaya",
+      description: "Perjalanan spiritual yang nyaman ke Makam Sunan Ampel, Masjid Cheng Ho, dan Masjid Al Akbar. Cocok untuk rombongan pengajian.",
       duration: "1 Hari",
       image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-RELIGI-TOUR.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-religi-tour",
     },
     {
       id: 6,
-      title: "Surabaya – Madura Tour",
-      description: "Tour ke Pulau Madura mengunjungi Jembatan Suramadu, Bukit Jaddih, Mercusuar Sembilangan dan wisata kuliner khas Madura.",
+      title: "Eksotisme Pulau Madura",
+      description: "Menyeberang Suramadu untuk menikmati Bebek Sinjay asli, Bukit Jaddih yang instagramable, dan budaya Madura yang unik.",
       duration: "1 Hari",
       image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-MADURA-TOUR.webp",
       link: "/rental-mobil-surabaya/paket-tour/surabaya-madura-tour",
     },
   ];
+
+  const hiacePackagesList = [
+    {
+      name: "Hiace City Tour Surabaya",
+      description: "Kelilingi Tugu Pahlawan, House of Sampoerna, hingga Jembatan Suramadu bersama rombongan. Lebih hemat dan praktis dalam satu kendaraan.",
+      price: "Best Seller",
+      image: "/halaman-surabaya/paket-hiace/hiace-city-tour-surabaya-1-hari.webp",
+      features: ["Kapasitas 14 Seat", "BBM Termasuk", "Driver Guide"]
+    },
+    {
+      name: "Hiace Bromo Midnight",
+      description: "Kejar sunrise Bromo ramai-ramai! Transportasi tangguh menuju transit point jeep. Istirahat nyaman sepanjang perjalanan malam.",
+      price: "Favorit",
+      image: "/halaman-surabaya/paket-hiace/hiace-bromo-midnight.webp",
+      features: ["Start Surabaya", "AC Dingin", "Bagasi Luas"]
+    },
+    {
+      name: "Hiace Tour Malang Batu",
+      description: "Wisata ke Jatim Park atau Petik Apel bareng keluarga besar? Hiace adalah solusinya. Tanjakan Batu dilibas dengan mudah.",
+      price: "Keluarga",
+      image: "/halaman-surabaya/paket-hiace/hiace-tour-malang-batu.webp",
+      features: ["Kuat Nanjak", "Suspensi Empuk", "Full Music"]
+    }
+  ];
+
   const whatsappMessage = encodeURIComponent(
 "Halo Vicky Rentcar Surabaya, saya mau booking mobil di Surabaya"
   );
@@ -111,11 +136,6 @@ export default function SurabayaPage() {
 
   return (
     <div className="flex flex-col bg-slate-50 font-sans overflow-x-hidden">
-      <PromoLebaranModal 
-        city="Surabaya" // Pastikan props ini sesuai
-        imageSrc="/halaman-surabaya/promo-lebaran.webp"
-waText="Halo Vicky Rentcar Surabaya, saya tertarik dengan Promo Lebaran"
-      />
       {/* Floating WhatsApp Button */}
       <Link
         href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
@@ -175,9 +195,9 @@ waText="Halo Vicky Rentcar Surabaya, saya tertarik dengan Promo Lebaran"
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="bg-orange-500/90 backdrop-blur-sm text-white px-6 py-2 rounded-full font-bold text-sm mb-6 shadow-lg border border-orange-400/50" // No change
+            className="inline-flex items-center gap-2 bg-orange-500/90 backdrop-blur-sm text-white px-6 py-2 rounded-full font-bold text-sm mb-6 shadow-lg border border-orange-400/50"
           >
-            #1 Rental Mobil Terpercaya di Surabaya
+            <Star className="w-4 h-4 fill-white" /> #1 Rental Mobil Terpercaya di Surabaya
           </motion.div>
 
           <motion.h1
@@ -186,9 +206,9 @@ waText="Halo Vicky Rentcar Surabaya, saya tertarik dengan Promo Lebaran"
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
-            Sewa Mobil Surabaya
+            Jelajahi Surabaya
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400 mt-2">
-              Murah, Aman & Nyaman
+              Tanpa Batas, Tanpa Cemas
             </span>
           </motion.h1>
 
@@ -198,8 +218,8 @@ waText="Halo Vicky Rentcar Surabaya, saya tertarik dengan Promo Lebaran"
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Layanan sewa mobil terbaik di Surabaya. Unit bersih, wangi, dan driver profesional. 
-            Siap antar jemput bandara, wisata, atau perjalanan dinas.
+            Nikmati perjalanan dinas atau liburan di Jawa Timur dengan armada 2023+. 
+            Bersih, wangi, dan disupiri oleh "Arek Suroboyo" asli yang ramah dan hafal jalan.
           </motion.p>
 
           <motion.div
@@ -278,9 +298,6 @@ waText="Halo Vicky Rentcar Surabaya, saya tertarik dengan Promo Lebaran"
         </motion.div>
       </div>
 
-      {/* PROMO LEBARAN SECTION */}
-      <PromoLebaranSection />
-
       {/* 🎯 KENAPA PILIH VRN - Moved UP */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
@@ -290,13 +307,12 @@ waText="Halo Vicky Rentcar Surabaya, saya tertarik dengan Promo Lebaran"
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="text-orange-600 font-bold tracking-wider text-sm uppercase mb-2 block">Keunggulan Kami</span>
+            <span className="text-orange-600 font-bold tracking-wider text-sm uppercase mb-2 block">KENAPA VRN SURABAYA?</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-slate-900">
-              Kenapa Memilih <span className="text-orange-500">VRN Surabaya?</span>
+              Bukan Sekadar <span className="text-orange-500">Sewa Mobil Biasa</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-              Solusi rental mobil terbaik untuk perjalanan bisnis & wisata di
-              Surabaya
+              Kami mengerti waktu Anda berharga. VRN hadir memberikan pengalaman transportasi yang bebas stres, aman, dan menyenangkan di Kota Pahlawan.
             </p>
           </motion.div>
 
@@ -346,12 +362,11 @@ waText="Halo Vicky Rentcar Surabaya, saya tertarik dengan Promo Lebaran"
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Pilihan Armada 
-              <span className="block text-orange-500 mt-2">Terbaik & Terawat</span>
+              Armada Prima
+              <span className="block text-orange-500 mt-2">Siap Melaju Kapan Saja</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600">
-              Dari city car hingga premium, semua siap antar Anda ke destinasi
-              impian
+              Rutin servis, interior bersih, AC dingin. Pilih mobil yang sesuai gaya dan kebutuhan perjalanan Anda.
             </p>
           </motion.div>
 
@@ -527,7 +542,7 @@ className="w-full h-[450px] object-cover bg-gradient-to-b from-slate-700 to-slat
         </div>
       </section>
 
-      {/* 🎒 PAKET TOUR */}
+      {/* 🚐 PAKET HIACE - NEW SECTION */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -536,11 +551,75 @@ className="w-full h-[450px] object-cover bg-gradient-to-b from-slate-700 to-slat
             viewport={{ once: true }}
             className="text-center mb-16"
           >
+            <Badge className="mb-4 bg-orange-100 text-orange-800 hover:bg-orange-200">SPESIAL GROUP</Badge>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900">
-              <span className="text-orange-500">Paket Tour Surabaya</span> 
+              Rombongan? <span className="text-orange-500">Pilih Hiace Aja!</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Selain rental mobil, kami juga menyediakan berbagai paket wisata Surabaya yang bisa dinikmati bersama keluarga, pasangan, maupun rombongan.
+              Liburan keluarga besar atau kunjungan kerja kantor jadi lebih seru dan hemat dalam satu kendaraan. Kabin luas, AC dingin, dan bagasi lega.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {hiacePackagesList.map((pkg, index) => (
+              <div key={index} className="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 hover:border-orange-200 hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image
+                    src={pkg.image}
+                    alt={pkg.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 w-full p-6 text-white">
+                    <Badge className="bg-orange-600 text-white border-0 mb-2">
+                      {pkg.price}
+                    </Badge>
+                    <h3 className="text-xl font-bold leading-tight group-hover:text-orange-300 transition-colors">
+                      {pkg.name}
+                    </h3>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed flex-1">
+                    {pkg.description}
+                  </p>
+                  <div className="space-y-3 mb-8">
+                    {pkg.features.map((feat, idx) => (
+                      <div key={idx} className="flex items-center text-sm text-slate-700">
+                        <CheckCircle className="w-4 h-4 text-orange-500 mr-3 flex-shrink-0" />
+                        {feat}
+                      </div>
+                    ))}
+                  </div>
+                  <Button className="w-full bg-slate-900 hover:bg-orange-600 text-white font-bold h-12 rounded-xl transition-all shadow-lg" asChild>
+                    <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo VRN, saya tertarik paket ${pkg.name}`)}`} target="_blank">
+                      <Phone className="w-4 h-4 mr-2" />
+                      Cek Harga Hiace
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 🎒 PAKET TOUR */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-200">WISATA JAWA TIMUR</Badge>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900">
+              Liburan Tanpa <span className="text-orange-500">Pusing Itinerary</span>
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              Surabaya, Bromo, hingga Malang punya sejuta pesona. Kami siapkan paket lengkap (Mobil + Driver + Itinerary) biar Anda tinggal duduk manis dan menikmati momen.
             </p>
           </motion.div>
 
@@ -553,7 +632,7 @@ className="w-full h-[450px] object-cover bg-gradient-to-b from-slate-700 to-slat
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }} 
-                className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col group transition-all duration-300 h-full"
+                className="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 hover:border-orange-200 flex flex-col group transition-all duration-300 h-full"
               >
                 <div className="relative h-64 w-full overflow-hidden">
                   <Image
@@ -562,15 +641,18 @@ className="w-full h-[450px] object-cover bg-gradient-to-b from-slate-700 to-slat
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500" // No change
                   />
-                  <div className="absolute top-4 left-4 bg-orange-500 text-white px-4 py-1 rounded-full text-xs font-bold"> 
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur text-orange-600 px-4 py-1 rounded-full text-xs font-bold shadow-md"> 
                     {tour.duration}
                   </div>
                 </div>
                 <div className="p-8 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold mb-4 text-slate-800 line-clamp-2">{tour.title}</h3> 
+                  <h3 className="text-xl font-bold mb-4 text-slate-800 line-clamp-2 group-hover:text-orange-600 transition-colors">{tour.title}</h3> 
                   <p className="text-gray-600 text-sm mb-6 leading-relaxed flex-grow">{tour.description}</p> 
-                  <Button asChild className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white py-4 rounded-xl font-bold mt-auto">
-                    <Link href={tour.link}>Lihat Detail</Link>
+                  <Button asChild className="w-full bg-white border-2 border-orange-500 text-orange-600 hover:bg-orange-500 hover:text-white py-4 rounded-xl font-bold mt-auto transition-all">
+                    <Link href={tour.link}>
+                      Lihat Detail Paket <ChevronRight className="w-4 h-4 ml-1" />
+                    </Link>
                   </Button>
                 </div>
               </motion.div>

@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import Header from "@/components/medan/Header";
 import HeroSection from "@/components/medan/HeroSection";
-import PromoLebaranSection from "@/components/medan/PromoLebaranSection";
 import {
   ArrowRight,
   Car,
@@ -29,8 +28,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cars } from "@/data/fleet-data"; // temp fix, assume merged or use correct path
-import { topTourPackages } from "@/data/medan-tour-packages";
-import PromoLebaranModal from "@/components/batam/PromoLebaranModal";
+import { tourPackages } from "@/data/medan-tour-packages";
 import Link from "next/link";
 import { Calendar } from "lucide-react";
 
@@ -63,19 +61,39 @@ export const metadata: Metadata = {
   },
 };
 
+// Storytelling Data for Hiace Packages
+const hiacePackagesList = [
+  {
+    name: "Hiace Danau Toba Tour",
+    description: "Perjalanan panjang ke Danau Toba jadi terasa singkat. Kabin luas, AC dingin, dan suspensi empuk Hiace Premio membuat seluruh keluarga bisa tidur nyenyak atau karaokean sepanjang jalan.",
+    price: "Best Seller",
+    image: "/medan/paket-hiace/hiace-danau-toba-group-tour.webp",
+    features: ["Muat 14 Orang", "Bagasi Luas", "Driver Sabar"]
+  },
+  {
+    name: "Hiace City Tour Medan",
+    description: "Kelilingi Istana Maimun, Masjid Raya, dan pusat kuliner Durian Ucok tanpa pusing parkir. Hiace kami siap antar jemput rombongan arisan atau kantor Anda seharian penuh.",
+    price: "Terjangkau",
+    image: "/medan/paket-hiace/hiace-city-tour-medan-1-hari.webp",
+    features: ["BBM Termasuk", "Full AC", "City Guide"]
+  },
+  {
+    name: "Hiace Drop Bandara Kualanamu",
+    description: "Jangan biarkan koper dan oleh-oleh membatasi kenyamanan Anda. Layanan antar jemput bandara khusus rombongan dengan bagasi ekstra luas. Tepat waktu, anti telat.",
+    price: "Fixed Price",
+    image: "/medan/paket-hiace/hiace-antar-jemput-bandara-xl.webp",
+    features: ["On-Time Guarantee", "Signboard Name", "Bantu Angkat Koper"]
+  }
+];
+
 // Services showcase
 const featuredServices = [
   {
     icon: Users,
     title: "Sewa Mobil Harian",
     description:
-      "Layanan sewa mobil harian dengan sopir berpengalaman atau lepas kunci untuk kebebasan perjalanan Anda.",
-    features: [
-      "Unit bersih & wangi",
-      "Sopir ramah & hafal jalan",
-      "Bisa lepas kunci (S&K)",
-      "Harga bersahabat",
-    ],
+      "Ingin bebas keliling Medan? Sewa mobil harian kami solusinya. Driver ramah yang merangkap guide lokal siap mengantar ke spot kuliner tersembunyi.",
+    features: ["Unit Bersih & Wangi", "Sopir Hafal Jalan", "Bisa Lepas Kunci"],
     price: "Hubungi untuk harga",
     image: "/medan/layanan/luxury-city-tour.webp",
   },
@@ -83,13 +101,8 @@ const featuredServices = [
     icon: Briefcase,
     title: "Kunjungan Dinas",
     description:
-      "Solusi transportasi andalan untuk kebutuhan operasional kantor dan kunjungan bisnis di Medan.",
-    features: [
-      "Innova Reborn & Fortuner",
-      "Invoice resmi perusahaan",
-      "Layanan tepat waktu",
-      "Support 24 jam",
-    ],
+      "Tampil profesional di depan klien. Armada premium Innova Reborn & Fortuner kami siap menunjang mobilitas bisnis Anda dengan invoice resmi.",
+    features: ["Armada Prima", "Invoice Resmi", "On-Time Guarantee"],
     price: "Hubungi untuk harga",
     image: "/medan/layanan/EXECUTIVE-CORPORATE.webp",
   },
@@ -97,13 +110,8 @@ const featuredServices = [
     icon: Star,
     title: "Antar Jemput Bandara",
     description:
-      "Layanan antar jemput Bandara Kualanamu yang tepat waktu, aman, dan nyaman tanpa perlu antri.",
-    features: [
-      "Standby sebelum landing",
-      "Bantu angkat bagasi",
-      "Mobil nyaman ber-AC",
-      "Tarif transparan",
-    ],
+      "Lelah setelah penerbangan? Driver kami sudah menunggu di kedatangan dengan papan nama. Langsung jalan, tanpa antre, tanpa ribet.",
+    features: ["Standby Sebelum Landing", "Bantu Angkat Bagasi", "Tarif Fixed"],
     price: "Hubungi untuk harga",
     image: "/medan/layanan/vip-airport-transfer.webp",
   },
@@ -111,13 +119,8 @@ const featuredServices = [
     icon: Sparkles,
     title: "Paket Wisata",
     description:
-      "Jelajahi keindahan Danau Toba, Berastagi, dan wisata Medan lainnya bersama sopir yang merangkap guide.",
-    features: [
-      "Rute wisata fleksibel",
-      "Rekomendasi kuliner",
-      "Perjalanan santai",
-      "Mobil kapasitas besar",
-    ],
+      "Nikmati liburan tanpa pusing itinerary. Kami aturkan rute terbaik ke Danau Toba & Berastagi. Anda tinggal duduk manis dan menikmati pemandangan.",
+    features: ["Itinerary Fleksibel", "Rekomendasi Kuliner", "Driver Guide"],
     price: "Hubungi untuk harga",
     image: "/medan/destinasi-wisata/danau-toba.webp",
   },
@@ -250,11 +253,6 @@ export default function MedanPage() {
 
   return (
     <main className={`${inter.className} min-h-screen pb-24 md:pb-0`}>
-      <PromoLebaranModal 
-        city="Medan"
-        imageSrc="/medan/promo-lebaran.webp"
-        waText="Halo, saya tertarik dengan Promo Lebaran VRN Rent Car Medan"
-      />
       
       {/* Navbar Wrapper to prevent crash/overlap */}
       <div className="relative z-50">
@@ -263,9 +261,6 @@ export default function MedanPage() {
 
       <HeroSection />
 
-      {/* Promo Lebaran Section - Banner Promosi Ramadan/Lebaran */}
-      <PromoLebaranSection />
-
       {/* Why Trust Us Section - Detailed Trust Building */}
       <section className="py-20 bg-white dark:bg-slate-950">
         <div className="container mx-auto px-4">
@@ -273,19 +268,17 @@ export default function MedanPage() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 text-blue-700 dark:text-blue-300 px-6 py-2 rounded-full text-sm font-bold mb-6">
               <ThumbsUp className="w-5 h-5" />
-              MENGAPA KAMI TERPERCAYA
+              KENAPA VRN MEDAN?
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
-              Bukti Kepercayaan
+              Lebih Dari Sekadar
               <br />
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-indigo-400">
-                500+ Pelanggan Puas
+                Rental Mobil Biasa
               </span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Kami berkomitmen memberikan layanan rental mobil terbaik dengan
-              transparansi, profesionalisme, dan jaminan kualitas untuk setiap
-              pelanggan.
+              Kami mengerti perjalanan Anda sangat berharga. Karena itu kami hadirkan standar layanan bintang lima: Armada bersih, Sopir profesional, dan Harga jujur.
             </p>
           </div>
 
@@ -357,15 +350,14 @@ export default function MedanPage() {
               LAYANAN KAMI
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white dark:text-white mb-6">
-              Solusi Transportasi
+              Apa Pun Kebutuhan Anda,
               <br />
               <span className="bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">
-                Terlengkap di Medan
+                Kami Siap Mengantar
               </span>
             </h2>
             <p className="text-xl text-slate-300 dark:text-slate-300 max-w-3xl mx-auto">
-              Kami menyediakan berbagai pilihan layanan sewa mobil yang dapat disesuaikan 
-              dengan kebutuhan perjalanan Anda, mulai dari wisata hingga keperluan bisnis.
+              Fleksibilitas adalah kunci. Dari perjalanan dinas yang padat hingga liburan santai bersama keluarga, kami punya paket yang pas untuk Anda.
             </p>
           </div>
 
@@ -577,6 +569,66 @@ export default function MedanPage() {
         </div>
       </section>
 
+      {/* HIACE PACKAGES SECTION - NEW */}
+      <section className="py-20 bg-white dark:bg-slate-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-emerald-100 text-emerald-800 hover:bg-emerald-200">SPESIAL GROUP & KELUARGA</Badge>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
+              Perjalanan Rombongan Lebih Seru
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Lupakan konvoi mobil yang melelahkan. Sewa Hiace Premio atau Commuter kami, nikmati kebersamaan dalam satu kendaraan yang luas dan nyaman.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {hiacePackagesList.map((pkg, index) => (
+              <div key={index} className="group bg-slate-50 dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-700 hover:border-emerald-500 transition-all duration-300 hover:shadow-2xl flex flex-col h-full">
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  <Image
+                    src={pkg.image}
+                    alt={pkg.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 w-full p-6 text-white">
+                    <Badge className="bg-emerald-600 text-white border-0 mb-3">
+                      {pkg.price}
+                    </Badge>
+                    <h3 className="text-2xl font-bold leading-tight group-hover:text-emerald-400 transition-colors">
+                      {pkg.name}
+                    </h3>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <p className="text-slate-600 dark:text-slate-300 text-sm mb-6 leading-relaxed flex-1">
+                    {pkg.description}
+                  </p>
+                  <div className="space-y-3 mb-8">
+                    {pkg.features.map((feat, idx) => (
+                      <div key={idx} className="flex items-center text-sm text-slate-700 dark:text-slate-300">
+                        <CheckCircle className="w-4 h-4 text-emerald-500 mr-3 flex-shrink-0" />
+                        {feat}
+                      </div>
+                    ))}
+                  </div>
+                  <Button className="w-full bg-slate-900 hover:bg-emerald-600 text-white font-bold h-12 rounded-xl transition-all shadow-lg" asChild>
+                    <a href={`${whatsappLink}&text=Halo%20VRN,%20saya%20tertarik%20${encodeURIComponent(pkg.name)}`} target="_blank">
+                      <Phone className="w-4 h-4 mr-2" />
+                      Booking Hiace
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+             <Link href="/medan/hiace" className="text-emerald-600 font-bold hover:underline">Lihat Detail Paket Hiace &rarr;</Link>
+          </div>
+        </div>
+      </section>
+
       {/* Armada Pilihan */}
       <section className="py-20 bg-white dark:bg-slate-950">
         <div className="container mx-auto px-4">
@@ -725,17 +777,17 @@ export default function MedanPage() {
           <div className="text-center mb-20">
             <Badge className="text-lg px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold inline-flex items-center gap-2 shadow-lg">
               <Calendar className="w-5 h-5" />
-              PAKET TOUR POPULER
+              JELAJAHI SUMATERA UTARA
             </Badge>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-              Wisata Sumatera Utara
+              Liburan Tanpa Wacana
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Pilih paket tour terbaik ke Danau Toba, Berastagi & Bukit Lawang. Sopir guide berpengalaman.
+              Sumatera Utara itu indah! Dari kaldera Danau Toba hingga hutan Bukit Lawang. Kami sudah siapkan itinerary terbaik, sopir yang asik, dan mobil yang nyaman. Anda tinggal bawa koper!
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {topTourPackages.map((tour, index) => (
+            {tourPackages.slice(0, 3).map((tour, index) => (
               <div key={tour.id} className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border hover:border-emerald-300">
                 <div className="relative w-full aspect-[4/5] overflow-hidden">
                   <Image src={tour.image} alt={tour.name} fill className="object-cover group-hover:scale-105 transition-transform" />
@@ -749,18 +801,21 @@ export default function MedanPage() {
                   <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600">
                     {tour.name}
                   </h3>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
+                    {tour.description}
+                  </p>
                   <div className="flex flex-wrap gap-1 mb-4">
-                    {tour.destinations.slice(0,3).map((dest, i) => (
+                    {tour.destinations.map((dest, i) => (
                       <Badge key={i} variant="outline" className="text-xs">
                         {dest}
                       </Badge>
                     ))}
                   </div>
                   <Button asChild className="w-full font-semibold mt-auto" variant="outline">
-                    <Link href="/medan/paket-tour">
-                      Booking Sekarang
+                    <a href={`${whatsappLink}&text=Halo%20VRN,%20saya%20tertarik%20paket%20tour%20${encodeURIComponent(tour.name)}`} target="_blank">
+                      Tanya Itinerary
                       <ArrowRight className="ml-2 w-4 h-4" />
-                    </Link>
+                    </a>
                   </Button>
                 </div>
               </div>

@@ -189,70 +189,70 @@ const hotels = [
 const services = [
   {
     icon: Users,
-    title: "Dengan Sopir",
-    description: "Driver profesional kami siap mengantar Anda dengan aman.",
+    title: "Sewa dengan Sopir",
+    description: "Duduk santai, biar driver profesional kami yang menembus kemacetan dan mencarikan jalan tercepat.",
   },
   {
     icon: KeyRound,
     title: "Lepas Kunci",
-    description: "Nikmati kebebasan berkendara sendiri di Batam (syarat berlaku).",
+    description: "Ingin privasi total? Sewa unit kami dan setir sendiri ke mana pun Anda mau (Syarat & Ketentuan berlaku).",
   },
   {
     icon: Plane,
     title: "Antar Jemput Bandara",
-    description: "Layanan antar jemput dari/ke Bandara Hang Nadim.",
+    description: "Landing langsung dijemput. Tak perlu antre taksi, driver kami sudah menunggu dengan name sign.",
   },
   {
     icon: Briefcase,
-    title: "Rental Korporat",
-    description: "Solusi transportasi untuk kebutuhan bisnis dan perusahaan.",
+    title: "Layanan Korporat",
+    description: "Kunjungan bisnis atau urusan kantor? Kami sediakan armada representatif dan invoice resmi.",
   },
   {
     icon: Heart,
-    title: "Mobil Pengantin",
-    description: "Jadikan momen spesial Anda lebih berkesan dengan mobil premium.",
+    title: "Wedding Car",
+    description: "Hari bahagia butuh kendaraan istimewa. Alphard atau mobil premium lainnya siap menyempurnakan momen Anda.",
   },
   {
     icon: Map,
-    title: "Paket Wisata",
-    description: "Jelajahi destinasi terbaik di Batam dengan paket tour kami.",
+    title: "Paket Wisata Custom",
+    description: "Bingung mau ke mana? Kami bantu susun itinerary wisata kuliner, belanja, hingga alam terbaik di Batam.",
   },
 ];
 
 const tourPackages = [
   {
     name: "Paket Tour 3D2N Singapore – Malaysia",
-    description: "Nikmati pengalaman tak terlupakan mengeksplorasi Singapore dan Malaysia.",
+    description: "Jelajahi dua negara dalam satu perjalanan epik. Dari futuristiknya Singapore hingga kekayaan budaya Malaysia, biarkan kami yang mengatur logistiknya.",
     duration: "3 Hari 2 Malam",
     image: "/batam/PAKET-TOUR/3D2N-SINGAPORE-MALAYSIA.webp",
   },
   {
     name: "Paket Tour 5 Hari 3 Negara",
-    description: "Petualangan luar biasa menjelajahi Singapore, Malaysia, dan Thailand.",
+    description: "Petualangan lintas batas yang sesungguhnya. Singapore, Malaysia, dan Thailand dalam satu paket lengkap. Ciptakan kenangan internasional tanpa pusing urus transportasi.",
     duration: "5 Hari 3 Negara",
     image: "/batam/PAKET-TOUR/5-HARI-3-NEGARA.webp",
   },
   {
     name: "One Day Tour Singapore",
-    description: "Nikmati keindahan Singapore dalam sehari dengan destinasi pilihan.",
+    description: "Ingin ke Singapore tapi waktu terbatas? Paket kilat ini membawa Anda ke spot-spot wajib seperti Merlion dan Universal Studios dalam satu hari penuh kesan.",
     duration: "1 Hari",
     image: "/batam/PAKET-TOUR/ONE-DAY-TOUR-SINGAPORE.webp",
   },
   {
     name: "Tour Ranoh Island",
-    description: "Nikmati keindahan pulau Ranoh dengan berbagai aktivitas air seru.",
+    description: "Surga tropis tersembunyi di Batam. Snorkeling di air jernih, bermain banana boat, atau sekadar bersantai di pantai pasir putih. Pelarian sempurna dari rutinitas.",
     duration: "1 Hari",
     image: "/batam/PAKET-TOUR/TOUR-RANOH-ISLAND.webp",
   },
   {
     name: "One Day Tour Bintan",
-    description: "Jelajahi keindahan Bintan dalam sehari.",
+    description: "Menyeberang ke Bintan untuk melihat Gurun Pasir ala Timur Tengah dan danau biru yang memukau. Wisata eksotis yang dekat, namun terasa jauh dari hiruk pikuk.",
     duration: "1 Hari",
     image: "/batam/PAKET-TOUR/ONE-DAY-TOUR-BINTAN.webp",
   },
   {
     name: "Tour Pulau Abang",
-    description: "Eksplorasi Pulau Abang dengan snorkeling dan island hopping.",
+    description: "Dunia bawah laut menanti. Terumbu karang cantik dan ikan 'Nemo' siap menyapa Anda. Pengalaman snorkeling terbaik di perairan Batam.",
     duration: "1 Hari",
     image: "/batam/PAKET-TOUR/TOUR-PULAU-ABANG.webp",
   },
@@ -261,23 +261,23 @@ const tourPackages = [
 const hiacePackagesList = [
   {
     name: "Hiace City Tour Batam",
-    description: "Paket all-in keliling Jembatan Barelang, Welcome to Batam, dan wisata belanja Nagoya.",
+    description: "Kelilingi ikon Batam tanpa lelah. Dari megahnya Jembatan Barelang hingga surga belanja Nagoya, nikmati setiap momen bersama seluruh anggota rombongan dalam satu kendaraan nyaman.",
     price: "Best Deal",
     image: "/batam/paket-hiace/hiace-batam-city-barelang-tour.webp",
     features: ["Include BBM & Driver", "Durasi 12 Jam", "Kapasitas 14 Seat"]
   },
   {
     name: "Hiace Drop Pelabuhan",
-    description: "Layanan antar jemput rombongan ke Pelabuhan Ferry Batam Centre / Sekupang.",
+    description: "Kejar ferry tanpa panik. Layanan antar jemput prioritas ke Pelabuhan Batam Centre atau Sekupang. Driver kami memastikan Anda tiba tepat waktu dengan senyuman.",
     price: "Terjangkau",
     image: "/batam/paket-hiace/hiace-ferry-singapore-malaysia.webp",
     features: ["Tepat Waktu", "Bagasi Luas", "Driver Ramah"]
   },
   {
     name: "Hiace Wisata Pulau",
-    description: "Transportasi rombongan menuju pelabuhan wisata Ranoh Island atau Pulau Abang.",
+    description: "Gerbang menuju petualangan pulau. Kami antar jemput rombongan Anda ke pelabuhan wisata (Ranoh/Abang/Kepri Coral) dengan armada yang siap menampung semua perlengkapan liburan.",
     price: "Nego",
-    image: "/batam/paket-hiace/paket-hiace-ranoh-island-group-tour.webp",
+    image: "/batam/PAKET-TOUR/TOUR-RANOH-ISLAND.webp",
     features: ["Start Pagi", "Standby di Lokasi", "Unit Nyaman"]
   }
 ];
@@ -373,14 +373,14 @@ export default function HomePage() {
         />
 
         <div className="relative z-10 text-white max-w-3xl px-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Rental Mobil Batam
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight leading-tight">
+            Jelajahi Batam Tanpa Batas
             <br />
-            <span className="text-yellow-400">Lepas Kunci & Dengan Sopir</span>
+            <span className="text-yellow-400">Mobil Bersih, Driver Ramah</span>
           </h1>
 
-          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-            Unit bersih, siap jalan, booking cepat via WhatsApp.
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto font-medium text-gray-200">
+            Liburan keluarga atau perjalanan bisnis? Kami siapkan kendaraan terbaik agar momen Anda di Batam jadi tak terlupakan. Booking mudah, harga jujur.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-10">
@@ -415,15 +415,18 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Kenapa Banyak Pelanggan Memilih Vicky Rent Car Batam
+              Bukan Sekadar Rental Mobil Biasa
             </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto mt-4 text-lg">
+              Kami mengerti betapa berharganya waktu Anda. Karena itu, VRN Batam hadir dengan standar layanan bintang lima.
+            </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 max-w-6xl mx-auto">
             {[
-              { icon: Car, text: "Unit Mobil Bersih & Terawat", desc: "Kondisi prima siap tempur perjalanan jauh" },
-              { icon: Users, text: "Bisa Lepas Kunci / Sopir", desc: "Fleksibilitas penuh sesuai kebutuhan Anda" },
-              { icon: Plane, text: "Antar Jemput Bandara", desc: "Layanan tepat waktu di Bandara Hang Nadim" },
-              { icon: MessageCircle, text: "Respon Cepat via WA", desc: "Admin ramah siap membantu 24/7" }
+              { icon: Car, text: "Armada Seperti Baru", desc: "Unit rutin disalon dan diservis. Wangi, bersih, dan performa mesin prima." },
+              { icon: Users, text: "Sopir Rasa Teman", desc: "Bukan sekadar menyetir, driver kami ramah, sopan, dan bisa jadi guide lokal." },
+              { icon: Plane, text: "On-Time Guarantee", desc: "Kami menghargai waktu Anda. Penjemputan Bandara atau hotel selalu tepat waktu." },
+              { icon: MessageCircle, text: "Booking Semudah Chat", desc: "Tak perlu aplikasi ribet. Cukup chat WhatsApp, admin kami langsung atur segalanya." }
             ].map((item, index) => (
               <div key={index} className="text-center p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-teal-600">
@@ -442,10 +445,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Layanan Lengkap Sesuai Kebutuhan Anda
+              Apa pun Rencana Anda, Kami Ada Solusinya
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Dari perjalanan bisnis hingga liburan keluarga, kami menyediakan berbagai layanan rental mobil untuk memastikan kenyamanan Anda di Batam.
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Fleksibilitas adalah kunci. Dari urusan bisnis yang padat hingga liburan santai, kami menyesuaikan layanan dengan itinerary Anda.
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 max-w-6xl mx-auto">
@@ -467,10 +470,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Paket Tour Populer
+              Jelajahi Surga Tropis Batam & Sekitarnya
             </h2>
-            <p className="text-gray-600 max-w-xl mx-auto">
-              Pilihan paket wisata terbaik dari Batam untuk liburan Anda.
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Lebih dari sekadar jalan-jalan. Kami menawarkan pengalaman. Pilih petualangan Anda, dan biarkan kami yang mengurus detailnya.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -515,10 +518,10 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-teal-100 text-teal-800 hover:bg-teal-200">SPESIAL GROUP</Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Paket Sewa Hiace Batam
+              Perjalanan Group Lebih Seru dengan Hiace
             </h2>
-            <p className="text-gray-600 max-w-xl mx-auto">
-              Solusi transportasi terbaik untuk rombongan keluarga, kantor, atau grup wisata.
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Bayangkan perjalanan tanpa desak-desakan. AC dingin, kabin luas, dan obrolan seru sepanjang jalan. Pilihan cerdas untuk rombongan pintar.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -879,12 +882,12 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="py-20 bg-teal-600 text-center text-white">
-        <h2 className="text-3xl font-bold mb-4">
-          Mobil Siap Digunakan Hari Ini
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          Jangan Biarkan Rencana Perjalanan Anda Tertunda
         </h2>
 
-        <p className="mb-6">
-          Klik WhatsApp untuk cek unit yang tersedia sekarang
+        <p className="mb-8 text-lg text-teal-100 max-w-2xl mx-auto">
+          Unit kami cepat habis terutama di akhir pekan. Amankan kendaraan pilihan Anda sekarang sebelum didahului orang lain.
         </p>
 
         <Button size="lg" className="bg-amber-500 text-black font-bold" asChild>

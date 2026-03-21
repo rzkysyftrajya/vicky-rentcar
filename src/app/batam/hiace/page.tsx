@@ -54,8 +54,8 @@ const hiacePackages: HiacePackage[] = [
     name: "Hiace Ranoh Island Group Tour",
     tagline: "Pulau Eksotis",
     image: "/batam/paket-hiace/paket-hiace-ranoh-island-group-tour.webp",
-    capacity: "Max 14 Penumpang",
-    description: "Transportasi nyaman ke pelabuhan + wisata Ranoh Island. Snorkeling, banana boat untuk rombongan besar.",
+    capacity: "Liburan Rame-Rame",
+    description: "Menyeberang ke surga tropis Ranoh Island tanpa pusing mikirin jalan. Kami antar sampai dermaga, Anda tinggal menikmati pasir putih dan water sport sepuasnya.",
     highlights: ["Snorkeling", "Banana Boat", "Beach Hopping"],
     features: ["Antar Jemput Pelabuhan", "Tiket Kapal (Opsional)", "Full Day 12 Jam"],
     isPopular: true,
@@ -65,8 +65,8 @@ const hiacePackages: HiacePackage[] = [
     name: "Hiace Pulau Abang Island Hopping",
     tagline: "Underwater Paradise",
     image: "/batam/paket-hiace/hiace-pulau-abang-island-hopping.webp",
-    capacity: "Max 14 Penumpang",
-    description: "Hiace premium ke Abang untuk snorkeling + dokumentasi gratis. Cocok keluarga atau kantor.",
+    capacity: "Snorkeling Trip",
+    description: "Eksplorasi keindahan bawah laut Pulau Abang. Biarkan kami mengurus perjalanan darat yang nyaman sebelum Anda terjun melihat 'Nemo' dan terumbu karang.",
     highlights: ["Underwater Photo", "Island Hopping", "Gear Lengkap"],
     features: ["Snorkeling Gear", "Lunch Box", "Guide Lokal"],
   },
@@ -76,8 +76,8 @@ const hiacePackages: HiacePackage[] = [
     tagline: "Kota Batam",
     image: "/batam/paket-hiace/hiace-batam-city-barelang-tour.webp",
     capacity: "Kapasitas Besar",
-    description: "Jelajahi Jembatan Barelang, Nagoya Hill, Masjid Sultan dengan sopir lokal berpengalaman.",
-    highlights: ["Barelang Full Tour", "Shopping Nagoya", "Kuliner Batam"],
+    description: "Kelilingi ikon Jembatan Barelang dan borong oleh-oleh tanpa takut bagasi penuh. Hiace kami punya ruang bagasi luas untuk menampung belanjaan satu kampung.",
+    highlights: ["Foto di Barelang", "Belanja Sepuasnya", "Kuliner Seafood"],
     features: ["BBM Termasuk", "Parkir Wisata", "Driver Guide"],
     isPopular: true,
   },
@@ -86,8 +86,8 @@ const hiacePackages: HiacePackage[] = [
     name: "Hiace Ferry Singapore-Malaysia",
     tagline: "Cross Border",
     image: "/batam/paket-hiace/hiace-ferry-singapore-malaysia.webp",
-    capacity: "12-14 Penumpang",
-    description: "Transportasi aman ke pelabuhan ferry Batam Centre/Sekupang untuk Singapore/Johor. Bagasi XL.",
+    capacity: "Transfer Pelabuhan",
+    description: "Kejar ferry pagi ke Singapore? Tenang, driver kami sudah standby sebelum ayam berkokok. Bawa koper besar bukan masalah, bagasi Hiace muat semuanya.",
     highlights: ["Ferry Assistance", "Border Support", "VIP Waiting"],
     features: ["Tepat Waktu", "Bantu Angkat Koper", "Standby di Terminal"],
   },
@@ -96,8 +96,8 @@ const hiacePackages: HiacePackage[] = [
     name: "Hiace Bintan Treasure Bay Tour",
     tagline: "Wisata Bintan",
     image: "/batam/paket-hiace/hiace-bintan-treasure-bay-tour.webp",
-    capacity: "Max 14 Penumpang",
-    description: "Ferry ke Bintan + wisata Gurun Pasir, Telaga Biru, Treasure Bay dengan armada nyaman.",
+    capacity: "Adventure Group",
+    description: "Petualangan lintas pulau ke Bintan lebih seru bareng-bareng. Gurun Pasir dan kolam renang raksasa Treasure Bay menanti rombongan Anda.",
     highlights: ["Treasure Bay", "Telaga Biru", "Ferry Ticket"],
     features: ["Tour Bintan", "Supir Berpengalaman", "Tiket Masuk Opsional"],
   },
@@ -107,8 +107,8 @@ const hiacePackages: HiacePackage[] = [
     tagline: "VIP & Wedding",
     image: "/batam/paket-hiace/hiace-premio-luxury-batam.webp",
     capacity: "VIP Guests",
-    description: "Unit mewah untuk event wedding, corporate gathering atau tamu VIP di Batam.",
-    highlights: ["Interior Premium", "Sound System", "AC Super Dingin"],
+    description: "Berikan kesan terbaik untuk tamu VIP atau keluarga tercinta. Kenyamanan kursi captain seat dan interior mewah Hiace Premio tak tertandingi.",
+    highlights: ["Captain Seat", "Sound System", "Kabin Senyap"],
     features: ["Driver Berjas", "Air Mineral", "Unit Tahun Muda"],
   },
   {
@@ -116,8 +116,8 @@ const hiacePackages: HiacePackage[] = [
     name: "Hiace Golf Tour Batam",
     tagline: "Sport & Leisure",
     image: "/batam/paket-hiace/hiace-golf-tour-batam.webp",
-    capacity: "Max 8 Golfer + Bag",
-    description: "Transportasi spesialis golfer. Bagasi luas muat 8-10 golf bag tanpa sesak. Antar jemput Palm Springs, Southlinks, Indah Puri tepat waktu.",
+    capacity: "Golfer Group",
+    description: "Fokus pada swing terbaik Anda. Urusan antar jemput golf bag yang berat biar kami yang handle. Tiba di lapangan golf (Palm Springs/Southlinks) dengan kondisi segar.",
     highlights: ["Golf Bag Handling", "VIP Service", "Club Transfer"],
     features: ["Driver Paham Golf", "Tee-off On Time", "Cooler Box"],
   },
@@ -127,7 +127,7 @@ const hiacePackages: HiacePackage[] = [
     tagline: "Foodie Adventure",
     image: "/batam/paket-hiace/hiace-kuliner-durian-batam.webp",
     capacity: "Max 14 Penumpang",
-    description: "Puaskan selera dengan seafood kelong Piayu/Barelang dan hunting durian Musang King. Driver kami tahu spot kuliner lokal terbaik.",
+    description: "Wisata lidah tanpa batas. Dari seafood kelong segar hingga durian Musang King legit, driver lokal kami tahu spot 'hidden gem' paling enak di Batam.",
     highlights: ["Seafood Kelong", "Wisata Durian", "Oleh-oleh Khas"],
     features: ["Rekomendasi Lokal", "Full AC Dingin", "Waktu Fleksibel"],
     isPopular: true,
@@ -137,8 +137,8 @@ const hiacePackages: HiacePackage[] = [
     name: "Hiace Wisata Religi Batam",
     tagline: "Spiritual Journey",
     image: "/batam/paket-hiace/hiace-wisata-religi-batam.webp",
-    capacity: "Kapasitas Besar",
-    description: "Ziarah ke Masjid Sultan Mahmud Riayat Syah (Masjid Agung), Vihara Duta Maitreya, dan ikon religi lainnya. Ideal untuk rombongan keluarga/majelis.",
+    capacity: "Majelis & Keluarga",
+    description: "Perjalanan spiritual yang khusyuk bersama jamaah. Kunjungi Masjid Sultan yang megah atau Vihara terbesar dengan armada yang bersih, wangi, dan adem.",
     highlights: ["Masjid Sultan", "Vihara Terbesar", "Masjid Cheng Ho"],
     features: ["Jadwal Sholat", "Air Mineral", "Driver Sopan"],
   },
@@ -179,17 +179,18 @@ export default function BatamHiacePage() {
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 tracking-tight leading-tight drop-shadow-2xl">
-              Solusi Perjalanan Group
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 tracking-tight leading-tight drop-shadow-2xl max-w-5xl mx-auto">
+              Liburan Rame-Rame 
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400">
-                Di Batam & Kepri
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-emerald-300 to-cyan-300">
+                Tanpa Ribet, Pasti Seru!
               </span>
             </h1>
 
             <p className="text-lg md:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-              Sewa Toyota Hiace Commuter & Premio Luxury untuk wisata belanja Nagoya, 
-              antar jemput Pelabuhan Ferry, hingga tour Pulau Ranoh & Bintan.
+              Jangan biarkan transportasi membatasi keseruan rombongan Anda. 
+              Dari belanja gila-gilaan di Nagoya hingga menyeberang ke pulau eksotis, 
+              kami antar Anda dengan kenyamanan kelas atas.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -261,11 +262,11 @@ export default function BatamHiacePage() {
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <Badge className="bg-teal-100 text-teal-800 hover:bg-teal-200 px-4 py-1.5 text-sm mb-4">KENAPA HIACE DI BATAM?</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Partner Terbaik untuk Shopping & Island Hopping
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
+                Rahasia Perjalanan Group yang Menyenangkan
               </h2>
               <p className="text-slate-600 text-lg">
-                Batam adalah surga belanja dan gerbang wisata bahari. Anda butuh kendaraan yang tangguh, muat banyak, dan nyaman.
+                Bukan sekadar mobil besar. Ini adalah ruang tamu berjalan Anda selama di Batam. Ngobrol, karaokean, atau tidur nyenyak sepanjang perjalanan.
               </p>
             </div>
 
@@ -274,27 +275,27 @@ export default function BatamHiacePage() {
                 <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
                   <ShoppingBag className="w-7 h-7 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Shopping Spree Ready</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">Bagasi 'Shopping' Friendly</h3>
                 <p className="text-slate-600 leading-relaxed">
-                  Habis borong tas branded atau parfum di Nagoya Hill? Bagasi Hiace kami siap menampung semua belanjaan Anda tanpa berdesakan di kabin penumpang.
+                  Habis borong tas branded, parfum, atau cokelat di Nagoya Hill? Tenang, bagasi Hiace kami luas. Belanjaan aman, penumpang tetap duduk nyaman tanpa sempit-sempitan.
                 </p>
               </div>
               <div className="bg-white p-8 rounded-3xl shadow-lg border border-slate-100 hover:border-teal-200 transition-all">
                 <div className="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
                   <Anchor className="w-7 h-7 text-orange-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Ferry Terminal Transfer</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">Anti Telat ke Pelabuhan</h3>
                 <p className="text-slate-600 leading-relaxed">
-                  Penjemputan tepat waktu di Harbour Bay, Batam Centre, atau Sekupang. Driver kami akan membantu handling koper besar Anda dari kedatangan hingga masuk mobil.
+                  Jadwal ferry ke Singapore ketat? Driver kami hafal 'jalan tikus' tercepat ke Harbour Bay atau Batam Centre. Kami pastikan Anda tidak ketinggalan kapal.
                 </p>
               </div>
               <div className="bg-white p-8 rounded-3xl shadow-lg border border-slate-100 hover:border-teal-200 transition-all">
                 <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
                   <Users className="w-7 h-7 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Group Comfort</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">AC Dingin Sampai Belakang</h3>
                 <p className="text-slate-600 leading-relaxed">
-                  Perjalanan jauh ke Jembatan 6 Barelang atau Pantai Vio-Vio tetap nyaman dengan AC dingin merata hingga baris belakang. Tidak ada yang kepanasan.
+                  Cuaca Batam yang tropis butuh AC yang prima. Hiace kami dilengkapi AC ducting di setiap baris kursi. Perjalanan jauh ke Jembatan 6 Barelang tetap adem.
                 </p>
               </div>
             </div>
@@ -310,10 +311,10 @@ export default function BatamHiacePage() {
                   PILIHAN PAKET
                 </Badge>
                 <h2 className="text-3xl md:text-5xl font-bold text-slate-900">
-                  Paket Rental & Tour Batam
+                  Pilih Petualangan Anda
                 </h2>
-                <p className="text-slate-600 mt-4 max-w-xl text-lg">
-                  Dari sekedar drop bandara hingga paket all-in wisata pulau. Fleksibel sesuai itinerary Anda.
+                <p className="text-slate-600 mt-4 max-w-xl text-lg leading-relaxed">
+                  Kami sudah siapkan paket terbaik. Dari sekedar drop bandara hingga paket all-in wisata pulau seharian penuh. Fleksibel sesuai itinerary Anda.
                 </p>
               </div>
             </div>
