@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.vickyrentcar.com
+
+# Sitemaps
+Sitemap: https://www.vickyrentcar.com/sitemap.xml
+Sitemap: https://www.vickyrentcar.com/server-sitemap.xml
