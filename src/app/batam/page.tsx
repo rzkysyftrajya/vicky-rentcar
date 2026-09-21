@@ -37,6 +37,41 @@ import Footer from "@/components/batam/Footer";
 const waBase = "https://wa.me/6282363389893";
 const defaultWaLink = `${waBase}?text=Halo%20VRN%20Rent%20Car%20Batam,%20saya%20ingin%20tanya%20sewa%20mobil%20dengan%20driver`;
 
+const faqSchema = [
+  {
+    "@type": "Question",
+    name: "Apa syarat sewa mobil di Batam?",
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: "Syarat dan dokumen menyesuaikan pilihan layanan lepas kunci atau dengan sopir. Hubungi WhatsApp kami untuk verifikasi identitas, tanggal sewa, dan unit yang dipilih.",
+    },
+  },
+  {
+    "@type": "Question",
+    name: "Apakah tersedia antar-jemput Bandara Hang Nadim dan pelabuhan?",
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: "Ya. Kami melayani antar-jemput Bandara Hang Nadim serta Pelabuhan Batam Centre, Harbour Bay, Sekupang, dan Nongsapura.",
+    },
+  },
+  {
+    "@type": "Question",
+    name: "Apakah bisa sewa mobil lepas kunci atau dengan sopir?",
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: "Tersedia pilihan lepas kunci dan paket dengan sopir profesional. Ketersediaan mengikuti tipe mobil, tanggal, dan kebutuhan perjalanan.",
+    },
+  },
+  {
+    "@type": "Question",
+    name: "Apakah tersedia paket tour Batam?",
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: "Tersedia paket tour Batam, Barelang, pulau wisata, Bintan, serta perjalanan lintas negara dengan armada dan sopir yang dapat disesuaikan.",
+    },
+  },
+];
+
 const servicesList = [
   { id: "airport", name: "Antar Jemput Bandara Hang Nadim (BTH)", desc: "Driver standby di Arrival Gate dengan nameboard nama Anda" },
   { id: "ferry", name: "Transfer Pelabuhan Ferry Batam", desc: "Batam Centre, Harbour Bay, Sekupang, & Nongsapura" },
@@ -184,13 +219,15 @@ export default function BatamHomePage() {
                 variants={fadeUp}
                 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight"
               >
-                Rental Mobil Batam <br />
+                Rental &amp; Sewa Mobil Batam <br />
                 <span className="text-amber-400">Plus Driver Profesional.</span>
               </motion.h1>
 
               <motion.p variants={fadeUp} className="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Layanan penjemputan Bandara Hang Nadim, Terminal Ferry, operasional bisnis kawasan industri,
-                dan wisata keluarga seputar Batam. Mobil bersih, wangi, terawat, dan sopir lokal yang ramah serta tepat waktu.
+                Vicky Rentcar Nusantara menyediakan sewa mobil Batam untuk perjalanan wisata,
+                bisnis, dan keluarga, dengan pilihan lepas kunci atau plus sopir. Nikmati
+                antar-jemput Bandara Hang Nadim serta Pelabuhan Harbour Bay dan Batam Centre.
+                Armada bersih, nyaman, dan terawat didukung sopir lokal yang ramah serta tepat waktu.
               </motion.p>
 
               {/* 4 Trust Points */}
@@ -372,6 +409,51 @@ export default function BatamHomePage() {
         </div>
       </div>
 
+      <section className="py-14 sm:py-16 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center space-y-3 mb-10">
+            <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">Pilihan Armada Batam</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Rental Mobil Batam untuk Setiap Kebutuhan</h2>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Pilih unit sesuai jumlah penumpang, gaya perjalanan, dan agenda Anda. Tim kami membantu
+              mencocokkan armada serta paket perjalanan dengan harga yang jelas sejak awal.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <article className="rounded-xl border border-slate-200 p-5">
+              <h3 className="font-bold text-slate-900 mb-2">Sewa Mobil Alphard &amp; Luxury Batam</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Rental mobil Alphard Batam dan sewa mobil Alphard Batam cocok untuk tamu VIP,
+                pernikahan, dan perjalanan bisnis. Tersedia sewa mobil premium Batam serta rental
+                mobil Luxury Batam dengan sopir profesional.
+              </p>
+            </article>
+            <article className="rounded-xl border border-slate-200 p-5">
+              <h3 className="font-bold text-slate-900 mb-2">Rental Fortuner Batam</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Sewa mobil Fortuner Batam dan rental mobil Fortuner Batam memberikan kabin nyaman
+                serta ground clearance untuk agenda kantor, proyek, dan city tour.
+              </p>
+            </article>
+            <article className="rounded-xl border border-slate-200 p-5">
+              <h3 className="font-bold text-slate-900 mb-2">Innova Reborn &amp; Zenix</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Rental mobil Innova Batam dan sewa mobil Innova Batam menjadi pilihan praktis untuk
+                keluarga. Untuk kenyamanan modern, tersedia rental mobil Zenix Batam dan sewa mobil
+                Zenix Batam.
+              </p>
+            </article>
+            <article className="rounded-xl border border-slate-200 p-5">
+              <h3 className="font-bold text-slate-900 mb-2">Hiace &amp; Paket Tour Batam</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Rental mobil Hiace Batam dan sewa mobil Hiace Batam siap untuk rombongan. Lengkapi
+                perjalanan dengan paket tour Batam ke Barelang, pulau wisata, atau Bintan.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       {/* ======================================================= */}
       {/* 3. VALUE PROPOSITIONS                                    */}
       {/* ======================================================= */}
@@ -474,7 +556,12 @@ export default function BatamHomePage() {
                   >
                     {/* Image */}
                     <div className="relative aspect-[16/10] bg-slate-100 border-b border-slate-100 flex items-center justify-center">
-                      <Image src={car.image} alt={car.name} fill className="object-contain p-3" />
+                      <Image
+                        src={car.image}
+                        alt={`${car.name} - rental mobil ${car.name.replace("Toyota ", "")} Batam`}
+                        fill
+                        className="object-contain p-3"
+                      />
                       <span className="absolute top-2 right-2 px-2 py-0.5 rounded-md bg-[#0B1728] text-white text-[10px] font-bold">
                         {car.tag}
                       </span>
@@ -942,6 +1029,16 @@ export default function BatamHomePage() {
       {/* 11. FAQ                                                  */}
       {/* ======================================================= */}
       <FaqSection />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqSchema,
+          }),
+        }}
+      />
 
       {/* ======================================================= */}
       {/* 12. BOTTOM CONVERSION BANNER                             */}

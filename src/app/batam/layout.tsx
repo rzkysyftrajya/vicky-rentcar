@@ -13,9 +13,19 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Rental Mobil batam - Sewa Mobil Harian & Bulanan | VRN",
+  title: "Rental Mobil Batam: Alphard, Innova, Zenix & Hiace",
   description:
-    "Sewa mobil batam terpercaya. Armada terawat, driver profesional, harga transparan.",
+    "Rental mobil Batam lepas kunci atau dengan sopir. Antar-jemput Bandara Hang Nadim dan pelabuhan Batam Centre/Harbour Bay. Cek unit via WhatsApp.",
+  alternates: {
+    canonical: "https://vickyrentcarnusantara.com/batam",
+  },
+  openGraph: {
+    title: "Rental Mobil Batam: Alphard, Innova, Zenix & Hiace",
+    description:
+      "Sewa mobil Batam dengan armada bersih, sopir berpengalaman, dan layanan antar-jemput bandara serta pelabuhan.",
+    url: "https://vickyrentcarnusantara.com/batam",
+    type: "website",
+  },
 };
 
 export default function BatamLayout({
