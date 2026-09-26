@@ -246,24 +246,6 @@ export default function RootLayout({
           }}
         />
 
-        {/* Script Google Analytics (gtag.js) */}
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17510183879"
-        />
-        <Script
-          id="google-analytics-config"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17510183879');
-          `,
-          }}
-        />
 
         <Script
           id="structured-data"
