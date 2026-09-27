@@ -442,7 +442,7 @@ export default function MedanPage() {
           </div>
           <div className="relative min-h-[300px] overflow-hidden bg-[#1a4777] lg:min-h-full">
             <Image
-              src="/medan/hero-section.webp"
+              src="/medan/layanan/layanan-antar-jemput-bandara.webp"
               alt="Kendaraan untuk perjalanan menuju atau dari Bandara Kualanamu"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -461,49 +461,6 @@ export default function MedanPage() {
                 </p>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="tourism" className="py-16 md:py-24">
-        <div className="medan-container">
-          <div className="mb-9 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between md:mb-12">
-            <div className="max-w-2xl">
-              <p className="medan-eyebrow">Wisata Medan & Sumatera Utara</p>
-              <h2 className="medan-heading-2 mt-3">Pilih tujuan, lalu rencanakan rutenya dari Medan.</h2>
-            </div>
-            <Link href="/medan/tourism" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--medan-primary)]">
-              Lihat pilihan wisata
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            {topTourPackages.map((item) => (
-              <article key={item.id} className="group">
-                <div className="relative aspect-[4/3] overflow-hidden bg-slate-200">
-                  <Image
-                    src={item.image}
-                    alt={`Perjalanan wisata ${item.destinations[0]} dari Medan`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                </div>
-                <div className="border-b border-[var(--medan-border)] py-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.13em] text-[var(--medan-primary)]">
-                    {item.destinations.slice(0, 2).join(" · ")}
-                  </p>
-                  <h3 className="mt-2 text-xl font-semibold">{item.destinations[0]}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[var(--medan-muted)]">{item.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-          <div className="mt-8 md:mt-10">
-            <Link href="/medan/tourism" className="medan-button medan-button-secondary inline-flex items-center gap-2">
-              Lihat pilihan wisata
-              <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </section>
