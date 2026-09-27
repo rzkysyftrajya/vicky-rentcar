@@ -15,8 +15,8 @@ const whyChooseItems = [
   },
   {
     icon: DollarSign,
-    title: "Harga Transparan & Kompetitif",
-    description: "Tanpa biaya tersembunyi, harga terbaik di Medan",
+    title: "Koordinasi yang jelas",
+    description: "Tim kami menjelaskan pilihan unit sesuai jadwal, tujuan, dan jumlah penumpang",
   },
   {
     icon: Clock,
@@ -32,11 +32,11 @@ function KenapaVRNSection() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Kenapa Memilih VRN Rent Car Medan?
+            Pertimbangan saat memilih rental mobil Medan
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Kami berkomitmen memberikan layanan rental mobil terbaik dengan
-            standar kualitas tinggi
+            Prosesnya lebih mudah saat Anda bisa memilih kendaraan berdasarkan
+            jumlah penumpang, jadwal, dan tujuan perjalanan.
           </p>
         </div>
 

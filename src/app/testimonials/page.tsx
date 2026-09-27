@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+﻿import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { type Metadata } from "next";
 import Script from "next/script";
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "Testimoni Pelanggan - Review Rental Mobil di Seluruh Indonesia",
     description:
       "Baca apa kata pelanggan kami tentang layanan sewa mobil PT.VICKY RENTCAR NUSANTARA di berbagai kota.",
-    url: "https://vickyrentcarnusantara.com/testimonials",
+    url: "https://www.vickyrentcarnusantara.com/testimonials",
     siteName: "Vicky Rentcar Nusantara",
     locale: "id_ID",
     type: "website",
@@ -102,3 +102,4 @@ export default function TestimonialsPage() {
     </>
   );
 }
+

@@ -1,4 +1,4 @@
-import {
+﻿import {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "FAQ - Pertanyaan Umum Rental Mobil di Seluruh Indonesia",
     description:
       "Jawaban atas pertanyaan umum seputar sewa mobil di PT.VICKY RENTCAR NUSANTARA yang berlaku di seluruh cabang kami.",
-    url: "https://vickyrentcarnusantara.com/faq",
+    url: "https://www.vickyrentcarnusantara.com/faq",
     siteName: "Vicky Rentcar Nusantara",
     locale: "id_ID",
     type: "website",
@@ -125,3 +125,4 @@ export default function FAQPage() {
     </>
   );
 }
+

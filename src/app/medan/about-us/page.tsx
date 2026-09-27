@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "@/components/medan/Header";
 import AboutSection from "@/components/medan/AboutSection";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import { MotionDiv } from "@/components/animations/MotionDiv";
@@ -20,21 +19,21 @@ import { Button } from "@/components/ui/button";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tentang Kami - VRN Rent Car Medan | Profil Perusahaan Rental Mobil",
+  title: "Tentang VRN Rent Car Medan | Profil Perusahaan Rental Mobil",
   description:
-    "Kenali VRN Rent Car Medan lebih dekat. Perusahaan rental mobil terpercaya di Medan dengan pengalaman 10+ tahun, armada terawat, dan pelayanan profesional.",
+    "Kenali VRN Rent Car Medan: penyedia layanan rental mobil di Medan untuk kebutuhan keluarga, bisnis, bandara, dan wisata.",
   keywords:
-    "tentang vrn rent car medan, profil perusahaan rental mobil medan, berpengalaman rental mobil medan, armada terawat medan",
+    "tentang vrn rent car medan, profil rental mobil medan, perusahaan rental mobil medan, transportasi medan",
   robots: "index, follow",
   alternates: {
-    canonical: "https://vrnrentcarmedan.com/medan/about-us",
+    canonical: "https://pt.vrnrentcarmedan.com/medan/about-us",
   },
   openGraph: {
-    title: "Tentang Kami - VRN Rent Car Medan | Profil Perusahaan",
+    title: "Tentang VRN Rent Car Medan | Profil Perusahaan",
     description:
-      "VRN Rent Car Medan - Perusahaan rental mobil terpercaya dengan pengalaman 10+ tahun melayani kebutuhan transportasi di Medan.",
+      "Perusahaan penyedia mobil rental di Medan untuk kebutuhan perjalanan harian dan perjalanan khusus.",
     type: "website",
-    url: "https://vrnrentcarmedan.com/medan/about-us",
+    url: "https://pt.vrnrentcarmedan.com/medan/about-us",
     locale: "id_ID",
   },
 };
@@ -44,42 +43,42 @@ const milestones = [
     year: "2014",
     title: "Pendirian Perusahaan",
     description:
-      "VRN Rent Car Medan didirikan dengan visi menjadi penyedia rental mobil terpercaya di Sumatera Utara",
+      "VRN Rent Car Medan mulai beroperasi untuk melayani kebutuhan kendaraan di Medan dan sekitarnya.",
     icon: Award,
   },
   {
     year: "2016",
     title: "Ekspansi Armada",
     description:
-      "Menambah 20+ kendaraan baru dan mengembangkan layanan antar jemput bandara",
+      "Menambah pilihan mobil untuk kebutuhan keluarga, bisnis, dan perjalanan bandara.",
     icon: Users,
   },
   {
     year: "2018",
-    title: "Sertifikasi Profesional",
+    title: "Layanan yang Terarah",
     description:
-      "Memperoleh sertifikasi sebagai penyedia transportasi yang terintegrasi dan terpercaya",
+      "Menyusun proses layanan yang lebih rapi untuk jadwal antar jemput dan perjalanan rutin.",
     icon: CheckCircle,
   },
   {
     year: "2020",
     title: "Digital Transformation",
     description:
-      "Meluncurkan platform digital untuk memudahkan pelanggan dalam melakukan pemesanan",
+      "Mempermudah pelanggan dalam menanyakan ketersediaan mobil dan jadwal pemesanan.",
     icon: Award,
   },
   {
     year: "2022",
-    title: "500+ Pelanggan",
+    title: "Pelayanan Beragam",
     description:
-      "Melayani lebih dari 500 pelanggan dengan tingkat kepuasan 98%",
+      "Menyesuaikan layanan untuk kebutuhan harian, wisata, dan perjalanan keluar kota.",
     icon: Users,
   },
   {
     year: "2024",
     title: "Ekspansi Layanan",
     description:
-      "Mengembangkan layanan tour wisata dan rental jangka panjang untuk korporasi",
+      "Mengembangkan pilihan paket perjalanan dan kebutuhan sewa jangka panjang untuk perusahaan.",
     icon: MapPin,
   },
 ];
@@ -112,7 +111,6 @@ export default function AboutUsPage() {
 
   return (
     <main className={`${inter.className} min-h-screen`}>
-      <Header />
 
       {/* Breadcrumb Navigation */}
       <section className="py-4 bg-gray-50 border-b">
@@ -150,8 +148,8 @@ export default function AboutUsPage() {
               Tentang VRN Rent Car Medan
             </h1>
             <p className="text-xl text-blue-100">
-              Kenali perusahaan rental mobil terpercaya yang telah melayani
-              Medan selama lebih dari 10 tahun
+              Profil perusahaan rental mobil Medan untuk kebutuhan perjalanan
+              keluarga, bisnis, bandara, dan wisata.
             </p>
           </MotionDiv>
         </div>
@@ -182,16 +180,18 @@ export default function AboutUsPage() {
             {milestones.map((milestone, index) => (
               <MotionDiv
                 key={milestone.year}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`flex items-center mb-12 ${
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                className={`flex flex-col items-stretch gap-4 mb-12 md:flex-row md:items-center ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
                 <div
-                  className={`w-1/2 ${
-                    index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"
+                  className={`order-2 w-full text-left md:order-none md:w-1/2 ${
+                    index % 2 === 0
+                      ? "md:pr-8 md:text-right"
+                      : "md:pl-8 md:text-left"
                   }`}
                 >
                   <div className="bg-white p-6 rounded-2xl shadow-lg">
@@ -204,10 +204,10 @@ export default function AboutUsPage() {
                     <p className="text-gray-600">{milestone.description}</p>
                   </div>
                 </div>
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-4 z-10 relative">
+                <div className="order-1 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto md:order-none md:mx-4 z-10 relative">
                   <milestone.icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="w-1/2" />
+                <div className="hidden md:block md:w-1/2" />
               </MotionDiv>
             ))}
           </div>

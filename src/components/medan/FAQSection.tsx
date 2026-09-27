@@ -9,29 +9,29 @@ import {
 
 const faqs = [
   {
-    question: "Bagaimana cara memesan rental mobil?",
+    question: "Bagaimana cara memesan rental mobil di Medan?",
     answer:
-      "Anda cukup menghubungi kami via WhatsApp, informasikan tanggal, tujuan, dan jenis mobil yang diinginkan. Tim kami akan segera merespons dan mengatur pemesanan.",
+      "Anda biasanya bisa mulai dengan memberi tahu tujuan perjalanan, tanggal, dan jumlah penumpang melalui WhatsApp atau telepon. Setelah itu, tim kami akan membahas kendaraan yang cocok untuk kebutuhan tersebut.",
   },
   {
     question: "Apakah tersedia layanan lepas kunci?",
     answer:
-      "Ya, kami menyediakan layanan lepas kunci untuk pelanggan yang memiliki SIM valid. Syarat dan ketentuan berlaku.",
+      "Biasanya tersedia sesuai kebutuhan dan persyaratan pelanggan. Untuk detailnya, sampaikan dulu tipe penggunaan serta durasi sewa agar kami bisa menyesuaikan opsi yang tepat.",
   },
   {
-    question: "Berapa lama waktu minimal sewa mobil?",
+    question: "Berapa lama durasi sewa yang umum?",
     answer:
-      "Minimal sewa mobil adalah 12 jam untuk rental harian. Untuk rental bulanan, minimal kontrak 1 bulan.",
+      "Rental harian dan beberapa hari adalah yang paling umum digunakan. Jika Anda butuh lebih lama, jelaskan durasi dan pola penggunaan agar kami bisa menyarankan opsi yang paling sesuai.",
   },
   {
-    question: "Apakah harga sudah termasuk BBM dan sopir?",
+    question: "Apa yang perlu saya sampaikan saat booking?",
     answer:
-      "Untuk paket dengan sopir, harga sudah termasuk sopir namun BBM biasanya ditanggung pelanggan. Detail dapat dikonfirmasi saat pemesanan.",
+      "Sampaikan jadwal perjalanan, titik jemput, tujuan, jumlah penumpang, dan apakah Anda membutuhkan sopir. Informasi itu membantu kami memilih mobil yang lebih tepat untuk perjalanan Anda.",
   },
   {
-    question: "Bagaimana jika terjadi kerusakan atau kecelakaan?",
+    question: "Apakah layanan bisa untuk bandara dan wisata?",
     answer:
-      "Semua unit kami dilengkapi asuransi. Prosedur klaim akan dibantu oleh tim kami. Pastikan untuk segera menghubungi kami jika terjadi insiden.",
+      "Ya. Banyak pelanggan menggunakan layanan ini untuk transfer bandara, perjalanan wisata, serta kebutuhan keluarga atau bisnis di Medan dan sekitarnya.",
   },
 ];
 

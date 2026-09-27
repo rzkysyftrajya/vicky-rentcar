@@ -30,7 +30,7 @@ const VideoSection = () => {
 
         <div className="text-center mt-8">
           <p className="text-gray-600 dark:text-gray-400 text-lg">
-            Kenali tim profesional dan armada terbaik kami
+            Lihat gambaran umum tentang armada dan proses layanan kami di Medan.
           </p>
         </div>
       </div>

@@ -1,27 +1,26 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "@/components/medan/Header";
 import AirportSection from "@/components/medan/AirportSection";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Antar Jemput Bandara Kualanamu Medan | Layanan 24/7 - VRN Rent Car",
+  title: "Rental Mobil Bandara Medan | Antar Jemput Kualanamu 24/7",
   description:
-    "VRN Rent Car Medan menyediakan layanan antar jemput Bandara Kualanamu 24/7. Sopir profesional, kendaraan terawat, harga transparan.",
+    "Layanan rental mobil bandara Medan untuk pickup dan drop-off dari Kualanamu, dengan jadwal sesuai penerbangan dan kebutuhan bagasi.",
   keywords:
-    "antar jemput banda kualanamu, airport pickup medan, jasa antar jemput banda, transportation airport medan, vrn rent car airport",
+    "rental mobil bandara medan, sewa mobil bandara kualanamu, antar jemput bandara medan, transportasi bandara kualanamu",
   robots: "index, follow",
   alternates: {
-    canonical: "https://vrnrentcarmedan.com/medan/airport",
+    canonical: "https://pt.vrnrentcarmedan.com/medan/airport",
   },
   openGraph: {
-    title: "Antar Jemput Bandara Kualanamu Medan | VRN Rent Car",
+    title: "Rental Mobil Bandara Medan | VRN Rent Car",
     description:
-      "VRN Rent Car Medan - Layanan antar jemput bandara terpercaya dengan sopir profesional dan kendaraan terawat.",
+      "Antar jemput Kualanamu tanpa bingung jadwal atau titik penjemputan.",
     type: "website",
-    url: "https://vrnrentcarmedan.com/medan/airport",
+    url: "https://pt.vrnrentcarmedan.com/medan/airport",
     locale: "id_ID",
   },
 };
@@ -29,7 +28,6 @@ export const metadata: Metadata = {
 export default function AirportPage() {
   return (
     <main className={`${inter.className} min-h-screen`}>
-      <Header />
       <AirportSection />
       <FloatingWhatsApp />
     </main>

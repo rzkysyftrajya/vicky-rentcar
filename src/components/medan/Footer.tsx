@@ -1,146 +1,78 @@
-"use client";
-
-import { Phone, Clock, MapPin, Mail, ExternalLink } from "lucide-react";
+import Link from "next/link";
 import { ClientYear } from "@/components/ui/client-year";
+import { createMedanWhatsAppUrl } from "./MedanWhatsApp";
 
-const Footer = () => {
+const exploreLinks = [
+  { label: "Armada", href: "/medan/fleet" },
+  { label: "Layanan", href: "/medan/services" },
+  { label: "Wisata", href: "/medan/tourism" },
+  { label: "Paket Tour", href: "/medan/paket-tour" },
+];
+
+const companyLinks = [
+  { label: "Tentang Kami", href: "/medan/about-us" },
+  { label: "FAQ", href: "/medan/faq" },
+  { label: "Testimoni", href: "/medan/testimonials" },
+  { label: "Hubungi Kami", href: "/medan/contact" },
+];
+
+export default function Footer() {
   return (
-    <footer id="kontak" className="bg-gray-900 text-white">
-      {/* Main Footer */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">VRN Rent Car Medan</h3>
-            <p className="text-gray-300 mb-6 max-w-md">
-              Layanan rental mobil terpercaya di Medan dan Sumatera Utara.
-              Melayani kebutuhan transportasi bisnis, wisata, dan perjalanan
-              keluarga Anda.
-            </p>
-            <p className="text-sm text-gray-400 italic">
-              Bagian dari jaringan Vicky Rent Car Nusantara
-            </p>
-          </div>
+    <footer id="kontak" className="border-t border-[var(--medan-border)] bg-[var(--medan-primary-dark)] pb-20 text-white">
+      <div className="medan-container grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="lg:col-span-1">
+          <h2 className="text-xl font-bold">VRN Rent Car Medan</h2>
+          <p className="mt-4 max-w-sm text-sm leading-6 text-white/75">
+            Layanan rental mobil untuk kebutuhan bisnis, wisata, dan perjalanan di Medan dan sekitarnya.
+          </p>
+        </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="font-semibold text-lg mb-4">Hubungi Kami</h4>
-            <ul className="space-y-4">
-              <li>
-                <a
-                  href="https://wa.me/6282363389893"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  <Phone className="w-5 h-5 text-blue-400" />
-                  +62 823-6338-9893
-                </a>
+        <div>
+          <h3 className="font-semibold">Jelajahi</h3>
+          <ul className="mt-4 space-y-3 text-sm text-white/75">
+            {exploreLinks.map((item) => (
+              <li key={item.href}>
+                <Link className="hover:text-white hover:underline" href={item.href}>{item.label}</Link>
               </li>
-              <li className="flex items-center gap-3 text-gray-300">
-                <Clock className="w-5 h-5 text-blue-400" />
-                24 Jam, 7 Hari Seminggu
-              </li>
-              <li className="flex items-start gap-3 text-gray-300">
-                <MapPin className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-                <span>Medan, Sumatera Utara, Indonesia</span>
-              </li>
-              <li>
-                <a
-                  href="mailto:info@vrnrentcarmedan.com"
-                  className="flex items-center gap-3 text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  <Mail className="w-5 h-5 text-blue-400" />
-                  info@vrnrentcarmedan.com
-                </a>
-              </li>
-            </ul>
-          </div>
+            ))}
+          </ul>
+        </div>
 
-          {/* Links */}
-          <div>
-            <h4 className="font-semibold text-lg mb-4">Layanan</h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="#layanan"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Rental Mobil Harian
-                </a>
+        <div>
+          <h3 className="font-semibold">Bantuan & Perusahaan</h3>
+          <ul className="mt-4 space-y-3 text-sm text-white/75">
+            {companyLinks.map((item) => (
+              <li key={item.href}>
+                <Link className="hover:text-white hover:underline" href={item.href}>{item.label}</Link>
               </li>
-              <li>
-                <a
-                  href="#layanan"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Rental Mobil Bulanan
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#bandara"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Antar Jemput Bandara
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#armada"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Armada Mobil
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://vickyrentcarnusantara.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Website Utama
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              </li>
-            </ul>
-          </div>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-semibold">Kontak</h3>
+          <p className="mt-4 text-sm leading-6 text-white/75">
+            Medan, Sumatera Utara, Indonesia
+          </p>
+          <a className="mt-2 block text-sm text-white/75 hover:text-white hover:underline" href="tel:+6282363389893">
+            +62 823-6338-9893
+          </a>
+          <a
+            className="mt-3 inline-flex min-h-11 items-center text-sm text-white/75 hover:text-white hover:underline"
+            href={createMedanWhatsAppUrl({ type: "general" })}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp
+          </a>
         </div>
       </div>
-
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-700">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-            <p>
-              © <ClientYear /> VRN Rent Car Medan. All rights reserved.
-            </p>
-            <div className="flex gap-6">
-              <a
-                href="/privacy"
-                className="hover:text-blue-400 transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="/terms"
-                className="hover:text-blue-400 transition-colors"
-              >
-                Terms of Service
-              </a>
-              <a
-                href="/contact"
-                className="hover:text-blue-400 transition-colors"
-              >
-                Contact
-              </a>
-            </div>
-          </div>
+      <div className="border-t border-white/15">
+        <div className="medan-container flex flex-col gap-2 py-5 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
+          <p>© <ClientYear /> VRN Rent Car Medan.</p>
+          <Link href="/medan/contact" className="hover:text-white hover:underline">Hubungi Kami</Link>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

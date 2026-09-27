@@ -3,10 +3,10 @@
 import { Car, Users, Clock, Award } from "lucide-react";
 
 const stats = [
-  { icon: Car, value: "50+", label: "Unit Armada" },
-  { icon: Users, value: "500+", label: "Pelanggan Puas" },
-  { icon: Clock, value: "24/7", label: "Layanan Nonstop" },
-  { icon: Award, value: "10+", label: "Tahun Pengalaman" },
+  { icon: Car, value: "Beragam", label: "Pilihan mobil" },
+  { icon: Users, value: "Keluarga", label: "Kebutuhan utama" },
+  { icon: Clock, value: "Jadwal", label: "Dapat disesuaikan" },
+  { icon: Award, value: "Rute", label: "Familiar Medan" },
 ];
 
 const StatsSection = () => {

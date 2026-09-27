@@ -1,8 +1,6 @@
 "use client";
 
 import { Inter } from "next/font/google";
-import Header from "@/components/medan/Header";
-import Footer from "@/components/medan/Footer";
 import FAQSection from "@/components/medan/FAQSection";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import { motion } from "framer-motion";
@@ -60,25 +58,25 @@ const faqCategories = [
       {
         question: "Bagaimana jika saya perlu membatalkan atau mengubah jadwal?",
         answer:
-          "Anda dapat membatalkan atau mengubah jadwal dengan memberitahu kami minimal 6 jam sebelum waktu penjemputan (untuk rental harian) atau 24 jam sebelumnya (untuk tour/paket). Pembatalan kurang dari periode tersebut mungkin dikenakan biaya administrasi. Perubahan jadwal tidak dikenakan biaya tambahan selama masih dalam periode yang sama.",
+          "Jika perlu membatalkan atau mengubah jadwal, hubungi kami sesegera mungkin. Tim kami akan membantu mengonfirmasi perubahan jadwal dan ketentuan yang berlaku.",
       },
     ],
   },
   {
-    name: "Harga & Pembayaran",
+    name: "Layanan & Pembayaran",
     icon: CreditCard,
-    description: "Pertanyaan tentang biaya dan metode pembayaran",
+    description: "Pertanyaan tentang layanan dan metode pembayaran",
     color: "bg-green-500",
     faqs: [
       {
-        question: "Berapa harga sewa mobil di VRN Rent Car Medan?",
+        question: "Bagaimana menentukan layanan rental yang sesuai?",
         answer:
-          "Harga sewa bervariasi tergantung jenis kendaraan dan durasi rental:\n\n• Toyota Avanza: Rp 350.000 - 450.000/hari\n• Mitsubishi Xpander: Rp 400.000 - 500.000/hari\n• Toyota Innova: Rp 450.000 - 600.000/hari\n• Toyota Fortuner: Rp 650.000 - 800.000/hari\n• Toyota Alphard: Rp 1.200.000 - 1.500.000/hari\n\nHarga sudah termasuk sopir, bensin, dan asuransi. Tidak ada biaya tersembunyi.",
+          "Sampaikan jenis kendaraan, durasi, rute, dan kebutuhan perjalanan Anda melalui WhatsApp atau telepon. Tim kami akan membantu menjelaskan pilihan layanan dan ketersediaan yang sesuai.",
       },
       {
-        question: "Apa saja yang sudah termasuk dalam harga sewa?",
+        question: "Apa yang perlu dikonfirmasi sebelum memesan?",
         answer:
-          "Harga sewa sudah termasuk:\n\n✓ Sopir profesional\n✓ Bensin\n✓ Asuransi comprehensive\n✓ Maintenance kendaraan\n✓ Pajak\n\nTidak termasuk dalam harga:\n✗ Tol dan parkir (jika ada)\n✗ Makanan dan minuman\n✗ Penginapan sopir (untuk tour multi-hari)",
+          "Konfirmasikan rincian layanan seperti penggunaan sopir, BBM, tol, parkir, dan kebutuhan perjalanan lainnya kepada tim kami sebelum reservasi. Rincian dapat berbeda sesuai layanan yang dipilih.",
       },
       {
         question: "Metode pembayaran apa saja yang tersedia?",
@@ -86,9 +84,9 @@ const faqCategories = [
           "Kami menerima berbagai metode pembayaran:\n\n• Tunai (Cash)\n• Transfer Bank (BCA, Mandiri, BNI, BRI)\n• QRIS\n• Kartu Debit/Kredit\n• Payment Gateway (Midtrans)\n\nPembayaran dapat dilakukan setelah layanan selesai atau di muka sesuai kesepakatan.",
       },
       {
-        question: "Apakah ada diskon untuk rental jangka panjang?",
+        question: "Bagaimana mengajukan kebutuhan rental jangka panjang?",
         answer:
-          "Ya, kami memberikan diskon untuk rental jangka panjang:\n\n• Rental 1 minggu: 10% diskon\n• Rental 2 minggu: 15% diskon\n• Rental bulanan: 25% diskon\n• Corporate/enterprise: Negosiasi khusus\n\nHubungi kami untuk mendapatkan penawaran terbaik untuk kebutuhan rental jangka panjang Anda.",
+          "Hubungi kami dan sampaikan durasi serta kebutuhan penggunaan kendaraan Anda. Tim kami akan membantu membahas pilihan layanan yang tersedia.",
       },
     ],
   },
@@ -114,9 +112,9 @@ const faqCategories = [
           "Usia minimum untuk menyewa mobil adalah 21 tahun dengan catatan SIM yang berlaku minimal 1 tahun. Untuk beberapa jenis kendaraan premium seperti Toyota Alphard atau Mercedes-Benz, usia minimum adalah 25 tahun. Kebijakan ini untuk memastikan pengalaman menyewa yang aman dan bertanggung jawab.",
       },
       {
-        question: "Apakah diperlukan deposit saat sewa mobil?",
+        question: "Apakah ada persyaratan tambahan saat melakukan reservasi?",
         answer:
-          "Ya, kami memerlukan deposit dengan rincian:\n\n• Rental harian: Rp 500.000 - Rp 1.000.000\n• Rental mingguan: Rp 1.500.000 - Rp 2.500.000\n• Rental bulanan: Negosiasi\n\nDeposit akan dikembalikan penuh setelah kendaraan dikembalikan dalam kondisi baik dan tidak ada tagihan tambahan.",
+          "Persyaratan dapat berbeda sesuai kendaraan dan layanan yang dipilih. Hubungi tim kami untuk mengonfirmasi dokumen serta ketentuan yang berlaku sebelum pemesanan.",
       },
     ],
   },
@@ -129,7 +127,7 @@ const faqCategories = [
       {
         question: "Apakah sewa mobil sudah termasuk sopir?",
         answer:
-          "Ya, semua harga sewa mobil di VRN Rent Car Medan sudah termasuk sopir profesional. Anda tidak perlu menyewa sopir secara terpisah. Sopir kami berpengalaman, ramah, dan familiar dengan kondisi jalan di Sumatera Utara. Namun, jika Anda ingin menyewa mobil tanpa sopir (self-drive), silakan hubungi kami untuk informasi lebih lanjut.",
+          "Ya, layanan dengan sopir tersedia. Sopir kami berpengalaman dan familiar dengan kondisi jalan di Sumatera Utara. Jika Anda ingin menyewa mobil tanpa sopir (self-drive), hubungi kami untuk memastikan persyaratan dan ketersediaannya.",
       },
       {
         question: "Apakah sopir bisa bahasa Inggris?",
@@ -167,12 +165,12 @@ const faqCategories = [
       {
         question: "Bagaimana jika kendaraan mengalami masalah saat digunakan?",
         answer:
-          "Jika terjadi masalah teknis atau kerusakan pada kendaraan selama periode sewa, kami akan:\n\n1. Mengirim teknisi untuk perbaikan di lokasi (jika memungkinkan)\n2. Mengganti dengan kendaraan setara jika perbaikan tidak dapat dilakukan di lokasi\n3. Menanggung semua biaya perbaikan\n\n Hotline 24/7 kami siap membantu kapan saja jika terjadi keadaan darurat.",
+          "Jika terjadi masalah teknis atau kerusakan pada kendaraan selama periode sewa, kami akan:\n\n1. Mengirim teknisi untuk membantu perbaikan di lokasi (jika memungkinkan)\n2. Mengganti dengan kendaraan setara jika masalah tidak dapat diatasi di lokasi\n3. Membantu mengoordinasikan penanganan kendala\n\n Hotline 24/7 kami siap membantu kapan saja jika terjadi keadaan darurat.",
       },
       {
         question: "Bisa upgrade kendaraan saat pickup?",
         answer:
-          "Ya, upgrade kendaraan dapat dilakukan berdasarkan ketersediaan. Jika Anda ingin upgrade, hubungi customer service kami sebelum hari penyewaan untuk memastikan ketersediaan. Biaya upgrade akan disesuaikan dengan selisih harga sewa kendaraan.",
+          "Upgrade kendaraan dapat dilakukan berdasarkan ketersediaan. Hubungi customer service sebelum hari penyewaan untuk memastikan unit yang tersedia.",
       },
     ],
   },
@@ -185,17 +183,17 @@ const faqCategories = [
       {
         question: "Apakah ada layanan antar jemput bandara?",
         answer:
-          "Ya, kami menyediakan layanan antar jemput Bandara Kualanamu Medan 24 jam sehari, 7 hari seminggu. Layanan ini mencakup penjemputan dari bandara ke hotel/rumah atau sebaliknya. Sopir akan menunggu di terminal kedatangan dengan placard nama Anda. Waiting time gratis 30 menit, biaya Rp 25.000 per 30 menit berikutnya.",
+          "Ya, kami menyediakan layanan antar jemput Bandara Kualanamu 24 jam sehari, 7 hari seminggu. Layanan ini mencakup perjalanan dari bandara ke hotel/rumah atau sebaliknya. Sampaikan jadwal penerbangan dan titik jemput agar tim kami dapat membantu mengatur penjemputan.",
       },
       {
-        question: "Berapa biaya antar jemput bandara Kualanamu?",
+        question: "Bagaimana cara mengatur antar jemput Bandara Kualanamu?",
         answer:
-          "Biaya antar jemput bandara Kualanamu:\n\n• Medan Kota: Rp 150.000\n• Medan Selayang: Rp 140.000\n• Medan Sunggal: Rp 160.000\n• Medan Belawan: Rp 200.000\n• Kuala Tanjung: Rp 250.000\n\nHarga sudah termasuk sopir, bensin, dan tol. Tidak ada biaya tambahan.",
+          "Hubungi kami dengan menyampaikan lokasi penjemputan atau tujuan, jadwal penerbangan, serta jumlah penumpang. Tim kami akan membantu mengonfirmasi pengaturan perjalanan.",
       },
       {
         question: "Apakah ada layanan antar jemput dari hotel/rumah?",
         answer:
-          "Ya, kami menyediakan layanan antar jemput dari dan ke lokasi manapun di wilayah Medan dan sekitarnya. Untuk lokasi di luar coverage area standar, akan dikenakan biaya tambahan sesuai jarak. Silakan hubungi kami untuk mendapatkan informasi harga yang lebih akurat untuk lokasi spesifik Anda.",
+          "Ya, kami melayani antar jemput di Medan dan sekitarnya. Hubungi kami dengan detail lokasi agar tim dapat mengonfirmasi cakupan layanan dan pengaturan penjemputan.",
       },
       {
         question: "Sopir akan datang jam berapa untuk penjemputan?",
@@ -223,7 +221,7 @@ const faqCategories = [
       {
         question: "Bisakah itinerary tour dikustomisasi?",
         answer:
-          "Ya, kami dengan senang hati akan membantu mengkustomisasi itinerary tour sesuai preferensi dan kebutuhan Anda. Apakah Anda ingin menambahkan destinasi tertentu, mengubah durasi, atau fokus pada jenis aktivitas tertentu, tim kami akan membuatkan paket yang sesuai dengan keinginan Anda. Hubungi kami untuk konsultasi gratis.",
+          "Ya, kami dengan senang hati akan membantu mengkustomisasi itinerary tour sesuai preferensi dan kebutuhan Anda. Apakah Anda ingin menambahkan destinasi tertentu, mengubah durasi, atau fokus pada jenis aktivitas tertentu, tim kami akan membuatkan paket yang sesuai dengan keinginan Anda. Hubungi kami untuk membahas kebutuhan itinerary Anda.",
       },
       {
         question: "Apakah ada guide/tour guide selama tour?",
@@ -241,12 +239,12 @@ const faqCategories = [
       {
         question: "Apakah VRN Rent Car menyediakan child seat?",
         answer:
-          "Ya, kami menyediakan child seat untuk penumpang anak-anak. Child seat tersedia dalam berbagai ukuran sesuai usia dan berat badan anak. Silakan informasikan kebutuhan ini saat pemesanan agar kami dapat menyiapkannya. Tidak ada biaya tambahan untuk penyediaan child seat.",
+          "Kami menyediakan child seat untuk penumpang anak-anak. Informasikan usia dan kebutuhan anak saat pemesanan agar tim kami dapat mengonfirmasi ketersediaan dan menyiapkannya.",
       },
       {
         question: "Bagaimana jika terlambat mengembalikan kendaraan?",
         answer:
-          "Jika Anda terlambat mengembalikan kendaraan, hubungi kami segera untuk memberitahu. Keterlambatan kurang dari 1 jam tidak dikenakan biaya. Untuk keterlambatan lebih dari 1 jam, akan dikenakan biaya tambahan sebesar 20% dari harga sewa per jam. Untuk keterlambatan signifikan, kami akan melakukan koordinasi lebih lanjut.",
+          "Jika Anda terlambat mengembalikan kendaraan, hubungi kami sesegera mungkin agar tim dapat membantu mengoordinasikan perubahan jadwal dan ketentuan yang berlaku.",
       },
       {
         question:
@@ -349,7 +347,6 @@ export default function FAQPage() {
 
   return (
     <main className={`${inter.className} min-h-screen`}>
-      <Header />
 
       {/* Breadcrumb Navigation */}
       <section className="py-4 bg-gray-50 border-b">
@@ -638,8 +635,6 @@ export default function FAQPage() {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
       <FloatingWhatsApp />
     </main>
   );

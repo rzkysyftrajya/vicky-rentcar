@@ -25,7 +25,7 @@ const allCategories = ["Semua", "VIP", "Executive", "Group", "Special"];
 
 const FleetSection = () => {
   const whatsappLink =
-    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20tanya%20harga%20rental%20mobil";
+    "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20menanyakan%20ketersediaan%20kendaraan%20rental%20mobil%20di%20Medan";
   const ref = useRef(null);
   const [activeCategory, setActiveCategory] = useState("Semua");
 
@@ -102,15 +102,14 @@ const FleetSection = () => {
           ))}
         </div>
 
-        {/* CTA - Green WhatsApp Button */}
         <Button className="w-full bg-green-600 hover:bg-green-700" asChild>
           <a
-            href={`${whatsappLink}%20${car.name}`}
+            href={`${whatsappLink}%20${encodeURIComponent(car.name)}`}
             target="_blank"
             rel="noopener noreferrer"
           >
             <Briefcase className="w-4 h-4 mr-2" />
-            Cek Ketersediaan
+            Tanya ketersediaan {car.name}
           </a>
         </Button>
       </div>
@@ -189,7 +188,6 @@ const FleetSection = () => {
           ))}
         </div>
 
-        {/* CTA - Gold Premium Button */}
         <Button
           className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-black font-semibold"
           asChild
@@ -200,7 +198,7 @@ const FleetSection = () => {
             rel="noopener noreferrer"
           >
             <Phone className="w-4 h-4 mr-2" />
-            Pesan VIP via WhatsApp
+            Tanya ketersediaan {car.name}
           </a>
         </Button>
       </div>
@@ -354,7 +352,7 @@ const FleetSection = () => {
               "Armada VIP & Mobil Mewah",
               vipCars,
               VIPCarCard,
-              "Pilihan kendaraan premium terbaik untuk pengalaman perjalanan yang eksklusif dan berkelas. Dilengkapi dengan layanan chauffeur profesional.",
+              "Pilihan kendaraan untuk perjalanan eksklusif, acara khusus, dan kebutuhan yang menuntut kenyamanan lebih.",
               true
             )}
 
@@ -363,7 +361,7 @@ const FleetSection = () => {
               "Armada Executive & Corporate",
               executiveCars,
               CarCard,
-              "Kendaraan nyaman dan profesional untuk perjalanan bisnis dan kebutuhan korporasi Anda.",
+              "Pilihan kendaraan yang cocok untuk perjalanan bisnis, tamu perusahaan, dan kebutuhan kerja yang terjadwal.",
               false
             )}
 

@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter } from "next/font/google";
 import "../globals.css";
+import "@/components/medan/medan.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import Header from "@/components/medan/Header";
 import Footer from "@/components/medan/Footer";
+import { MedanWhatsAppButton } from "@/components/medan/MedanWhatsApp";
 import { AppContextProvider } from "../context/AppContext";
 import MedanScripts from "@/components/medan/MedanScripts";
 
@@ -46,21 +48,22 @@ interface MetadataProps {
 export async function generateMetadata({
   params,
 }: {
-  params: { hostname?: string };
+  params: Promise<{ hostname?: string }>;
 }): Promise<Metadata> {
   // Get hostname from params or use default
-  const hostname = params?.hostname || "pt.vrnrentcarmedan.com";
+  const { hostname: requestedHostname } = await params;
+  const hostname = requestedHostname || "pt.vrnrentcarmedan.com";
   const baseUrl = getBaseUrl(hostname);
 
   return {
     metadataBase: new URL(baseUrl),
     title: {
       default:
-        "VRN Rent Car Medan - Rental Mobil Terpercaya | Antar Jemput Bandara Kualanamu",
+        "VRN Rent Car Medan | Rental Mobil di Medan dan Sumatera Utara",
       template: "%s | VRN Rent Car Medan",
     },
     description:
-      "VRN Rent Car Medan - Rental mobil terpercaya dengan layanan terpercaya. Alphard, Mercedes, Fortuner. Antar jemput Bandara Kualanamu, sopir profesional, armada terawat. Bagian dari Vicky Rent Car Nusantara.",
+      "VRN Rent Car Medan menyediakan layanan rental mobil di Medan untuk kebutuhan harian, perjalanan keluarga, bisnis, dan antar jemput bandara.",
     keywords: [
       "rental mobil medan",
       "sewa mobil medan",
@@ -77,15 +80,14 @@ export async function generateMetadata({
       google: "0e7tdpsZeFHt20H7FDiaoWypuVlVHKnJ7PGYqalg-6c",
     },
     alternates: {
-      canonical: baseUrl,
+      canonical: `${baseUrl}/medan`,
     },
     openGraph: {
-      title:
-        "VRN Rent Car Medan - Rental Mobil Terpercaya | Antar Jemput Bandara",
+      title: "VRN Rent Car Medan | Rental Mobil di Medan dan Sumatera Utara",
       description:
-        "VRN Rent Car Medan - Sewa mobil terpercaya untuk bisnis, wedding, dan perjalanan eksklusif. Layanan premium dengan armada Alphard, Mercedes, dan kendaraan mewah lainnya.",
+        "VRN Rent Car Medan membantu kebutuhan transportasi harian, bandara, keluarga, dan perjalanan antar kota di Medan.",
       type: "website",
-      url: baseUrl,
+      url: `${baseUrl}/medan`,
       locale: "id_ID",
       siteName: "VRN Rent Car Medan",
       images: [
@@ -93,15 +95,15 @@ export async function generateMetadata({
           url: `${baseUrl}/medan/hero-section.webp`,
           width: 1200,
           height: 630,
-          alt: "VRN Rent Car Medan - Rental Mobil Terpercaya",
+          alt: "VRN Rent Car Medan",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "VRN Rent Car Medan - Rental Mobil Terpercaya",
+      title: "VRN Rent Car Medan | Rental Mobil di Medan",
       description:
-        "VRN Rent Car Medan - Sewa mobil terpercaya terpercaya di Medan dengan layanan premium.",
+        "Layanan rental mobil di Medan untuk kebutuhan harian, keluarga, bisnis, dan perjalanan antar kota.",
       images: [`${baseUrl}/medan/hero-section.webp`],
     },
     robots: {
@@ -122,11 +124,11 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "VRN Rent Car Medan",
-  url: "https://pt.vrnrentcarmedan.com",
+  url: "https://pt.vrnrentcarmedan.com/medan",
   logo: "https://pt.vrnrentcarmedan.com/logoVRN.png",
   image: "https://pt.vrnrentcarmedan.com/medan/hero-section.webp",
   description:
-    "Layanan rental mobil terpercaya di Medan. Menyediakan Alphard, Mercedes, Fortuner untuk wedding, korporat, dan perjalanan istimewa.",
+    "Layanan rental mobil dan antar jemput di Medan untuk kebutuhan harian, keluarga, bisnis, dan perjalanan antar kota.",
   telephone: "+6282363389893",
   address: {
     "@type": "PostalAddress",
@@ -196,15 +198,20 @@ export default function MedanLayout({ children }: MedanLayoutProps) {
         enableSystem
         disableTransitionOnChange
       >
-        <div className="flex flex-col w-full">
+        <div className="medan-theme flex min-h-screen flex-col w-full">
           {/* Medan-specific Header (replaces global Navbar) */}
           <Header />
 
           {/* Main content */}
-          <main className="flex-grow">{children}</main>
+          <div className="flex-grow">{children}</div>
 
           {/* Medan-specific Footer (replaces global Footer) */}
           <Footer />
+
+          <MedanWhatsAppButton
+            label="Chat via WhatsApp"
+            className="medan-floating-whatsapp [&>span]:sr-only"
+          />
         </div>
       </ThemeProvider>
 

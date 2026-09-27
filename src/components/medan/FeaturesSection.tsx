@@ -14,39 +14,39 @@ import {
 const features = [
   {
     icon: Award,
-    title: "10+ Tahun Pengalaman",
+    title: "Pahami kebutuhan perjalanan",
     description:
-      "Melayani rental mobil di Medan sejak 2013. Ribuan pelanggan puas dengan layanan kami.",
+      "Tim kami membantu menyesuaikan kendaraan dengan jadwal, jumlah penumpang, dan tujuan perjalanan dari Medan.",
   },
   {
     icon: Shield,
-    title: "Armada Terawat & Terpercaya",
+    title: "Kendaraan yang rapi dan siap dipakai",
     description:
-      "Semua unit mobil dalam kondisi prima, rutin diservis, dan selalu bersih sebelum diserahkaan.",
+      "Setiap unit yang ditawarkan disiapkan dengan tampilan bersih dan kondisi yang sesuai untuk perjalanan harian atau grup.",
   },
   {
     icon: UserCheck,
-    title: "Sopir Profesional",
+    title: "Driver familiar dengan rute umum",
     description:
-      "Tim sopir berpengalaman, berlisensi, sopan, dan menguasai rute di seluruh Sumatera Utara.",
+      "Untuk perjalanan bandara, wisata, atau keluar kota, driver kami membantu mengurangi kebingungan rute dan waktu.",
   },
   {
     icon: Clock,
-    title: "Layanan 24 Jam",
+    title: "Koordinasi lebih praktis",
     description:
-      "Siap melayani kapan saja - hari kerja, akhir pekan, maupun hari libur nasional.",
+      "Anda bisa konsultasi melalui WhatsApp untuk menyesuaikan jenis mobil, jadwal, dan kebutuhan penjemputan.",
   },
   {
     icon: Plane,
-    title: "Antar Jemput Bandara Kualanamu",
+    title: "Layanan bandara Kualanamu",
     description:
-      "Layanan penjemputan & pengantaran tepat waktu dari dan ke Bandara Internasional Kualanamu.",
+      "Banyak pelanggan mencari mobil untuk pickup dan drop-off dari bandara, terutama saat jadwal kedatangan atau keberangkatan padat.",
   },
   {
     icon: MapPin,
-    title: "Jangkauanluas di Sumatera Utara",
+    title: "Perjalanan ke Medan dan sekitarnya",
     description:
-      "Melayani Medan, Berastagi, Parapat, Danau Toba, dan sekitarnya dengan harga kompetitif.",
+      "Kami membantu kebutuhan transportasi untuk kota Medan, Berastagi, Parapat, dan destinasi wisata di Sumatera Utara.",
   },
 ];
 
@@ -61,21 +61,22 @@ const FeaturesSection = () => {
             Mengapa Pilih Kami
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
-            VRN Rent Car Medan — Pilihan Tepat untuk Rental Mobil Anda
+            Fasilitas yang membantu perjalanan Anda di Medan lebih lancar.
           </h2>
           <p className="text-gray-600 text-lg">
-            Kami berkomitmen memberikan pengalaman rental mobil terbaik di Medan
-            dengan layanan profesional, armada terawat, dan harga transparan.
+            Dari kebutuhan keluarga, perjalanan bisnis, hingga transfer bandara,
+            layanan kami dirancang untuk mempermudah koordinasi dan memilih unit
+            yang sesuai dengan rute serta jumlah penumpang.
           </p>
         </div>
 
         {/* Trust Stats Bar */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {[
-            { value: "10+", label: "Tahun Pengalaman", icon: Award },
-            { value: "500+", label: "Pelanggan Puas", icon: Shield },
-            { value: "50+", label: "Unit Armada", icon: Car },
-            { value: "24/7", label: "Layanan", icon: Clock },
+            { value: "Rute umum", label: "Familiar di Medan", icon: Award },
+            { value: "WhatsApp", label: "Koordinasi cepat", icon: Shield },
+            { value: "Beragam", label: "Pilihan unit", icon: Car },
+            { value: "Bandara", label: "Transfer & perjalanan", icon: Clock },
           ].map((stat) => (
             <div
               key={stat.label}

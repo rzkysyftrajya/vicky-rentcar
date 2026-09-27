@@ -26,7 +26,7 @@ const testimonials = [
     name: "Dandia Agung",
     role: "Pelanggan Tetap",
     content:
-      "Mobil tersedia banyak pilihan, harga cukup bersahabat. Proses ambil & pengembalian juga cepat, tanpa ribet. Overall puas, bakal repeat order kalau keperluan lagi.",
+      "Mobil tersedia banyak pilihan. Proses ambil & pengembalian juga cepat, tanpa ribet. Overall puas, bakal repeat order kalau keperluan lagi.",
     rating: 5,
     avatar: "DA",
     verified: true,
@@ -76,7 +76,7 @@ const vipTestimonials = [
     name: "Dandia Agung",
     role: "Pelanggan Corporate",
     content:
-      "Mobil banyak pilihan, harga bersahabat. Proses ambil & pengembalian cepat tanpa ribet. Overall puas!",
+      "Mobil banyak pilihan. Proses ambil & pengembalian cepat tanpa ribet. Overall puas!",
     rating: 5,
     avatar: "DA",
     type: "corporate",

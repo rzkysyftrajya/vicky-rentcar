@@ -1,27 +1,26 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "@/components/medan/Header";
 import FleetSection from "@/components/medan/FleetSection";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Armada Mobil VRN Rent Car Medan | 50+ Kendaraan Terawat",
+  title: "Armada Rental Mobil Medan | Pilihan Mobil Avanza, Innova, Hiace & Fortuner",
   description:
-    "VRN Rent Car Medan memiliki 50+ armada mobil terawat: Avanza, Xenia, Innova, Xpander, Fortuner, Alphard. Sewa mobil dengan sopir profesional.",
+    "Lihat armada rental mobil Medan dari Avanza, Innova, Xpander, Fortuner, Hiace, hingga kendaraan keluarga dan bisnis. Pilih sesuai kapasitas dan kebutuhan perjalanan.",
   keywords:
-    "armada mobil medan, rental mobil avanza medan, sewa innova medan, vrn rent car fleet, armada terawat medan, rental mobil mewah medan",
+    "armada rental mobil medan, mobil rental medan, sewa mobil avanza medan, rental innova medan, hiace medan, fortuner medan",
   robots: "index, follow",
   alternates: {
-    canonical: "https://vrnrentcarmedan.com/medan/fleet",
+    canonical: "https://pt.vrnrentcarmedan.com/medan/fleet",
   },
   openGraph: {
-    title: "Armada Mobil VRN Rent Car Medan | Fleet Kendaraan",
+    title: "Armada Rental Mobil Medan | VRN Rent Car",
     description:
-      "VRN Rent Car Medan - Armada lengkap 50+ kendaraan terawat dengan berbagai pilihan dari ekonomi hingga luxury.",
+      "Pilihan mobil rental Medan mulai dari keluarga, bisnis, hingga rombongan besar.",
     type: "website",
-    url: "https://vrnrentcarmedan.com/medan/fleet",
+    url: "https://pt.vrnrentcarmedan.com/medan/fleet",
     locale: "id_ID",
   },
 };
@@ -29,7 +28,6 @@ export const metadata: Metadata = {
 export default function FleetPage() {
   return (
     <main className={`${inter.className} min-h-screen`}>
-      <Header />
       <FleetSection />
       <FloatingWhatsApp />
     </main>

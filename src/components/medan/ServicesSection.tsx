@@ -1,386 +1,346 @@
-"use client";
-
+import Image from "next/image";
+import Link from "next/link";
 import {
-  Calendar,
-  CalendarDays,
-  MapPinned,
-  Compass,
-  Phone,
-  Check,
-  Crown,
-  Star,
-  Heart,
-  Briefcase,
+  ArrowDown,
+  ArrowRight,
+  BriefcaseBusiness,
+  CarFront,
+  MapPin,
+  Plane,
+  Route,
   Sparkles,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { MedanWhatsAppButton, createMedanWhatsAppUrl } from "./MedanWhatsApp";
 
-interface Service {
-  icon: typeof Crown;
-  title: string;
-  description: string;
-  features: string[];
-  whatsappText: string;
-}
-
-interface VIPService extends Service {
-  price: string;
-  image: string;
-}
-
-const services: Service[] = [
+const services = [
   {
-    icon: Calendar,
-    title: "Rental Mobil Harian Medan",
+    number: "01",
+    label: "BANDARA KUALANAMU",
+    title: "Antar jemput bandara",
     description:
-      "Sewa mobil per hari dengan tarif kompetitif. Cocok untuk keperluan bisnis, meeting, atau jalan-jalan di sekitar Medan.",
-    features: ["Minimal 12 jam", "Termasuk BBM", "Sopir berpengalaman"],
-    whatsappText: "Halo,%20saya%20ingin%20rental%20mobil%20harian%20di%20Medan",
-  },
-  {
-    icon: CalendarDays,
-    title: "Rental Mobil Bulanan Medan",
-    description:
-      "Solusi hemat untuk kebutuhan mobilitas jangka panjang. Harga spesial untuk kontrak bulanan.",
-    features: ["Harga lebih hemat", "Maintenance gratis", "Fleksibel unit"],
-    whatsappText:
-      "Halo,%20saya%20ingin%20rental%20mobil%20bulanan%20di%20Medan",
-  },
-  {
-    icon: MapPinned,
-    title: "Drop Off Dalam & Luar Kota",
-    description:
-      "Layanan antar mobil ke lokasi tujuan Anda, baik dalam kota Medan maupun ke kota lain di Sumatera Utara.",
-    features: ["Medan sekitarnya", "Berastagi", "Parapat & Toba"],
-    whatsappText: "Halo,%20saya%20ingin%20drop%20off%20mobil%20di%20Medan",
-  },
-  {
-    icon: Compass,
-    title: "Rental Mobil Tour Medan",
-    description:
-      "Paket wisata lengkap dengan sopir yang hafal destinasi wisata populer di Sumatera Utara.",
-    features: [
-      "Itinerary fleksibel",
-      "Rekomendasi tempat",
-      "Sopir guide lokal",
-    ],
-    whatsappText:
-      "Halo,%20saya%20ingin%20tour%20Medan%20dengan%20rental%20mobil",
-  },
-];
-
-// VIP Services - Premium tier for luxury vehicles
-const vipServices: VIPService[] = [
-  {
-    icon: Crown,
-    title: "VIP Wedding Car",
-    description:
-      "Mobil mewah untuk pengantin dengan dekorasi lengkap, sopir berjas, dan layanan premium untuk hari spesial Anda.",
-    features: [
-      "Alphard & Camry Hybrid",
-      "Dekorasi lengkap",
-      "Sopir berjas rapi",
-      "Photo session support",
-    ],
-    price: "Mulai Rp 1.500.000",
-    image: "/medan/layanan/VIP-WEDDING-CAR.webp",
-    whatsappText:
-      "Halo,%20saya%20ingin%20sewa%20VIP%20Wedding%20Car%20di%20Medan",
-  },
-  {
-    icon: Briefcase,
-    title: "Executive Corporate",
-    description:
-      "Layanan transportasi premium untuk executives, delegasi, dan kebutuhan bisnis korporat dengan kendaraan mewah.",
-    features: [
-      "Alphard & Mercedes",
-      "Sopir English speaking",
-      "Airport VIP handling",
-      "Dedicated coordinator",
-    ],
-    price: "Hubungi untuk harga",
-    image: "/medan/layanan/EXECUTIVE-CORPORATE.webp",
-    whatsappText:
-      "Halo,%20saya%20ingin%20layanan%20Executive%20Corporate%20VIP",
-  },
-  {
-    icon: Star,
-    title: "VIP Airport Transfer",
-    description:
-      "Penjemputan dan pengantaran bandara dengan layanan white-glove, sopir profesional, dan kendaraan premium.",
-    features: [
-      "Welcome service",
-      "Luggage assistance",
-      "Flight tracking",
-      "Meet & greet",
-    ],
-    price: "Mulai Rp 400.000",
+      "Atur penjemputan dari Kualanamu ke hotel, rumah, atau kantor di Medan. Kirim jadwal penerbangan dan titik tujuan saat menghubungi kami.",
     image: "/medan/layanan/vip-airport-transfer.webp",
-    whatsappText:
-      "Halo,%20saya%20ingin%20VIP%20Airport%20Transfer%20di%20Medan",
+    imageAlt: "Kendaraan untuk layanan antar jemput bandara",
+    icon: Plane,
+    context: { type: "airport" } as const,
   },
   {
-    icon: Sparkles,
-    title: "Luxury City Tour",
+    number: "02",
+    label: "DALAM KOTA",
+    title: "Mobilitas harian",
     description:
-      "Jelajahi Medan dan Sumatera Utara dengan kendaraan mewah, sopir profesional, dan layanan concierge.",
-    features: [
-      "Mercedes & Alphard",
-      "Wisata private",
-      "Restaurant booking",
-      "Personal guide",
-    ],
-    price: "Mulai Rp 800.000/hari",
+      "Untuk agenda kerja, urusan keluarga, atau beberapa tujuan dalam satu hari. Pilih kendaraan dan sampaikan rute serta durasi yang Anda perlukan.",
+    image: "/medan/hero-section.webp",
+    imageAlt: "Pilihan kendaraan rental untuk perjalanan di Medan",
+    icon: CarFront,
+    context: { type: "service", service: "perjalanan harian di Medan" } as const,
+  },
+  {
+    number: "03",
+    label: "PERJALANAN LUAR KOTA",
+    title: "Medan dan Sumatera Utara",
+    description:
+      "Berangkat dari Medan menuju Berastagi, Parapat, atau kawasan Danau Toba. Ceritakan rute dan rencana singgah agar perjalanan dapat disiapkan.",
     image: "/medan/layanan/luxury-city-tour.webp",
-    whatsappText:
-      "Halo,%20saya%20ingin%20Luxury%20City%20Tour%20dengan%20mobil%20mewah",
+    imageAlt: "Kendaraan untuk perjalanan wisata dari Medan",
+    icon: Route,
+    context: { type: "service", service: "perjalanan luar kota dari Medan" } as const,
+  },
+  {
+    number: "04",
+    label: "KEBUTUHAN KANTOR",
+    title: "Kendaraan untuk perusahaan",
+    description:
+      "Dari penjemputan tamu hingga kendaraan untuk agenda kantor. Sampaikan jadwal, jumlah penumpang, dan pola penggunaan untuk dibicarakan.",
+    image: "/medan/layanan/EXECUTIVE-CORPORATE.webp",
+    imageAlt: "Kendaraan untuk kebutuhan perusahaan dan tamu bisnis",
+    icon: BriefcaseBusiness,
+    context: { type: "service", service: "kendaraan untuk kebutuhan perusahaan" } as const,
   },
 ];
 
-const ServicesSection = () => {
-  const whatsappLinkBase = "https://wa.me/6282363389893?text=";
+const specialServices = [
+  {
+    title: "Mobil pengantin",
+    description:
+      "Pilih kendaraan untuk hari pernikahan dan bicarakan kebutuhan dekorasi serta susunan waktunya.",
+    image: "/medan/layanan/VIP-WEDDING-CAR.webp",
+    imageAlt: "Mobil untuk layanan perjalanan pernikahan",
+    context: { type: "service", service: "mobil pengantin" } as const,
+  },
+  {
+    title: "Perjalanan VIP",
+    description:
+      "Untuk tamu penting atau agenda khusus, sampaikan preferensi kendaraan dan detail penjemputan.",
+    image: "/medan/layanan/EXECUTIVE-CORPORATE.webp",
+    imageAlt: "Kendaraan untuk perjalanan VIP",
+    context: { type: "service", service: "perjalanan VIP" } as const,
+  },
+  {
+    title: "Sewa jangka panjang",
+    description:
+      "Butuh kendaraan untuk beberapa minggu atau bulan? Diskusikan durasi dan penggunaan sebelum menentukan unit.",
+    image: "/medan/armada/INNOVA-ZENIX.webp",
+    imageAlt: "Mobil untuk kebutuhan sewa jangka panjang",
+    context: { type: "service", service: "sewa kendaraan jangka panjang" } as const,
+  },
+];
 
-  const ServiceCard = ({ service }: { service: (typeof services)[0] }) => (
-    <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200 h-full">
-      <div className="flex flex-col h-full">
-        {/* Icon & Title */}
-        <div className="flex items-start gap-4 mb-4">
-          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
-            <service.icon className="w-7 h-7 text-blue-600 group-hover:text-white transition-colors duration-300" />
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-gray-900 pt-1">
-              {service.title}
-            </h3>
-          </div>
-        </div>
+const bookingSteps = [
+  {
+    number: "1",
+    title: "Ceritakan rencana",
+    description: "Tanggal, waktu, titik jemput, tujuan, dan jumlah penumpang.",
+  },
+  {
+    number: "2",
+    title: "Tentukan kendaraan",
+    description: "Sampaikan kebutuhan perjalanan agar pilihan unit bisa dibahas.",
+  },
+  {
+    number: "3",
+    title: "Konfirmasi detail",
+    description: "Pastikan ketersediaan, rute, dan pengaturan penjemputan.",
+  },
+];
 
-        {/* Description */}
-        <p className="text-gray-600 mb-6 flex-grow leading-relaxed">
-          {service.description}
-        </p>
-
-        {/* Features */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {service.features.map((feature) => (
-            <span
-              key={feature}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700"
-            >
-              <Check className="w-3 h-3" />
-              {feature}
-            </span>
-          ))}
-        </div>
-
-        {/* CTA - Primary WhatsApp Button */}
-        <Button
-          className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg shadow-green-600/20 group/btn"
-          asChild
-        >
-          <a
-            href={`${whatsappLinkBase}${service.whatsappText}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Phone className="w-4 h-4 mr-2" />
-            Pesan via WhatsApp
-          </a>
-        </Button>
-      </div>
-    </div>
-  );
-
-  const VIPServiceCard = ({ service }: { service: VIPService }) => (
-    <div className="group bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-amber-500/30 h-full relative overflow-hidden">
-      {/* Premium Background Effect */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-
-      {/* Crown Icon */}
-      <div className="absolute top-4 right-4">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 flex items-center justify-center">
-          <Crown className="w-5 h-5 text-black" />
-        </div>
-      </div>
-
-      <div className="flex flex-col h-full relative z-10">
-        {/* Image */}
-        <div className="relative h-40 mb-4 bg-slate-800 rounded-xl overflow-hidden">
-          <img
-            src={service.image}
-            alt={service.title}
-            className="w-full h-full object-contain p-3 transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
-        </div>
-
-        {/* Icon & Title */}
-        <div className="flex items-start gap-4 mb-4">
-          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-600/20 flex items-center justify-center shrink-0 border border-amber-500/30">
-            <service.icon className="w-7 h-7 text-amber-400" />
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-white pt-1">
-              {service.title}
-            </h3>
-          </div>
-        </div>
-
-        {/* Price Badge */}
-        <div className="mb-4">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-amber-500 to-yellow-500 text-black">
-            <Star className="w-3 h-3 fill-black" />
-            {service.price}
+export default function ServicesSection() {
+  return (
+    <>
+      <section className="border-b border-[var(--medan-border)] bg-white">
+        <div className="medan-container py-4 text-sm text-[var(--medan-muted)]">
+          <Link className="hover:text-[var(--medan-primary)]" href="/medan/">
+            Beranda Medan
+          </Link>
+          <span className="mx-2" aria-hidden="true">/</span>
+          <span aria-current="page" className="font-medium text-[var(--medan-text)]">
+            Layanan
           </span>
         </div>
+      </section>
 
-        {/* Description */}
-        <p className="text-slate-300 mb-6 flex-grow leading-relaxed">
-          {service.description}
-        </p>
-
-        {/* Features */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {service.features.map((feature) => (
-            <span
-              key={feature}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20"
-            >
-              <Check className="w-3 h-3 text-amber-400" />
-              {feature}
-            </span>
-          ))}
-        </div>
-
-        {/* CTA - Premium Gold Button */}
-        <Button
-          className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-black font-semibold shadow-lg shadow-amber-500/25"
-          asChild
-        >
-          <a
-            href={`${whatsappLinkBase}${service.whatsappText}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Phone className="w-4 h-4 mr-2" />
-            Pesan via WhatsApp
-          </a>
-        </Button>
-      </div>
-    </div>
-  );
-
-  return (
-    <section id="layanan" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        {/* VIP Services Section */}
-        <div className="mb-20">
-          {/* Section Header - Premium Style */}
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-1.5 rounded-full text-sm font-bold mb-4">
-              <Crown className="w-4 h-4" />
-              Premium Experience
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
-              Layanan VIP & Mobil Mewah
-            </h2>
-            <p className="text-lg text-slate-600">
-              Nikmati pengalaman transportasi premium dengan armada kendaraan
-              mewah terbaik dan layanan chauffeur profesional.
+      <section className="overflow-hidden bg-[#f3f6fa]">
+        <div className="medan-container grid items-center gap-8 py-10 sm:py-14 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14 lg:py-20">
+          <div>
+            <p className="medan-eyebrow">VRN Rent Car · Medan</p>
+            <h1 className="mt-4 max-w-2xl text-3xl font-bold leading-[1.12] tracking-tight text-[var(--medan-text)] sm:text-4xl lg:text-5xl">
+              Perjalanan Anda di Medan,{" "}
+              <span className="text-[var(--medan-primary)]">dimulai dengan rencana yang jelas.</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-7 text-[var(--medan-muted)]">
+              Antar jemput Kualanamu, keperluan dalam kota, perjalanan ke
+              Berastagi atau Danau Toba, hingga kendaraan untuk agenda kantor.
+              Ceritakan rute dan jadwal Anda; kami bantu membahas pilihan
+              kendaraan yang sesuai.
             </p>
-          </div>
-
-          {/* Desktop Grid - VIP Services */}
-          <div className="hidden md:grid md:grid-cols-2 gap-8">
-            {vipServices.map((service) => (
-              <VIPServiceCard key={service.title} service={service} />
-            ))}
-          </div>
-
-          {/* Mobile Carousel - VIP Services */}
-          <div className="md:hidden">
-            <Carousel className="w-full">
-              <CarouselContent>
-                {vipServices.map((service) => (
-                  <CarouselItem key={service.title}>
-                    <VIPServiceCard service={service} />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="flex justify-center gap-4 mt-6">
-                <CarouselPrevious className="relative inset-0 translate-x-0 translate-y-0" />
-                <CarouselNext className="relative inset-0 translate-x-0 translate-y-0" />
-              </div>
-            </Carousel>
-          </div>
-
-          {/* VIP CTA */}
-          <div className="text-center mt-10">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-amber-500 text-amber-700 hover:bg-amber-500 hover:text-white"
-              asChild
-            >
-              <a href="/layanan/vip">
-                <Crown className="w-5 h-5 mr-2" />
-                Lihat Semua Layanan VIP
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <MedanWhatsAppButton
+                label="Tanyakan layanan"
+                className="medan-button-primary w-full sm:w-auto"
+              />
+              <a
+                href="#pilih-layanan"
+                className="medan-button medan-button-secondary w-full sm:w-auto"
+              >
+                Lihat pilihan layanan
+                <ArrowDown className="h-4 w-4" aria-hidden="true" />
               </a>
-            </Button>
-          </div>
-        </div>
-
-        {/* Regular Services Section */}
-        <div>
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">
-              <Check className="w-4 h-4" />
-              Layanan Reguler
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
-              Layanan Rental Mobil Medan Terlengkap
-            </h2>
-            <p className="text-gray-600 text-lg">
-              Berbagai pilihan layanan rental mobil sesuai kebutuhan Anda, dari
-              harian, bulanan, drop off, hingga tour wisata.
+            </div>
+            <p className="mt-4 text-sm text-[var(--medan-muted)]">
+              Berangkat dari Medan · Dalam kota dan luar kota
             </p>
           </div>
 
-          {/* Desktop Grid */}
-          <div className="hidden md:grid md:grid-cols-2 gap-8">
-            {services.map((service) => (
-              <ServiceCard key={service.title} service={service} />
-            ))}
-          </div>
-
-          {/* Mobile Carousel */}
-          <div className="md:hidden">
-            <Carousel className="w-full">
-              <CarouselContent>
-                {services.map((service) => (
-                  <CarouselItem key={service.title}>
-                    <ServiceCard service={service} />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="flex justify-center gap-4 mt-6">
-                <CarouselPrevious className="relative inset-0 translate-x-0 translate-y-0" />
-                <CarouselNext className="relative inset-0 translate-x-0 translate-y-0" />
-              </div>
-            </Carousel>
+          <div className="relative mx-auto w-full max-w-xl">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-[var(--medan-border)] bg-white p-2 shadow-[var(--medan-shadow-floating)]">
+              <Image
+                src="/medan/hero-section.webp"
+                alt="Armada kendaraan untuk perjalanan di Medan"
+                fill
+                priority
+                sizes="(max-width: 1023px) 100vw, 48vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-3 left-4 flex items-center gap-2 rounded-lg border border-[var(--medan-border)] bg-white px-4 py-3 text-sm font-medium text-[var(--medan-text)] shadow-[var(--medan-shadow-floating)] sm:bottom-4 sm:left-0">
+              <MapPin className="h-4 w-4 text-[var(--medan-primary)]" aria-hidden="true" />
+              Medan · Kualanamu · Sumatera Utara
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
-};
+      </section>
 
-export default ServicesSection;
+      <section id="pilih-layanan" className="scroll-mt-20 py-14 sm:py-16 lg:py-20">
+        <div className="medan-container">
+          <div className="mb-8 flex flex-col gap-3 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-2xl">
+              <p className="medan-eyebrow">Pilih sesuai rencana</p>
+              <h2 className="medan-heading-2 mt-3">Layanan perjalanan dari Medan</h2>
+            </div>
+            <p className="max-w-md text-sm leading-6 text-[var(--medan-muted)]">
+              Belum yakin memilih layanan? Kirim rute dan jadwal perjalanan,
+              lalu tanyakan ketersediaan kendaraan.
+            </p>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:gap-6">
+            {services.map((service) => {
+              const Icon = service.icon;
+              return (
+                <article
+                  key={service.number}
+                  className="overflow-hidden rounded-xl border border-[var(--medan-border)] bg-white shadow-[var(--medan-shadow-subtle)]"
+                >
+                  <div className="relative aspect-[16/10] bg-[#e9eef4]">
+                    <Image
+                      src={service.image}
+                      alt={service.imageAlt}
+                      fill
+                      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 580px"
+                      className="object-contain"
+                    />
+                    <span className="absolute left-4 top-4 rounded-md bg-white/95 px-3 py-1.5 text-[11px] font-bold tracking-[0.1em] text-[var(--medan-primary)]">
+                      {service.label}
+                    </span>
+                  </div>
+                  <div className="p-5 sm:p-6">
+                    <div className="flex items-start gap-3">
+                      <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#eef3f9] text-[var(--medan-primary)]">
+                        <Icon className="h-5 w-5" aria-hidden="true" />
+                      </span>
+                      <div>
+                        <p className="text-xs font-semibold tabular-nums text-[var(--medan-muted)]">
+                          LAYANAN {service.number}
+                        </p>
+                        <h3 className="mt-1 text-xl font-bold tracking-tight text-[var(--medan-text)]">
+                          {service.title}
+                        </h3>
+                      </div>
+                    </div>
+                    <p className="mt-4 min-h-[4.5rem] text-sm leading-6 text-[var(--medan-muted)]">
+                      {service.description}
+                    </p>
+                    <a
+                      href={createMedanWhatsAppUrl(service.context)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 inline-flex min-h-11 items-center gap-2 border-t border-[var(--medan-border)] pt-4 text-sm font-semibold text-[var(--medan-primary)] hover:text-[var(--medan-primary-hover)]"
+                    >
+                      Tanyakan layanan ini
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-[var(--medan-border)] bg-white py-14 sm:py-16 lg:py-20">
+        <div className="medan-container">
+          <div className="max-w-2xl">
+            <p className="medan-eyebrow">Untuk agenda tertentu</p>
+            <h2 className="medan-heading-2 mt-3">Ada kebutuhan yang lebih spesifik?</h2>
+            <p className="medan-body-muted mt-3">
+              Sampaikan detail acara atau durasi sewa agar pilihan kendaraan
+              dan pengaturannya dapat dibicarakan sejak awal.
+            </p>
+          </div>
+
+          <div className="mt-8 divide-y divide-[var(--medan-border)] border-y border-[var(--medan-border)]">
+            {specialServices.map((service) => (
+              <article
+                key={service.title}
+                className="grid gap-4 py-5 sm:grid-cols-[112px_1fr_auto] sm:items-center sm:gap-6"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-[#eef2f6] sm:aspect-square">
+                  <Image
+                    src={service.image}
+                    alt={service.imageAlt}
+                    fill
+                    sizes="(max-width: 639px) 100vw, 112px"
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-[var(--medan-text)]">
+                    {service.title}
+                  </h3>
+                  <p className="mt-1 max-w-2xl text-sm leading-6 text-[var(--medan-muted)]">
+                    {service.description}
+                  </p>
+                </div>
+                <a
+                  href={createMedanWhatsAppUrl(service.context)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--medan-primary)] hover:text-[var(--medan-primary-hover)]"
+                >
+                  Tanyakan
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-14 sm:py-16 lg:py-20">
+        <div className="medan-container grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div>
+            <p className="medan-eyebrow">Sebelum berangkat</p>
+            <h2 className="medan-heading-2 mt-3">Cara mengatur perjalanan</h2>
+            <p className="medan-body-muted mt-4">
+              Informasi rute dan jadwal membantu kami mengecek kebutuhan
+              kendaraan dengan lebih tepat.
+            </p>
+            <MedanWhatsAppButton
+              label="Diskusikan perjalanan"
+              className="mt-6 w-full sm:w-auto"
+            />
+          </div>
+
+          <ol className="divide-y divide-[var(--medan-border)] border-y border-[var(--medan-border)]">
+            {bookingSteps.map((step) => (
+              <li key={step.number} className="flex gap-5 py-5">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--medan-primary)] text-sm font-bold text-white">
+                  {step.number}
+                </span>
+                <div>
+                  <h3 className="font-semibold text-[var(--medan-text)]">
+                    {step.title}
+                  </h3>
+                  <p className="mt-1 text-sm leading-6 text-[var(--medan-muted)]">
+                    {step.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="bg-[var(--medan-primary-dark)] py-12 text-white sm:py-14">
+        <div className="medan-container flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-2 text-sm font-semibold text-white/75">
+              <Sparkles className="h-4 w-4" aria-hidden="true" />
+              Sudah punya rencana?
+            </div>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
+              Tanyakan kendaraan untuk perjalanan Anda.
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-white/75">
+              Sertakan tanggal, rute, dan jumlah penumpang saat menghubungi kami.
+            </p>
+          </div>
+          <MedanWhatsAppButton
+            label="Hubungi via WhatsApp"
+            className="shrink-0"
+          />
+        </div>
+      </section>
+    </>
+  );
+}

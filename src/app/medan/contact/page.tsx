@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "@/components/medan/Header";
-import Footer from "@/components/medan/Footer";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import Link from "next/link";
 import {
@@ -21,21 +19,21 @@ import { Button } from "@/components/ui/button";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kontak Kami - VRN Rent Car Medan | Hubungi Rental Mobil Medan",
+  title: "Kontak Rental Mobil Medan | WhatsApp, Telepon & Kantor VRN Rent Car",
   description:
-    "Hubungi VRN Rent Car Medan untuk rental mobil, antar jemput bandara, dan layanan rental mobil. Tersedia 24/7. WhatsApp, telepon, atau kunjungi kantor kami di Medan.",
+    "Hubungi VRN Rent Car Medan untuk kebutuhan sewa mobil, bandara, perjalanan keluarga, dan kebutuhan bisnis di Medan.",
   keywords:
-    "kontak rental mobil medan, hubungi vrn rent car, nomor rental mobil medan, alamat rental mobil medan, customer service rental mobil",
+    "kontak rental mobil medan, nomor whatsapp rental mobil medan, alamat vrn rent car medan, customer service rental mobil medan",
   robots: "index, follow",
   alternates: {
-    canonical: "https://vrnrentcarmedan.com/medan/contact",
+    canonical: "https://pt.vrnrentcarmedan.com/medan/contact",
   },
   openGraph: {
-    title: "Kontak VRN Rent Car Medan | Customer Service 24/7",
+    title: "Kontak Rental Mobil Medan | VRN Rent Car",
     description:
-      "Hubungi kami untuk rental mobil, informasi harga, dan reservasi. Layanan customer service 24/7 siap membantu Anda.",
+      "Siap membantu kebutuhan transportasi dan reservasi di Medan setiap saat.",
     type: "website",
-    url: "https://vrnrentcarmedan.com/medan/contact",
+    url: "https://pt.vrnrentcarmedan.com/medan/contact",
     locale: "id_ID",
   },
 };
@@ -100,7 +98,6 @@ export default function ContactPage() {
 
   return (
     <main className={`${inter.className} min-h-screen bg-gray-50`}>
-      <Header />
 
       {/* Hero Section */}
       <section className="pt-24 pb-12 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700 text-white relative overflow-hidden">
@@ -297,10 +294,10 @@ export default function ContactPage() {
                     <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-gray-900">
-                        Konsultasi Gratis
+                        Konsultasi Layanan
                       </p>
                       <p className="text-sm text-gray-600">
-                        Tanyakan apapun tentang rental mobil tanpa biaya
+                        Tanyakan apa pun tentang layanan rental mobil
                       </p>
                     </div>
                   </div>
@@ -308,10 +305,10 @@ export default function ContactPage() {
                     <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-gray-900">
-                        Penawaran Terbaik
+                        Informasi Layanan
                       </p>
                       <p className="text-sm text-gray-600">
-                        Dapatkan harga spesial dan promo eksklusif
+                        Dapatkan informasi layanan sesuai kebutuhan perjalanan
                       </p>
                     </div>
                   </div>

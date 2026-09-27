@@ -3,10 +3,10 @@
 import { Shield, Award, Users, HeartHandshake } from "lucide-react";
 
 const values = [
-  { icon: Shield, label: "Terpercaya" },
-  { icon: Award, label: "Profesional" },
-  { icon: Users, label: "Ramah" },
-  { icon: HeartHandshake, label: "Komitmen" },
+  { icon: Shield, label: "Koordinasi" },
+  { icon: Award, label: "Rute umum" },
+  { icon: Users, label: "Perjalanan keluarga" },
+  { icon: HeartHandshake, label: "Kebutuhan bisnis" },
 ];
 
 const AboutSection = () => {
@@ -40,24 +40,26 @@ const AboutSection = () => {
               Tentang Kami
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Kenali VRN Rent Car Medan
+              VRN Rent Car Medan membantu perjalanan yang lebih terarah.
             </h2>
             <div className="space-y-4 text-gray-600">
               <p>
-                <strong className="text-gray-900">VRN Rent Car Medan</strong>{" "}
-                adalah penyedia layanan rental mobil terpercaya yang telah
-                melayani kebutuhan transportasi di Medan dan Sumatera Utara
-                selama lebih dari 10 tahun.
+                Perusahaan ini beroperasi di Medan dan fokus pada kebutuhan
+                transportasi harian, keluarga, bisnis, serta antar jemput bandara.
+                Tim kami membantu menyesuaikan kendaraan dengan jadwal, rute, dan
+                jumlah penumpang yang Anda miliki.
               </p>
               <p>
-                Kami berkomitmen memberikan pelayanan terbaik dengan armada yang
-                terawat, sopir profesional, dan harga yang kompetitif. Kepuasan
-                pelanggan adalah prioritas utama kami.
+                Informasi perusahaan ini biasanya dicari orang yang ingin tahu
+                apakah layanan rental mobil di Medan cocok untuk kebutuhan umum,
+                perjalanan keluar kota, atau kebutuhan kantor. Jadi, fokus kami
+                adalah koordinasi yang jelas dan unit yang sesuai dengan aktivitas
+                Anda.
               </p>
               <p>
-                Berlokasi strategis di pusat kota Medan, kami siap melayani
-                kebutuhan transportasi Anda kapan saja – baik untuk keperluan
-                bisnis, wisata keluarga, maupun antar jemput bandara.
+                Jika Anda merencanakan perjalanan dari Medan ke Bandara Kualanamu,
+                ke daerah wisata, atau kebutuhan keluarga, kami siap membantu Anda
+                menentukan pilihan mobil yang lebih tepat.
               </p>
             </div>
 

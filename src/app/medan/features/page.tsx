@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "@/components/medan/Header";
 import FeaturesSection from "@/components/medan/FeaturesSection";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import { MotionDiv } from "@/components/animations/MotionDiv";
@@ -23,21 +22,21 @@ import { Button } from "@/components/ui/button";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Keunggulan VRN Rent Car Medan | 5 Fitur Utama Rental Mobil",
+  title: "Keunggulan VRN Rent Car Medan | Layanan Rental Mobil yang Mudah Diatur",
   description:
-    "Dapatkan 5 keunggulan utama VRN Rent Car Medan: antar jemput bandara, armada terawat, sopir profesional, layanan 24 jam, dan tour wisata terbaik.",
+    "VRN Rent Car Medan membantu kebutuhan rental mobil di Medan untuk bandara, keluarga, bisnis, dan perjalanan antar kota dengan proses koordinasi yang lebih sederhana.",
   keywords:
-    "keunggulan vrn rent car medan, antar jemput bandara kualanamu, armada terawat medan, sopir profesional, layanan 24 jam, tour wisata medan",
+    "keunggulan vrn rent car medan, rental mobil medan, antar jemput bandara kualanamu, layanan travel medan, sewa mobil untuk keluarga medan",
   robots: "index, follow",
   alternates: {
-    canonical: "https://vrnrentcarmedan.com/medan/features",
+    canonical: "https://pt.vrnrentcarmedan.com/medan/features",
   },
   openGraph: {
-    title: "Keunggulan VRN Rent Car Medan | 5 Fitur Utama",
+    title: "Keunggulan VRN Rent Car Medan | Layanan Rental Mobil yang Mudah Diatur",
     description:
-      "VRN Rent Car Medan menyediakan layanan terbaik dengan 5 keunggulan utama untuk kepuasan pelanggan.",
+      "VRN Rent Car Medan membantu kebutuhan transportasi harian, keluarga, bisnis, dan bandara di Medan.",
     type: "website",
-    url: "https://vrnrentcarmedan.com/medan/features",
+    url: "https://pt.vrnrentcarmedan.com/medan/features",
     locale: "id_ID",
   },
 };
@@ -49,15 +48,14 @@ const detailedFeatures = [
     title: "Antar Jemput Bandara Kualanamu",
     subtitle: "Layanan Tepat Waktu 24/7",
     description:
-      "Nikmati layanan antar jemput ke dan dari Bandara Kualanamu yang tepat waktu dan terpercaya. Sopir kami akan menunggu Anda di terminal kedatangan dengan placard nama.",
+      "Layanan antar jemput dari dan ke Bandara Kualanamu dengan jadwal yang lebih jelas dan proses yang lebih mudah diatur.",
     benefits: [
-      "Penjemputan tepat waktu sesuai jadwal",
-      "Sopir berpengalaman dan familiar dengan rute airport",
-      "Kendaraan bersih dan terawat",
-      "Harga transparan tanpa biaya tersembunyi",
-      "Layanan 24/7 termasuk weekend dan hari libur",
+      "Penjemputan sesuai jadwal penerbangan",
+      "Sopir familiar dengan rute bandara dan area Medan",
+      "Kendaraan bersih dan siap digunakan",
+      "Proses koordinasi lebih cepat via WhatsApp",
+      "Layanan sepanjang hari termasuk akhir pekan",
     ],
-    pricing: "Mulai dari Rp 150.000 per perjalanan",
     image: "/medan/features/antar-jemput-bandara-kualanamu.webp",
     color: "bg-blue-500",
   },
@@ -65,17 +63,16 @@ const detailedFeatures = [
     id: "fleet",
     icon: Car,
     title: "Armada Mobil Terawat",
-    subtitle: "50+ Kendaraan Siap Pakai",
+    subtitle: "Pilihan Kendaraan untuk Berbagai Kebutuhan",
     description:
-      "Armada lengkap dari mobil ekonomi hingga luxury dengan kondisi prima. Semua kendaraan kami rutin diservis dan dalam kondisi siap pakai.",
+      "Pilih kendaraan sesuai jumlah penumpang, rute, dan kebutuhan perjalanan Anda, mulai dari mobil keluarga hingga kendaraan untuk kebutuhan grup atau bisnis.",
     benefits: [
-      "Kondisi kendaraan prima dan terawat",
-      "Armada lengkap dari berbagai merk",
-      "Rutin diservis dan diperbaharui",
-      "AC dingin dan sistem audio lengkap",
-      "Asuransi dan dokumen lengkap",
+      "Kondisi kendaraan yang rapi dan siap pakai",
+      "Pilihan unit yang sesuai kebutuhan perjalanan",
+      "Ketersediaan sesuai jadwal dan tujuan",
+      "AC dan fitur dasar yang mendukung kenyamanan",
+      "Koordinasi mudah untuk kebutuhan harian maupun perjalanan jauh",
     ],
-    pricing: "Mulai dari Rp 300.000 per hari",
     image: "/medan/features/armada-mobil-terawat.jpg",
     color: "bg-green-500",
   },
@@ -85,15 +82,14 @@ const detailedFeatures = [
     title: "Sopir Profesional",
     subtitle: "Tim Sopir Berpengalaman",
     description:
-      "Sopir-sopir kami berpengalaman, ramah, dan熟悉 jalan Medan. Mereka siap memberikan perjalanan yang aman dan nyaman.",
+      "Sopir yang familiar dengan rute Medan dan area sekitarnya membantu perjalanan lebih lancar, terutama untuk jadwal yang perlu tepat waktu.",
     benefits: [
-      "Sopir berpengalaman dan familiar Medan",
-      "Bahasa Indonesia yang baik dan benar",
-      "Mengetahui rute terbaik dan tercepat",
-      "Aman dan hati-hati dalam mengendarai",
-      "Attitude ramah dan profesional",
+      "Bersikap ramah dan siap membantu",
+      "Familiar dengan rute umum di Medan",
+      "Mengutamakan kenyamanan dan keamanan selama perjalanan",
+      "Mudah dikomunikasikan untuk kebutuhan perjalanan harian atau perjalanan jauh",
+      "Dapat menyesuaikan dengan jadwal penjemputan yang Anda inginkan",
     ],
-    pricing: "Termasuk dalam paket rental",
     image: "/medan/features/sopir-professional.jpeg",
     color: "bg-purple-500",
   },
@@ -103,15 +99,14 @@ const detailedFeatures = [
     title: "Layanan 24/7",
     subtitle: "Siap Melayani Kapan Saja",
     description:
-      "Customer service dan operasional kami tersedia 24 jam sehari, 7 hari seminggu. Siap membantu kebutuhan darurat Anda.",
+      "Tim kami siap menjawab pertanyaan, mengatur jadwal, dan membantu kebutuhan perjalanan Anda di luar jam kerja biasa.",
     benefits: [
-      "Customer service 24/7",
-      "Respons cepat untuk permintaan mendadak",
-      "Layanan darurat tersedia",
-      "Booking online dan offline",
-      "Tracking kendaraan real-time",
+      "Respons cepat untuk kebutuhan mendesak",
+      "Layanan yang cocok untuk jadwal bandara, keluarga, atau bisnis",
+      "Koordinasi yang lebih mudah melalui WhatsApp",
+      "Siap membantu jadwal satu hari hingga beberapa hari",
+      "Konsultasi lebih cepat tanpa perlu antre",
     ],
-    pricing: "Gratis konsultasi 24/7",
     image: "/medan/features/EXECUTIVE-CORPORATE.webp",
     color: "bg-orange-500",
   },
@@ -121,15 +116,14 @@ const detailedFeatures = [
     title: "Tour Medan & Sekitarnya",
     subtitle: "Jelajahi Sumatera Utara",
     description:
-      "Nikmati tour ke destinasi wisata populer di Medan dan Sumatera Utara dengan paket tour yang menarik dan harga terjangkau.",
+      "Untuk perjalanan ke Danau Toba, Berastagi, Bukit Lawang, atau destinasi lain di Sumatera Utara, kami dapat membantu menyusun jadwal yang lebih tepat.",
     benefits: [
-      "Tour guide lokal yang berpengalaman",
-      "Paket tour fleksibel sesuai kebutuhan",
-      "Destinasi wisata terbaik Sumatera Utara",
-      "Paket include meals dan asuransi",
-      "Harga kompetitif dan transparan",
+      "Jadwal perjalanan yang lebih tertata",
+      "Pilihan destinasi yang relevan dengan kebutuhan keluarga atau grup",
+      "Kendaraan yang disesuaikan dengan jumlah penumpang",
+      "Koordinasi rute lebih rinci untuk perjalanan antar kota",
+      "Cocok untuk city tour maupun perjalanan liburan singkat",
     ],
-    pricing: "Mulai dari Rp 500.000 per paket",
     image: "/medan/features/luxury-city-tour.webp",
     color: "bg-red-500",
   },
@@ -137,24 +131,24 @@ const detailedFeatures = [
 
 const comparison = {
   us: [
-    "Sopir profesional berpengalaman",
-    "Layanan 24/7 tanpa weekends",
-    "Armada terawat dan lengkap",
-    "Harga transparan tanpa biaya tersembunyi",
-    "Customer service responsif",
-    "Asuransi dan dokumen lengkap",
-    "Tour guide lokal berpengalaman",
-    "Payment fleksibel (cash/kartu)",
+    "Koordinasi yang lebih jelas",
+    "Layanan yang siap di jam non-standar",
+    "Pilihan unit yang sesuai kebutuhan",
+    "Rute umum di Medan yang lebih familiar",
+    "Respon cepat melalui WhatsApp",
+    "Jadwal yang lebih mudah diatur",
+    "Cocok untuk keluarga maupun perjalanan bisnis",
+    "Proses booking yang lebih sederhana",
   ],
   others: [
-    "Sopir kadang kurang berpengalaman",
-    "Layanan terbatas saat weekend",
-    "Kondisi armada bervariasi",
-    "Biaya tambahan yang tidak jelas",
-    "Customer service lambat",
-    "Asuransi terbatas",
-    "Tour guide standar",
-    "Payment terbatas",
+    "Koordinasi kurang jelas",
+    "Layanan tidak selalu mudah diakses",
+    "Pilihan kendaraan kurang sesuai kebutuhan",
+    "Rute kurang familiar",
+    "Respons tidak konsisten",
+    "Jadwal lebih sulit disusun",
+    "Kebutuhan perjalanan rutin kurang fleksibel",
+    "Proses booking terasa rumit",
   ],
 };
 
@@ -164,7 +158,6 @@ export default function FeaturesPage() {
 
   return (
     <main className={`${inter.className} min-h-screen`}>
-      <Header />
 
       {/* Breadcrumb Navigation */}
       <section className="py-4 bg-gray-50 border-b">
@@ -267,9 +260,9 @@ export default function FeaturesPage() {
                   <div className="bg-gray-50 rounded-xl p-4 mb-6">
                     <div className="flex items-center space-x-2">
                       <Award className="w-5 h-5 text-yellow-500" />
-                      <span className="font-medium text-gray-900">Harga:</span>
+                      <span className="font-medium text-gray-900">Keterangan:</span>
                       <span className="text-blue-600 font-bold">
-                        {feature.pricing}
+                        Tersedia sesuai kebutuhan perjalanan
                       </span>
                     </div>
                   </div>

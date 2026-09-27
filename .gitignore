@@ -3,6 +3,7 @@
 
 # Build output
 /.next
+/.next-dev
 /out
 
 # Vercel

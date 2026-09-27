@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -23,7 +23,7 @@ const serviceLinks = [
   { href: "/batam/layanan", label: "Corporate Chauffeur Kawasan Industri" },
   { href: "/batam/paket-tour", label: "Paket Wisata Jembatan Barelang" },
   { href: "/batam/paket-tour", label: "Tour Pulau Ranoh & Pulau Abang" },
-  { href: "/batam/paket-tour", label: "Paket 3 Hari 2 Negara (Spore – Malaysia)" },
+  { href: "/batam/paket-tour", label: "Paket 3 Hari 2 Negara (Spore â€“ Malaysia)" },
 ];
 
 const armadaLinks = [
@@ -192,7 +192,7 @@ export default function Footer() {
                   <Clock className="w-3.5 h-3.5 text-slate-500" />
                   Jam Operasional:
                 </div>
-                <div className="text-slate-200 text-xs">Setiap Hari • 00.00 – 24.00 WIB</div>
+                <div className="text-slate-200 text-xs">Setiap Hari â€¢ 00.00 â€“ 24.00 WIB</div>
               </div>
             </div>
           </div>
@@ -215,7 +215,7 @@ export default function Footer() {
           <div>
             <span className="text-slate-400">Jaringan resmi </span>
             <a
-              href="https://vickyrentcarnusantara.com"
+              href="https://www.vickyrentcarnusantara.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-amber-400 hover:underline font-semibold inline-flex items-center gap-1"
@@ -230,7 +230,7 @@ export default function Footer() {
       {/* Bottom Legal Bar */}
       <div className="bg-[#070e17] border-t border-slate-900 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
-          <p>© <ClientYear /> VRN Rent Car Batam. Hak Cipta Dilindungi.</p>
+          <p>Â© <ClientYear /> VRN Rent Car Batam. Hak Cipta Dilindungi.</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link href="/batam/faq" className="hover:text-slate-300 transition-colors">FAQ</Link>
             <Link href="/batam/kontak" className="hover:text-slate-300 transition-colors">Kontak</Link>
@@ -243,3 +243,4 @@ export default function Footer() {
     </footer>
   );
 }
+

@@ -1,4 +1,4 @@
-const siteUrl = "https://www.vickyrentcar.com"; // Ganti dengan URL produksi Anda
+﻿const siteUrl = "https://www.vickyrentcarnusantara.com"; // Ganti dengan URL produksi Anda
 
 module.exports = {
   siteUrl,

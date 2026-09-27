@@ -22,43 +22,43 @@ import { useState, useEffect } from "react";
 const mainStats = [
   {
     icon: Users,
-    value: 500,
-    suffix: "+",
-    label: "Pelanggan Puas",
-    description: "Pelanggan yang puas dengan layanan kami",
+    value: "Banyak",
+    suffix: "",
+    label: "Pelanggan",
+    description: "Pesanan dari kebutuhan harian, keluarga, dan perjalanan wisata",
     color: "bg-blue-500",
-    growth: "+15%",
-    period: "vs bulan lalu",
+    growth: "",
+    period: "",
   },
   {
     icon: Car,
-    value: 50,
-    suffix: "+",
-    label: "Armada Tersedia",
-    description: "Kendaraan siap pakai dalam kondisi prima",
+    value: "Beragam",
+    suffix: "",
+    label: "Armada",
+    description: "Pilihan kendaraan untuk kebutuhan keluarga, bisnis, dan grup",
     color: "bg-green-500",
-    growth: "+8%",
-    period: "vs tahun lalu",
+    growth: "",
+    period: "",
   },
   {
     icon: Clock,
-    value: 24,
-    suffix: "/7",
-    label: "Layanan",
-    description: "Operasional non-stop sepanjang tahun",
+    value: "Fleksibel",
+    suffix: "",
+    label: "Jadwal",
+    description: "Layanan yang bisa disesuaikan dengan kebutuhan keberangkatan dan penjemputan",
     color: "bg-purple-500",
-    growth: "100%",
-    period: "ketersediaan",
+    growth: "",
+    period: "",
   },
   {
     icon: Star,
-    value: 4.9,
-    suffix: "/5",
-    label: "Rating Pelanggan",
-    description: "Rating kepuasan pelanggan",
+    value: "Nyata",
+    suffix: "",
+    label: "Pengalaman",
+    description: "Ulasan pelanggan yang mencerminkan kebutuhan perjalanan yang mereka hadapi",
     color: "bg-yellow-500",
-    growth: "+0.2",
-    period: "vs tahun lalu",
+    growth: "",
+    period: "",
   },
 ];
 
@@ -104,43 +104,43 @@ const detailedStats = [
 const achievements = [
   {
     year: "2024",
-    title: "500+ Pelanggan",
-    description: "Mencapai 500 pelanggan puas dalam satu tahun",
+    title: "Layanan Beragam",
+    description: "Menyediakan pilihan mobil untuk kebutuhan keluarga, bisnis, dan perjalanan wisata",
     icon: Users,
     color: "bg-blue-500",
   },
   {
     year: "2023",
-    title: "Sertifikasi ISO",
-    description: "Memperoleh sertifikasi ISO 9001:2015 untuk kualitas layanan",
+    title: "Proses yang Lebih Teratur",
+    description: "Menyusun SOP untuk koordinasi kendaraan, jadwal, dan kebutuhan pelanggan",
     icon: Award,
     color: "bg-green-500",
   },
   {
     year: "2022",
-    title: "50+ Armada",
-    description: "Mencapai 50 unit armada dengan kondisi prima",
+    title: "Pilihan Armada Lengkap",
+    description: "Menambah variasi kendaraan untuk kebutuhan harian dan perjalanan khusus",
     icon: Car,
     color: "bg-purple-500",
   },
   {
     year: "2021",
-    title: "24/7 Service",
-    description: "Meluncurkan layanan 24 jam sehari, 7 hari seminggu",
+    title: "Jadwal Fleksibel",
+    description: "Menyesuaikan layanan dengan kebutuhan keberangkatan dan penjemputan pelanggan",
     icon: Clock,
     color: "bg-orange-500",
   },
   {
     year: "2020",
-    title: "Digital Platform",
-    description: "Meluncurkan platform digital untuk kemudahan booking",
+    title: "Booking Lebih Mudah",
+    description: "Mempermudah komunikasi melalui platform digital untuk konfirmasi kebutuhan mobil",
     icon: Globe,
     color: "bg-indigo-500",
   },
   {
     year: "2019",
-    title: "4.8 Rating",
-    description: "Mencapai rating pelanggan 4.8 dari 5",
+    title: "Pengalaman Pelanggan",
+    description: "Memantau kebutuhan pelanggan untuk menjaga kualitas layanan dan kenyamanan perjalanan",
     icon: Star,
     color: "bg-yellow-500",
   },
@@ -148,30 +148,30 @@ const achievements = [
 
 const performanceMetrics = [
   {
-    metric: "On-Time Performance",
-    value: "98.5%",
-    description: "Ketepatan waktu penjemputan",
+    metric: "Ketersediaan unit",
+    value: "Tersedia",
+    description: "Pilihan kendaraan sesuai kebutuhan perjalanan",
     icon: Clock,
     trend: "up",
   },
   {
-    metric: "Customer Satisfaction",
-    value: "96.2%",
-    description: "Tingkat kepuasan pelanggan",
+    metric: "Kenyamanan perjalanan",
+    value: "Fokus",
+    description: "Mendukung pengalaman perjalanan yang lebih tenang dan santai",
     icon: Heart,
     trend: "up",
   },
   {
-    metric: "Fleet Availability",
-    value: "94.8%",
-    description: "Ketersediaan armada harian",
+    metric: "Pilihan armada",
+    value: "Beragam",
+    description: "Kumpulan kendaraan untuk keluarga, bisnis, dan grup",
     icon: Car,
     trend: "stable",
   },
   {
-    metric: "Service Response",
-    value: "<5 min",
-    description: "Waktu respons customer service",
+    metric: "Respons cepat",
+    value: "Tanggap",
+    description: "Proses koordinasi dan jawaban kebutuhan pelanggan",
     icon: Zap,
     trend: "up",
   },
@@ -181,9 +181,13 @@ function AnimatedCounter({
   value,
   duration = 2000,
 }: {
-  value: number;
+  value: number | string;
   duration?: number;
 }) {
+  if (typeof value === "string") {
+    return <span>{value}</span>;
+  }
+
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -442,10 +446,10 @@ export default function StatsPageClient() {
             {achievements.map((achievement, index) => (
               <motion.div
                 key={achievement.year}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="flex items-center gap-8 mb-12 last:mb-0"
+                className="flex items-center gap-4 sm:gap-8 mb-12 last:mb-0"
               >
                 <div className="flex-shrink-0 w-24 text-right">
                   <div className="text-2xl font-bold text-blue-600">
@@ -459,7 +463,7 @@ export default function StatsPageClient() {
                     <achievement.icon className="w-8 h-8 text-white" />
                   </div>
                 </div>
-                <div className="flex-1 bg-white rounded-2xl p-6 shadow-lg">
+                <div className="min-w-0 flex-1 bg-white rounded-2xl p-4 sm:p-6 shadow-lg">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {achievement.title}
                   </h3>

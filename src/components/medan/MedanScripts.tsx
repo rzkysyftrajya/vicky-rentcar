@@ -11,7 +11,7 @@ const structuredData = {
   image:
     "https://www.vickyrentcarnusantara.com/medan/hero-section.webp",
   description:
-    "Layanan rental mobil VIP dan luxury di Medan. Menyediakan Alphard, Mercedes, Fortuner, antar-jemput Bandara Kualanamu, layanan korporat dan perjalanan wisata.",
+    "Layanan rental mobil dan antar jemput di Medan untuk kebutuhan harian, keluarga, bisnis, dan perjalanan antar kota.",
   telephone: "+6282363389893",
   address: {
     "@type": "PostalAddress",
@@ -21,7 +21,6 @@ const structuredData = {
     postalCode: "20371",
     addressCountry: "ID",
   },
-  priceRange: "$$",
   hasMap: "https://maps.app.goo.gl/bXqcSpsHzM4TH6iHA",
   openingHoursSpecification: [
     {

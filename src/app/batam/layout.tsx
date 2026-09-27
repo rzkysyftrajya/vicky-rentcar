@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   description:
     "Rental mobil Batam lepas kunci atau dengan sopir. Antar-jemput Bandara Hang Nadim dan pelabuhan Batam Centre/Harbour Bay. Cek unit via WhatsApp.",
   alternates: {
-    canonical: "https://vickyrentcarnusantara.com/batam",
+    canonical: "https://www.vickyrentcarnusantara.com/batam",
   },
   openGraph: {
     title: "Rental Mobil Batam: Alphard, Innova, Zenix & Hiace",
     description:
       "Sewa mobil Batam dengan armada bersih, sopir berpengalaman, dan layanan antar-jemput bandara serta pelabuhan.",
-    url: "https://vickyrentcarnusantara.com/batam",
+    url: "https://www.vickyrentcarnusantara.com/batam",
     type: "website",
   },
 };

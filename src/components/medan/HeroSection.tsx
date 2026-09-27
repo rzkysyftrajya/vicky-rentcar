@@ -21,7 +21,7 @@ import {
 
 const HeroSection = () => {
   const whatsappLink =
-    "https://wa.me/6282363389893?text=Halo VRN,%20saya mau sewa mobil Medan. Pickup: [tanggal], Return: [tanggal]. Kirim list unit & promo ya!";
+    "https://wa.me/6282363389893?text=Halo%20VRN,%20saya%20ingin%20konsultasi%20kebutuhan%20rental%20mobil%20di%20Medan.%20Bisa%20minta%20daftar%20unit%20yang%20tersedia?";
 
   const [pickupDate, setPickupDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
@@ -55,31 +55,31 @@ const HeroSection = () => {
 
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
-            Rental Mobil Medan Terpercaya
+            Rental mobil di Medan untuk perjalanan harian, bandara, dan liburan.
             <br className="hidden sm:block" />
-            <span className="text-yellow-400">Sopir & Lepas Kunci</span>
+            <span className="text-yellow-400">Pilih kendaraan yang sesuai rute dan jumlah penumpang.</span>
           </h1>
 
           {/* Subheadline - Lebih inclusif untuk semua kebutuhan */}
           <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
-            Sewa mobil dengan sopir profesional ATAU lepas kunci tanpa sopir. 
-            Armada terawat, harga kompetitif, dan layanan 24 jam untuk 
-            kenyamanan perjalanan Anda di Medan dan Sumatera Utara.
+            Banyak orang mencari rental mobil Medan untuk kebutuhan keluarga,
+            perjalanan bisnis, atau transfer bandara. Jelaskan tujuan, jadwal, dan
+            jumlah penumpang agar kendaraan yang dipilih lebih tepat.
           </p>
 
           {/* Trust Badges */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
               <Shield className="w-5 h-5 text-green-400" />
-              <span className="text-sm font-medium">Armada Terinsured</span>
+              <span className="text-sm font-medium">Unit yang disiapkan sesuai kebutuhan</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
               <CheckCircle className="w-5 h-5 text-blue-400" />
-              <span className="text-sm font-medium">Sopir Profesional</span>
+              <span className="text-sm font-medium">Driver familiar dengan rute umum</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
               <Car className="w-5 h-5 text-green-400" />
-              <span className="text-sm font-medium">Bisa Lepas Kunci</span>
+              <span className="text-sm font-medium">Pilihan mobil untuk keluarga, bisnis, dan grup</span>
             </div>
           </div>
 
@@ -124,7 +124,7 @@ const HeroSection = () => {
                   size="lg"
                   className="w-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg"
                   onClick={() => {
-                    const text = `Halo VRN, mau sewa mobil Medan. Pickup: ${pickupDate || '[tanggal]'}, Return: ${returnDate || '[tanggal]'} . Kirim list unit ready & promo ya!`;
+                    const text = `Halo VRN, saya ingin menanyakan ketersediaan mobil di Medan. Pickup: ${pickupDate || '[tanggal]'}, Return: ${returnDate || '[tanggal]'} . Bisa bantu cek unit yang tersedia?`;
                     window.open(`https://wa.me/6282363389893?text=${encodeURIComponent(text)}`, '_blank');
                   }}
                 >
@@ -162,16 +162,16 @@ const HeroSection = () => {
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <Star className="w-4 h-4 text-yellow-400" />
               <span className="text-sm font-medium">
-                Rating 4.9/500+ Pelanggan
+                Pilihan sesuai kebutuhan perjalanan
               </span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <Car className="w-4 h-4 text-blue-300" />
-              <span className="text-sm font-medium">50+ Armada Terawat</span>
+              <span className="text-sm font-medium">Armada untuk keluarga, bisnis, dan grup</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <ThumbsUp className="w-4 h-4 text-green-400" />
-              <span className="text-sm font-medium">Sopir Berpengalaman</span>
+              <span className="text-sm font-medium">Koordinasi cepat via WhatsApp</span>
             </div>
           </div>
 
@@ -180,8 +180,8 @@ const HeroSection = () => {
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <Users className="w-4 h-4 text-blue-300" />
               <div>
-                <div className="text-xl font-bold">500+</div>
-                <div className="text-xs text-blue-200">Pelanggan Puas</div>
+                <div className="text-xl font-bold">Fleksibel</div>
+                <div className="text-xs text-blue-200">Untuk keluarga & grup</div>
               </div>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">

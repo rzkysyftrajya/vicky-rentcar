@@ -1,8 +1,8 @@
-import { MetadataRoute } from "next";
+﻿import { MetadataRoute } from "next";
 import cities from "@/data/cities.json";
 
 export async function GET(): Promise<Response> {
-  const baseUrl = "https://vickyrentcarnusantara.com";
+  const baseUrl = "https://www.vickyrentcarnusantara.com";
 
   // Ambil semua path dari cities.json
   const cityUrls = cities.map((city) => ({
@@ -57,3 +57,4 @@ ${urls
     },
   });
 }
+

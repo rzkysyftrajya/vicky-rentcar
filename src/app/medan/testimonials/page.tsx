@@ -2,7 +2,6 @@
 
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "@/components/medan/Header";
 import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -53,7 +52,7 @@ const testimonials = [
     rating: 5,
     date: "2024-01-20",
     comment:
-      "Mobil tersedia banyak pilihan, harga cukup bersahabat. Proses ambil & pengembalian juga cepat, tanpa ribet. Overall puas, bakal repeat order kalau keperluan lagi.",
+      "Mobil tersedia banyak pilihan. Proses ambil & pengembalian juga cepat, tanpa ribet. Overall puas, bakal repeat order kalau keperluan lagi.",
     avatar: "DA",
     verified: true,
     tripDetails: {
@@ -119,52 +118,50 @@ const testimonials = [
   },
 ];
 
-const ratingStats = {
-  average: 4.9,
-  total: 847,
+const ratingSummary = {
+  average: "Rekomendasi pelanggan",
+  total: "Ulasan nyata",
   distribution: [
-    { stars: 5, count: 782, percentage: 92.3 },
-    { stars: 4, count: 52, percentage: 6.1 },
-    { stars: 3, count: 11, percentage: 1.3 },
-    { stars: 2, count: 2, percentage: 0.2 },
-    { stars: 1, count: 0, percentage: 0.0 },
+    { stars: 5, count: "Tingkat kepuasan tinggi", percentage: 92 },
+    { stars: 4, count: "Masih banyak pilihan lainnya", percentage: 6 },
+    { stars: 3, count: "Untuk kebutuhan dasar", percentage: 1 },
   ],
 };
 
 const reviewHighlights = [
   {
     icon: CheckCircle,
-    title: "Professional Service",
-    count: 823,
-    description: "Pelayanan profesional dan responsif",
+    title: "Responsif",
+    count: "Pemesanan",
+    description: "Tanggap dalam menjawab kebutuhan perjalanan dan jadwal",
   },
   {
     icon: Star,
-    title: "Quality Vehicle",
-    count: 798,
-    description: "Kendaraan berkualitas dan terawat",
+    title: "Kendaraan",
+    count: "Pilihan",
+    description: "Mobil dengan kondisi yang layak dipakai untuk perjalanan harian dan wisata",
   },
   {
     icon: Clock,
-    title: "On Time",
-    count: 845,
-    description: "Ketepatan waktu penjemputan",
+    title: "Ketepatan",
+    count: "Jadwal",
+    description: "Penjemputan sesuai kebutuhan dan rencana perjalanan",
   },
   {
     icon: Heart,
-    title: "Customer Satisfaction",
-    count: 841,
-    description: "Tingkat kepuasan pelanggan tinggi",
+    title: "Kenyamanan",
+    count: "Pelanggan",
+    description: "Fokus pada pengalaman perjalanan yang lebih mudah dan tenang",
   },
 ];
 
 const serviceCategories = [
-  { name: "Rental Mobil Harian", rating: 4.9, reviews: 324 },
-  { name: "Antar Jemput Bandara", rating: 4.9, reviews: 287 },
-  { name: "Tour & Liburan", rating: 4.8, reviews: 156 },
-  { name: "Rental Jangka Panjang", rating: 4.9, reviews: 89 },
-  { name: "Wedding Car", rating: 5.0, reviews: 34 },
-  { name: "Corporate Service", rating: 4.9, reviews: 67 },
+  { name: "Rental Mobil Harian", summary: "Cocok untuk kebutuhan keluarga dan aktivitas harian" },
+  { name: "Antar Jemput Bandara", summary: "Tersedia untuk jadwal kedatangan dan keberangkatan" },
+  { name: "Tour & Liburan", summary: "Pilihan untuk perjalanan wisata di Medan dan sekitarnya" },
+  { name: "Rental Jangka Panjang", summary: "Dapat disesuaikan untuk kebutuhan bisnis atau perjalanan rutin" },
+  { name: "Wedding Car", summary: "Tersedia untuk kebutuhan acara khusus" },
+  { name: "Corporate Service", summary: "Mendukung kebutuhan transportasi kerja dan tamu" },
 ];
 
 export default function TestimonialsPage() {
@@ -197,7 +194,6 @@ export default function TestimonialsPage() {
 
   return (
     <main className={`${inter.className} min-h-screen`}>
-      <Header />
 
       {/* Breadcrumb Navigation */}
       <section className="py-4 bg-gray-50 border-b">
@@ -235,8 +231,8 @@ export default function TestimonialsPage() {
               Testimoni Pelanggan
             </h1>
             <p className="text-xl text-green-100">
-              Ulasan dari 500+ pelanggan yang puas dengan layanan VRN Rent Car
-              Medan
+              Catatan pengalaman pelanggan yang menggunakan layanan VRN Rent Car
+              Medan untuk perjalanan harian, bandara, dan wisata.
             </p>
           </motion.div>
         </div>
@@ -254,28 +250,24 @@ export default function TestimonialsPage() {
               className="text-center lg:text-left"
             >
               <div className="mb-6">
-                <div className="text-6xl font-bold text-gray-900 mb-2">
-                  {ratingStats.average}
+                <div className="text-3xl font-bold text-gray-900 mb-2">
+                  {ratingSummary.average}
                 </div>
                 <div className="flex items-center justify-center lg:justify-start mb-2">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-6 h-6 ${
-                        i < Math.floor(ratingStats.average)
-                          ? "text-yellow-400 fill-current"
-                          : "text-gray-300"
-                      }`}
+                      className="w-6 h-6 text-yellow-400 fill-current"
                     />
                   ))}
                 </div>
                 <div className="text-gray-600">
-                  {ratingStats.total} ulasan pelanggan
+                  {ratingSummary.total}
                 </div>
               </div>
 
               <div className="space-y-3">
-                {ratingStats.distribution.map((dist) => (
+                {ratingSummary.distribution.map((dist) => (
                   <div key={dist.stars} className="flex items-center space-x-3">
                     <div className="flex items-center space-x-1 w-16">
                       <span className="text-sm text-gray-600">
@@ -289,7 +281,7 @@ export default function TestimonialsPage() {
                         style={{ width: `${dist.percentage}%` }}
                       />
                     </div>
-                    <span className="text-sm text-gray-600 w-12">
+                    <span className="text-sm text-gray-600 w-24">
                       {dist.count}
                     </span>
                   </div>
@@ -305,10 +297,10 @@ export default function TestimonialsPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Rating Berdasarkan Layanan
+                  Pilihan Layanan yang Sering Dipesan
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
-                  {serviceCategories.map((service, index) => (
+                  {serviceCategories.map((service) => (
                     <div
                       key={service.name}
                       className="bg-gray-50 rounded-xl p-4"
@@ -320,12 +312,12 @@ export default function TestimonialsPage() {
                         <div className="flex items-center space-x-1">
                           <Star className="w-4 h-4 text-yellow-400 fill-current" />
                           <span className="text-sm font-bold text-gray-900">
-                            {service.rating}
+                            5.0
                           </span>
                         </div>
                       </div>
                       <div className="text-xs text-gray-600">
-                        {service.reviews} ulasan
+                        {service.summary}
                       </div>
                     </div>
                   ))}
@@ -362,8 +354,8 @@ export default function TestimonialsPage() {
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <highlight.icon className="w-8 h-8 text-green-600" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">
-                  {highlight.count}+
+                <div className="text-xl font-bold text-gray-900 mb-1">
+                  {highlight.count}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {highlight.title}

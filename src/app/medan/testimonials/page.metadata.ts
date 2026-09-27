@@ -1,21 +1,22 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Testimoni Pelanggan VRN Rent Car Medan | Ulasan & Rating",
+  title: "Testimoni Pelanggan VRN Rent Car Medan | Ulasan & Pengalaman",
   description:
-    "Baca testimoni pelanggan VRN Rent Car Medan. Ulasan dari 500+ pelanggan puas dengan layanan rental mobil, antar jemput airport, dan tour wisata.",
+    "Baca pengalaman pelanggan VRN Rent Car Medan untuk kebutuhan rental mobil, antar jemput bandara, dan perjalanan wisata di Medan.",
   keywords:
-    "testimoni vrn rent car medan, ulasan pelanggan rental mobil medan, rating vrn rent car, review rental mobil medan, pengalaman pelanggan",
+    "testimoni vrn rent car medan, ulasan pelanggan rental mobil medan, pengalaman sewa mobil medan, review rental mobil medan",
   robots: "index, follow",
   alternates: {
-    canonical: "https://vrnrentcarmedan.com/medan/testimonials",
+    canonical: "https://pt.vrnrentcarmedan.com/medan/testimonials",
   },
   openGraph: {
-    title: "Testimoni Pelanggan VRN Rent Car Medan | Ulasan & Rating",
+    title: "Testimoni Pelanggan VRN Rent Car Medan | Ulasan & Pengalaman",
     description:
-      "VRN Rent Car Medan - Testimoni nyata dari 500+ pelanggan yang puas dengan layanan rental mobil terbaik.",
+      "VRN Rent Car Medan - Pengalaman nyata pelanggan yang memakai layanan rental mobil di Medan.",
     type: "website",
-    url: "https://vrnrentcarmedan.com/medan/testimonials",
+    url: "https://pt.vrnrentcarmedan.com/medan/testimonials",
     locale: "id_ID",
   },
 };
+

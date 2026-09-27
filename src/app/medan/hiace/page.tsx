@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "@/components/medan/Header";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -21,12 +20,12 @@ import {
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Paket Hiace Medan Terbaik | Group Tour & City Tour | VRN Rent Car",
-  description: "Paket rental Toyota Hiace Premio & Commuter untuk group keluarga, city tour Medan, antar jemput bandara XL. Mulai Rp1.200rb/hari. Kapasitas 14 orang.",
-  keywords: "sewa hiace medan, rental hiace commuter medan, paket hiace tour medan, hiace premio luxury medan, sewa hiace group medan, hiace bandara kualanamu",
+  title: "Rental Hiace Medan | Sewa Hiace untuk Rombongan & Wisata",
+  description: "Rental Hiace Medan untuk rombongan keluarga, wisata, dan perjalanan grup. Pilihan kapasitas besar untuk perjalanan dari Medan dan sekitarnya.",
+  keywords: "rental hiace medan, sewa hiace medan, hiace untuk rombongan, rental mobil grup medan, sewa hiace wisata medan",
   robots: "index, follow",
   alternates: {
-    canonical: "https://vrnrentcarmedan.com/medan/hiace",
+    canonical: "https://pt.vrnrentcarmedan.com/medan/hiace",
   },
 };
 
@@ -102,7 +101,7 @@ const hiacePackages: HiacePackage[] = [
 
 export default function HiacePage() {
   const whatsappLink =
-    "https://wa.me/6282363389893?text=Halo%20VRN,%20saya%20tertarik%20sewa%20Hiace%20Medan.%20Boleh%20info%20ketersediaan%20dan%20penawaran%20terbaik?";
+    "https://wa.me/6282363389893?text=Halo%20VRN,%20saya%20tertarik%20sewa%20Hiace%20Medan.%20Boleh%20info%20ketersediaan%20dan%20detail%20layanan?";
 
   return (
     <main className={`${inter.className} min-h-screen bg-slate-50 pb-24`}>
@@ -128,16 +127,14 @@ export default function HiacePage() {
             </span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-tight">
-            Rental Hiace Medan
+            Sewa Hiace Medan untuk rombongan dan perjalanan keluarga.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">
-              Premium & Nyaman
+              Kapasitas besar, kursi nyaman, rute yang lebih mudah.
             </span>
           </h1>
           <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Solusi transportasi terbaik untuk rombongan 10-14 orang. Unit
-            terawat, suspensi empuk, dan sopir berpengalaman siap menemani
-            perjalanan Anda di Sumatera Utara.
+            Cocok untuk perjalanan keluarga, wisata, acara kantor, dan kebutuhan group yang butuh ruang lebih luas tanpa mengorbankan kenyamanan.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -266,11 +263,11 @@ export default function HiacePage() {
                       className="w-full bg-slate-900 hover:bg-amber-500 hover:text-slate-900 text-white transition-all duration-300 font-medium h-12 rounded-xl shadow-lg shadow-slate-200"
                     >
                       <a
-                        href={`https://wa.me/6282363389893?text=Halo%20VRN,%20saya%20tertarik%20dengan%20${pkg.name}.%20Mohon%20info%20harga%20dan%20ketersediaan.`}
+                        href={`https://wa.me/6282363389893?text=Halo%20VRN,%20saya%20tertarik%20dengan%20${pkg.name}.%20Mohon%20info%20detail%20layanan%20dan%20ketersediaan.`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Cek Ketersediaan & Harga
+                        Cek Ketersediaan
                       </a>
                     </Button>
                   </div>
@@ -291,7 +288,7 @@ export default function HiacePage() {
                     "Unit tahun muda (2020 UP) & Terawat",
                     "Supir ramah, rapi, dan tidak ugal-ugalan",
                     "Interior bersih dan wangi (Bebas Asap Rokok)",
-                    "Harga transparan tanpa biaya tersembunyi",
+                    "Informasi layanan yang jelas sebelum reservasi",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="mt-1 bg-white p-1 rounded-full shadow-sm">
@@ -304,7 +301,7 @@ export default function HiacePage() {
               </div>
               <div className="text-center md:text-right">
                 <p className="text-slate-500 mb-6">
-                  Butuh penawaran khusus untuk perusahaan atau event organizer?
+                  Diskusikan kebutuhan perjalanan perusahaan atau event organizer Anda.
                 </p>
                 <Button
                   size="lg"

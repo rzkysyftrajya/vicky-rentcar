@@ -6,18 +6,18 @@ import { Plane, Clock, Shield, Phone, Check, MapPin } from "lucide-react";
 const benefits = [
   {
     icon: Clock,
-    title: "Tepat Waktu",
-    description: "Driver standby 1 jam sebelum jadwal penerbangan Anda",
+    title: "Jadwal lebih jelas",
+    description: "Sampaikan waktu kedatangan atau keberangkatan agar penjemputan bisa disesuaikan dengan rute Anda.",
   },
   {
     icon: Shield,
-    title: "Aman & Nyaman",
-    description: "Kendaraan terawat dan sopir profesional berlisensi",
+    title: "Mobil yang siap dipakai",
+    description: "Unit yang ditawarkan dirawat agar perjalanan bandara lebih nyaman dan tidak membuang waktu.",
   },
   {
     icon: MapPin,
-    title: "Door to Door",
-    description: "Jemput dari lokasi Anda & antar ke terminal desired",
+    title: "Penjemputan sesuai lokasi",
+    description: "Dari hotel, rumah, kantor, atau area sekitar Medan ke Bandara Kualanamu dan sebaliknya.",
   },
 ];
 
@@ -62,17 +62,18 @@ const AirportSection = () => {
               <div className="inline-flex items-center gap-2 bg-blue-50 rounded-full px-4 py-2 mb-4">
                 <Plane className="w-4 h-4 text-blue-600" />
                 <span className="text-sm font-medium text-blue-700">
-                  Layanan Bandara
+                  Rental mobil bandara Medan
                 </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Antar Jemput Bandara Kualanamu Tepat Waktu
+                Antara kota Medan dan Bandara Kualanamu lebih mudah diatur.
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Tidak perlu repot mencari transportasi dari dan ke Bandara
-                Internasional Kualanamu. Kami menyediakan layanan antar jemput
-                yang nyaman, tepat waktu, dan profesional dengan sopir
-                berpengalaman.
+                Jika Anda membutuhkan rental mobil bandara Medan, tim kami dapat
+                menyiapkan jadwal penjemputan dari Bandara Kualanamu ke hotel,
+                kantor, rumah, atau tujuan lain di sekitar Medan. Jelaskan rute,
+                waktu kedatangan, dan jumlah penumpang agar kendaraan yang dipilih
+                bisa sesuai kebutuhan.
               </p>
             </div>
 
@@ -108,11 +109,11 @@ const AirportSection = () => {
                   rel="noopener noreferrer"
                 >
                   <Phone className="w-4 h-4 mr-2" />
-                  Booking via WhatsApp
+                  Konsultasi transfer bandara
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <a href="#armada">Lihat Armada</a>
+                <a href="/medan/fleet">Lihat armada</a>
               </Button>
             </div>
           </div>
@@ -155,7 +156,7 @@ const AirportSection = () => {
             <div className="bg-gray-50 rounded-2xl p-6">
               <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
                 <Check className="w-5 h-5 text-blue-600" />
-                Cara Pemesanan
+                Alur yang biasa kami lakukan
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 {processSteps.map((item) => (

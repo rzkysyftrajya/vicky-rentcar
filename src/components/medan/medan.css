@@ -1,0 +1,177 @@
+.medan-theme {
+  --medan-primary: #173b6c;
+  --medan-primary-hover: #13335d;
+  --medan-primary-dark: #102a4c;
+  --medan-accent: #f2c14e;
+  --medan-background: #f7f8fa;
+  --medan-surface: #ffffff;
+  --medan-border: #e1e6ed;
+  --medan-text: #17212b;
+  --medan-muted: #667085;
+  --medan-success: #287a55;
+  --medan-warning: #a86414;
+  --medan-radius-control: 6px;
+  --medan-radius-small: 8px;
+  --medan-radius-medium: 12px;
+  --medan-radius-large: 16px;
+  --medan-shadow-subtle: 0 1px 2px rgb(16 42 76 / 0.06);
+  --medan-shadow-floating: 0 8px 24px rgb(16 42 76 / 0.16);
+  color: var(--medan-text);
+  background: var(--medan-background);
+}
+
+body:has(.medan-theme) #global-route-chrome,
+body:has(.medan-theme) #global-route-chrome-footer {
+  display: none;
+}
+
+html:has(.medan-theme),
+body:has(.medan-theme) {
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}
+
+html:has(.medan-theme) {
+  overflow-x: clip !important;
+}
+
+body:has(.medan-theme) #global-route-contact-dock {
+  display: none;
+}
+
+.medan-container {
+  width: min(100% - 32px, 1200px);
+  margin-inline: auto;
+}
+
+.medan-heading-2 {
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.medan-eyebrow {
+  color: var(--medan-primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.medan-body-muted {
+  color: var(--medan-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.medan-button,
+.medan-whatsapp-button {
+  min-height: 44px;
+  border-radius: var(--medan-radius-control);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.medan-button:focus-visible,
+.medan-whatsapp-button:focus-visible,
+.medan-theme a:focus-visible,
+.medan-theme button:focus-visible {
+  outline: 3px solid rgb(242 193 78 / 0.8);
+  outline-offset: 2px;
+}
+
+.medan-button-primary {
+  color: white;
+  background: var(--medan-primary);
+}
+
+.medan-button-primary:hover {
+  background: var(--medan-primary-hover);
+}
+
+.medan-button-secondary {
+  color: var(--medan-primary);
+  border: 1px solid var(--medan-border);
+  background: var(--medan-surface);
+}
+
+.medan-button-secondary:hover {
+  border-color: var(--medan-primary);
+  background: #eef3f9;
+}
+
+.medan-button-text {
+  color: var(--medan-primary);
+  padding-inline: 4px;
+}
+
+.medan-button-text:hover {
+  text-decoration: underline;
+}
+
+.medan-button-small {
+  min-height: 40px;
+  padding: 8px 12px;
+}
+
+.medan-whatsapp-button {
+  color: white;
+  background: #25d366;
+}
+
+.medan-whatsapp-button:hover {
+  background: #20bd5a;
+}
+
+.medan-whatsapp-button-outline {
+  color: #176b3b;
+  border: 1px solid #9bdab1;
+  background: white;
+}
+
+.medan-floating-whatsapp {
+  position: fixed;
+  right: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  z-index: 60;
+  width: 3.5rem;
+  height: 3.5rem;
+  min-height: 3.5rem;
+  padding: 0;
+  border-radius: 9999px;
+  box-shadow: var(--medan-shadow-floating);
+}
+
+.medan-mobile-whatsapp {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .medan-mobile-whatsapp {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 639px) {
+  .medan-container {
+    width: min(100% - 32px, 1200px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .medan-theme *,
+  .medan-theme *::before,
+  .medan-theme *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

@@ -41,7 +41,7 @@ const targetDate = new Date("2026-03-19T00:00:00").getTime();
 
         {/* Badge */}
         <span className="inline-block bg-yellow-400 text-emerald-900 text-sm font-semibold px-4 py-1 rounded-full mb-6 shadow-md">
-          Promo Lebaran Medan 2026
+          Perjalanan Lebaran di Medan
         </span>
 
         {/* Title */}
@@ -106,7 +106,7 @@ const targetDate = new Date("2026-03-19T00:00:00").getTime();
                   Transparan & Profesional
                 </p>
                 <p className="text-emerald-100">
-                  Harga mengikuti tipe & durasi
+                  Diskusikan jenis kendaraan dan rencana perjalanan Anda dengan tim kami
                 </p>
               </div>
             </div>

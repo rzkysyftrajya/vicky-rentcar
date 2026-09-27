@@ -1,131 +1,132 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "@/components/medan/Header";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { tourPackages } from "@/data/medan-tour-packages";
 import { Phone, MapPin, Calendar, Users } from "lucide-react";
-import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp"; // assume exists
+import FloatingWhatsApp from "@/components/medan/FloatingWhatsApp";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Paket Tour Medan Danau Toba Terbaik | VRN Rent Car",
-  description: "Pilihan paket wisata Medan, Danau Toba, Berastagi, dan Bukit Lawang dengan harga terbaik. Mulai Rp700rb. Sopir guide berpengalaman.",
-  keywords: "paket tour medan, wisata danau toba, tour berastagi, paket wisata sumut, honeymoon toba, bukit lawang trekking, vrn rentcar tour",
+  title: "Paket Tour Medan | Wisata Danau Toba, Berastagi & Bukit Lawang",
+  description: "Pilih paket tour Medan untuk destinasi seperti Danau Toba, Berastagi, Bukit Lawang, dan city tour dengan jadwal yang bisa disesuaikan.",
+  keywords: "paket tour medan, paket wisata medan, tour danau toba dari medan, paket berastagi medan, wisatakuliah",
   robots: "index, follow",
   alternates: {
-    canonical: "https://vrnrentcarmedan.com/medan/paket-tour",
+    canonical: "https://pt.vrnrentcarmedan.com/medan/paket-tour",
   },
 };
 
 export default function PaketTourPage() {
-  const whatsappLink = "https://wa.me/6282363389893?text=Halo VRN, saya tertarik paket tour. Bisa kirim detail & harga?";
+  const whatsappLink = "https://wa.me/6282363389893?text=Halo%20VRN,%20saya%20ingin%20membahas%20pilihan%20paket%20tour%20di%20Medan.";
 
   return (
-    <main className={`${inter.className} min-h-screen`}>
-      <Header />
-      
-      {/* Hero */}
-      <section className="relative h-[60vh] bg-gradient-to-r from-teal-600 to-emerald-700 flex items-center justify-center text-white overflow-hidden">
-        <div className="container mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md rounded-full px-6 py-3 mb-8">
-            <Calendar className="w-5 h-5" />
-            <span className="font-bold text-lg">PAKET TOUR MEDAN</span>
+    <main className={`${inter.className} min-h-screen bg-slate-50`}>
+      <section className="relative overflow-hidden bg-gradient-to-r from-teal-700 via-emerald-700 to-emerald-600 text-white">
+        <div className="medan-container relative grid gap-8 py-14 md:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/90 backdrop-blur-sm">
+              <Calendar className="h-4 w-4" />
+              Paket Tour Medan
+            </div>
+            <h1 className="mt-6 max-w-xl text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+              Rencanakan perjalanan Anda dari Medan.
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-7 text-emerald-50 md:text-lg">
+              Pilih destinasi favorit Anda untuk Berastagi, Danau Toba, Bukit Lawang, atau city tour Medan yang lebih santai dan mudah disesuaikan dengan jadwal.
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Button size="lg" className="bg-white text-teal-700 hover:bg-emerald-50" asChild>
+                <Link href="#paket">
+                  Lihat pilihan paket
+                  <Users className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="border-white/40 bg-transparent text-white hover:bg-white/10" asChild>
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Bahas itinerary
+                </a>
+              </Button>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 drop-shadow-2xl">
-            Jelajahi Sumatera Utara
-          </h1>
-          <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8 drop-shadow-lg">
-            Paket wisata Danau Toba, Berastagi, Bukit Lawang dengan sopir guide profesional
-          </p>
-          <Button size="lg" className="bg-white text-teal-600 hover:bg-gray-100 text-xl px-12 font-bold shadow-2xl" asChild>
-            <Link href="#paket">
-              Lihat Paket Terbaik
-              <Users className="w-6 h-6 ml-3" />
-            </Link>
-          </Button>
+
+          <div className="relative rounded-3xl border border-white/15 bg-white/5 p-3 shadow-2xl backdrop-blur-sm">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+              <Image
+                src="/medan/paket-tour/paket-wisata-danau-toba-3-day-2-night.webp"
+                alt="Paket wisata Danau Toba dari Medan"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Paket Grid */}
-      <section id="paket" className="py-24 bg-gradient-to-b from-slate-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-20">
-            <Badge className="text-lg px-6 py-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold mb-6 inline-flex items-center gap-2">
-              <MapPin className="w-5 h-5" />
-              10+ PAKET TERBAIK
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-              Pilih Paket Wisata Anda
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Pilih paket tour yang sesuai kebutuhan liburan keluarga, honeymoon, atau petualangan. Semua paket sudah include mobil, sopir guide, dan akomodasi.
-            </p>
+      <section id="paket" className="py-16 md:py-20">
+        <div className="medan-container">
+          <div className="mb-10 max-w-3xl">
+            <p className="medan-eyebrow">Pilihan perjalanan</p>
+            <h2 className="medan-heading-2 mt-3">Paket wisata yang bisa disesuaikan dengan kebutuhan Anda.</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {tourPackages.map((tour) => (
-              <div key={tour.id} className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2">
-                {/* Image */}
-                <div className="relative overflow-hidden w-full aspect-[4/5] max-w-[644px] mx-auto">
+              <article key={tour.id} className="group overflow-hidden rounded-2xl border border-[var(--medan-border)] bg-white shadow-[var(--medan-shadow-subtle)] transition hover:-translate-y-1 hover:shadow-[var(--medan-shadow-floating)]">
+                <div className="relative aspect-[4/5] overflow-hidden bg-slate-100">
                   <Image
                     src={tour.image}
                     alt={tour.name}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover transition duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4">
-                    <Badge variant="secondary" className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-bold shadow-lg">
+                  <div className="absolute left-4 top-4">
+                    <Badge variant="secondary" className="bg-white/90 text-slate-800 shadow-sm">
                       {tour.duration}
                     </Badge>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 </div>
 
-                {/* Content */}
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-teal-600 transition-colors">
-                    {tour.name}
-                  </h3>
-                  <p className="text-gray-600 mb-6 line-clamp-3">{tour.description}</p>
-                  
-                  {/* Destinations */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                      <MapPin className="w-5 h-5 text-teal-600" />
-                      Destinasi Utama
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[var(--medan-text)]">{tour.name}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[var(--medan-muted)]">{tour.description}</p>
+
+                  <div className="mt-5">
+                    <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-[var(--medan-text)]">
+                      <MapPin className="h-4 w-4 text-[var(--medan-primary)]" />
+                      Destinasi utama
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {tour.destinations.slice(0, 4).map((dest, idx) => (
-                        <Badge key={idx} variant="outline" className="text-sm">
+                        <Badge key={idx} variant="outline" className="text-xs text-[var(--medan-muted)]">
                           {dest}
                         </Badge>
                       ))}
                     </div>
                   </div>
 
-                  {/* CTA without price */}
-                  <div className="mb-8" />
-
-                  {/* CTA */}
-                  <Button size="lg" className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 shadow-xl font-bold text-lg" asChild>
-                    <a href={`https://wa.me/6282363389893?text=Halo VRN, saya tertarik ${tour.name} (${tour.duration}). Bisa kirim itinerary & harga detail?`} target="_blank" rel="noopener noreferrer">
-                      Lihat Detail Paket
+                  <Button className="mt-6 w-full bg-[var(--medan-primary)] hover:bg-[var(--medan-primary-dark)]" asChild>
+                    <a href={`${whatsappLink}&text=${encodeURIComponent(`Halo VRN, saya tertarik ${tour.name} (${tour.duration}). Bisa kirim detail itinerarynya.`)}`} target="_blank" rel="noopener noreferrer">
+                      Bahas itinerary
                     </a>
                   </Button>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 
-          {/* CTA Bottom */}
-          <div className="text-center">
-            <Button size="lg" variant="outline" className="text-2xl px-16 py-8 border-4 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white shadow-2xl font-bold">
-              <Phone className="w-8 h-8 mr-4" />
-              Tanya Paket Custom via WhatsApp
+          <div className="mt-12 rounded-2xl border border-[var(--medan-border)] bg-white p-6 text-center shadow-[var(--medan-shadow-subtle)] md:p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--medan-primary)]">Butuh rencana yang lebih spesifik?</p>
+            <h3 className="mt-3 text-2xl font-bold text-[var(--medan-text)]">Bicarakan paket custom untuk keluarga, grup, atau perjalanan bisnis.</h3>
+            <Button className="mt-6 bg-[var(--medan-primary)] hover:bg-[var(--medan-primary-dark)]" asChild>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <Phone className="mr-2 h-5 w-5" />
+                Tanya paket custom
+              </a>
             </Button>
           </div>
         </div>

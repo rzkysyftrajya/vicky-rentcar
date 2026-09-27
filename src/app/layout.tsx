@@ -1,4 +1,4 @@
-// src/app/layout.tsx
+﻿// src/app/layout.tsx
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -8,6 +8,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { FloatingDock } from "@/components/ui/floating-dock";
+import RouteMain from "@/components/layout/RouteMain";
 import { IconBrandWhatsapp, IconPhone } from "@tabler/icons-react";
 import { AppContextProvider } from "./context/AppContext";
 import Script from "next/script";
@@ -20,7 +21,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vickyrentcarnusantara.com"),
+  metadataBase: new URL("https://www.vickyrentcarnusantara.com"),
   title: {
     default:
       "Rental Mobil & Sewa Mobil Medan, Jakarta, Bali | PT.VICKY RENTCAR NUSANTARA",
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
     description:
       "Layanan sewa mobil lepas kunci dan dengan sopir 24 jam. Pilihan armada lengkap untuk perjalanan bisnis dan wisata.",
     type: "website",
-    url: "https://vickyrentcarnusantara.com",
+    url: "https://www.vickyrentcarnusantara.com",
     siteName: "PT.VICKY RENTCAR NUSANTARA",
   },
 };
@@ -58,9 +59,9 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "PT. VICKY RENTCAR NUSANTARA",
-  url: "https://vickyrentcarnusantara.com",
-  logo: "https://vickyrentcarnusantara.com/logo-vicky.png",
-  image: "https://vickyrentcarnusantara.com/section.webp",
+  url: "https://www.vickyrentcarnusantara.com",
+  logo: "https://www.vickyrentcarnusantara.com/logo-vicky.png",
+  image: "https://www.vickyrentcarnusantara.com/section.webp",
   description:
     "Pusat sewa dan rental mobil terpercaya di Indonesia. Melayani kebutuhan sewa mobil di Medan, Jakarta, dan Bali.",
   telephone: "+6282363389893",
@@ -218,10 +219,14 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <div className="flex flex-col w-full">
-              <Navbar />
-              <main className="flex-grow">{children}</main>
-              <Footer />
-              <div className="fixed bottom-4 left-4 z-50">
+              <div id="global-route-chrome">
+                <Navbar />
+              </div>
+              <RouteMain>{children}</RouteMain>
+              <div id="global-route-chrome-footer">
+                <Footer />
+              </div>
+              <div id="global-route-contact-dock" className="fixed bottom-4 left-4 z-50">
                 <FloatingDock items={dockItems} />
               </div>
             </div>

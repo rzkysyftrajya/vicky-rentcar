@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Phone, Clock, MapPin, Mail, ExternalLink } from "lucide-react";
 
@@ -15,9 +15,9 @@ const FooterFixed = () => {
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-bold mb-4">VRN Rent Car Medan</h3>
             <p className="text-gray-300 mb-6 max-w-md">
-              Layanan rental mobil terpercaya di Medan dan Sumatera Utara.
-              Melayani kebutuhan transportasi bisnis, wisata, dan perjalanan
-              keluarga Anda.
+              Layanan rental mobil di Medan untuk kebutuhan bisnis, wisata, dan
+              perjalanan keluarga dengan pilihan kendaraan yang sesuai untuk
+              setiap rute.
             </p>
             <p className="text-sm text-gray-400 italic">
               Bagian dari jaringan Vicky Rent Car Nusantara
@@ -97,7 +97,7 @@ const FooterFixed = () => {
               </li>
               <li>
                 <a
-                  href="https://vickyrentcarnusantara.com"
+                  href="https://www.vickyrentcarnusantara.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
