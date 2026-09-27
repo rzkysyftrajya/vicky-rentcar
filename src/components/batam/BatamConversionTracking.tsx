@@ -41,8 +41,7 @@ export default function BatamConversionTracking() {
 
                 if (typeof window.gtag === "function") {
                   window.gtag("event", "conversion", {
-                    send_to:
-                      "AW-17357105664/UHQkCJrjh4cdEIDUwdRA",
+                    send_to: "AW-17357105664/c6ZTCP-6iYcdEIDUwdRA",
                     value: 1,
                     currency: "IDR"
                   });
