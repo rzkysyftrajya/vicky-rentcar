@@ -61,6 +61,33 @@ export default function RentalMobilSurabayaLayout({
         `}
       </Script>
 
+      {/* Konversi klik WhatsApp khusus halaman Surabaya — AW-17510183879/wj1kCPmgo4gdEMfnwJ1B */}
+      <Script id="google-ads-wa-click-surabaya" strategy="afterInteractive">
+        {`
+          (function () {
+            // Guard: pastikan listener hanya dipasang sekali
+            if (window.__vrnSbyWaListenerAttached) return;
+            window.__vrnSbyWaListenerAttached = true;
+
+            document.addEventListener('click', function (e) {
+              var el = e.target && e.target.closest('a[href*="wa.me"]');
+              if (!el) return;
+
+              // Guard: satu klik hanya kirim satu konversi (debounce 1 detik)
+              if (el.__vrnSbyWaFired) return;
+              el.__vrnSbyWaFired = true;
+              setTimeout(function () { el.__vrnSbyWaFired = false; }, 1000);
+
+              if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                  send_to: 'AW-17510183879/wj1kCPmgo4gdEMfnwJ1B'
+                });
+              }
+            }, true);
+          })();
+        `}
+      </Script>
+
       <AppContextProvider>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {/* Menerapkan class font Inter agar sinkron dengan globals.css */}
