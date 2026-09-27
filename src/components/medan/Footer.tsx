@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Instagram, Music2 } from "lucide-react";
 import { ClientYear } from "@/components/ui/client-year";
 import { createMedanWhatsAppUrl } from "./MedanWhatsApp";
 
@@ -14,6 +15,19 @@ const companyLinks = [
   { label: "FAQ", href: "/medan/faq" },
   { label: "Testimoni", href: "/medan/testimonials" },
   { label: "Hubungi Kami", href: "/medan/contact" },
+];
+
+const socialLinks = [
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@ptvickyrentalnusantara",
+    icon: Music2,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/rentcarmedanvicky/?igsh=M2o3N2liZW10Mm9p",
+    icon: Instagram,
+  },
 ];
 
 export default function Footer() {
@@ -65,6 +79,23 @@ export default function Footer() {
           >
             WhatsApp
           </a>
+          <p className="mt-5 text-xs font-semibold uppercase tracking-[0.12em] text-white/60">
+            Ikuti kami
+          </p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {socialLinks.map(({ label, href, icon: Icon }) => (
+              <a
+                key={label}
+                className="inline-flex min-h-10 items-center gap-2 rounded-md border border-white/20 px-3 text-sm text-white/80 transition-colors hover:border-white/50 hover:text-white"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon className="h-4 w-4" aria-hidden="true" />
+                {label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
       <div className="border-t border-white/15">

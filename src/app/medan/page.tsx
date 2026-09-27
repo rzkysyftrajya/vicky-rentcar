@@ -4,10 +4,17 @@ import Link from "next/link";
 import {
   ArrowRight,
   CircleCheckBig,
+  Compass,
+  MapPinned,
   PhoneCall,
+  PlaneTakeoff,
+  Route,
+  ShieldCheck,
+  Users,
 } from "lucide-react";
 import { createMedanWhatsAppUrl } from "@/components/medan/MedanWhatsApp";
 import { cars } from "@/data/fleet-data";
+import { topTourPackages } from "@/data/medan-tour-packages";
 
 export const metadata: Metadata = {
   title: "Rental Mobil Medan | Sewa Mobil di Medan untuk Harian, Wisata & Bandara",
@@ -20,32 +27,36 @@ export const metadata: Metadata = {
 
 const serviceOptions = [
   {
-    title: "Transfer bandara",
+    title: "Antar jemput Bandara Kualanamu",
     description:
-      "Antar jemput Bandara Kualanamu dan perjalanan kota dengan jadwal yang jelas dan driver yang siap di titik penjemputan.",
+      "Layanan pickup dan drop-off yang membantu perjalanan datang dan berangkat lebih teratur, terutama untuk jadwal yang perlu tepat waktu.",
     href: createMedanWhatsAppUrl({ type: "airport" }),
     label: "Tanya transfer",
+    icon: PlaneTakeoff,
   },
   {
-    title: "Perjalanan keluarga",
+    title: "Rental mobil untuk keluarga",
     description:
-      "Pilih kendaraan yang nyaman untuk liburan, keluarga, dan perjalanan antar kota dengan bagasi yang aman dan ruang yang cukup.",
+      "Pilih kendaraan yang nyaman untuk liburan keluarga, perjalanan antar kota, serta kebutuhan bagasi yang lebih banyak tanpa repot.",
     href: createMedanWhatsAppUrl({ type: "service", service: "keluarga" }),
     label: "Lihat pilihan",
+    icon: Users,
   },
   {
-    title: "Dinas & acara",
+    title: "Bisnis & acara dinas",
     description:
-      "Mobilitas profesional untuk meeting, acara kantor, tamu penting, dan jadwal yang perlu presisi sejak awal.",
+      "Mobilitas profesional untuk meeting, agenda kantor, tamu penting, dan perjalanan yang membutuhkan jadwal yang tepat sejak awal.",
     href: createMedanWhatsAppUrl({ type: "service", service: "dinas" }),
     label: "Konsultasikan",
+    icon: ShieldCheck,
   },
   {
-    title: "Wisata Medan",
+    title: "Wisata Medan & Sumatera Utara",
     description:
-      "Rute mudah untuk tujuan seperti Danau Toba, Berastagi, Bukit Lawang, dan perjalanan santai di sekitar kota.",
+      "Rute mudah ke Danau Toba, Berastagi, Bukit Lawang, dan destinasi wisata favorit di sekitar Medan dengan perjalanan yang lebih nyaman.",
     href: createMedanWhatsAppUrl({ type: "destination", destination: "wisata Medan" }),
     label: "Cek rekomendasi",
+    icon: Compass,
   },
 ];
 
@@ -56,28 +67,36 @@ const fleetShowcase = cars
       "Innova Reborn",
       "Innova Zenix",
       "Fortuner",
-      "Alphard Gen 3",
-      "Hiace Premio",
       "Toyota Rush",
+      "Hiace Premio",
     ].includes(car.name),
   )
-  .slice(0, 3);
+  .slice(0, 6);
 
 const planningIdeas = [
   {
-    title: "Transfer bandara dan pulang pergi",
+    title: "Perjalanan keluarga dan liburan",
     description:
-      "Anda tiba, langsung dijemput, perjalanan dimulai tanpa antre dan tanpa kebingungan rute.",
+      "Pilih kendaraan dengan ruang bagasi yang cukup, kursi nyaman, dan rute yang lebih santai untuk perjalanan bersama keluarga.",
+    tag: "Keluarga",
   },
   {
-    title: "Keluarga & wisata akhir pekan",
+    title: "Tamu kantor atau kebutuhan bisnis",
     description:
-      "Pilih mobil dengan bagasi cukup, kursi nyaman, dan driver yang tahu rute perjalanan keluarga Anda.",
+      "Untuk mobilitas profesional, pilih armada yang rapi, bersih, dan dapat mengikuti jadwal kerja Anda dengan lebih presisi.",
+    tag: "Bisnis",
   },
   {
-    title: "Dinas, tamu, atau acara khusus",
+    title: "Rombongan dan perjalanan wisata",
     description:
-      "Mobil yang rapi, penampilan profesional, dan jadwal yang bisa disesuaikan dengan kebutuhan Anda.",
+      "Unit seperti Hiace dan MPV membantu perjalanan lebih lancar untuk rombongan, keluarga besar, atau liburan bersama teman.",
+    tag: "Rombongan",
+  },
+  {
+    title: "Bandara & transfer antar kota",
+    description:
+      "Untuk tiba dan berangkat tepat waktu, Anda bisa pilih kendaraan sesuai jumlah penumpang dan kebutuhan bagasi di Bandara Kualanamu.",
+    tag: "Airport",
   },
 ];
 
@@ -88,14 +107,14 @@ const contextLinks = [
     href: "/medan/fleet",
   },
   {
-    label: "Testimoni",
-    description: "Baca ulasan pelanggan pada halaman testimoni.",
-    href: "/medan/testimonials",
+    label: "Layanan bandara",
+    description: "Cek kebutuhan antar jemput Kualanamu di halaman khusus kami.",
+    href: "/medan/airport",
   },
   {
-    label: "Tentang VRN Medan",
-    description: "Kenali informasi perusahaan dan layanan di Medan.",
-    href: "/medan/about-us",
+    label: "Paket tour",
+    description: "Temukan rekomendasi perjalanan ke Danau Toba dan Berastagi.",
+    href: "/medan/paket-tour",
   },
 ];
 
@@ -108,44 +127,69 @@ const faqItems = [
   {
     question: "Apakah tersedia sopir?",
     answer:
-      "Ya. Di VRN Medan, Anda bisa memilih layanan dengan sopir maupun kebutuhan lain sesuai kebutuhan perjalanan Anda.",
+      "Ya. Di VRN Medan, Anda bisa memilih layanan dengan sopir untuk kebutuhan keluarga, bandara, maupun perjalanan bisnis.",
   },
   {
-    question: "Apakah melayani bandara Kualanamu?",
+    question: "Apakah melayani antar jemput Bandara Kualanamu?",
     answer:
       "Ya. Layanan antar jemput bandara adalah salah satu kebutuhan yang sering kami bantu, terutama untuk perjalanan yang harus tepat waktu.",
   },
   {
-    question: "Apakah bisa untuk keluarga atau rombongan?",
+    question: "Apakah bisa untuk rombongan atau wisata?",
     answer:
-      "Bisa. Kami punya pilihan kendaraan untuk keluarga, rombongan, dan kebutuhan perjalanan panjang yang lebih nyaman.",
+      "Bisa. Kami punya pilihan kendaraan untuk keluarga, rombongan, dan perjalanan wisata seperti Danau Toba, Berastagi, dan sekitarnya.",
+  },
+];
+
+const needOptions = [
+  {
+    title: "Perjalanan keluarga",
+    subtitle: "Nyaman untuk liburan dan mobilitas harian",
+    vehicleNames: ["Toyota Avanza", "Innova Reborn", "Innova Zenix", "Toyota Rush"],
   },
   {
-    question: "Bagaimana cara konsultasi?",
-    answer:
-      "Kirim kebutuhan Anda via WhatsApp, lalu kami akan rekomendasikan opsi kendaraan dan layanan yang paling cocok untuk jadwal Anda.",
+    title: "Tamu perusahaan",
+    subtitle: "Rapi dan cocok untuk tuntutan jadwal kerja",
+    vehicleNames: ["Fortuner", "Toyota Avanza", "Innova Zenix"],
   },
+  {
+    title: "Rombongan",
+    subtitle: "Cocok untuk perjalanan bersama teman atau keluarga besar",
+    vehicleNames: ["Hiace Premio", "Innova Reborn", "Toyota Rush"],
+  },
+  {
+    title: "Wisata Medan",
+    subtitle: "Untuk menuju kota wisata dan perjalanan santai",
+    vehicleNames: ["Toyota Avanza", "Fortuner", "Innova Zenix", "Toyota Rush"],
+  },
+];
+
+const processSteps = [
+  "Tentukan kebutuhan perjalanan Anda",
+  "Pilih kendaraan atau layanan yang sesuai",
+  "Konsultasikan melalui WhatsApp",
+  "Konfirmasi jadwal dan rute perjalanan",
 ];
 
 export default function MedanPage() {
   return (
     <main className="bg-[var(--medan-background)] text-[var(--medan-text)]">
-      <section className="pt-7 pb-12 md:pt-16 md:pb-20">
+      <section className="pb-12 pt-7 md:pb-20 md:pt-16">
         <div className="medan-container grid items-center gap-7 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--medan-border)] bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--medan-primary)] shadow-[var(--medan-shadow-subtle)] md:mb-6">
-            PT.VICKY RENTCAR MEDAN
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--medan-border)] bg-white px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--medan-primary)] shadow-[var(--medan-shadow-subtle)] md:mb-6">
+              PT. Vicky Rentcar Medan
             </div>
 
-            <h1 className="max-w-xl text-3xl font-bold leading-[1.1] tracking-[-0.04em] text-[var(--medan-text)] md:text-5xl md:leading-tight lg:text-6xl">
-              Rental mobil di Medan untuk kebutuhan perjalanan yang jelas.
-              <span className="text-[var(--medan-primary)] md:mt-2 md:block">
-                Pilih kendaraan yang cocok untuk jadwal Anda.
+            <h1 className="max-w-xl text-3xl font-bold leading-[1.08] tracking-[-0.04em] text-[var(--medan-text)] md:text-5xl md:leading-tight lg:text-6xl">
+              Rental mobil Medan yang siap mendukung perjalanan Anda.
+              <span className="mt-2 block text-[var(--medan-primary)]">
+                Nyaman, praktis, dan sesuai kebutuhan.
               </span>
             </h1>
 
             <p className="mt-4 max-w-xl text-[15px] leading-6 text-[var(--medan-muted)] md:mt-5 md:text-lg md:leading-7">
-              Dari perjalanan bandara, keluarga, bisnis, hingga wisata, kami bantu pilih unit yang sesuai dengan jumlah penumpang, rute, dan jadwal keberangkatan.
+              Dari perjalanan bandara, keluarga, bisnis, hingga wisata ke Danau Toba dan Berastagi, kami bantu pilih kendaraan yang tepat untuk jadwal, jumlah penumpang, dan rute Anda.
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row md:mt-8">
@@ -156,7 +200,7 @@ export default function MedanPage() {
                 className="medan-button medan-button-primary inline-flex items-center justify-center gap-2"
               >
                 <PhoneCall className="h-4 w-4" />
-                Konsultasikan kebutuhan via WhatsApp
+                Konsultasikan kebutuhan
               </a>
 
               <a
@@ -169,11 +213,7 @@ export default function MedanPage() {
             </div>
 
             <div className="mt-5 flex flex-wrap items-center gap-2 text-sm text-[var(--medan-muted)] md:mt-8 md:gap-3">
-              {[
-                "Bandara & transfer",
-                "Perjalanan keluarga",
-                "Bisnis & acara",
-              ].map((item) => (
+              {["Bandara & transfer", "Keluarga", "Bisnis & dinas", "Wisata"].map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-[var(--medan-border)] bg-white px-3 py-1.5"
@@ -189,7 +229,7 @@ export default function MedanPage() {
               <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-100 md:aspect-[4/3] md:rounded-[20px]">
                 <Image
                   src="/medan/hero-section.webp"
-                  alt="Mobil keluarga dan armada rental di Medan"
+                  alt="Layanan rental mobil Medan dan armada yang siap untuk keluarga dan wisata"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -197,29 +237,31 @@ export default function MedanPage() {
                 />
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      <section id="service-router" className="bg-[var(--medan-background)] py-12 md:py-20">
+      <section id="service-router" className="py-12 md:py-20">
         <div className="medan-container">
           <div className="mb-10 max-w-2xl">
             <p className="medan-eyebrow">Pilih layanan</p>
-            <h2 className="medan-heading-2 mt-3">Mulai dari rencana perjalanan Anda.</h2>
+            <h2 className="medan-heading-2 mt-3">Pilih berdasarkan kebutuhan perjalanan Anda.</h2>
           </div>
 
           <div className="grid gap-x-12 md:grid-cols-2">
-            {serviceOptions.map(({ title, description, href, label }, index) => (
+            {serviceOptions.map(({ title, description, href, label, icon: Icon }, index) => (
               <article
                 key={title}
-                className="grid grid-cols-[2rem_1fr] gap-4 border-t border-[var(--medan-border)] py-5"
+                className="grid grid-cols-[2.5rem_1fr] gap-4 border-t border-[var(--medan-border)] py-5"
               >
-                <span className="pt-1 text-sm font-semibold tabular-nums text-[var(--medan-muted)]">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+                <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-[#edf3ff] text-[var(--medan-primary)]">
+                  <Icon className="h-5 w-5" />
+                </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-[var(--medan-text)]">{title}</h3>
+                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--medan-muted)]">
+                    0{index + 1}
+                  </span>
+                  <h3 className="mt-2 text-lg font-semibold text-[var(--medan-text)]">{title}</h3>
                   <p className="mt-2 text-sm leading-6 text-[var(--medan-muted)]">{description}</p>
                   <a
                     href={href}
@@ -237,58 +279,54 @@ export default function MedanPage() {
         </div>
       </section>
 
-      <section id="vehicle-discovery" className="scroll-mt-20 py-16 md:py-20">
+      <section id="vehicle-discovery" className="scroll-mt-20 bg-white py-16 md:py-20">
         <div className="medan-container">
-          <div className="mb-10 max-w-2xl">
-            <p className="medan-eyebrow">Pilih kendaraan</p>
-            <h2 className="medan-heading-2 mt-3">Jelajahi kendaraan yang paling cocok untuk Anda.</h2>
+          <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-2xl">
+              <p className="medan-eyebrow">Armada pilihan</p>
+              <h2 className="medan-heading-2 mt-3">Pilih kendaraan yang paling cocok untuk rute Anda.</h2>
+            </div>
+            <Link href="/medan/fleet" className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--medan-primary)]">
+              Lihat seluruh armada
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
 
-          <div className="divide-y divide-[var(--medan-border)] border-y border-[var(--medan-border)]">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {fleetShowcase.map((car) => (
-              <article
-                key={car.slug}
-                className="grid gap-4 py-5 sm:grid-cols-[minmax(0,0.9fr)_1.1fr] sm:items-center sm:gap-6"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-100">
+              <article key={car.slug} className="overflow-hidden rounded-[22px] border border-[var(--medan-border)] bg-[var(--medan-background)] shadow-[var(--medan-shadow-subtle)]">
+                <div className="relative aspect-[5/7] overflow-hidden bg-slate-100">
                   <Image
                     src={car.image}
                     alt={car.name}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1200px) 45vw, 35vw"
-                    className="object-cover object-[center_60%]"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className="object-contain"
                   />
                 </div>
-
-                <div className="flex items-center justify-between gap-4 sm:py-2">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--medan-muted)]">
-                      {car.category}
-                    </p>
-                    <h3 className="mt-1 text-xl font-semibold text-[var(--medan-text)]">{car.name}</h3>
-                    <p className="mt-2 text-sm text-[var(--medan-muted)]">{car.specs.slice(0, 2).join(" · ")}</p>
+                <div className="p-5">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--medan-muted)]">
+                    {car.category}
+                  </p>
+                  <h3 className="mt-2 text-xl font-semibold text-[var(--medan-text)]">{car.name}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[var(--medan-muted)]">
+                    {car.specs.slice(0, 2).join(" · ")}
+                  </p>
+                  <div className="mt-4 flex items-center justify-between gap-3 border-t border-[var(--medan-border)] pt-4">
+                    <span className="text-xs font-medium uppercase tracking-[0.12em] text-[var(--medan-primary)]">Ready</span>
+                    <a
+                      href={createMedanWhatsAppUrl({ type: "vehicle", vehicle: car.name })}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--medan-primary)]"
+                    >
+                      Tanya ketersediaan
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
                   </div>
-                  <a
-                    href={createMedanWhatsAppUrl({ type: "vehicle", vehicle: car.name })}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Tanya ketersediaan ${car.name}`}
-                    className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--medan-border)] text-[var(--medan-primary)] hover:bg-white"
-                  >
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
                 </div>
               </article>
             ))}
-          </div>
-          <div className="mt-6 text-center">
-            <Link
-              href="/medan/fleet"
-              className="medan-button medan-button-secondary inline-flex items-center gap-2"
-            >
-              Lihat seluruh armada
-              <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </section>
@@ -296,51 +334,144 @@ export default function MedanPage() {
       <section id="travel-planning" className="bg-[#eef2f7] py-12 md:py-20">
         <div className="medan-container">
           <div className="mb-10 max-w-2xl">
-            <p className="medan-eyebrow">Perencanaan perjalanan</p>
-            <h2 className="medan-heading-2 mt-3">Pilih jalur perjalanan yang paling tepat untuk Anda.</h2>
+            <p className="medan-eyebrow">Pilih berdasarkan kebutuhan</p>
+            <h2 className="medan-heading-2 mt-3">Mobil seperti apa yang paling cocok untuk perjalanan Anda?</h2>
           </div>
 
-          <div className="divide-y divide-[var(--medan-border)] border-y border-[var(--medan-border)]">
-            {planningIdeas.map((item, index) => (
-              <article
-                key={item.title}
-                className="grid gap-3 py-5 md:grid-cols-[minmax(15rem,0.9fr)_1.1fr] md:items-start md:gap-8 md:py-6"
-              >
-                <div className="flex items-baseline gap-4">
-                  <span className="text-3xl font-semibold leading-none tabular-nums text-[var(--medan-primary)]">
-                    0{index + 1}
-                  </span>
-                  <h3 className="text-lg font-semibold text-[var(--medan-text)]">{item.title}</h3>
-                </div>
-                <p className="text-sm leading-6 text-[var(--medan-muted)]">{item.description}</p>
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {needOptions.map((item) => (
+              <article key={item.title} className="rounded-[22px] border border-[var(--medan-border)] bg-white p-5 shadow-[var(--medan-shadow-subtle)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--medan-primary)]">{item.title}</p>
+                <h3 className="mt-3 text-lg font-semibold text-[var(--medan-text)]">{item.subtitle}</h3>
+                <ul className="mt-4 space-y-2 text-sm text-[var(--medan-muted)]">
+                  {item.vehicleNames.map((vehicle) => (
+                    <li key={vehicle} className="flex items-center gap-2">
+                      <span className="inline-block h-2 w-2 rounded-full bg-[var(--medan-primary)]" aria-hidden="true" />
+                      {vehicle}
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="proof" className="bg-[var(--medan-primary-dark)] py-12 text-white md:py-20">
+      <section id="how-to-order" className="py-12 md:py-20">
         <div className="medan-container">
           <div className="mb-10 max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-blue-200">Informasi lebih lanjut</p>
-            <h2 className="mt-3 text-3xl font-bold leading-tight tracking-[-0.02em] md:text-4xl">
-              Lihat detail sebelum memilih.
-            </h2>
+            <p className="medan-eyebrow">Cara pemesanan</p>
+            <h2 className="medan-heading-2 mt-3">Prosesnya tetap simpel dan jelas.</h2>
           </div>
 
-          <div className="divide-y divide-white/20 border-y border-white/20 md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
-            {contextLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group flex items-center justify-between gap-4 py-5 md:px-5 md:first:pl-0 md:last:pr-0"
-              >
-                <span>
-                  <span className="block text-lg font-semibold">{item.label}</span>
-                  <span className="mt-1 block text-sm leading-6 text-blue-100">{item.description}</span>
-                </span>
-                <ArrowRight className="h-4 w-4 shrink-0 text-blue-200 transition-transform group-hover:translate-x-1" />
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {processSteps.map((step, index) => (
+              <div key={step} className="rounded-[22px] border border-[var(--medan-border)] bg-white p-5">
+                <div className="flex items-center justify-between">
+                  <span className="text-3xl font-bold leading-none text-[var(--medan-primary)]">0{index + 1}</span>
+                  <Route className="h-5 w-5 text-[var(--medan-primary)]" />
+                </div>
+                <p className="mt-4 text-base font-semibold text-[var(--medan-text)]">{step}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="airport-transfer" className="bg-[var(--medan-primary-dark)] py-12 text-white md:py-20">
+        <div className="medan-container grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+          <div>
+            <p className="medan-eyebrow text-blue-200">Antar jemput bandara</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-[-0.03em] md:text-4xl">
+              Antar Jemput Bandara Kualanamu
+            </h2>
+            <p className="mt-4 max-w-xl text-base leading-7 text-blue-100">
+              Jika Anda butuh mobil saat kedatangan atau keberangkatan, kami siap membantu menyesuaikan jadwal, titik penjemputan, dan kendaraan yang cocok untuk jumlah penumpang serta bagasi Anda.
+            </p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <Link href="/medan/airport" className="medan-button medan-button-primary inline-flex items-center justify-center gap-2 bg-white text-[var(--medan-primary)] hover:bg-slate-100">
+                Lihat layanan bandara
+                <ArrowRight className="h-4 w-4" />
               </Link>
+              <a
+                href={createMedanWhatsAppUrl({ type: "airport" })}
+                target="_blank"
+                rel="noreferrer"
+                className="medan-button medan-button-secondary inline-flex items-center justify-center gap-2 border-white/20 bg-white/5 text-white hover:bg-white/10"
+              >
+                Konsultasi kebutuhan
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-[28px] border border-white/15 bg-white/5 p-6 backdrop-blur-sm">
+            <div className="space-y-5">
+              <div className="flex items-start gap-3">
+                <span className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-blue-200">
+                  <MapPinned className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.12em] text-blue-200">Kedatangan</p>
+                  <p className="mt-2 text-base text-white/90">Driver menyesuaikan jadwal kedatangan dan titik pickup agar perjalanan dimulai tanpa hambatan.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-blue-200">
+                  <PlaneTakeoff className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.12em] text-blue-200">Keberangkatan</p>
+                  <p className="mt-2 text-base text-white/90">Cocok untuk jadwal penerbangan, perjalanan keluarga, maupun kebutuhan perjalanan ke kota tujuan.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-blue-200">
+                  <ShieldCheck className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.12em] text-blue-200">Kebutuhan kendaraan</p>
+                  <p className="mt-2 text-base text-white/90">Kami membantu memilih unit berdasarkan jumlah penumpang, bagasi, dan jenis perjalanan.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tourism" className="py-12 md:py-20">
+        <div className="medan-container">
+          <div className="mb-10 max-w-2xl">
+            <p className="medan-eyebrow">Wisata & destinasi</p>
+            <h2 className="medan-heading-2 mt-3">Jelajahi destinasi favorit dari Medan.</h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {topTourPackages.map((item) => (
+              <article key={item.id} className="overflow-hidden rounded-[22px] border border-[var(--medan-border)] bg-white shadow-[var(--medan-shadow-subtle)]">
+                <div className="relative aspect-[4/5] overflow-hidden bg-slate-100">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className="object-contain"
+                  />
+                </div>
+                <div className="p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--medan-primary)]">{item.duration}</p>
+                  <h3 className="mt-2 text-xl font-semibold text-[var(--medan-text)]">{item.name}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[var(--medan-muted)]">{item.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {item.destinations.slice(0, 3).map((destination) => (
+                      <span key={destination} className="rounded-full border border-[var(--medan-border)] bg-[var(--medan-background)] px-2.5 py-1 text-[11px] text-[var(--medan-muted)]">
+                        {destination}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -371,7 +502,7 @@ export default function MedanPage() {
 
       <section id="final-contact" className="py-12 md:py-20">
         <div className="medan-container">
-          <div className="rounded-2xl border border-[var(--medan-border)] bg-[var(--medan-primary)] px-6 py-8 text-white md:px-10 md:py-12">
+          <div className="rounded-[28px] border border-[var(--medan-border)] bg-[var(--medan-primary)] px-6 py-8 text-white md:px-10 md:py-12">
             <div className="grid items-center gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-100">
@@ -381,7 +512,7 @@ export default function MedanPage() {
                   Kirim kebutuhan Anda dan kami bantu pilih kendaraan yang tepat.
                 </h2>
                 <p className="mt-4 max-w-xl text-base text-blue-100">
-                  Untuk perjalanan hari ini, liburan, keluarga, atau agenda bisnis, tim kami siap membantu menyesuaikan opsi yang paling cocok.
+                  Untuk perjalanan hari ini, liburan keluarga, kebutuhan bisnis, atau wisata ke sekitar Medan, tim kami siap membantu menyesuaikan opsi yang paling cocok.
                 </p>
               </div>
 
@@ -408,8 +539,6 @@ export default function MedanPage() {
           </div>
         </div>
       </section>
-
-      <Link href="#top" className="sr-only">Kembali ke atas</Link>
     </main>
   );
 }

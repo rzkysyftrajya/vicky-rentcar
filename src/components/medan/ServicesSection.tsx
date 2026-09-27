@@ -19,7 +19,7 @@ const services = [
     title: "Antar jemput bandara",
     description:
       "Atur penjemputan dari Kualanamu ke hotel, rumah, atau kantor di Medan. Kirim jadwal penerbangan dan titik tujuan saat menghubungi kami.",
-    image: "/medan/layanan/vip-airport-transfer.webp",
+    image: "/medan/layanan/layanan-antar-jemput-bandara.webp",
     imageAlt: "Kendaraan untuk layanan antar jemput bandara",
     icon: Plane,
     context: { type: "airport" } as const,
@@ -30,7 +30,7 @@ const services = [
     title: "Mobilitas harian",
     description:
       "Untuk agenda kerja, urusan keluarga, atau beberapa tujuan dalam satu hari. Pilih kendaraan dan sampaikan rute serta durasi yang Anda perlukan.",
-    image: "/medan/hero-section.webp",
+    image: "/medan/layanan/layanan-mobilitas-harian.webp",
     imageAlt: "Pilihan kendaraan rental untuk perjalanan di Medan",
     icon: CarFront,
     context: { type: "service", service: "perjalanan harian di Medan" } as const,
@@ -41,7 +41,7 @@ const services = [
     title: "Medan dan Sumatera Utara",
     description:
       "Berangkat dari Medan menuju Berastagi, Parapat, atau kawasan Danau Toba. Ceritakan rute dan rencana singgah agar perjalanan dapat disiapkan.",
-    image: "/medan/layanan/luxury-city-tour.webp",
+    image: "/medan/layanan/layanan-medan-dan-sumatera-utara.webp",
     imageAlt: "Kendaraan untuk perjalanan wisata dari Medan",
     icon: Route,
     context: { type: "service", service: "perjalanan luar kota dari Medan" } as const,
@@ -52,7 +52,7 @@ const services = [
     title: "Kendaraan untuk perusahaan",
     description:
       "Dari penjemputan tamu hingga kendaraan untuk agenda kantor. Sampaikan jadwal, jumlah penumpang, dan pola penggunaan untuk dibicarakan.",
-    image: "/medan/layanan/EXECUTIVE-CORPORATE.webp",
+    image: "/medan/layanan/layanan-kendaraan-untuk-perusahaan.webp",
     imageAlt: "Kendaraan untuk kebutuhan perusahaan dan tamu bisnis",
     icon: BriefcaseBusiness,
     context: { type: "service", service: "kendaraan untuk kebutuhan perusahaan" } as const,
@@ -64,7 +64,7 @@ const specialServices = [
     title: "Mobil pengantin",
     description:
       "Pilih kendaraan untuk hari pernikahan dan bicarakan kebutuhan dekorasi serta susunan waktunya.",
-    image: "/medan/layanan/VIP-WEDDING-CAR.webp",
+    image: "/medan/layanan/mobil-pengantin.webp",
     imageAlt: "Mobil untuk layanan perjalanan pernikahan",
     context: { type: "service", service: "mobil pengantin" } as const,
   },
@@ -72,7 +72,7 @@ const specialServices = [
     title: "Perjalanan VIP",
     description:
       "Untuk tamu penting atau agenda khusus, sampaikan preferensi kendaraan dan detail penjemputan.",
-    image: "/medan/layanan/EXECUTIVE-CORPORATE.webp",
+    image: "/medan/layanan/perjalanan-vip.webp",
     imageAlt: "Kendaraan untuk perjalanan VIP",
     context: { type: "service", service: "perjalanan VIP" } as const,
   },
@@ -80,7 +80,7 @@ const specialServices = [
     title: "Sewa jangka panjang",
     description:
       "Butuh kendaraan untuk beberapa minggu atau bulan? Diskusikan durasi dan penggunaan sebelum menentukan unit.",
-    image: "/medan/armada/INNOVA-ZENIX.webp",
+    image: "/medan/layanan/sewa-jangka-panjang.webp",
     imageAlt: "Mobil untuk kebutuhan sewa jangka panjang",
     context: { type: "service", service: "sewa kendaraan jangka panjang" } as const,
   },
@@ -152,9 +152,9 @@ export default function ServicesSection() {
           </div>
 
           <div className="relative mx-auto w-full max-w-xl">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-[var(--medan-border)] bg-white p-2 shadow-[var(--medan-shadow-floating)]">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-[var(--medan-border)] bg-white p-2 shadow-[var(--medan-shadow-floating)]">
               <Image
-                src="/medan/hero-section.webp"
+                src="/medan/layanan/hero-section-layanan.webp"
                 alt="Armada kendaraan untuk perjalanan di Medan"
                 fill
                 priority
@@ -191,7 +191,7 @@ export default function ServicesSection() {
                   key={service.number}
                   className="overflow-hidden rounded-xl border border-[var(--medan-border)] bg-white shadow-[var(--medan-shadow-subtle)]"
                 >
-                  <div className="relative aspect-[16/10] bg-[#e9eef4]">
+                  <div className="relative aspect-[16/9] bg-[#e9eef4]">
                     <Image
                       src={service.image}
                       alt={service.imageAlt}
