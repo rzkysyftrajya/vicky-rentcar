@@ -35,15 +35,18 @@ export default function BatamConversionTracking() {
 
                 var currentTime = Date.now();
 
-                // Mencegah satu klik tercatat dua kali
+                // Mencegah klik ganda dalam waktu 2 detik
                 if (currentTime - lastConversionTime < 2000) return;
+
                 lastConversionTime = currentTime;
 
                 if (typeof window.gtag === "function") {
                   window.gtag("event", "conversion", {
-                    send_to: "AW-17357105664/c6ZTCP-6iYcdEIDUwdRA",
+                    send_to:
+                      "AW-17357105664/c6ZTCP-6iYcdEIDUwdRA",
                     value: 1,
-                    currency: "IDR"
+                    currency: "IDR",
+                    transaction_id: "WA_BATAM_" + currentTime
                   });
                 }
               },
