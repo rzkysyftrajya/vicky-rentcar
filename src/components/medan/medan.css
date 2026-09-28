@@ -165,6 +165,63 @@ body:has(.medan-theme) #global-route-contact-dock {
   }
 }
 
+/* Fade-up reveal animation */
+@keyframes medan-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.medan-reveal {
+  opacity: 0;
+  animation: medan-fade-up 0.7s ease-out forwards;
+}
+
+.medan-reveal-d1 { animation-delay: 0.1s; }
+.medan-reveal-d2 { animation-delay: 0.2s; }
+.medan-reveal-d3 { animation-delay: 0.3s; }
+.medan-reveal-d4 { animation-delay: 0.4s; }
+
+/* Image hover zoom */
+.medan-img-zoom {
+  overflow: hidden;
+}
+
+.medan-img-zoom img,
+.medan-img-zoom > [data-nimg] {
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.medan-img-zoom:hover img,
+.medan-img-zoom:hover > [data-nimg] {
+  transform: scale(1.05);
+}
+
+/* CTA hover lift */
+.medan-cta-lift {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.medan-cta-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgb(16 42 76 / 0.15);
+}
+
+/* Fleet card hover */
+.medan-fleet-card {
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.medan-fleet-card:hover {
+  border-color: rgba(23, 59, 108, 0.25);
+  box-shadow: 0 4px 16px rgb(16 42 76 / 0.08);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .medan-theme *,
   .medan-theme *::before,

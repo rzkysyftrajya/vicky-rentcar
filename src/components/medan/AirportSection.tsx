@@ -49,15 +49,11 @@ const AirportSection = () => {
     "https://wa.me/6282363389893?text=Halo,%20saya%20ingin%20booking%20antar%20jemput%20Bandara%20Kualanamu";
 
   return (
-    <section id="bandara" className="py-20 bg-white relative overflow-hidden">
-      {/* Background Decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-
-      <div className="container mx-auto px-4 relative">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="bandara" className="relative overflow-hidden bg-white py-16 md:py-20">
+      <div className="container relative mx-auto px-4">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] xl:gap-16">
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-7">
             <div>
               <div className="inline-flex items-center gap-2 bg-blue-50 rounded-full px-4 py-2 mb-4">
                 <Plane className="w-4 h-4 text-blue-600" />
@@ -112,7 +108,12 @@ const AirportSection = () => {
                   Konsultasi transfer bandara
                 </a>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button
+                variant="outline"
+                size="lg"
+                asChild
+                className="border-gray-300 bg-white text-gray-900 hover:bg-gray-50 hover:text-gray-900"
+              >
                 <a href="/medan/fleet">Lihat armada</a>
               </Button>
             </div>
@@ -121,15 +122,15 @@ const AirportSection = () => {
           {/* Image/Visual & Process */}
           <div className="space-y-6">
             {/* Airport Image */}
-            <div className="aspect-video rounded-3xl overflow-hidden shadow-xl">
+            <div className="relative isolate aspect-video overflow-hidden rounded-2xl bg-gray-100 shadow-xl">
               <img
-                src="/medan/layanan/vip-airport-transfer.webp"
-                alt="Bandara Kualanamu Medan"
+                src="/medan/layanan/layanan-antar-jemput-bandara.webp"
+                alt="Layanan antar jemput bandara di Medan"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4">
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 z-10">
+                <div className="rounded-xl bg-white/95 p-4 shadow-lg backdrop-blur-sm">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-sm text-gray-600">

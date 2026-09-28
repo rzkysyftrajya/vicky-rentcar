@@ -25,7 +25,7 @@ const destinations = [
     description: "Kota wisata pegunungan dengan udara sejuk dan pasar buah",
     fullDescription:
       "Berastagi adalah kota wisata di dataran tinggi Karo dengan udara yang sejuk dan pemandangan Gunung Sibayak serta Gunung Sinabung. Terkenal dengan pasar buah dan sayuran segar, serta berbagai objek wisata alam yang menarik.",
-    image: "/medan/destinasi-wisata/sibayak.webp",
+    image: "/medan/destinasi-wisata/berastagi.webp",
     distance: "1.5 jam dari Medan",
     highlights: [
       "Gunung Sibayak",
@@ -39,8 +39,7 @@ const destinations = [
     description: "Istana bersejarah peninggalan Kesultanan Deli",
     fullDescription:
       "Istana Maimun adalah ikon kota Medan yang dibangun oleh Sultan Mahmud Al Rasyid Perkasa Alam pada tahun 1888. Istana ini memadukan unsur arsitektur Melayu, Islam, Spanyol, India, dan Italia. Pengunjung dapat melihat koleksi bersejarah dan berpakaian adat Melayu.",
-    image:
-      "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/destinasi-wisata/istana-maimun.webp",
     distance: "Pusat Kota Medan",
     highlights: [
       "Arsitektur Unik",
@@ -54,8 +53,7 @@ const destinations = [
     description: "Pusat kuliner dan hiburan di jantung kota Medan",
     fullDescription:
       "Merdeka Walk adalah kawasan kuliner dan hiburan yang terletak di Lapangan Merdeka, jantung kota Medan. Tempat ini menyajikan berbagai makanan khas Medan dan Indonesia dengan suasana yang nyaman dan modern.",
-    image:
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop",
+    image: "/medan/destinasi-wisata/merdeka-walk.webp",
     distance: "Pusat Kota Medan",
     highlights: [
       "Kuliner Khas Medan",
@@ -79,19 +77,63 @@ const destinations = [
     ],
   },
   {
-    name: "Air Terjun Sipiso-piso",
-    description:
-      "Air terjun tertinggi di Indonesia dengan pemandangan Danau Toba",
+    name: "Air Terjun Sikulikap",
+    description: "Air terjun di tengah hutan dengan suasana alam yang sejuk",
     fullDescription:
-      "Air Terjun Sipiso-piso adalah salah satu air terjun tertinggi di Indonesia dengan ketinggian sekitar 120 meter. Terletak di tepi Danau Toba, air terjun ini menawarkan pemandangan yang spektakuler dengan latar belakang danau vulkanik terbesar di dunia.",
+      "Air Terjun Sikulikap berada di kawasan hutan di Kabupaten Karo. Jalur trekking yang dikelilingi pepohonan membawa pengunjung menuju air terjun dengan suasana sejuk dan alami.",
     image: "/medan/destinasi-wisata/air-terjun-sikulikap.webp",
     distance: "4 jam dari Medan",
     highlights: [
-      "Ketinggian 120m",
-      "View Danau Toba",
+      "Trekking hutan",
+      "Panorama alam",
       "Hiking Trail",
       "Spot Foto",
     ],
+  },
+  {
+    name: "Gunung Sibayak",
+    description: "Gunung berapi populer untuk pendakian dan menikmati matahari terbit",
+    fullDescription:
+      "Gunung Sibayak menawarkan pengalaman mendaki dengan pemandangan pegunungan dan kawah vulkanik. Pendakian pagi hari menjadi pilihan populer untuk menikmati matahari terbit dari kawasan Berastagi.",
+    image: "/medan/destinasi-wisata/sibayak.webp",
+    distance: "2 jam dari Medan",
+    highlights: ["Pendakian", "Kawah vulkanik", "Matahari terbit", "Pemandangan Karo"],
+  },
+  {
+    name: "Bukit Holbung",
+    description: "Bukit savana dengan panorama Danau Toba dan Pulau Samosir",
+    fullDescription:
+      "Bukit Holbung di Pulau Samosir dikenal dengan hamparan bukit hijau dan pemandangan terbuka ke Danau Toba. Pengunjung dapat berjalan menyusuri punggung bukit dan menikmati panorama dari berbagai sudut.",
+    image: "/medan/destinasi-wisata/Bukit-Holbung-Samosir.webp",
+    distance: "5-6 jam dari Medan",
+    highlights: ["Panorama Danau Toba", "Bukit savana", "Trekking ringan", "Pulau Samosir"],
+  },
+  {
+    name: "Bukit Indah Sibeabea",
+    description: "Panorama Danau Toba dengan patung Yesus di puncak bukit",
+    fullDescription:
+      "Bukit Sibeabea di kawasan Samosir menyuguhkan pemandangan Danau Toba dari ketinggian. Jalan berkelok menuju area patung Yesus menjadi salah satu daya tarik wisata di kawasan ini.",
+    image: "/medan/destinasi-wisata/sibeabea.webp",
+    distance: "5-6 jam dari Medan",
+    highlights: ["Panorama Danau Toba", "Patung Yesus", "Jalan berkelok", "Pulau Samosir"],
+  },
+  {
+    name: "Kawah Putih Tinggi Raja",
+    description: "Kawasan kawah kapur dengan air danau berwarna kehijauan",
+    fullDescription:
+      "Kawah Putih Tinggi Raja di Kabupaten Simalungun memiliki lanskap batu kapur dan sumber air panas alami. Perpaduan warna putih, hijau, dan biru menjadikan kawasan ini tujuan wisata alam yang khas.",
+    image: "/medan/destinasi-wisata/kawa-putih-tinggi-raja.webp",
+    distance: "3-4 jam dari Medan",
+    highlights: ["Lanskap batu kapur", "Sumber air panas", "Danau alami", "Wisata alam"],
+  },
+  {
+    name: "Pemandian Karang Anyar",
+    description: "Pemandian alam dengan aliran air jernih di kawasan Simalungun",
+    fullDescription:
+      "Pemandian Karang Anyar merupakan pilihan rekreasi alam di Kabupaten Simalungun. Pengunjung dapat menikmati suasana sejuk dan aliran air yang bersumber dari kawasan perbukitan.",
+    image: "/medan/destinasi-wisata/pemandian-karang-anyar.webp",
+    distance: "2-3 jam dari Medan",
+    highlights: ["Pemandian alam", "Suasana sejuk", "Wisata keluarga", "Kawasan Simalungun"],
   },
 ];
 
