@@ -5,402 +5,348 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
-  Phone,
-  MapPin,
-  Users,
-  Car,
-  Wifi,
-  Music,
-  Armchair,
-  Luggage,
-  ShieldCheck,
-  Zap,
-  ChevronLeft,
-  Star,
-  CheckCircle2,
   CalendarCheck,
+  Car,
+  CheckCircle2,
+  ChevronLeft,
+  MapPin,
   MessageCircle,
+  ShieldCheck,
+  Users,
 } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Paket Hiace Surabaya Terbaik | Rental Mobil Group Juanda-Bromo | VRN",
-  description: "Paket rental Toyota Hiace Premio & Commuter Surabaya untuk rombongan besar, city tour, Bromo midnight, Madura. Unit terbaru, bersih, dan nyaman. Driver profesional siap melayani perjalanan VIP Anda.",
-  keywords: "sewa hiace surabaya, rental hiace juanda, paket hiace bromo surabaya, hiace premio surabaya, sewa hiace group surabaya, hiace bandara juanda",
+  title: "Sewa Hiace Surabaya untuk Rombongan & Wisata | VRN",
+  description:
+    "Rental Hiace Surabaya untuk rombongan, wisata, airport transfer, dan event. Pilih Hiace Commuter 14 penumpang atau Hiace Premio 12 penumpang sesuai kebutuhan Anda.",
+  keywords:
+    "sewa hiace surabaya, rental hiace surabaya, rental toyota hiace surabaya, hiace dengan driver surabaya, sewa hiace untuk rombongan",
   robots: "index, follow",
   alternates: {
     canonical: "https://vrnrentcar.com/rental-mobil-surabaya/hiace",
   },
 };
 
-interface HiacePackage {
-  id: string;
-  name: string;
-  tagline: string;
-  image: string;
-  capacity: string;
-  description: string;
-  highlights: string[];
-  isPopular?: boolean;
-}
+const hiaceModels = [
+  {
+    name: "Hiace Commuter",
+    capacity: "14 penumpang",
+    image: "/halaman-surabaya/paket-hiace/hiace-commuter.png",
+    fit: "Cocok untuk rombongan, keluarga besar, dan perjalanan grup yang membutuhkan ruang lebih.",
+    note: "Pilihan yang tepat untuk kebutuhan group tour dan perjalanan bersama dalam jumlah banyak.",
+  },
+  {
+    name: "Hiace Premio",
+    capacity: "12 penumpang",
+    image: "/halaman-surabaya/paket-hiace/hiace-premio.png",
+    fit: "Cocok untuk wisata, acara, dan perjalanan dengan kelompok yang lebih fokus pada kenyamanan.",
+    note: "Tersedia untuk kebutuhan perjalanan menyeluruh dengan kapasitas yang sesuai untuk rombongan menengah.",
+  },
+];
 
-const hiacePackages: HiacePackage[] = [
+const useCases = [
   {
-    id: "hiace-city-tour",
-    name: "Hiace City Tour Surabaya 1 Hari",
-    tagline: "Best Seller City Tour",
+    title: "Wisata",
+    description: "Hiace membantu perjalanan antar destinasi wisata dengan kapasitas yang cukup untuk keluarga atau rombongan.",
+  },
+  {
+    title: "Rombongan",
+    description: "Untuk trip kantor, keluarga besar, atau teman-teman yang bepergian bersama dengan kebutuhan ruang yang nyaman.",
+  },
+  {
+    title: "Airport Transfer",
+    description: "Berguna untuk antar-jemput Bandara Juanda, terutama saat rombongan datang bersama atau membawa bagasi lebih banyak.",
+  },
+  {
+    title: "Perjalanan Keluarga",
+    description: "Memberikan ruang yang lebih nyaman dibanding mobil kecil untuk perjalanan santai bersama anggota keluarga.",
+  },
+  {
+    title: "Event / Acara",
+    description: "Relevan untuk acara keluarga, wedding, atau kebutuhan transportasi tamu yang bergerak dalam satu grup.",
+  },
+];
+
+const packageOptions = [
+  {
+    name: "City Tour Surabaya",
     image: "/halaman-surabaya/paket-hiace/hiace-city-tour-surabaya-1-hari.webp",
-    capacity: "Max 14 Penumpang",
-    description: "Durasi 12 Jam. Rute lengkap: Tugu Pahlawan, House of Sampoerna, Monumen Kapal Selam (Monkasel), Masjid Ampel, & Kenjeran Park.",
-    highlights: ["Wisata Sejarah", "Religi Ampel", "BBM Termasuk"],
-    isPopular: true,
+    description: "Kegiatan wisata perkotaan dengan jadwal yang mudah diatur untuk rombongan.",
   },
   {
-    id: "hiace-madura",
-    name: "Hiace Tour Madura 1 Hari",
-    tagline: "Wisata Pulau Madura",
+    name: "Tour Madura",
     image: "/halaman-surabaya/paket-hiace/hiace-tour-madura-1-hari.webp",
-    capacity: "Max 14 Penumpang",
-    description: "Durasi 12 Jam. Melintasi Jembatan Suramadu. Destinasi: Bukit Jaddih / Arosbaya, Kuliner Bebek Sinjay, & Sentra Batik Bangkalan.",
-    highlights: ["Bukit Kapur", "Kuliner Bebek", "Belanja Batik"],
+    description: "Pilihan perjalanan antar kota dan wisata yang cocok untuk group kecil maupun besar.",
   },
   {
-    id: "hiace-airport-xl",
-    name: "Hiace Antar Jemput Juanda XL",
-    tagline: "Airport Transfer",
+    name: "Antar-jemput Bandara Juanda",
     image: "/halaman-surabaya/paket-hiace/hiace-antar-jemput-bandara-xl.webp",
-    capacity: "Kapasitas Bagasi Extra",
-    description: "Penjemputan VIP Bandara Juanda dengan bagasi banyak. Meet & greet dengan name board profesional.",
-    highlights: ["On-Time Guarantee", "Bantuan Bagasi", "Signboard Penjemputan"],
-    isPopular: true,
+    description: "Layanan transfer bandara yang cocok untuk perjalanan kelompok dan bagasi lebih banyak.",
   },
   {
-    id: "hiace-bromo",
-    name: "Hiace Bromo Midnight (12 Jam)",
-    tagline: "Sunrise Bromo",
+    name: "Bromo Midnight",
     image: "/halaman-surabaya/paket-hiace/hiace-bromo-midnight.webp",
-    capacity: "12-14 Penumpang",
-    description: "Start 23.30 WIB - 12.00 WIB. Rute: Sunrise Point Penanjakan, Kawah Bromo, Lautan Pasir Berbisik, & Bukit Teletubbies.",
-    highlights: ["Include Jeep", "4 Spot Bromo", "Driver Mahir"],
+    description: "Tersedia untuk perjalanan malam dan agenda wisata yang memerlukan mobil berkapasitas besar.",
   },
   {
-    id: "hiace-malang",
-    name: "Hiace Tour Malang Batu 1 Hari",
-    tagline: "Wisata Jatim",
+    name: "Malang-Batu",
     image: "/halaman-surabaya/paket-hiace/hiace-tour-malang-batu.webp",
-    capacity: "Max 14 Penumpang",
-    description: "Durasi 14-16 Jam. Destinasi Favorit: Jatim Park 1/2/3, Museum Angkut, Flora Wisata San Terra, & Alun-Alun Batu.",
-    highlights: ["Wisata Petik Apel", "Museum Angkut", "Oleh-oleh Khas"],
+    description: "Transit antar kota dengan kapasitas untuk rombongan dan aktivitas wisata satu hari.",
   },
   {
-    id: "hiace-premium",
-    name: "Hiace Premio Luxury Event",
-    tagline: "Wedding & VIP",
+    name: "Event / Wedding",
     image: "/halaman-surabaya/paket-hiace/hiace-premio-luxury-event.webp",
-    capacity: "VIP Guests",
-    description: "Transportasi mewah untuk wedding, corporate event atau tamu VIP dengan interior premium.",
-    highlights: ["Unit Bersih Wangi", "Premium Sound", "Dekorasi Opsional"],
+    description: "Kendaraan yang cocok untuk kebutuhan event, wedding, dan mobilisasi tamu dalam satu grup.",
   },
 ];
 
 export default function SurabayaHiacePage() {
   const whatsappLink =
-    "https://wa.me/6282363389893?text=Halo%20VRN,%20saya%20tertarik%20sewa%20Hiace%20di%20Surabaya.%20Mohon%20info%20penawaran%20terbaik%20untuk%20tanggal...";
+    "https://wa.me/6282363389893?text=Halo%20VRN%2C%20saya%20ingin%20konsultasikan%20rental%20Hiace%20Surabaya.";
 
   return (
-    <main className={`${inter.className} min-h-screen bg-slate-50 pb-24`}>
-      {/* Hero */}
-      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-40 bg-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 z-0">
+    <main className={`${inter.className} min-h-screen bg-slate-50 text-slate-900`}>
+      <section className="relative overflow-hidden bg-slate-950 pb-20 pt-28 text-white lg:pb-28 lg:pt-36">
+        <div className="absolute inset-0">
           <Image
-            src="/armada/hiace-premio-luxury.webp"
-            alt="Hiace Surabaya Background"
+            src="/halaman-surabaya/paket-hiace/hiace-commuter.png"
+            alt="Hiace Commuter Surabaya"
             fill
-            className="object-cover opacity-30 scale-105 animate-pulse-slow"
+            className="object-contain opacity-25"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-900/70" />
         </div>
 
-        <div className="container mx-auto px-4 text-center z-10 relative">
-          <Link 
-            href="/rental-mobil-surabaya" 
-            className="inline-flex items-center gap-2 text-white/70 hover:text-white font-medium mb-8 transition-colors bg-white/10 px-4 py-2 rounded-full backdrop-blur-md"
+        <div className="relative z-10 mx-auto max-w-7xl px-4">
+          <Link
+            href="/rental-mobil-surabaya"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 backdrop-blur-sm transition hover:bg-white/10"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="h-4 w-4" />
             Kembali ke Beranda
           </Link>
 
-          <div className="flex justify-center mb-6">
-            <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/30 text-orange-300 rounded-full px-4 py-1.5 backdrop-blur-sm shadow-xl">
-              <Star className="w-4 h-4 fill-orange-400 text-orange-400" />
-              <span className="font-bold text-xs md:text-sm tracking-wide uppercase">
-                Spesialis Rombongan & Keluarga
-              </span>
+          <div className="mt-10 grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+            <div>
+              <Badge className="mb-5 border border-orange-400/30 bg-orange-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange-200">
+                Hiace Surabaya
+              </Badge>
+
+              <h1 className="max-w-3xl text-4xl font-black leading-tight md:text-5xl lg:text-6xl">
+                Sewa Hiace Surabaya untuk Rombongan & Wisata
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-lg text-slate-300">
+                Pilih Toyota Hiace yang sesuai kebutuhan perjalanan Anda di Surabaya, mulai dari wisata keluarga, angkutan rombongan, perjalanan kantor, hingga transfer Bandara Juanda.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <Button
+                  size="lg"
+                  className="bg-orange-500 px-7 py-6 text-base font-semibold text-white hover:bg-orange-600"
+                  asChild
+                >
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Konsultasikan Kebutuhan Hiace
+                  </a>
+                </Button>
+
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 bg-white/5 px-7 py-6 text-base font-semibold text-white hover:bg-white/10"
+                  asChild
+                >
+                  <Link href="#model-hiace">
+                    <Car className="mr-2 h-5 w-5" />
+                    Lihat Model Hiace
+                  </Link>
+                </Button>
+              </div>
             </div>
-          </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 tracking-tight leading-tight drop-shadow-2xl">
-            Perjalanan Group
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">
-              Lebih Mewah & Nyaman
-            </span>
-          </h1>
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-2xl backdrop-blur-sm">
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900/60">
+                <Image
+                  src="/halaman-surabaya/paket-hiace/hiace-commuter.png"
+                  alt="Hiace Commuter Surabaya"
+                  width={800}
+                  height={520}
+                  className="h-auto w-full object-contain"
+                />
+              </div>
 
-          <p className="text-lg md:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Nikmati pengalaman perjalanan VIP bersama VRN Rent Car. 
-            Unit Hiace Premio & Commuter terbaru dengan fasilitas lengkap untuk 
-            kenyamanan maksimal keluarga atau rekan bisnis Anda.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg px-8 py-7 rounded-2xl shadow-xl shadow-orange-500/20 transition-transform hover:scale-105"
-              asChild
-            >
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Tanya Penawaran Spesial
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-white/5 border-white/20 hover:bg-white/10 text-white font-bold text-lg px-8 py-7 rounded-2xl backdrop-blur-md transition-all"
-              asChild
-            >
-              <Link href="#paket">
-                <Car className="w-5 h-5 mr-2" />
-                Lihat Pilihan Unit
-              </Link>
-            </Button>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="mt-12 flex flex-wrap justify-center gap-6 text-sm font-medium text-slate-400">
-             <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-green-400" />
-                <span>Unit Tahun Muda</span>
-             </div>
-             <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-green-400" />
-                <span>Driver Ramah & Wangi</span>
-             </div>
-             <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-green-400" />
-                <span>Harga All-In (Opsional)</span>
-             </div>
+              <div className="mt-5 grid gap-4 text-sm text-slate-200 sm:grid-cols-3">
+                <div className="rounded-2xl border border-orange-400/20 bg-orange-500/10 p-3">
+                  <div className="font-bold text-white">Hiace Commuter</div>
+                  <div className="mt-1 text-orange-100">14 penumpang</div>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
+                  <div className="font-bold text-white">Hiace Premio</div>
+                  <div className="mt-1 text-slate-300">12 penumpang</div>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
+                  <div className="font-bold text-white">Untuk</div>
+                  <div className="mt-1 text-slate-300">Wisata & grup</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Facilities Strip */}
-      <section className="relative z-20 -mt-8 mx-auto max-w-7xl px-4">
-        <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 p-8 md:p-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            {[
-              { icon: Users, label: "Kapasitas 14 Seat", sub: "Lega &amp; Nyaman" },
-              { icon: Zap, label: "Full AC Ducting", sub: "Dingin Merata" },
-              { icon: Armchair, label: "Reclining Seat", sub: "Istirahat Nyaman" },
-              { icon: Music, label: "Entertainment", sub: "Karaoke & TV" },
-            ].map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center group p-4 rounded-2xl hover:bg-slate-50 transition-colors duration-300">
-                <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-orange-500 group-hover:rotate-6 transition-all duration-300 shadow-sm">
-                  <item.icon className="w-7 h-7 text-orange-600 group-hover:text-white transition-colors" />
+      <section className="relative z-10 mx-auto -mt-8 max-w-7xl px-4">
+        <div className="grid gap-5 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl md:grid-cols-4 md:p-8">
+          {[
+            { icon: Users, label: "Kapasitas sesuai model", value: "14 & 12 penumpang" },
+            { icon: Car, label: "Pilihan model", value: "Commuter & Premio" },
+            { icon: ShieldCheck, label: "Layanan yang cocok", value: "Rombongan & wisata" },
+            { icon: MapPin, label: "Area layanan", value: "Surabaya & sekitarnya" },
+          ].map((item) => (
+            <div key={item.label} className="rounded-2xl bg-slate-50 p-5">
+              <item.icon className="h-8 w-8 text-orange-500" />
+              <p className="mt-3 text-sm text-slate-500">{item.label}</p>
+              <p className="mt-1 text-lg font-bold text-slate-900">{item.value}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="model-hiace" className="mx-auto max-w-7xl px-4 py-20">
+        <div className="mb-10 text-center">
+          <Badge className="mb-4 bg-orange-100 text-orange-700">Model Hiace</Badge>
+          <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">Pilih kapasitas sesuai kebutuhan perjalanan Anda</h2>
+        </div>
+
+        <div className="grid gap-8 lg:grid-cols-2">
+          {hiaceModels.map((model) => (
+            <div key={model.name} className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-lg">
+              <div className="relative aspect-[3/2] w-full bg-slate-100">
+                <Image src={model.image} alt={model.name} fill className="object-contain" />
+              </div>
+
+              <div className="p-7">
+                <div className="flex items-center justify-between gap-4">
+                  <h3 className="text-2xl font-bold text-slate-900">{model.name}</h3>
+                  <Badge className="bg-slate-100 text-slate-700">{model.capacity}</Badge>
                 </div>
-                <h3 className="font-bold text-slate-900 text-lg">{item.label}</h3>
-                <p className="text-sm text-slate-500">{item.sub}</p>
+
+                <p className="mt-4 text-base leading-relaxed text-slate-600">{model.fit}</p>
+                <div className="mt-5 flex items-start gap-3 rounded-2xl bg-orange-50 p-4 text-sm text-slate-700">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-orange-600" />
+                  <span>{model.note}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-slate-100 py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-10 text-center">
+            <Badge className="mb-4 bg-slate-900 text-white">Perbandingan Model</Badge>
+            <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">Pilih Hiace yang sesuai kebutuhan grup Anda</h2>
+          </div>
+
+          <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-lg">
+            <table className="w-full text-left">
+              <thead className="bg-slate-900 text-white">
+                <tr>
+                  <th className="px-6 py-4 font-semibold">Model</th>
+                  <th className="px-6 py-4 font-semibold">Kapasitas</th>
+                  <th className="px-6 py-4 font-semibold">Cocok untuk</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-slate-200">
+                  <td className="px-6 py-5 font-semibold text-slate-900">Hiace Commuter</td>
+                  <td className="px-6 py-5 text-slate-700">14 penumpang</td>
+                  <td className="px-6 py-5 text-slate-700">Rombongan, wisata, dan perjalanan grup yang membutuhkan ruang lebih</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-5 font-semibold text-slate-900">Hiace Premio</td>
+                  <td className="px-6 py-5 text-slate-700">12 penumpang</td>
+                  <td className="px-6 py-5 text-slate-700">Wisata, perjalanan keluarga, dan kebutuhan grup dengan fokus pada kenyamanan</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-20">
+        <div className="mb-12 text-center">
+          <Badge className="mb-4 bg-orange-100 text-orange-700">Kegunaan Hiace</Badge>
+          <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">Hiace untuk kebutuhan perjalanan yang beragam</h2>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+          {useCases.map((item) => (
+            <div key={item.title} className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-600">
+                <CheckCircle2 className="h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="paket" className="bg-slate-900 py-20 text-white">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-10 text-center">
+            <Badge className="mb-4 bg-white/10 text-slate-200">Hiace untuk Wisata</Badge>
+            <h2 className="text-3xl font-bold md:text-4xl">Pilihan paket yang sesuai kebutuhan tour dan perjalanan</h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {packageOptions.map((item) => (
+              <div key={item.name} className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-800/80 shadow-lg">
+                <div className="relative h-52 w-full">
+                  <Image src={item.image} alt={item.name} fill className="object-cover" />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 text-orange-300">
+                    <MapPin className="h-4 w-4" />
+                    <span className="text-sm font-medium">Pilihan paket</span>
+                  </div>
+                  <h3 className="mt-4 text-2xl font-bold text-white">{item.name}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-300">{item.description}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Interior & Experience Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-             <div className="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
-                <Image 
-                  src="/halaman-surabaya/paket-hiace/hero-section.webp" 
-                  alt="Interior Hiace Premio" 
-                  fill 
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
-                   <div className="bg-white/20 backdrop-blur-md p-4 rounded-xl border border-white/30">
-                      <h3 className="text-white font-bold text-xl mb-1">Interior Hiace Premio</h3>
-                      <p className="text-white/90 text-sm">Kabin luas dengan headroom tinggi, membuat perjalanan jarak jauh tidak melelahkan.</p>
-                   </div>
-                </div>
-             </div>
-             <div className="space-y-8">
-                <div>
-                   <Badge className="bg-orange-100 text-orange-700 hover:bg-orange-200 mb-4 px-4 py-1 text-sm">KENYAMANAN VIP</Badge>
-                   <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                     Standar Baru Perjalanan Rombongan
-                   </h2>
-                   <p className="text-slate-600 text-lg leading-relaxed">
-                     Lupakan perjalanan sempit dan panas. Armada Hiace kami dirancang khusus untuk kenyamanan maksimal. 
-                     Cocok untuk perjalanan dinas pejabat, liburan keluarga besar, atau tamu pernikahan VIP.
-                   </p>
-                </div>
-                
-                <div className="space-y-4">
-                   {[
-                     "Suspensi Empuk: Minim guncangan bahkan di jalan bergelombang",
-                     "Sound System Premium: Karaoke on the road lebih seru",
-                     "Charger Port: Gadget selalu on selama perjalanan",
-                     "Bagasi Luas: Muat koper besar dan oleh-oleh khas Surabaya"
-                   ].map((feature, i) => (
-                     <div key={i} className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100 hover:border-orange-200 transition-colors">
-                        <div className="mt-1 bg-green-100 p-1.5 rounded-full">
-                          <CheckCircle2 className="w-5 h-5 text-green-600" />
-                        </div>
-                        <span className="font-medium text-slate-700">{feature}</span>
-                     </div>
-                   ))}
-                </div>
-             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Paket Grid */}
-      <section id="paket" className="py-24 bg-slate-100">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+      <section className="mx-auto max-w-7xl px-4 py-20">
+        <div className="overflow-hidden rounded-[2.5rem] bg-slate-900 px-6 py-10 text-white shadow-2xl md:px-10 lg:px-14">
+          <div className="grid items-center gap-8 lg:grid-cols-[1.3fr_0.7fr]">
             <div>
-              <Badge className="bg-slate-900 text-white mb-4">
-                PILIHAN PAKET
-              </Badge>
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-900">
-                Hiace Premio & Commuter Surabaya
-              </h2>
-              <p className="text-slate-600 mt-4 max-w-xl text-lg">
-                Tersedia berbagai opsi paket sesuai kebutuhan acara Anda. 
-                Dari drop-off bandara hingga tour keliling Jawa Timur.
+              <Badge className="bg-orange-500/20 text-orange-200">Booking & Konsultasi</Badge>
+              <h2 className="mt-4 text-3xl font-bold md:text-4xl">Butuh Hiace Surabaya untuk rombongan atau wisata?</h2>
+              <p className="mt-4 max-w-2xl text-slate-300">
+                Konsultasikan kebutuhan tanggal, kapasitas, dan rute Anda. Kami akan membantu memilih model Hiace yang paling sesuai.
               </p>
             </div>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {hiacePackages.map((pkg) => (
-              <div
-                key={pkg.id}
-                className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col md:flex-row h-full border border-white hover:border-orange-100"
+            <div className="flex justify-center lg:justify-end">
+              <Button
+                size="lg"
+                className="bg-orange-500 px-8 py-6 text-base font-semibold text-white hover:bg-orange-600"
+                asChild
               >
-                <div className="relative w-full md:w-5/12 min-h-[260px] md:min-h-full">
-                  <Image
-                    src={pkg.image}
-                    alt={pkg.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="644px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
-                  {pkg.isPopular && (
-                    <div className="absolute top-4 left-4">
-                      <Badge className="bg-red-600 text-white font-bold border-none shadow-lg px-3 py-1">
-                        <Star className="w-3 h-3 mr-1 fill-white" />
-                        BEST CHOICE
-                      </Badge>
-                    </div>
-                  )}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="flex items-center gap-2 text-white/90 text-xs font-medium bg-black/30 backdrop-blur-sm p-2 rounded-lg">
-                       <Users className="w-4 h-4" />
-                       {pkg.capacity}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-6 md:p-8 flex flex-col flex-1">
-                  <div className="mb-4">
-                    <span className="text-orange-600 font-bold text-xs tracking-wider uppercase mb-2 block">
-                      {pkg.tagline}
-                    </span>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors">
-                      {pkg.name}
-                    </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                      {pkg.description}
-                    </p>
-                  </div>
-
-                  <div className="mt-auto">
-                    <div className="flex flex-wrap gap-y-2 gap-x-3 mb-6">
-                      {pkg.highlights.map((h, i) => (
-                        <Badge key={i} variant="secondary" className="bg-slate-50 text-slate-600 hover:bg-orange-50 hover:text-orange-700 border border-slate-200">
-                          {h}
-                        </Badge>
-                      ))}
-                    </div>
-
-                    <Button
-                      asChild
-                      className="w-full bg-slate-900 hover:bg-orange-600 text-white transition-all duration-300 font-bold h-12 rounded-xl shadow-lg"
-                    >
-                      <a
-                        href={`https://wa.me/6282363389893?text=Halo%20VRN,%20saya%20tertarik%20dengan%20${encodeURIComponent(pkg.name)}.%20Mohon%20info%20ketersediaan%20untuk%20tanggal...`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <CalendarCheck className="w-4 h-4 mr-2" />
-                        Cek Ketersediaan
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-slate-900 rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden text-white shadow-2xl">
-            {/* Abstract Shapes */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-3xl md:text-4xl font-bold mb-6">
-                  Butuh Custom Trip?
-                </h3>
-                <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-                  Punya rencana perjalanan khusus untuk kantor atau keluarga besar? 
-                  Kami siap mengatur itinerary terbaik di Jawa Timur dengan armada Hiace yang nyaman.
-                  Diskusikan kebutuhan Anda sekarang!
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button
-                    size="lg"
-                    className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 h-14 rounded-xl shadow-lg shadow-orange-500/30"
-                    asChild
-                  >
-                    <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="w-5 h-5 mr-2" />
-                      Konsultasi Gratis
-                    </a>
-                  </Button>
-                </div>
-              </div>
-              <div className="relative h-64 md:h-full min-h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                 <Image 
-                    src="/halaman-surabaya/PAKET-TOUR/BROMO-MIDNIGHT_TOUR-DARI-SURABAYA.webp"
-                    alt="Bromo Tour"
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-700"
-                 />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-                    <div className="flex items-center gap-2 text-white font-bold">
-                      <MapPin className="w-5 h-5 text-orange-500" />
-                      Wisata Bromo & Malang
-                    </div>
-                 </div>
-              </div>
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  <CalendarCheck className="mr-2 h-5 w-5" />
+                  Konsultasikan Kebutuhan Hiace
+                </a>
+              </Button>
             </div>
           </div>
         </div>

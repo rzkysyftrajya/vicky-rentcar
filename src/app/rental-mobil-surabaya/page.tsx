@@ -1,1264 +1,954 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
-import {
-  Car,
-  Users,
-  MapPin,
-  Clock,
-  Star,
-  Phone,
-  CheckCircle,
-  MessageSquare,
-  ShieldCheck,
-  ChevronLeft,
-  ChevronRight,
-  Sparkles,
-  Ticket,
-  Utensils,
-  Building2,
-  CalendarCheck,
-} from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  heroStats,
-  whyUsPoints,
-  carOptions,
-  popularCars,
-  destinations,
-  culinarySpots,
-  testimonials,
-  faqs,
-  googleReviews,
-  hotelRecommendations,
-} from "@/data/surabaya-page-data";
+import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+  BriefcaseBusiness,
+  Building2,
+  CarFront,
+  ChevronRight,
+  MapPin,
+  MessageCircle,
+  Plane,
+  Route,
+  Users,
+} from "lucide-react";
+import {
+  carOptions,
+  destinations,
+  faqs as existingFaqs,
+  popularCars,
+  serviceAreas,
+  testimonials,
+} from "@/data/surabaya-page-data";
 
-export default function SurabayaPage() {
-  const whatsappNumber = "6282363389893";
+const whatsappNumber = "6282363389893";
 
-  const tourPackages = [
-    {
-      id: 1,
-      title: "City Tour Surabaya Iconic",
-      description: "Jelajahi sejarah Kota Pahlawan dalam satu hari. Dari kemegahan Tugu Pahlawan, House of Sampoerna, hingga sunset di Jembatan Suramadu.",
-      duration: "1 Hari",
-      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-CITY-TOUR-1-HARI.webp",
-      link: "/rental-mobil-surabaya/paket-tour/surabaya-city-tour-1-hari",
-    },
-    {
-      id: 2,
-      title: "Surabaya Full Experience 2D1N",
-      description: "Puas keliling Surabaya! Kombinasi wisata sejarah, belanja oleh-oleh, dan kuliner malam yang legendaris tanpa buru-buru.",
-      duration: "2H1M",
-      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-CITY-TOUR-2-HARI-1-MALAM.webp",
-      link: "/rental-mobil-surabaya/paket-tour/surabaya-city-tour-2h1m",
-    },
-    {
-      id: 3,
-      title: "Bromo Midnight Adventure",
-      description: "Saksikan sunrise terbaik di dunia tanpa menginap. Berangkat malam dari Surabaya, pagi hari sudah di kawah Bromo. Praktis & Hemat.",
-      duration: "1 Hari",
-      image: "/halaman-surabaya/PAKET-TOUR/BROMO-MIDNIGHT_TOUR-DARI-SURABAYA.webp",
-      link: "/rental-mobil-surabaya/paket-tour/bromo-midnight-tour-surabaya",
-    },
-    {
-      id: 4,
-      title: "Wisata Dingin Malang & Batu",
-      description: "Kabur sejenak dari panasnya Surabaya ke kesejukan Batu. Petik Apel, Museum Angkut, dan Jatim Park dalam jangkauan.",
-      duration: "2H1M",
-      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-MALANG-BATU-TOUR.webp",
-      link: "/rental-mobil-surabaya/paket-tour/surabaya-malang-tour",
-    },
-    {
-      id: 5,
-      title: "Ziarah Wali & Religi Surabaya",
-      description: "Perjalanan spiritual yang nyaman ke Makam Sunan Ampel, Masjid Cheng Ho, dan Masjid Al Akbar. Cocok untuk rombongan pengajian.",
-      duration: "1 Hari",
-      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-RELIGI-TOUR.webp",
-      link: "/rental-mobil-surabaya/paket-tour/surabaya-religi-tour",
-    },
-    {
-      id: 6,
-      title: "Eksotisme Pulau Madura",
-      description: "Menyeberang Suramadu untuk menikmati Bebek Sinjay asli, Bukit Jaddih yang instagramable, dan budaya Madura yang unik.",
-      duration: "1 Hari",
-      image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-MADURA-TOUR.webp",
-      link: "/rental-mobil-surabaya/paket-tour/surabaya-madura-tour",
-    },
-  ];
+const whatsappLink = (message: string) =>
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-  const hiacePackagesList = [
-    {
-      name: "Hiace City Tour Surabaya",
-      description: "Kelilingi Tugu Pahlawan, House of Sampoerna, hingga Jembatan Suramadu bersama rombongan. Lebih hemat dan praktis dalam satu kendaraan.",
-      price: "Best Seller",
-      image: "/halaman-surabaya/paket-hiace/hiace-city-tour-surabaya-1-hari.webp",
-      features: ["Kapasitas 14 Seat", "BBM Termasuk", "Driver Guide"]
-    },
-    {
-      name: "Hiace Bromo Midnight",
-      description: "Kejar sunrise Bromo ramai-ramai! Transportasi tangguh menuju transit point jeep. Istirahat nyaman sepanjang perjalanan malam.",
-      price: "Favorit",
-      image: "/halaman-surabaya/paket-hiace/hiace-bromo-midnight.webp",
-      features: ["Start Surabaya", "AC Dingin", "Bagasi Luas"]
-    },
-    {
-      name: "Hiace Tour Malang Batu",
-      description: "Wisata ke Jatim Park atau Petik Apel bareng keluarga besar? Hiace adalah solusinya. Tanjakan Batu dilibas dengan mudah.",
-      price: "Keluarga",
-      image: "/halaman-surabaya/paket-hiace/hiace-tour-malang-batu.webp",
-      features: ["Kuat Nanjak", "Suspensi Empuk", "Full Music"]
-    }
-  ];
+const tourPackages = [
+  {
+    title: "Surabaya City Tour 1 Hari",
+    description:
+      "Rangkaian kunjungan ke sejumlah tempat ikonik di Surabaya dalam satu perjalanan.",
+    image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-CITY-TOUR-1-HARI.webp",
+    href: "/rental-mobil-surabaya/paket-tour/surabaya-city-tour-1-hari",
+    duration: "1 hari",
+  },
+  {
+    title: "Surabaya City Tour 2H1M",
+    description:
+      "Pilihan perjalanan beberapa hari untuk mengunjungi destinasi kota dengan tempo lebih santai.",
+    image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-CITY-TOUR-2-HARI-1-MALAM.webp",
+    href: "/rental-mobil-surabaya/paket-tour/surabaya-city-tour-2h1m",
+    duration: "2 hari 1 malam",
+  },
+  {
+    title: "Bromo Midnight Tour",
+    description:
+      "Perjalanan dari Surabaya menuju kawasan Bromo untuk agenda wisata dini hari.",
+    image: "/halaman-surabaya/PAKET-TOUR/BROMO-MIDNIGHT_TOUR-DARI-SURABAYA.webp",
+    href: "/rental-mobil-surabaya/paket-tour/bromo-midnight-tour-surabaya",
+    duration: "1 hari",
+  },
+  {
+    title: "Surabaya–Malang–Batu",
+    description:
+      "Rencana perjalanan dari Surabaya untuk mengunjungi destinasi di Malang dan Batu.",
+    image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-MALANG-BATU-TOUR.webp",
+    href: "/rental-mobil-surabaya/paket-tour/surabaya-malang-tour",
+    duration: "2 hari 1 malam",
+  },
+  {
+    title: "Surabaya Religi Tour",
+    description:
+      "Kunjungan ke beberapa tujuan religi yang tercantum pada pilihan tour Surabaya.",
+    image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-RELIGI-TOUR.webp",
+    href: "/rental-mobil-surabaya/paket-tour/surabaya-religi-tour",
+    duration: "1 hari",
+  },
+  {
+    title: "Surabaya–Madura Tour",
+    description:
+      "Perjalanan dari Surabaya untuk mengeksplorasi sejumlah tujuan wisata di Madura.",
+    image: "/halaman-surabaya/PAKET-TOUR/SURABAYA-MADURA-TOUR.webp",
+    href: "/rental-mobil-surabaya/paket-tour/surabaya-madura-tour",
+    duration: "1 hari",
+  },
+];
 
-  const whatsappMessage = encodeURIComponent(
-"Halo Vicky Rentcar Surabaya, saya mau booking mobil di Surabaya"
-  );
+const familyCarNames = [
+  "Toyota Avanza",
+  "Suzuki Ertiga",
+  "Toyota Innova Reborn",
+  "Toyota Innova Zenix",
+];
 
-  // Gallery documentation photos - 29 foto dari dokumentasi
-  const documentationPhotos = Array.from({ length: 29 }, (_, i) => ({
-    src: `/halaman-surabaya/dokumentasi/dokumentasi-${i + 1}.webp`,
-    alt: `Dokumentasi VRN Surabaya ${i + 1}`,
-  }));
+const groupCarNames = [
+  "Toyota Hiace Commuter",
+  "Toyota Hiace Premio",
+  "Isuzu Elf Minibus",
+];
 
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+const recommendations = [
+  {
+    title: "Mobilitas ringkas di kota",
+    copy: "Untuk agenda dalam kota dengan jumlah penumpang terbatas, pertimbangkan Honda Brio atau Toyota Avanza.",
+    cars: ["Honda Brio", "Toyota Avanza"],
+  },
+  {
+    title: "Perjalanan keluarga",
+    copy: "Toyota Innova Reborn dan Toyota Innova Zenix tercantum sebagai pilihan MPV berkapasitas 7–8 orang.",
+    cars: ["Toyota Innova Reborn", "Toyota Innova Zenix"],
+  },
+  {
+    title: "Perjalanan dengan kebutuhan premium",
+    copy: "Toyota Alphard Gen 3 tercantum dalam pilihan armada untuk perjalanan yang membutuhkan MPV premium.",
+    cars: ["Toyota Alphard Gen 3"],
+  },
+  {
+    title: "Rombongan",
+    copy: "Toyota Hiace Commuter, Toyota Hiace Premio, dan Isuzu Elf Minibus tersedia untuk kebutuhan kapasitas lebih besar.",
+    cars: ["Toyota Hiace Commuter", "Toyota Hiace Premio", "Isuzu Elf Minibus"],
+  },
+];
+
+const selectedFaqs = [
+  {
+    question: "Bagaimana cara memesan rental mobil di Surabaya?",
+    answer:
+      "Hubungi tim melalui WhatsApp, sampaikan kendaraan, tanggal, lokasi penjemputan, dan rencana perjalanan. Tim akan membantu mengonfirmasi kebutuhan Anda.",
+  },
+  {
+    question: "Apakah bisa menyewa mobil dengan sopir?",
+    answer:
+      "Ya. Tersedia pilihan sewa mobil dengan sopir untuk perjalanan di Surabaya dan tujuan di sekitarnya.",
+  },
+  {
+    question: "Apakah melayani antar-jemput Bandara Juanda?",
+    answer:
+      "Layanan antar-jemput Bandara Juanda tercantum sebagai salah satu layanan Surabaya. Sampaikan jadwal penerbangan serta titik penjemputan atau pengantaran saat menghubungi tim.",
+  },
+  {
+    question: "Apakah tersedia kendaraan untuk keluarga dan rombongan?",
+    answer:
+      "Pilihan armada yang tercantum mencakup MPV, Toyota Hiace Commuter, Toyota Hiace Premio, dan Isuzu Elf Minibus. Sesuaikan pilihan dengan jumlah penumpang dan barang bawaan.",
+  },
+  {
+    question: "Apakah perjalanan dapat mencakup tujuan luar kota?",
+    answer:
+      "Data layanan mencakup perjalanan ke Malang, Batu, dan Bromo. Sampaikan tujuan dan rencana perjalanan agar tim dapat membantu memeriksa pilihan yang sesuai.",
+  },
+  {
+    question: "Apakah ada pilihan paket wisata?",
+    answer:
+      "Ada beberapa paket yang tercantum, termasuk city tour Surabaya, Bromo, Malang–Batu, wisata religi, dan Madura. Lihat halaman paket untuk detail tiap perjalanan.",
+  },
+  {
+    question: "Apakah tersedia kendaraan untuk kebutuhan bisnis atau dinas?",
+    answer:
+      "Layanan Surabaya mencantumkan perjalanan untuk meeting, kebutuhan bisnis, dan mobil operasional perusahaan. Sampaikan agenda serta titik tujuan saat berkonsultasi.",
+  },
+  {
+    question: "Berapa lama durasi sewa harian?",
+    answer: existingFaqs[1].a
+      .replace(/minimal sewa/i, "Durasi yang tercantum untuk sewa harian adalah")
+      .split(". Tersedia juga")[0]
+      .replace(/[!]/g, "."),
+  },
+];
+
+const documentationPhotos = [
+  {
+    src: "/halaman-surabaya/dokumentasi/dokumentasi-2.webp",
+    alt: "Dokumentasi perjalanan Vicky Rentcar Surabaya",
+  },
+  {
+    src: "/halaman-surabaya/dokumentasi/dokumentasi-8.webp",
+    alt: "Dokumentasi armada dan layanan Surabaya",
+  },
+  {
+    src: "/halaman-surabaya/dokumentasi/dokumentasi-16.webp",
+    alt: "Dokumentasi perjalanan bersama Vicky Rentcar",
+  },
+  {
+    src: "/halaman-surabaya/dokumentasi/dokumentasi-24.webp",
+    alt: "Dokumentasi layanan rental mobil Surabaya",
+  },
+];
+
+function getCarsByName(names: string[]) {
+  return carOptions.filter((car) => names.includes(car.name));
+}
+
+function VehicleChips({ names }: { names: string[] }) {
+  const cars = getCarsByName(names);
 
   return (
-    <div className="flex flex-col bg-slate-50 font-sans overflow-x-hidden">
-      {/* Floating WhatsApp Button */}
-      <Link
-        href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-        target="_blank"
-        rel="noopener noreferrer" // Rel attribute for security
-        className="fixed bottom-8 right-8 z-50 group"
-      >
-        <div className="relative">
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 2, type: "spring", stiffness: 200 }}
-            whileHover={{ scale: 1.1, rotate: 10 }}
-            className="w-16 h-16 rounded-full shadow-2xl overflow-hidden"
-          >
-            <Image
-              src="/icon/wa.png"
-              alt="Hubungi kami di WhatsApp"
-              width={64}
-              height={64}
-            />
-          </motion.div>
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{
-              delay: 2.5,
-              type: "spring",
-              stiffness: 300,
-              damping: 15,
-            }}
-            className="absolute -top-2 -left-32 bg-white text-orange-600 text-sm font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap"
-          >
-            Pesan Sekarang!
-          </motion.div>
-        </div>
-      </Link>
+    <div className="mt-5 flex flex-wrap gap-2">
+      {cars.map((car) => (
+        <span
+          key={car.name}
+          className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700"
+        >
+          {car.name}
+        </span>
+      ))}
+    </div>
+  );
+}
 
-      {/* HERO SECTION  */}
-      <section className="relative h-screen w-full overflow-hidden">
+export default function SurabayaPage() {
+  const customerStories = testimonials.filter((story) =>
+    ["Budi Santoso", "Emily Chen", "Keluarga Wijaya"].includes(story.name),
+  );
+
+  return (
+    <main className="bg-white text-slate-900">
+      <section className="relative isolate min-h-[680px] overflow-hidden bg-slate-950">
         <Image
           src="/destinasi-wisata/surabaya.jpg"
-          alt="Sewa Mobil di Surabaya dengan pemandangan kota"
+          alt="Pemandangan Kota Surabaya"
           fill
-          className="absolute inset-0 z-0 object-cover" // No change
           priority
+          className="absolute inset-0 -z-20 object-cover"
         />
-        <div className="absolute inset-0 bg-black/50 z-10" /> 
-
-        {/* Animated Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-slate-50 z-10" />
-
-        {/* Content */}
-        <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6">
-          {/* Badge */}
-          <motion.div
-            initial={{ y: -50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-orange-500/90 backdrop-blur-sm text-white px-6 py-2 rounded-full font-bold text-sm mb-6 shadow-lg border border-orange-400/50"
-          >
-            <Star className="w-4 h-4 fill-white" /> #1 Rental Mobil Terpercaya di Surabaya
-          </motion.div>
-
-          <motion.h1
-            className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-2xl leading-tight"
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          >
-            Jelajahi Surabaya
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400 mt-2">
-              Tanpa Batas, Tanpa Cemas
-            </span>
-          </motion.h1>
-
-          <motion.p
-            className="text-lg md:text-2xl text-slate-200 max-w-3xl mb-10 leading-relaxed font-light"
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Nikmati perjalanan dinas atau liburan di Jawa Timur dengan armada 2023+. 
-            Bersih, wangi, dan disupiri oleh "Arek Suroboyo" asli yang ramah dan hafal jalan.
-          </motion.p>
-
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.98 }}>
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-2xl shadow-orange-500/30 transition-all duration-300 flex items-center gap-3 group border border-orange-400/20" // No change
-              >
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Phone className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
-                  Chat Sekarang
-                </a>
-              </Button>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.98 }}>
-              <Button
-                asChild
-                size="lg"
-                className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border border-white/30 px-8 py-4 md:px-10 md:py-7 text-lg md:text-xl rounded-full shadow-xl transition-all duration-300 group" // No change
-              >
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-"Halo Vicky Rentcar Surabaya, saya ingin bertanya tentang harga sewa di Surabaya"
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Lihat Harga
-                  <svg
-                    className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </a>
-              </Button>
-            </motion.div>
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* STATS STRIP - Moved here for immediate credibility */}
-      <div className="relative -mt-16 z-30 px-6 mb-16">
-        <motion.div 
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl p-8 grid grid-cols-2 md:grid-cols-4 gap-8 border border-gray-100"
-        >
-          {heroStats.map((stat, i) => ( 
-            <div key={i} className="text-center group hover:-translate-y-1 transition-transform duration-300">
-              <div className="text-4xl md:text-5xl font-extrabold text-orange-500 mb-2 group-hover:scale-110 transition-transform inline-block"> 
-                {stat.num}
-              </div>
-              <div className="text-gray-600 font-medium">{stat.label}</div> 
-            </div>
-          ))}
-        </motion.div>
-      </div>
-
-      {/* 🎯 KENAPA PILIH VRN - Moved UP */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-orange-600 font-bold tracking-wider text-sm uppercase mb-2 block">KENAPA VRN SURABAYA?</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-slate-900">
-              Bukan Sekadar <span className="text-orange-500">Sewa Mobil Biasa</span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-              Kami mengerti waktu Anda berharga. VRN hadir memberikan pengalaman transportasi yang bebas stres, aman, dan menyenangkan di Kota Pahlawan.
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/20" />
+        <div className="mx-auto flex min-h-[680px] max-w-7xl items-center px-6 py-24">
+          <div className="max-w-3xl">
+            <Badge className="mb-6 border border-orange-300/40 bg-orange-500/15 text-orange-100">
+              Sewa mobil di Surabaya
+            </Badge>
+            <h1 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-7xl">
+              Rental Mobil Surabaya
+              <span className="mt-3 block text-orange-300">
+                untuk perjalanan Anda
+              </span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
+              Pilih kendaraan untuk agenda harian, perjalanan bisnis, antar-jemput Bandara Juanda, liburan keluarga, atau wisata ke sejumlah tujuan di Jawa Timur.
             </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {whyUsPoints.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{
-                  delay: i * 0.15,
-                  duration: 0.6,
-                  ease: "easeOut",
-                }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-slate-50 rounded-3xl p-8 hover:shadow-2xl hover:bg-white transition-all duration-300 border border-transparent hover:border-orange-100 group"
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Button
+                asChild
+                size="lg"
+                className="bg-orange-500 text-white hover:bg-orange-600"
               >
-                <div
-                  className="w-16 h-16 mb-6 rounded-2xl flex items-center justify-center bg-white shadow-md group-hover:bg-orange-500 transition-colors duration-300"
+                <a
+                  href={whatsappLink(
+                    "Halo VRN Surabaya, saya ingin konsultasikan kebutuhan sewa mobil.",
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <div className="text-orange-500 group-hover:text-white transition-colors duration-300">
-                    {item.icon}
-                  </div>
-                </div> 
-                <h3 className="text-xl font-bold mb-3 text-slate-800">
-                  {item.title}
-                </h3> 
-                <p className="text-slate-600 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Konsultasikan kebutuhan
+                </a>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-white/60 bg-white/10 text-white hover:bg-white/20 hover:text-white"
+              >
+                <Link href="/rental-mobil-surabaya/armada">
+                  Lihat Armada
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 🚘 ARMADA MOBIL - Moved Up & Enhanced */}
-      <section className="py-24 bg-slate-900 relative overflow-hidden text-white">
-         {/* Decorative elements */}
-         <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
-         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+      <section aria-label="Pilih layanan" className="relative z-10 -mt-10 px-6">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 rounded-3xl border border-slate-200 bg-white p-4 shadow-xl sm:grid-cols-3 lg:grid-cols-6">
+          {[
+            { label: "Rental mobil", href: "#armada", icon: CarFront },
+            { label: "Dengan driver", href: "#dengan-driver", icon: Users },
+            { label: "Bandara Juanda", href: "#bandara-juanda", icon: Plane },
+            { label: "Wisata", href: "#wisata", icon: MapPin },
+            { label: "Bisnis / dinas", href: "#bisnis-dinas", icon: BriefcaseBusiness },
+            { label: "Rombongan", href: "#hiace", icon: Building2 },
+          ].map(({ label, href, icon: Icon }) => (
+            <a
+              key={label}
+              href={href}
+              className="group flex min-h-24 flex-col justify-center rounded-2xl px-3 py-4 text-center transition hover:bg-orange-50"
+            >
+              <Icon className="mx-auto mb-2 h-5 w-5 text-orange-600 transition group-hover:-translate-y-0.5" />
+              <span className="text-sm font-semibold text-slate-800">{label}</span>
+            </a>
+          ))}
+        </div>
+      </section>
 
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Armada Prima
-              <span className="block text-orange-500 mt-2">Siap Melaju Kapan Saja</span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Rutin servis, interior bersih, AC dingin. Pilih mobil yang sesuai gaya dan kebutuhan perjalanan Anda.
-            </p>
-          </motion.div>
+      <section id="armada" className="scroll-mt-24 py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-600">
+                Pilihan kendaraan
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Armada rental mobil Surabaya
+              </h2>
+              <p className="mt-4 leading-7 text-slate-600">
+                Kenali model kendaraan yang tercantum di armada Surabaya. Kapasitas dan fitur mengikuti informasi pada daftar armada.
+              </p>
+            </div>
+            <Link
+              href="/rental-mobil-surabaya/armada"
+              className="inline-flex items-center gap-2 font-semibold text-orange-700 hover:text-orange-800"
+            >
+              Lihat seluruh armada <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-{popularCars.map((car, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                whileHover={{ y: -10, scale: 1.02 }} 
-                className="bg-slate-800/50 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 relative border border-slate-700 group"
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {popularCars.map((car, index) => (
+              <article
+                key={car.name}
+                className={`group overflow-hidden rounded-3xl border border-slate-200 bg-white ${
+                  index === 0 ? "lg:col-span-2 lg:grid lg:grid-cols-2" : ""
+                }`}
               >
-                {car.popular && (
-                  <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-1 rounded-full text-xs font-bold z-10 shadow-lg flex items-center gap-1">
-                    ⭐ Paling Laris
-                  </div>
-                )}
- 
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="overflow-hidden rounded-t-3xl"
-                >
+                <div className={`relative aspect-[16/10] overflow-hidden bg-slate-100 ${index === 0 ? "lg:aspect-auto lg:min-h-72" : ""}`}>
                   <Image
                     src={car.image}
-                    alt={`Sewa ${car.name} di Surabaya - Vicky Rentcar Nusantara`}
-                    width={400}
-                    height={224}
-className="w-full h-[450px] object-cover bg-gradient-to-b from-slate-700 to-slate-800 transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
+                    alt={car.name}
+                    fill
+                    sizes={index === 0 ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 1024px) 50vw, 33vw"}
+                    className="object-contain transition duration-500"
                   />
-                </motion.div>
-
+                </div>
                 <div className="p-6">
-                  <div className="flex justify-between items-start mb-3">
-                    <div> 
-                      <h3 className="text-2xl font-bold mb-1">{car.name}</h3>
-                      <p className="text-slate-400 text-sm">{car.type}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 mb-4 text-slate-400 bg-slate-900/50 w-fit px-3 py-1 rounded-full"> 
-                    <Users className="w-4 h-4" />
-                    <span className="text-sm">{car.capacity}</span>
-                  </div>
-
-                  <div className="space-y-2 mb-6">
-                    {car.features.map((feature, idx) => ( 
-                      <div
-                        key={idx}
-                        className="flex items-center gap-2 text-sm text-slate-300/90"
+                  <p className="text-sm font-medium text-orange-700">{car.type}</p>
+                  <h3 className="mt-1 text-2xl font-bold">{car.name}</h3>
+                  <p className="mt-2 text-sm text-slate-600">
+                    Kapasitas tercantum: {car.capacity}
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {car.features.slice(0, 3).map((feature) => (
+                      <span
+                        key={feature}
+                        className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-700"
                       >
-                        <CheckCircle className="w-4 h-4 text-orange-500" />
-                        <span>{feature}</span>
-                      </div>
+                        {feature}
+                      </span>
                     ))}
                   </div>
-
-                  <motion.div 
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="group"
+                  <a
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-orange-700"
+                    href={whatsappLink(
+                      `Halo VRN Surabaya, saya ingin bertanya tentang ${car.name}.`,
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <Button asChild className="w-full bg-orange-500 hover:bg-orange-600 text-white py-6 rounded-xl text-lg font-semibold shadow-lg transition-all duration-300"> 
-                      <Link
-                        href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-`Halo Vicky Rentcar Surabaya, saya mau booking ${car.name}`
-                        )}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Pesan Sekarang
-                      </Link>
-                    </Button>
-                  </motion.div>
+                    Tanya tentang kendaraan <ChevronRight className="h-4 w-4" />
+                  </a>
                 </div>
-              </motion.div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Video Pengenalan Kantor */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Pengenalan Kantor VRN Surabaya
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Kenali lebih dekat tim dan fasilitas kami di Surabaya
+      <section className="bg-slate-50 py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+            <div className="max-w-xl">
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-600">
+                Memilih kendaraan
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Kendaraan mana yang cocok untuk kebutuhan Anda?
+              </h2>
+              <p className="mt-5 leading-7 text-slate-600">
+                Kapasitas penumpang, agenda, dan barang bawaan dapat membantu menentukan pilihan. Berikut beberapa model armada sebagai titik awal.
+              </p>
+              <Button asChild className="mt-7 bg-slate-900 text-white hover:bg-slate-800">
+                <Link href="/rental-mobil-surabaya/armada">
+                  Bandingkan pilihan armada
+                </Link>
+              </Button>
+            </div>
+            <div className="divide-y divide-slate-200 border-y border-slate-200">
+              {recommendations.map((item, index) => (
+                <article key={item.title} className="grid gap-3 py-6 sm:grid-cols-[3rem_1fr]">
+                  <span className="text-2xl font-light text-orange-500">
+                    0{index + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-xl font-bold">{item.title}</h3>
+                    <p className="mt-2 max-w-2xl leading-7 text-slate-600">
+                      {item.copy}
+                    </p>
+                    <VehicleChips names={item.cars} />
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="dengan-driver" className="scroll-mt-24 py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:items-center">
+          <div className="relative h-[300px] overflow-hidden rounded-[2rem] bg-slate-100 sm:h-[360px] lg:h-[420px]">
+            <Image
+              src="/halaman-surabaya/home/perjalanan-dengan-driver.jpg"
+              alt="Dokumentasi layanan rental mobil Surabaya dengan driver"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+          <div className="py-4 lg:pl-8">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-600">
+              Perjalanan dengan driver
             </p>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
-            className="relative rounded-3xl shadow-2xl overflow-hidden mx-auto max-w-3xl"
-          >
-            <video
-              controls
-              preload="metadata"
-              playsInline
-              className="w-full h-[500px] object-cover"
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              Rental mobil dengan driver untuk agenda yang berbeda
+            </h2>
+            <p className="mt-5 leading-7 text-slate-600">
+              Pilihan sewa mobil Surabaya dengan sopir dapat dipertimbangkan untuk perjalanan dalam kota maupun tujuan di sekitar Surabaya. Sampaikan rencana, titik perjalanan, serta waktu yang Anda perlukan saat menghubungi tim.
+            </p>
+            <div className="mt-7 grid gap-3 sm:grid-cols-2">
+              {[
+                ["Bisnis", "Meeting dan kunjungan kerja."],
+                ["Keluarga", "Agenda bersama keluarga."],
+                ["Wisata", "Kunjungan ke destinasi kota."],
+                ["Antar kota", "Perjalanan menuju Malang, Batu, atau Bromo."],
+              ].map(([title, copy]) => (
+                <div key={title} className="border-l-2 border-orange-400 pl-4">
+                  <h3 className="font-bold">{title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-slate-600">{copy}</p>
+                </div>
+              ))}
+            </div>
+            <a
+              href={whatsappLink(
+                "Halo VRN Surabaya, saya ingin bertanya tentang rental mobil dengan driver.",
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 font-semibold text-orange-700"
             >
-              <source src="/halaman-surabaya/pegenalan-kantor.mp4" type="video/mp4" />
-              Browser Anda tidak mendukung video.
-            </video>
-          </motion.div>
+              Konsultasikan perjalanan <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </section>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mt-12"
-          >
-            <Button asChild size="lg" className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-6 text-xl rounded-full shadow-2xl">
-              <Link href="https://wa.me/6282363389893?text=Halo, saya sudah tonton video pengenalan kantor. Mau booking mobil!" target="_blank" rel="noopener noreferrer">
-                <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.765z" />
-                  <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                Booking Setelah Kunjungan Virtual
+      <section id="bandara-juanda" className="scroll-mt-24 overflow-hidden bg-slate-950 text-white">
+        <div className="mx-auto grid max-w-7xl lg:min-h-[550px] lg:grid-cols-2">
+          <div className="relative h-[260px] overflow-hidden rounded-[2rem] bg-slate-100 sm:h-[300px] lg:order-2 lg:h-[420px] lg:min-h-0">
+            <Image
+              src="/halaman-surabaya/home/antar-jemput-bandara.jpg"
+              alt="Kendaraan untuk antar-jemput Bandara Juanda"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="h-full w-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent lg:bg-gradient-to-l lg:from-slate-950/20 lg:to-transparent" />
+          </div>
+          <div className="flex items-center px-6 py-16 sm:px-10 lg:order-1 lg:px-16">
+            <div className="max-w-xl">
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-300">
+                Antar-jemput bandara
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Airport transfer Bandara Juanda
+              </h2>
+              <p className="mt-5 leading-7 text-slate-300">
+                Atur perjalanan menuju atau dari Bandara Juanda dengan menyampaikan jadwal penerbangan dan lokasi tujuan. Layanan ini mencakup kebutuhan kedatangan maupun keberangkatan.
+              </p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {[
+                  { icon: Plane, title: "Kedatangan", copy: "Penjemputan dari bandara menuju alamat atau hotel." },
+                  { icon: Route, title: "Keberangkatan", copy: "Pengantaran dari Surabaya menuju bandara." },
+                ].map(({ icon: Icon, title, copy }) => (
+                  <div key={title} className="rounded-2xl border border-white/15 bg-white/5 p-5">
+                    <Icon className="mb-4 h-5 w-5 text-orange-300" />
+                    <h3 className="font-bold">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">{copy}</p>
+                  </div>
+                ))}
+              </div>
+              <a
+                href={whatsappLink(
+                  "Halo VRN Surabaya, saya ingin konsultasikan antar-jemput Bandara Juanda.",
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-2 font-semibold text-orange-300 hover:text-orange-200"
+              >
+                Tanya layanan Bandara Juanda <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="bisnis-dinas" className="scroll-mt-24 py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
+            <div>
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-600">
+                Mobilitas kerja
+              </p>
+              <h2 className="max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
+                Rental mobil untuk bisnis dan dinas di Surabaya
+              </h2>
+              <p className="mt-5 max-w-2xl leading-7 text-slate-600">
+                Untuk meeting, kunjungan kerja, agenda kantor, dan perjalanan antar lokasi, sampaikan urutan tujuan dan rentang waktu perjalanan. Pilihan kendaraan dapat disesuaikan dengan jumlah penumpang dan agenda.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {["Meeting", "Kunjungan kerja", "Agenda kantor", "Antar lokasi"].map((label) => (
+                  <span key={label} className="rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700">
+                    {label}
+                  </span>
+                ))}
+              </div>
+              <Button asChild className="mt-8 bg-orange-500 text-white hover:bg-orange-600">
+                <a
+                  href={whatsappLink(
+                    "Halo VRN Surabaya, saya ingin konsultasikan kendaraan untuk agenda bisnis atau dinas.",
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Konsultasikan agenda
+                </a>
+              </Button>
+            </div>
+            <div className="relative h-[280px] overflow-hidden rounded-[2rem] bg-slate-100 sm:h-[320px] lg:h-[420px]">
+              <Image
+                src="/halaman-surabaya/home/rencana-perjalanan-kerja.png"
+                alt="Dokumentasi perjalanan bisnis di Surabaya"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="h-full w-full object-cover object-center"
+              />
+              <div className="absolute bottom-5 left-5 max-w-xs rounded-2xl bg-white/95 p-5 shadow-lg backdrop-blur">
+                <Building2 className="mb-3 h-5 w-5 text-orange-600" />
+                <p className="font-semibold">Rencana perjalanan kerja</p>
+                <p className="mt-1 text-sm leading-6 text-slate-600">
+                  Susun titik jemput, agenda, dan lokasi tujuan sebelum berkonsultasi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-orange-50 py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div className="relative min-h-[430px] overflow-hidden rounded-[2rem] bg-white">
+            <Image
+              src="/halaman-surabaya/home/toyota-innova-zenix.png"
+              alt="Toyota Innova Zenix untuk perjalanan keluarga"
+              fill
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="object-cover"
+            />
+            <div className="absolute bottom-5 left-5 rounded-2xl bg-white/95 px-5 py-4 shadow-lg">
+              <p className="font-bold">Toyota Innova Zenix</p>
+              <p className="mt-1 text-sm text-slate-600">Kapasitas armada tercantum: 7 orang</p>
+            </div>
+          </div>
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-700">
+              Perjalanan bersama keluarga
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              Rental mobil untuk perjalanan keluarga
+            </h2>
+            <p className="mt-5 leading-7 text-slate-700">
+              Pertimbangkan jumlah anggota keluarga dan barang bawaan saat menentukan kendaraan. Daftar armada Surabaya mencantumkan beberapa MPV dengan kapasitas untuk perjalanan bersama.
+            </p>
+            <div className="mt-7 divide-y divide-orange-200 border-y border-orange-200">
+              {getCarsByName(familyCarNames).map((car) => (
+                <div key={car.name} className="flex items-center justify-between gap-4 py-4">
+                  <div>
+                    <h3 className="font-bold">{car.name}</h3>
+                    <p className="mt-1 text-sm text-slate-600">{car.type}</p>
+                  </div>
+                  <span className="whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-sm text-slate-700">
+                    {car.capacity}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-5 text-sm leading-6 text-slate-600">
+              Untuk wisata kota atau perjalanan ke tujuan sekitar Surabaya, sampaikan rute dan kebutuhan penumpang saat berkonsultasi.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="hiace" className="scroll-mt-24 py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <Badge className="mb-5 bg-orange-100 text-orange-800 hover:bg-orange-100">
+                Hiace & kendaraan rombongan
+              </Badge>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Satu rencana perjalanan untuk keluarga besar atau tim
+              </h2>
+              <p className="mt-5 leading-7 text-slate-600">
+                Toyota Hiace Commuter, Toyota Hiace Premio, dan Isuzu Elf Minibus ada dalam daftar armada Surabaya. Pilihan ini dapat dipertimbangkan untuk rombongan, outing, atau perjalanan kantor.
+              </p>
+              <div className="mt-7 space-y-3">
+                {getCarsByName(groupCarNames).map((car) => (
+                  <div key={car.name} className="flex items-center justify-between gap-4 border-b border-slate-200 pb-3">
+                    <span className="font-semibold">{car.name}</span>
+                    <span className="text-sm text-slate-600">{car.capacity}</span>
+                  </div>
+                ))}
+              </div>
+              <a
+                href={whatsappLink(
+                  "Halo VRN Surabaya, saya ingin bertanya tentang kendaraan untuk rombongan.",
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 inline-flex items-center gap-2 font-semibold text-orange-700"
+              >
+                Tanya kendaraan rombongan <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+            <div className="grid grid-cols-5 grid-rows-2 gap-3">
+              <div className="relative col-span-3 row-span-2 min-h-[370px] overflow-hidden rounded-[2rem] bg-slate-100">
+                <Image
+                  src="/halaman-surabaya/home/hiace.webp"
+                  alt="Toyota Hiace Commuter"
+                  fill
+                  sizes="(max-width: 1024px) 60vw, 40vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative col-span-2 overflow-hidden rounded-[1.5rem] bg-slate-100">
+                <Image
+                  src="/halaman-surabaya/home/interior-hiace-2.webp"
+                  alt="Toyota Hiace Premio"
+                  fill
+                  sizes="(max-width: 1024px) 40vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="col-span-2 flex flex-col justify-center rounded-[1.5rem] bg-slate-900 p-5 text-white">
+                <Users className="mb-3 h-6 w-6 text-orange-300" />
+                <p className="text-lg font-bold">Perjalanan bersama</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
+                  Sesuaikan kendaraan dengan jumlah anggota dan barang bawaan rombongan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="wisata" className="scroll-mt-24 bg-slate-950 py-24 text-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-11 max-w-3xl">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-300">
+              Jelajahi kota
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              Wisata Surabaya dan tujuan di sekitarnya
+            </h2>
+            <p className="mt-4 leading-7 text-slate-300">
+              Rencanakan perjalanan dari satu tempat ke tempat lain. Berikut destinasi Surabaya yang tercantum pada data wisata.
+            </p>
+          </div>
+          <div className="grid auto-rows-[220px] gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {destinations.map((place, index) => (
+              <article
+                key={place.name}
+                className={`group relative overflow-hidden rounded-3xl ${
+                  index === 0 || index === 4 ? "sm:col-span-2" : ""
+                }`}
+              >
+                <Image
+                  src={place.image}
+                  alt={place.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
+                <div className="absolute bottom-0 p-5 sm:p-6">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-orange-200">
+                    {place.category}
+                  </span>
+                  <h3 className="mt-2 text-xl font-bold">{place.name}</h3>
+                  <p className="mt-1 max-w-md text-sm leading-6 text-slate-200">
+                    {place.desc}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-600">
+                Rencana perjalanan
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Paket tour dari Surabaya
+              </h2>
+              <p className="mt-4 leading-7 text-slate-600">
+                Pilih tema perjalanan yang sesuai, dari wisata kota hingga tujuan sekitar Jawa Timur.
+              </p>
+            </div>
+            <Button asChild variant="outline" className="border-slate-300">
+              <Link href="/rental-mobil-surabaya/paket-tour">
+                Lihat semua paket tour <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 🗺️ BOOKING PROCESS */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900">
-              Booking Mobil <span className="text-orange-500">Dalam 3 Langkah</span>
-            </h2>
-            <p className="text-gray-600 text-lg">Proses cepat dan mudah, mobil langsung siap.</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            {/* Connector Line (Desktop) */}
-            <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-orange-100 border-t-2 border-dashed border-orange-300 z-0"></div>
-            
-            {[
-              { icon: Car, title: "Pilih Mobil", desc: "Tentukan mobil yang sesuai kebutuhan Anda" },
-              { icon: MessageSquare, title: "Chat WhatsApp", desc: "Konfirmasi ketersediaan dengan admin kami" },
-              { icon: CheckCircle, title: "Mobil Siap", desc: "Driver kami menjemput di lokasi Anda" }
-            ].map((step, i) => (
-              <div key={i} className="relative z-10 flex flex-col items-center text-center">
-                 <div className="w-24 h-24 bg-white border-4 border-orange-500 rounded-full flex items-center justify-center text-orange-500 shadow-xl mb-6">
-                    <step.icon className="w-10 h-10" />
-                 </div>
-                 <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
-                 <p className="text-gray-500 max-w-xs">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-             <Button className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-8 py-6 text-lg font-bold shadow-lg shadow-orange-500/30">
-               <Link href={`https://wa.me/${whatsappNumber}`} target="_blank">Booking Sekarang</Link>
-             </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* 🚐 PAKET HIACE - NEW SECTION */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <Badge className="mb-4 bg-orange-100 text-orange-800 hover:bg-orange-200">SPESIAL GROUP</Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900">
-              Rombongan? <span className="text-orange-500">Pilih Hiace Aja!</span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Liburan keluarga besar atau kunjungan kerja kantor jadi lebih seru dan hemat dalam satu kendaraan. Kabin luas, AC dingin, dan bagasi lega.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {hiacePackagesList.map((pkg, index) => (
-              <div key={index} className="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 hover:border-orange-200 hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
-                <div className="relative aspect-[4/3] w-full overflow-hidden">
-                  <Image
-                    src={pkg.image}
-                    alt={pkg.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 w-full p-6 text-white">
-                    <Badge className="bg-orange-600 text-white border-0 mb-2">
-                      {pkg.price}
-                    </Badge>
-                    <h3 className="text-xl font-bold leading-tight group-hover:text-orange-300 transition-colors">
-                      {pkg.name}
-                    </h3>
-                  </div>
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <p className="text-slate-600 text-sm mb-6 leading-relaxed flex-1">
-                    {pkg.description}
-                  </p>
-                  <div className="space-y-3 mb-8">
-                    {pkg.features.map((feat, idx) => (
-                      <div key={idx} className="flex items-center text-sm text-slate-700">
-                        <CheckCircle className="w-4 h-4 text-orange-500 mr-3 flex-shrink-0" />
-                        {feat}
-                      </div>
-                    ))}
-                  </div>
-                  <Button className="w-full bg-slate-900 hover:bg-orange-600 text-white font-bold h-12 rounded-xl transition-all shadow-lg" asChild>
-                    <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo VRN, saya tertarik paket ${pkg.name}`)}`} target="_blank">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Cek Harga Hiace
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 🎒 PAKET TOUR */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-200">WISATA JAWA TIMUR</Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900">
-              Liburan Tanpa <span className="text-orange-500">Pusing Itinerary</span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Surabaya, Bromo, hingga Malang punya sejuta pesona. Kami siapkan paket lengkap (Mobil + Driver + Itinerary) biar Anda tinggal duduk manis dan menikmati momen.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {tourPackages.map((tour, index) => (
-              <motion.div
-                key={tour.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }} 
-                className="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 hover:border-orange-200 flex flex-col group transition-all duration-300 h-full"
+              <article
+                key={tour.href}
+                className={`group overflow-hidden rounded-3xl border border-slate-200 bg-white ${
+                  index === 0 ? "lg:col-span-2 lg:grid lg:grid-cols-2" : ""
+                }`}
               >
-                <div className="relative h-64 w-full overflow-hidden">
+                <Link
+                  href={tour.href}
+                  className={`relative block aspect-[16/10] overflow-hidden bg-slate-100 ${index === 0 ? "lg:aspect-auto lg:min-h-64" : ""}`}
+                >
                   <Image
                     src={tour.image}
                     alt={tour.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500" // No change
+                    sizes={index === 0 ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 1024px) 50vw, 33vw"}
+                    className="object-cover transition duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur text-orange-600 px-4 py-1 rounded-full text-xs font-bold shadow-md"> 
+                  <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-slate-800">
                     {tour.duration}
-                  </div>
-                </div>
-                <div className="p-8 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold mb-4 text-slate-800 line-clamp-2 group-hover:text-orange-600 transition-colors">{tour.title}</h3> 
-                  <p className="text-gray-600 text-sm mb-6 leading-relaxed flex-grow">{tour.description}</p> 
-                  <Button asChild className="w-full bg-white border-2 border-orange-500 text-orange-600 hover:bg-orange-500 hover:text-white py-4 rounded-xl font-bold mt-auto transition-all">
-                    <Link href={tour.link}>
-                      Lihat Detail Paket <ChevronRight className="w-4 h-4 ml-1" />
-                    </Link>
-                  </Button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 🎬 VIDEO CINEMATIC ARMADA */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Armada Mobil 
-              <span className="block text-orange-500 mt-2">Dalam Video Sinematik</span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Lihat langsung koleksi armada mobil premium kami dalam video
-              berkualitas tinggi
-            </p>
-          </motion.div>
-
-          {/* Mobile: horizontal scroll, Desktop: grid 2-3 kolom */}
-          <div className="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 flex gap-6 overflow-x-auto pb-4 -mx-6 px-6 md:overflow-visible md:mx-0 md:px-0"> 
-            {[
-              {
-                video: "/halaman-surabaya/armada/armada.mp4",
-                title: "Armada Premium Collection",
-                desc: "Koleksi mobil mewah dan berkualitas tinggi untuk perjalanan special Anda",
-              },
-              {
-                video: "/halaman-surabaya/armada/armada-2.mp4",
-                title: "Armada Ekonomi & Effisien",
-                desc: "Solusi ekonomis tanpa mengurangi kenyamanan perjalanan",
-              },
-              {
-                video: "/halaman-surabaya/armada/armada-3.mp4",
-                title: "Armada Special Event",
-                desc: "Mobil special untuk acara pernikahan, evento, dan celebration",
-              },
-              {
-                video: "/halaman-surabaya/armada/armada-4.mp4",
-                title: "Armada Complete Fleet",
-                desc: "Armada lengkap dari city car hingga luxury vehicle",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }} 
-                whileHover={{ y: -10 }} 
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex-shrink-0 w-80 md:w-auto"
-              >
-                <div className="relative">
-                  <video
-                    controls
-                    preload="metadata"
-                    playsInline
-                    muted={false} 
-                    className="w-full h-64 object-cover"
-                  >
-                    <source src={item.video} type="video/mp4" />
-                    Browser Anda tidak mendukung video HTML5.
-                  </video>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-gray-800"> 
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600">{item.desc}</p> 
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mt-12"
-          > 
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{
-                boxShadow: [
-                  "0 4px 6px -1px rgb(0 0 0 / 0.1)",
-                  "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-                  "0 4px 6px -1px rgb(0 0 0 / 0.1)",
-                ],
-              }}
-              transition={{
-                boxShadow: { duration: 3, repeat: Infinity },
-                scale: { duration: 0.2 },
-              }}
-            > 
-              <Button asChild className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 text-lg rounded-full shadow-xl transition-all flex items-center gap-3 mx-auto">
-                <Link
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-"Halo Vicky Rentcar Surabaya, saya mau lihat armada mobil secara langsung"
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Phone className="w-5 h-5" />
-                  Lihat Armada Premium Sekarang
+                  </span>
                 </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-      {/* HOW TO BOOK SECTION */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Booking Semudah <span className="text-orange-500">1-2-3</span> 
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Proses cepat, tanpa ribet, mobil langsung siap untuk Anda.
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {[
-              {
-                step: "1",
-                title: "Pilih Mobil & Tanggal",
-                desc: "Lihat armada kami dan tentukan mobil yang paling cocok untuk kebutuhan perjalanan Anda di Surabaya.",
-              },
-              {
-                step: "2",
-                title: "Chat via WhatsApp",
-                desc: "Klik tombol WhatsApp, informasikan mobil pilihan dan tanggal sewa Anda. Tim kami akan merespon secepatnya.",
-              },
-              {
-                step: "3",
-                title: "Mobil Siap Diantar",
-                desc: "Setelah konfirmasi, mobil bersih dan prima akan kami antar ke lokasi Anda, siap untuk memulai petualangan.",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }} 
-                className="p-8"
-              >
-                <div className="w-20 h-20 mx-auto mb-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-4xl font-bold shadow-lg"> 
-                  {item.step}
-                </div>
-                <h3 className="text-2xl font-bold mb-3 text-slate-800">{item.title}</h3> 
-                <p className="text-gray-600">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 🏞️ DESTINASI WISATA - Surabaya Specific */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Jelajahi <span className="text-orange-500">Kota Pahlawan</span> 
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Dari Tugu Pahlawan hingga Jembatan Suramadu, kami antar Anda ke
-              mana saja!
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {destinations.map((place, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }} 
-                whileHover={{ y: -5 }} 
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group"
-              >
-                <div className="relative h-48 w-full overflow-hidden bg-gray-100">
-                  <Image
-                    src={place.image}
-                    alt={`Wisata ${place.name} di Surabaya`}
-                    fill 
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80" /> 
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <span className="inline-block bg-orange-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-1"> 
-                      {place.category}
-                    </span>
-                    <h3 className="text-xl font-bold">{place.name}</h3> 
-                  </div>
-                </div>
                 <div className="p-6">
-                  <p className="text-gray-600 text-sm leading-relaxed">{place.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 🍜 KULINER KHAS - Surabaya Street Food */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              Kuliner Khas <span className="text-orange-500">Surabaya</span> 
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Driver kami tahu spot kuliner legendaris yang wajib dicoba!
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {culinarySpots.map((food, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }} 
-                whileHover={{ scale: 1.05 }} 
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all text-center border border-gray-100"
-              >
-                <div className="text-4xl mb-2">{food.icon}</div> 
-                <h4 className="font-bold text-sm mb-1">{food.name}</h4> 
-                <p className="text-xs text-gray-500">{food.loc}</p> 
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 💬 TESTIMONI - Social Proof */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900"> 
-              Apa Kata Mereka tentang kami?
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Ribuan pelanggan puas dari seluruh Indonesia
-            </p>
-          </motion.div>
-
-          <div className="relative">
-            <div className="overflow-hidden relative">
-              <AnimatePresence initial={false} custom={currentTestimonial}>
-                <motion.div
-                  key={currentTestimonial}
-                  custom={currentTestimonial}
-                  initial={{ opacity: 0, x: 300 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -300 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  className="w-full px-4"
-                >
-                  <div className="w-full">
-                    <motion.div
-                      whileHover={{ y: -5 }}
-                      className="bg-slate-50 p-8 rounded-2xl shadow-sm h-full border border-slate-100"
-                    >
-                      <div className="flex gap-1 mb-4"> 
-                        {[...Array(testimonials[currentTestimonial].rating)].map((_, j) => (
-                          <motion.div
-                            key={j}
-                            initial={{ scale: 0 }}
-                            whileInView={{ scale: 1 }}
-                            transition={{
-                              delay: j * 0.1,
-                              duration: 0.3,
-                            }}
-                          >
-                            <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                          </motion.div>
-                        ))}
-                      </div>
-                      <p className="italic mb-4 text-gray-700 leading-relaxed">
-                        "
-                        {testimonials[currentTestimonial].text.split(" ").map((word, idx) => {
-                          const isHighlight = [
-                            "recommended",
-                            "perfect",
-                            "memuaskan",
-                            "bagus",
-                            "terpercaya",
-                            "professional",
-                          ].includes(word.toLowerCase());
-                          return (
-                            <span
-                              key={idx}
-                              className={isHighlight ? "text-orange-500 font-semibold" : ""}
-                            >
-                              {word}{" "}
-                            </span>
-                          );
-                        })}
-                        "
-                      </p>
-                      <div className="flex items-center gap-3">
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          whileInView={{ scale: 1 }}
-                          transition={{
-                            delay: 0.3,
-                            duration: 0.3,
-                          }}
-                          className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white font-bold text-xl"
-                        >
-                          {testimonials[currentTestimonial].name[0]}
-                        </motion.div>
-                        <div>
-                          <h4 className="font-bold text-gray-800">
-                            {testimonials[currentTestimonial].name}
-                          </h4>
-                          <p className="text-sm text-gray-500">
-                            {testimonials[currentTestimonial].city}
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-            <Button
-              variant="outline" 
-              size="icon"
-              className="absolute top-1/2 -translate-y-1/2 left-0 bg-white hover:bg-orange-50 border-gray-200 text-slate-600 shadow-md"
-              onClick={() =>
-                setCurrentTestimonial((prev) => (prev === 0 ? 2 : prev - 1))
-              }
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </Button>
-            <Button
-              variant="outline" 
-              size="icon"
-              className="absolute top-1/2 -translate-y-1/2 right-0 bg-white hover:bg-orange-50 border-gray-200 text-slate-600 shadow-md"
-              onClick={() =>
-                setCurrentTestimonial((prev) => (prev === 2 ? 0 : prev + 1))
-              }
-            >
-              <ChevronRight className="w-6 h-6" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* 📸 DOKUMENTASI VRN SURABAYA */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900"> 
-              DOKUMENTASI VRN SURABAYA
-            </h2>
-            <p className="text-xl text-gray-600">
-              Momen-momen dari layanan rental mobil terpercaya di Surabaya
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {documentationPhotos.map((photo, i) => { 
-              const isEven = i % 2 === 0;
-              const rowIndex = Math.floor(i / 4); // 4 columns per row
-              const isRowEven = rowIndex % 2 === 0;
- 
-              return (
-                <motion.div
-                  key={i}
-                  initial={{
-                    opacity: 0,
-                    x: isRowEven ? -100 : 100,
-                    y: 20,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    x: 0,
-                    y: 0,
-                  }} 
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{
-                    delay: i * 0.08,
-                    duration: 0.6,
-                    ease: "easeOut", 
-                  }}
-                  whileHover={{
-                    scale: 1.02,
-                    y: -5,
-                  }}
-                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 relative group"
-                >
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={photo.src}
-                      alt={photo.alt}
-                      width={400}
-                      height={400} 
-                      className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110"
-                      loading="lazy"
-                    />
-
-                    {/* Dark overlay on hover */} 
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="text-center text-white">
-                        <div className="w-16 h-16 mx-auto mb-2 bg-white/20 rounded-full flex items-center justify-center">
-                          <svg
-                            className="w-8 h-8"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                            />
-                          </svg>
-                        </div>
-                        <p className="font-semibold">VRN Surabaya</p> 
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 🚗 CTA FINAL - Strong Call to Action */}
-      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 opacity-10"> 
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 90, 0],
-            }}
-            transition={{ repeat: Infinity, duration: 20 }}
-            className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{
-              scale: [1, 1.3, 1],
-              rotate: [0, -90, 0],
-            }}
-            transition={{ repeat: Infinity, duration: 15 }}
-            className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-400 rounded-full blur-3xl"
-          />
-        </div>
-
-        <div className="relative max-w-5xl mx-auto px-6 text-center">
-          <motion.div 
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-block bg-orange-500 text-white px-6 py-2 rounded-full font-bold mb-6 shadow-lg shadow-orange-500/30"
-          >
-            Promo Spesial Hari Ini!
-          </motion.div>
-
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight"> 
-            Siap Jelajahi Surabaya?
-          </h2>
-
-          <p className="text-xl md:text-2xl mb-10 text-blue-100"> 
-            <span className="font-bold text-orange-400">Booking sekarang</span>{" "}
-            dan dapatkan diskon spesial!
-            <br />
-            Cuma modal jempol, perjalanan jadi mudah!
-          </p>
-
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{
-                boxShadow: [
-                  "0 4px 6px -1px rgb(0 0 0 / 0.1)",
-                  "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-                  "0 4px 6px -1px rgb(0 0 0 / 0.1)",
-                ],
-              }}
-              transition={{
-                boxShadow: { duration: 2, repeat: Infinity },
-                scale: { duration: 0.2 },
-              }}
-            > 
-              <Button asChild className="bg-orange-500 hover:bg-orange-600 text-white px-12 py-7 text-xl rounded-full shadow-2xl flex items-center gap-3 font-bold">
-                <Link
-                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-                  target="_blank"
-                >
-                  <Phone className="w-6 h-6" />
-                  Cek Ketersediaan Hari Ini
-                </Link>
-              </Button>
-            </motion.div>
-
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{
-                boxShadow: [
-                  "0 4px 6px -1px rgb(0 0 0 / 0.1)",
-                  "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-                  "0 4px 6px -1px rgb(0 0 0 / 0.1)",
-                ],
-              }}
-              transition={{
-                boxShadow: { duration: 2, repeat: Infinity, delay: 1 },
-                scale: { duration: 0.2 },
-              }}
-            > 
-              <Button className="bg-white hover:bg-gray-100 text-slate-900 px-12 py-7 text-xl rounded-full shadow-2xl font-bold">
-                Tanya Harga Sekarang
-              </Button>
-            </motion.div>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-6 text-sm"> 
-            <div className="flex items-center gap-2"> 
-              <CheckCircle className="w-5 h-5 text-green-400" />
-              <span>Tanpa DP</span>
-            </div>
-            <div className="flex items-center gap-2"> 
-              <CheckCircle className="w-5 h-5 text-green-400" />
-              <span>Cancel Gratis</span>
-            </div>
-            <div className="flex items-center gap-2"> 
-              <CheckCircle className="w-5 h-5 text-green-400" />
-              <span>Layanan 24/7</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ❓ FAQ SECTION */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900"> 
-              Pertanyaan yang Sering Ditanyakan
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Semua yang perlu Anda tahu sebelum booking
-            </p>
-          </motion.div>
-
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, i) => (
-              <AccordionItem value={`item-${i}`} key={i}> 
-                <AccordionTrigger className="text-left text-lg font-semibold text-slate-800 hover:text-orange-600 hover:no-underline">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-gray-600 leading-relaxed"> 
-                    {faq.a}
+                  <h3 className="text-xl font-bold">{tour.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                    {tour.description}
                   </p>
+                  <Link
+                    href={tour.href}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-orange-700"
+                  >
+                    Lihat detail <ChevronRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-orange-50 py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-700">
+              Jangkauan layanan
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              Area layanan Surabaya dan sekitarnya
+            </h2>
+            <p className="mt-4 leading-7 text-slate-700">
+              Area berikut tercantum pada informasi layanan. Untuk perjalanan dengan beberapa titik, sampaikan rencana rute saat menghubungi tim.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {serviceAreas.map((area) => (
+              <span
+                key={area}
+                className="rounded-full border border-orange-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-800"
+              >
+                {area}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-600">
+                Mengapa memilih VRN
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Pilihan perjalanan yang tersusun sesuai kebutuhan
+              </h2>
+              <p className="mt-5 leading-7 text-slate-600">
+                Informasi layanan Surabaya mencakup rental harian, kendaraan dengan sopir, antar-jemput Bandara Juanda, perjalanan luar kota, mobil operasional, dan wisata keluarga. Pilih jenis perjalanan lalu sampaikan rencana Anda kepada tim.
+              </p>
+              <Link
+                href="/rental-mobil-surabaya/layanan"
+                className="mt-6 inline-flex items-center gap-2 font-semibold text-orange-700"
+              >
+                Lihat pilihan layanan <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <div className="grid gap-x-8 sm:grid-cols-2">
+              {[
+                {
+                  icon: CarFront,
+                  title: "Pilihan armada",
+                  copy: "Daftar model kendaraan tersedia untuk kebutuhan perjalanan yang berbeda.",
+                },
+                {
+                  icon: Users,
+                  title: "Layanan dengan sopir",
+                  copy: "Pilihan perjalanan untuk agenda dalam kota, keluarga, wisata, atau luar kota.",
+                },
+                {
+                  icon: Plane,
+                  title: "Transfer Juanda",
+                  copy: "Antar-jemput bandara untuk kedatangan maupun keberangkatan.",
+                },
+                {
+                  icon: Route,
+                  title: "Rute perjalanan",
+                  copy: "Area Surabaya dan beberapa tujuan sekitarnya tercantum dalam layanan.",
+                },
+              ].map(({ icon: Icon, title, copy }) => (
+                <div key={title} className="border-t border-slate-200 py-6">
+                  <Icon className="mb-4 h-5 w-5 text-orange-600" />
+                  <h3 className="font-bold">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{copy}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-900 py-24 text-white">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-300">
+              Cerita pelanggan
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              Pengalaman perjalanan bersama VRN
+            </h2>
+            <p className="mt-5 leading-7 text-slate-300">
+              Kutipan berikut diambil dari testimonial yang telah tercantum pada data Surabaya.
+            </p>
+          </div>
+          <div className="space-y-5">
+            {customerStories.map((story, index) => (
+              <figure
+                key={story.name}
+                className={`rounded-3xl border border-white/10 p-6 sm:p-8 ${
+                  index === 1 ? "bg-white text-slate-900" : "bg-white/5"
+                }`}
+              >
+                <blockquote className="text-lg leading-8">
+                  “{story.text}”
+                </blockquote>
+                <figcaption className={`mt-5 flex items-center gap-3 text-sm ${index === 1 ? "text-slate-600" : "text-slate-300"}`}>
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-orange-500/15 text-orange-500">
+                    <Users className="h-4 w-4" />
+                  </span>
+                  <span>
+                    <span className={`block font-semibold ${index === 1 ? "text-slate-900" : "text-white"}`}>
+                      {story.name}
+                    </span>
+                    {story.city}
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+            <div>
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-600">
+                Dokumentasi
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Sekilas perjalanan di Surabaya
+              </h2>
+            </div>
+            <Link
+              href="/rental-mobil-surabaya/galeri"
+              className="inline-flex items-center gap-2 font-semibold text-orange-700"
+            >
+              Buka galeri <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:grid-rows-[220px_170px]">
+            {documentationPhotos.map((photo, index) => (
+              <div
+                key={photo.src}
+                className={`group relative overflow-hidden rounded-3xl bg-slate-100 ${
+                  index === 0 ? "col-span-2 row-span-2 min-h-[300px]" : ""
+                }`}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes={index === 0 ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 50vw, 25vw"}
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-24">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="mb-10 text-center">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-600">
+              FAQ
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              Pertanyaan tentang sewa mobil Surabaya
+            </h2>
+          </div>
+          <Accordion type="single" collapsible className="space-y-3">
+            {selectedFaqs.map((item, index) => (
+              <AccordionItem
+                key={item.question}
+                value={`faq-${index}`}
+                className="rounded-2xl border border-slate-200 bg-white px-5 shadow-sm"
+              >
+                <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="leading-7 text-slate-600">
+                  {item.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
@@ -1266,344 +956,62 @@ className="w-full h-[450px] object-cover bg-gradient-to-b from-slate-700 to-slat
         </div>
       </section>
 
-      {/* GOOGLE MAPS REVIEWS */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900"> 
-              Ulasan Asli dari
-              <span className="block text-orange-500 mt-2">Google Maps</span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Kepercayaan Anda adalah prioritas kami. Lihat apa kata mereka di
-              platform terpercaya.
+      <section className="relative overflow-hidden bg-orange-600 py-20 text-white">
+        <div className="absolute -right-20 -top-28 h-96 w-96 rounded-full border-[60px] border-white/10" />
+        <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-center">
+          <div className="max-w-2xl">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-orange-100">
+              Rencanakan perjalanan
             </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {googleReviews.map((review, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} 
-                transition={{ delay: i * 0.15 }} 
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 flex flex-col"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <Image
-                    src={review.avatar}
-                    alt={`Foto profil ${review.name}`}
-                    width={48} 
-                    height={48} 
-                    className="rounded-full"
-                  />
-                  <div>
-                    <h4 className="font-bold text-slate-800"> 
-                      {review.name}
-                    </h4>
-                    <div className="flex items-center gap-1">
-                      {[...Array(review.rating)].map((_, j) => (
-                        <Star
-                          key={j} 
-                          className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <p className="text-slate-600 italic mb-4 flex-grow">
-                  "{review.text}"
-                </p>
-                <div className="mt-auto">
-                  <Button 
-                    asChild
-                    variant="outline"
-                    className="w-full border-orange-500 text-orange-600 hover:bg-orange-50 hover:text-orange-700"
-                  > 
-                    <Link
-                      href={review.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                    <Image src="/icon/google.png" alt="Google" width={16} height={16} className="mr-2" />
-                    Lihat di Google Maps
-                    </Link>
-                  </Button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 🏨 HOTEL RECOMMENDATIONS */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900"> 
-              Rekomendasi Hotel di
-              <span className="block text-orange-500 mt-2">Surabaya</span>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              Ceritakan kebutuhan rental mobil Anda
             </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Pilihan akomodasi terbaik untuk perjalanan bisnis & wisata Anda
+            <p className="mt-4 leading-7 text-orange-50">
+              Sampaikan tanggal, tujuan, jumlah penumpang, dan titik penjemputan untuk memulai konsultasi.
             </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {hotelRecommendations.map((hotel, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} 
-                transition={{ delay: i * 0.15 }} 
-                whileHover={{ y: -10 }} 
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Button asChild size="lg" className="bg-white text-orange-700 hover:bg-orange-50">
+              <a
+                href={whatsappLink(
+                  "Halo VRN Surabaya, saya ingin konsultasikan kebutuhan rental mobil.",
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <div className="relative h-48 w-full overflow-hidden">
-                  <Image
-                    src={hotel.image}
-                    alt={`Rekomendasi hotel ${hotel.name} di Surabaya`}
-                    fill 
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
-
-                <div className="p-6">
-                  <div className="flex gap-1 mb-3"> 
-                    {[...Array(hotel.stars)].map((_, i) => (
-                      <Star
-                        key={i} 
-                        className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                      />
-                    ))}
-                  </div>
-
-                  <h3 className="text-xl font-bold mb-2 text-slate-800"> 
-                    {hotel.name}
-                  </h3>
-                  <div className="flex items-center gap-2 mb-3 text-sm text-slate-500"> 
-                    <MapPin className="w-4 h-4" />
-                    <span>{hotel.area}</span>
-                  </div>
-
-                  <p className="text-slate-600 text-sm mb-4"> 
-                    {hotel.desc}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-4"> 
-                    {hotel.features.map((feature, idx) => (
-                      <span
-                        key={idx}
-                        className="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                  <Button asChild className="w-full bg-orange-500 hover:bg-orange-600 rounded-xl">
-                    <Link
-                      href="https://www.traveloka.com/id-id/hotel/indonesia/region/surabaya-87731"
-                      target="_blank"
-                    >
-                      Cek Harga Hotel
-                    </Link>
-                  </Button>
-                </div>
-              </motion.div>
-            ))}
+                Hubungi via WhatsApp
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white/70 bg-transparent text-white hover:bg-white/10 hover:text-white"
+            >
+              <Link href="/rental-mobil-surabaya/armada">Lihat Armada</Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* ✈️ TRAVEL TIPS */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900"> 
-              Tips Perjalanan di Surabaya
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Panduan praktis dari driver berpengalaman kami
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                icon: "🗺️",
-                title: "Gunakan Driver Lokal",
-                desc: "Driver VRN adalah arek Suroboyo asli yang paham seluk-beluk kota, tahu jalan tikus, spot foto keren, hingga warung makan enak yang jarang turis tahu.",
-                color: "blue",
-              },
-              {
-                icon: "⏰",
-                title: "Hindari Rush Hour",
-                desc: "Jam sibuk Surabaya: pagi (07.00-09.00) & sore (16.30-19.00). Atur itinerary wisata di jam santai untuk perjalanan lebih nyaman.",
-                color: "orange",
-              },
-              {
-                icon: "📅",
-                title: "Booking Jauh-Jauh Hari",
-                desc: "Terutama saat weekend, libur nasional, atau peak season (Juni-Juli, Desember). Booking 3-7 hari lebih awal agar dapat mobil pilihan.",
-                color: "green",
-              },
-              {
-                icon: "💳",
-                title: "Siapkan E-Toll & Cash",
-                desc: "Meski banyak tempat terima cashless, beberapa parkir, tol darurat, dan warung tradisional masih pakai cash. Siapkan keduanya untuk jaga-jaga.",
-                color: "purple",
-              },
-              {
-                icon: "🌡️",
-                title: "Cuaca Surabaya Panas",
-                desc: "Suhu rata-rata 28-33°C. Pakai sunscreen, bawa air minum, dan pilih pakaian adem. Mobil VRN semua ber-AC untuk kenyamanan maksimal.",
-                color: "red",
-              },
-              {
-                icon: "🍜",
-                title: "Coba Kuliner Lokal",
-                desc: "Jangan lupa cicipi rawon, rujak cingur, sate klopo! Minta rekomendasi driver untuk spot kuliner autentik dengan harga lokal.",
-                color: "yellow",
-              },
-            ].map((tip, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }} 
-                transition={{ delay: i * 0.1 }} 
-                whileHover={{ scale: 1.03, y: -5 }} 
-                className={`bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all border-l-4 border-orange-500`}
-              >
-                <div className="text-5xl mb-4">{tip.icon}</div> 
-                <h3 className="text-xl font-bold mb-3 text-slate-800"> 
-                  {tip.title}
-                </h3>
-                <p className="text-slate-600 leading-relaxed"> 
-                  {tip.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 📞 CONTACT INFO */}
-      <section className="py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-3xl font-bold mb-6 text-slate-800"> 
-                  Hubungi Kami
-                </h3>
-
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-orange-100 p-3 rounded-lg"> 
-                      <Phone className="w-6 h-6 text-orange-600" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-slate-700"> 
-                        WhatsApp / Telepon
-                      </div>
-                      <div className="text-orange-600 font-bold text-lg"> 
-                        +62 823-6338-9893
-                      </div>
-                      <div className="text-sm text-slate-500"> 
-                        Available 24/7
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="bg-orange-100 p-3 rounded-lg"> 
-                      <MapPin className="w-6 h-6 text-orange-600" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-slate-700"> 
-                        Area Layanan
-                      </div>
-                      <div className="text-slate-600"> 
-                        Surabaya & Sekitanya
-                      </div>
-                      <div className="text-sm text-slate-500"> 
-                        Malang, Bromo, Batu, Bali
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="bg-orange-100 p-3 rounded-lg"> 
-                      <Clock className="w-6 h-6 text-orange-600" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-slate-700"> 
-                        Jam Operasional
-                      </div>
-                      <div className="text-slate-600">
-                        24 Jam / 7 Hari
-                      </div>
-                      <div className="text-sm text-slate-500">
-                        Termasuk hari libur
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-6 flex flex-col justify-center"> 
-                <h4 className="text-2xl font-bold mb-4 text-slate-800"> 
-                  Siap Berangkat?
-                </h4>
-                <p className="text-slate-600 mb-6"> 
-                  Chat langsung dengan tim kami untuk konsultasi gratis &
-                  penawaran terbaik!
-                </p>
-                <motion.div 
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  animate={{
-                    scale: [1, 1.01, 1],
-                  }}
-                  transition={{
-                    scale: { duration: 2, repeat: Infinity },
-                    hover: { duration: 0.2 },
-                  }}
-                > 
-                  <Button asChild className="w-full bg-orange-500 hover:bg-orange-600 text-white py-6 text-lg rounded-xl shadow-lg flex items-center justify-center gap-3">
-                    <Link
-                      href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-                      target="_blank"
-                    >
-                      <Phone className="w-5 h-5" />
-                      Booking Tanpa Ribet
-                    </Link>
-                  </Button>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+      <a
+        href={whatsappLink(
+          "Halo VRN, saya ingin konsultasikan kebutuhan rental mobil Surabaya.",
+        )}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Konsultasi rental mobil Surabaya melalui WhatsApp"
+        title="WhatsApp"
+        className="fixed bottom-4 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 sm:bottom-6 sm:right-6"
+      >
+        <Image
+          src="/icon/wa.png"
+          alt=""
+          width={32}
+          height={32}
+          className="object-contain"
+        />
+      </a>
+    </main>
   );
 }

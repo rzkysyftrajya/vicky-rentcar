@@ -7,9 +7,8 @@ import { cn } from "@/lib/utils";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
-import { FloatingDock } from "@/components/ui/floating-dock";
+import RouteContactDock from "@/components/layout/RouteContactDock";
 import RouteMain from "@/components/layout/RouteMain";
-import { IconBrandWhatsapp, IconPhone } from "@tabler/icons-react";
 import { AppContextProvider } from "./context/AppContext";
 import Script from "next/script";
 
@@ -114,19 +113,6 @@ const structuredData = {
   ],
 };
 
-const dockItems = [
-  {
-    icon: <IconBrandWhatsapp className="w-5 h-5 text-green-500" />,
-    href: "https://wa.me/6282363389893",
-    title: "WhatsApp",
-  },
-  {
-    icon: <IconPhone className="w-5 h-5 text-primary" />,
-    href: "tel:+6282363389893",
-    title: "Telepon",
-  },
-];
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -226,9 +212,7 @@ export default function RootLayout({
               <div id="global-route-chrome-footer">
                 <Footer />
               </div>
-              <div id="global-route-contact-dock" className="fixed bottom-4 left-4 z-50">
-                <FloatingDock items={dockItems} />
-              </div>
+              <RouteContactDock />
             </div>
           </ThemeProvider>
         </AppContextProvider>
