@@ -221,193 +221,6 @@
   font-size: 9px;
 }
 
-.eventFeature {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.58fr);
-  align-items: center;
-  gap: clamp(28px, 5vw, 70px);
-  margin: 0 max(calc((100vw - 1240px) / 2), 6vw) 100px;
-  padding: clamp(32px, 5vw, 68px);
-  overflow: hidden;
-  background: #17231f url("/kalimantan/background-motogp.webp") center 54% / cover
-    no-repeat;
-  color: #fff;
-}
-
-.eventFeature::before {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgb(13 24 23 / 88%) 0%,
-      rgb(13 24 23 / 82%) 54%,
-      rgb(13 24 23 / 70%) 100%
-    ),
-    linear-gradient(0deg, rgb(13 24 23 / 20%), transparent 55%);
-  content: "";
-}
-
-.eventFeatureCopy {
-  position: relative;
-  z-index: 1;
-  max-width: 660px;
-}
-
-.eventLabel {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0 0 17px;
-  color: #e2c98f;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
-.eventFeatureBadge {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 9px;
-  border: 1px solid rgb(226 201 143 / 48%);
-  color: #f1dba7;
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.eventFeature h2 {
-  margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(39px, 5vw, 66px);
-  font-weight: 500;
-  line-height: 0.98;
-  letter-spacing: -0.035em;
-}
-
-.eventFeatureCopy > p:last-child {
-  max-width: 570px;
-  margin: 21px 0 0;
-  color: #d4d8cf;
-  font-size: 14px;
-  line-height: 1.85;
-}
-
-.eventFeatureDetails {
-  display: grid;
-  gap: 11px;
-  margin-top: 22px;
-  color: #e3e4dd;
-  font-size: 11px;
-}
-
-.eventFeatureDetails span {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.eventFeatureDetails svg {
-  flex: 0 0 auto;
-  color: #e2c98f;
-}
-
-.eventFeatureActions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 11px;
-  margin-top: 27px;
-}
-
-.eventFeatureActions a {
-  display: inline-flex;
-  min-height: 46px;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  padding: 0 16px;
-  border: 1px solid rgb(255 255 255 / 35%);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
-}
-
-.eventFeatureActions a:first-child {
-  border-color: #e2c98f;
-  background: #e2c98f;
-  color: #20221d;
-}
-
-.eventFeatureVisual {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  min-height: 310px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgb(226 201 143 / 44%);
-  background: rgb(13 24 23 / 58%);
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
-  color: #e2c98f;
-  text-align: center;
-}
-
-.eventFeatureVisual::before,
-.eventFeatureVisual::after {
-  position: absolute;
-  right: 22px;
-  left: 22px;
-  height: 1px;
-  background: rgb(226 201 143 / 30%);
-  content: "";
-}
-
-.eventFeatureVisual::before {
-  top: 23px;
-}
-
-.eventFeatureVisual::after {
-  bottom: 23px;
-}
-
-.eventFeatureVisual > span:first-child {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-}
-
-.eventFeatureVisual strong {
-  margin: 15px 0 16px;
-  color: #fffaf0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(104px, 14vw, 176px);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.08em;
-}
-
-.eventFeatureVisual > span:nth-of-type(2) {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.19em;
-}
-
-.eventFeatureVisual > span b {
-  color: #fffaf0;
-}
-
-.eventFeatureVisual i {
-  margin-top: 28px;
-  color: #d4d8cf;
-  font-size: 10px;
-  font-style: normal;
-}
-
 .subpage {
   background: var(--kal-bg);
 }
@@ -828,53 +641,6 @@
   color: var(--kal-green);
   font-size: 10px;
   font-weight: 700;
-}
-
-.tourEvent {
-  display: grid;
-  grid-template-columns: 1fr 0.84fr;
-  align-items: stretch;
-  margin: 0 max(calc((100vw - 1240px) / 2), 6vw) 100px;
-  background: #27382f;
-  color: #f7f5ed;
-}
-
-.tourEventCopy {
-  padding: clamp(32px, 5vw, 64px);
-}
-
-.tourEventCopy .eventLabel {
-  color: #d6bd83;
-}
-
-.tourEventCopy h2 {
-  margin: 22px 0 17px;
-  font-size: clamp(38px, 4.5vw, 58px);
-  line-height: 1;
-}
-
-.tourEventCopy > p:not(.eventLabel) {
-  max-width: 530px;
-  color: #d0d2c9;
-  font-size: 13px;
-  line-height: 1.85;
-}
-
-.tourEventCopy .lightButton {
-  margin-top: 16px;
-}
-
-.tourEventVisual {
-  position: relative;
-  width: 100%;
-  align-self: center;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  background: var(--kal-bg);
-}
-
-.tourEventVisual img {
-  object-fit: contain;
 }
 
 .tourPlanning {
@@ -2171,11 +1937,6 @@
     gap: 34px;
   }
 
-  .tourEvent {
-    margin-right: 4vw;
-    margin-left: 4vw;
-  }
-
   .catalogHero {
     padding-right: 8vw;
     padding-left: 8vw;
@@ -2196,11 +1957,6 @@
     gap: 34px;
     padding-right: 8vw;
     padding-left: 8vw;
-  }
-
-  .eventFeature {
-    margin-right: 4vw;
-    margin-left: 4vw;
   }
 
   .hero {
@@ -2349,41 +2105,6 @@
     display: block;
   }
 
-  .eventFeature {
-    grid-template-columns: 1fr;
-    align-items: stretch;
-    gap: 24px;
-    margin: 0 17px 70px;
-    padding: 27px 22px;
-    background-position: 58% center;
-  }
-
-  .eventFeature::before {
-    background:
-      linear-gradient(
-        90deg,
-        rgb(13 24 23 / 88%) 0%,
-        rgb(13 24 23 / 80%) 100%
-      ),
-      linear-gradient(0deg, rgb(13 24 23 / 28%), transparent 60%);
-  }
-
-  .eventFeatureActions {
-    width: 100%;
-  }
-
-  .eventFeatureActions a {
-    width: 100%;
-  }
-
-  .eventFeatureVisual {
-    min-height: 230px;
-  }
-
-  .eventFeatureVisual strong {
-    font-size: 118px;
-  }
-
   .subpageHero {
     display: flex;
     flex-direction: column;
@@ -2479,23 +2200,6 @@
 
   .tourPackageCard h3 {
     font-size: 27px;
-  }
-
-  .tourEvent {
-    grid-template-columns: 1fr;
-    margin: 0 17px 72px;
-  }
-
-  .tourEventCopy {
-    padding: 31px 23px;
-  }
-
-  .tourEventCopy h2 {
-    font-size: 42px;
-  }
-
-  .tourEventVisual {
-    min-height: 0;
   }
 
   .tourPlanning {

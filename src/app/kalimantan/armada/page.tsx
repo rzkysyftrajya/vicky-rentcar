@@ -78,7 +78,7 @@ export default function ArmadaKalimantanPage() {
               <div key={name}>
                 <span>{name}</span>
                 <a
-                  href={`https://wa.me/6282363389893?text=${encodeURIComponent(`Halo Vicky Rentcar, saya ingin menanyakan ketersediaan ${name} di Kalimantan.`)}`}
+                  href={`https://wa.me/6282363389893?text=${encodeURIComponent(`Halo Vicky Rentcar Kalimantan, saya ingin menanyakan ketersediaan ${name}.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Tanyakan ketersediaan ${name}`}

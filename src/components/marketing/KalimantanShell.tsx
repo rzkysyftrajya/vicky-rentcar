@@ -10,7 +10,9 @@ type KalimantanShellProps = {
 export default function KalimantanShell({ children }: KalimantanShellProps) {
   return (
     <div className={styles.page}>
-      <KalimantanNavigation bookingUrl="https://wa.me/6282363389893" />
+      <KalimantanNavigation
+        bookingUrl={`https://wa.me/6282363389893?text=${encodeURIComponent("Halo Vicky Rentcar Kalimantan, saya ingin konsultasi sewa mobil.")}`}
+      />
       {children}
       <footer className={styles.siteFooter}>
         <a className={`${styles.siteBrand} ${styles.footerBrand}`} href="/kalimantan/">

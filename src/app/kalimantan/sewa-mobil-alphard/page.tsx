@@ -35,7 +35,7 @@ export default function SewaAlphardPage() {
         "Antar jemput bandara dan perjalanan dalam kota.",
         "Perjalanan wisata privat bersama keluarga.",
       ]}
-      whatsappMessage="Halo, saya ingin menanyakan ketersediaan sewa mobil Alphard."
+      whatsappMessage="Halo Vicky Rentcar Kalimantan, saya ingin menanyakan ketersediaan sewa mobil Alphard."
       image="/kalimantan/armada/Alphard.webp"
       imageAlt="Armada Toyota Alphard untuk perjalanan premium di Kalimantan"
     />

@@ -13,7 +13,7 @@ export default function KalimantanVehicleCard({
   const inquiryUrl =
     "https://wa.me/6282363389893?text=" +
     encodeURIComponent(
-      `Halo Vicky Rentcar, saya ingin menanyakan ketersediaan ${vehicle.name} untuk perjalanan di Kalimantan.`
+      `Halo Vicky Rentcar Kalimantan, saya ingin menanyakan ketersediaan ${vehicle.name}.`
     );
 
   return (

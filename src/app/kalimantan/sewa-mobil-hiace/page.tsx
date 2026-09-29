@@ -35,7 +35,7 @@ export default function SewaHiacePage() {
         "Antar jemput tamu atau peserta acara.",
         "Perjalanan antarkota dengan rute yang disepakati.",
       ]}
-      whatsappMessage="Halo, saya ingin menanyakan ketersediaan sewa mobil Hiace."
+      whatsappMessage="Halo Vicky Rentcar Kalimantan, saya ingin menanyakan ketersediaan sewa mobil Hiace."
     />
   );
 }

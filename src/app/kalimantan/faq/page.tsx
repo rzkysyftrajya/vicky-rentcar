@@ -78,7 +78,7 @@ export default function FaqKalimantanPage() {
             </p>
             <a
               className={styles.inlineLink}
-              href={`https://wa.me/6282363389893?text=${encodeURIComponent("Halo Vicky Rentcar, saya ingin bertanya tentang layanan sewa mobil di Kalimantan.")}`}
+              href={`https://wa.me/6282363389893?text=${encodeURIComponent("Halo Vicky Rentcar Kalimantan, saya ingin bertanya tentang layanan sewa mobil.")}`}
               target="_blank"
               rel="noopener noreferrer"
             >

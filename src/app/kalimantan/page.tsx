@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import styles from "./kalimantan.module.css";
 import KalimantanNavigation from "@/components/marketing/KalimantanNavigation";
-import MandalikaEventFeature from "@/components/marketing/MandalikaEventFeature";
 import Link from "next/link";
 import KalimantanVehicleCard from "@/components/marketing/KalimantanVehicleCard";
 import {
@@ -22,7 +21,7 @@ import {
 
 const whatsappNumber = "6282363389893";
 const bookingMessage =
-  "Halo Vicky Rentcar, saya ingin konsultasi sewa mobil dengan driver untuk perjalanan di Kalimantan. Rencana perjalanan saya:";
+  "Halo Vicky Rentcar Kalimantan, saya ingin konsultasi sewa mobil dengan driver. Rencana perjalanan saya:";
 const bookingUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(bookingMessage)}`;
 
 const services = [
@@ -262,8 +261,6 @@ export default function KalimantanPage() {
             Lihat detail layanan <ArrowUpRight size={16} aria-hidden="true" />
           </Link>
         </section>
-
-        <MandalikaEventFeature />
 
         <section className={styles.driver}>
           <div className={styles.driverImageWrap}>

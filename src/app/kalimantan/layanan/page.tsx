@@ -82,7 +82,7 @@ export default function LayananKalimantanPage() {
                 <p>{description}</p>
               </div>
               <a
-                href={`https://wa.me/6282363389893?text=${encodeURIComponent(`Halo Vicky Rentcar, saya ingin menanyakan layanan ${title.toLowerCase()} di Kalimantan.`)}`}
+                href={`https://wa.me/6282363389893?text=${encodeURIComponent(`Halo Vicky Rentcar Kalimantan, saya ingin menanyakan layanan ${title.toLowerCase()}.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Tanyakan layanan ${title}`}

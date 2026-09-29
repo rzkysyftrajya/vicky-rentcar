@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, CalendarDays, MapPinned } from "lucide-react";
+import { ArrowUpRight, MapPinned } from "lucide-react";
 import KalimantanShell from "@/components/marketing/KalimantanShell";
 import KalimantanImageLightbox from "@/components/marketing/KalimantanImageLightbox";
 import styles from "@/app/kalimantan/kalimantan.module.css";
 
 export const metadata: Metadata = {
-  title: "Paket Wisata Kalimantan dan Event Mandalika MotoGP",
+  title: "Paket Wisata Kalimantan | Vicky Rentcar Nusantara",
   description:
-    "Jelajahi inspirasi paket wisata Balikpapan, IKN, Samarinda, Samboja, dan Berau bersama Vicky Rentcar. Konsultasikan juga perjalanan MotoGP Mandalika.",
+    "Jelajahi inspirasi paket wisata Balikpapan, IKN, Samarinda, Samboja, dan Berau bersama Vicky Rentcar.",
   keywords: [
     "paket wisata Kalimantan",
-    "paket wisata Lombok",
-    "paket MotoGP Mandalika",
-    "transportasi MotoGP Mandalika",
     "sewa mobil untuk wisata",
   ],
   alternates: {
@@ -25,7 +22,7 @@ export const metadata: Metadata = {
 const whatsappUrl =
   "https://wa.me/6282363389893?text=" +
   encodeURIComponent(
-    "Halo, saya ingin konsultasi paket wisata Kalimantan. Tujuan dan tanggal perjalanan saya:"
+    "Halo Vicky Rentcar Kalimantan, saya ingin konsultasi paket wisata. Tujuan dan tanggal perjalanan saya:"
   );
 
 const tourPackages = [
@@ -71,7 +68,7 @@ function createTourWhatsAppUrl(title: string) {
   return (
     "https://wa.me/6282363389893?text=" +
     encodeURIComponent(
-      `Halo, saya ingin konsultasi paket wisata ${title}. Mohon info rute, jadwal, dan ketersediaan kendaraan.`
+      `Halo Vicky Rentcar Kalimantan, saya ingin konsultasi paket wisata ${title}. Mohon info rute, jadwal, dan ketersediaan kendaraan.`
     )
   );
 }
@@ -227,44 +224,6 @@ export default function PaketWisataPage() {
                 </div>
               </article>
             ))}
-          </div>
-        </section>
-
-        <section className={styles.tourEvent} aria-labelledby="mandalika-title">
-          <div className={styles.tourEventCopy}>
-            <p className={styles.eventLabel}>
-              <CalendarDays size={15} aria-hidden="true" />
-              Perjalanan spesial · rencana tanggal 9 Oktober 2026
-            </p>
-            <h2 id="mandalika-title">MotoGP Mandalika</h2>
-            <p>
-              Berencana menyaksikan MotoGP di Mandalika? Konsultasikan rencana
-              perjalanan menuju Lombok, kebutuhan transportasi lokal, dan
-              jadwal Anda bersama tim kami.
-            </p>
-            <p>
-              Informasi event, akses sirkuit, dan tiket mengikuti pengumuman
-              resmi penyelenggara. Detail layanan dan ketersediaan kendaraan
-              dikonfirmasi sebelum pemesanan.
-            </p>
-            <a
-              className={styles.lightButton}
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Tanya perjalanan MotoGP
-              <ArrowUpRight size={17} aria-hidden="true" />
-            </a>
-          </div>
-          <div className={styles.tourEventVisual}>
-            <KalimantanImageLightbox
-              src="/kalimantan/paket-wisata/moto-gp.webp"
-              alt="Poster perjalanan MotoGP Mandalika di Lombok"
-              width={1536}
-              height={1024}
-              sizes="(max-width: 760px) 100vw, 42vw"
-            />
           </div>
         </section>
 

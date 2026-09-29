@@ -35,7 +35,7 @@ export default function SewaMobilDriverPage() {
         "Antar jemput bandara, hotel, dan lokasi acara.",
         "Kebutuhan mobilitas keluarga atau tamu.",
       ]}
-      whatsappMessage="Halo, saya ingin menanyakan layanan sewa mobil dengan driver."
+      whatsappMessage="Halo Vicky Rentcar Kalimantan, saya ingin menanyakan layanan sewa mobil dengan driver."
       image="/kalimantan/kalimantan-driver.jpg"
       imageAlt="Pemandangan perjalanan dari dalam mobil dengan driver"
     />
