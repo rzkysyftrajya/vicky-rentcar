@@ -23,7 +23,6 @@ import {
 import { motion } from "framer-motion";
 import { ImageZoom } from "@/components/ui/image-zoom";
 import React, { Suspense } from "react";
-import { useAppContext } from "./context/AppContext";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import SocialMediaCard from "@/components/layout/SocialMediaCard";
 
@@ -32,7 +31,6 @@ const HomeSearchForm = React.lazy(
 );
 
 export default function Home() {
-  const { getFormattedPrice } = useAppContext();
   const animationProps = {
     initial: { opacity: 0, y: 50 },
     whileInView: { opacity: 1, y: 0 },
@@ -82,7 +80,6 @@ export default function Home() {
       rating: 4.7,
       capacity: 5,
       fuel: "Bensin",
-      prices: { manual: 300000, matic: 350000, driver: 600000 },
     },
     {
       slug: "toyota-all-new-avanza",
@@ -94,7 +91,6 @@ export default function Home() {
       rating: 4.8,
       capacity: 7,
       fuel: "Bensin",
-      prices: { manual: 400000, matic: 450000, driver: 700000 },
     },
     {
       slug: "mitsubishi-xpander",
@@ -106,7 +102,6 @@ export default function Home() {
       rating: 4.8,
       capacity: 7,
       fuel: "Bensin",
-      prices: { manual: 400000, matic: 450000, driver: 700000 },
     },
     {
       slug: "toyota-innova-reborn",
@@ -118,7 +113,6 @@ export default function Home() {
       rating: 4.9,
       capacity: 7,
       fuel: "Bensin",
-      prices: { manual: 550000, matic: 600000, driver: 900000 },
     },
     {
       slug: "toyota-fortuner",
@@ -130,7 +124,6 @@ export default function Home() {
       rating: 4.9,
       capacity: 7,
       fuel: "Bensin",
-      prices: { driver: 1300000 },
     },
     {
       slug: "toyota-alphard-new",
@@ -142,7 +135,6 @@ export default function Home() {
       rating: 5.0,
       capacity: 6,
       fuel: "Bensin",
-      prices: { driver: 3000000 },
     },
   ];
 
@@ -488,18 +480,16 @@ export default function Home() {
                         />
                       </div>
                       <div className="absolute bottom-2 right-2">
-                        <div className="bg-background/80 text-foreground text-xs font-bold px-3 py-2 rounded-full backdrop-blur-sm shadow-md border-border/20 border">
-                          Mulai{" "}
-                          <span className="text-primary">
-                            {getFormattedPrice(
-                              car.prices.manual ||
-                                car.prices.matic ||
-                                car.prices.driver ||
-                                0
-                            )}
-                          </span>
-                          /hari
-                        </div>
+                        <Button asChild size="sm" className="shadow-md">
+                          <a
+                            href={`https://wa.me/6282363389893?text=${encodedWaTextCar}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <MessageCircle className="w-4 h-4 mr-2" />
+                            Tanya Harga via WhatsApp
+                          </a>
+                        </Button>
                       </div>
                     </CardHeader>
                     <CardContent className="p-6 flex-grow">

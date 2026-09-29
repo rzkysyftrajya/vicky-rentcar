@@ -192,8 +192,8 @@ export default function HiacePage() {
                 Hiace Premio & Commuter
               </h2>
               <p className="text-slate-600 mt-2 max-w-xl">
-                Pilih paket sewa sesuai kebutuhan perjalanan Anda. Tersedia
-                layanan lepas kunci (syarat berlaku) atau dengan driver.
+                Pilih paket sewa sesuai kebutuhan perjalanan Anda. Seluruh
+                layanan Hiace tersedia dengan driver berpengalaman.
               </p>
             </div>
             <Link href="#paket">
