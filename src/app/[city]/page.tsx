@@ -1,5 +1,6 @@
 import cities from "@/data/cities.json";
 import CityPage from "@/components/CityPage";
+import { notFound } from "next/navigation";
 
 // ✅ Generate URL statis dari cities.json
 export function generateStaticParams() {
@@ -42,7 +43,7 @@ export default async function Page({
   const cityData = cities.find((c) => c.slug === citySlug);
 
   if (!cityData) {
-    return <div>Kota tidak ditemukan</div>;
+    notFound();
   }
 
   return (
