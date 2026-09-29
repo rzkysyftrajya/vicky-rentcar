@@ -31,23 +31,41 @@
 
 .siteBrand {
   display: flex;
-  flex-direction: column;
-  gap: 3px;
+  align-items: center;
+  gap: 10px;
   color: var(--kal-ink);
 }
 
-.siteBrand span:first-child {
+.brandLogo {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.brandText > span:first-child {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 17px;
   font-weight: 700;
   letter-spacing: 0.04em;
 }
 
-.siteBrand span:last-child {
+.brandText > span:last-child {
   color: var(--kal-muted);
   font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.16em;
+}
+
+.footerBrand .brandLogo {
+  width: 64px;
+  height: 64px;
 }
 
 .siteNav {
@@ -56,7 +74,60 @@
   gap: 31px;
 }
 
-.siteNav a,
+.navDropdown,
+.mobileNav {
+  position: relative;
+}
+
+.navDropdown > summary,
+.mobileNav > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--kal-muted);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.navDropdown > summary::-webkit-details-marker,
+.mobileNav > summary::-webkit-details-marker,
+.mobileNavContent summary::-webkit-details-marker {
+  display: none;
+}
+
+.navDropdownContent,
+.mobileNavContent {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 14px);
+  left: -14px;
+  display: grid;
+  min-width: 200px;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid var(--kal-line);
+  background: var(--kal-paper);
+  box-shadow: 0 12px 30px rgb(32 34 29 / 12%);
+}
+
+.navDropdownContent a,
+.mobileNavContent a,
+.mobileNavContent summary {
+  padding: 9px 10px;
+  color: var(--kal-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.navDropdownContent a:hover,
+.mobileNavContent a:hover {
+  background: var(--kal-bg);
+  color: var(--kal-green);
+}
+
+.siteNav > a,
 .siteFooter nav a {
   color: var(--kal-muted);
   font-size: 11px;
@@ -64,9 +135,34 @@
   transition: color 160ms ease;
 }
 
-.siteNav a:hover,
+.siteNav > a:hover,
+.navDropdown > summary:hover,
+.mobileNavContent summary:hover,
 .siteFooter nav a:hover {
   color: var(--kal-green);
+}
+
+.mobileNav {
+  display: none;
+}
+
+.mobileNavContent {
+  right: 0;
+  left: auto;
+  min-width: 235px;
+}
+
+.mobileNavContent > details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  list-style: none;
+}
+
+.mobileSubmenu {
+  display: grid;
+  padding-left: 12px;
 }
 
 .headerCta {
@@ -125,6 +221,1107 @@
   font-size: 9px;
 }
 
+.eventFeature {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.58fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 70px);
+  margin: 0 max(calc((100vw - 1240px) / 2), 6vw) 100px;
+  padding: clamp(32px, 5vw, 68px);
+  overflow: hidden;
+  background: #17231f url("/kalimantan/background-motogp.webp") center 54% / cover
+    no-repeat;
+  color: #fff;
+}
+
+.eventFeature::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(13 24 23 / 88%) 0%,
+      rgb(13 24 23 / 82%) 54%,
+      rgb(13 24 23 / 70%) 100%
+    ),
+    linear-gradient(0deg, rgb(13 24 23 / 20%), transparent 55%);
+  content: "";
+}
+
+.eventFeatureCopy {
+  position: relative;
+  z-index: 1;
+  max-width: 660px;
+}
+
+.eventLabel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 17px;
+  color: #e2c98f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.eventFeatureBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 9px;
+  border: 1px solid rgb(226 201 143 / 48%);
+  color: #f1dba7;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.eventFeature h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(39px, 5vw, 66px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.eventFeatureCopy > p:last-child {
+  max-width: 570px;
+  margin: 21px 0 0;
+  color: #d4d8cf;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.eventFeatureDetails {
+  display: grid;
+  gap: 11px;
+  margin-top: 22px;
+  color: #e3e4dd;
+  font-size: 11px;
+}
+
+.eventFeatureDetails span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.eventFeatureDetails svg {
+  flex: 0 0 auto;
+  color: #e2c98f;
+}
+
+.eventFeatureActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-top: 27px;
+}
+
+.eventFeatureActions a {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 16px;
+  border: 1px solid rgb(255 255 255 / 35%);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.eventFeatureActions a:first-child {
+  border-color: #e2c98f;
+  background: #e2c98f;
+  color: #20221d;
+}
+
+.eventFeatureVisual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 310px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(226 201 143 / 44%);
+  background: rgb(13 24 23 / 58%);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  color: #e2c98f;
+  text-align: center;
+}
+
+.eventFeatureVisual::before,
+.eventFeatureVisual::after {
+  position: absolute;
+  right: 22px;
+  left: 22px;
+  height: 1px;
+  background: rgb(226 201 143 / 30%);
+  content: "";
+}
+
+.eventFeatureVisual::before {
+  top: 23px;
+}
+
+.eventFeatureVisual::after {
+  bottom: 23px;
+}
+
+.eventFeatureVisual > span:first-child {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.eventFeatureVisual strong {
+  margin: 15px 0 16px;
+  color: #fffaf0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(104px, 14vw, 176px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.08em;
+}
+
+.eventFeatureVisual > span:nth-of-type(2) {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+}
+
+.eventFeatureVisual > span b {
+  color: #fffaf0;
+}
+
+.eventFeatureVisual i {
+  margin-top: 28px;
+  color: #d4d8cf;
+  font-size: 10px;
+  font-style: normal;
+}
+
+.subpage {
+  background: var(--kal-bg);
+}
+
+.subpageHero {
+  display: grid;
+  min-height: 620px;
+  grid-template-columns: 0.92fr 1.08fr;
+  align-items: center;
+  gap: clamp(36px, 7vw, 104px);
+  padding: 76px max(calc((100vw - 1240px) / 2), 6vw) 94px;
+  border-bottom: 1px solid var(--kal-line);
+}
+
+.subpageHeroCopy {
+  max-width: 540px;
+}
+
+.subpageHero h1 {
+  margin: 34px 0 23px;
+  font-size: clamp(46px, 5.8vw, 78px);
+  line-height: 0.99;
+}
+
+.subpageLead {
+  max-width: 460px;
+  margin: 0;
+  color: var(--kal-muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.subpageHero .heroNote {
+  max-width: 410px;
+}
+
+.subpageVisual {
+  position: relative;
+  min-height: 450px;
+  overflow: hidden;
+  background: #d7d4ca;
+}
+
+.subpageVisual img {
+  object-fit: cover;
+}
+
+.tourHeroVisual {
+  background: var(--kal-bg);
+}
+
+.tourHeroVisual img,
+.fleetHeroVisual img {
+  object-fit: contain;
+}
+
+.tourHeroVisual::after,
+.fleetHeroVisual::after {
+  display: none;
+}
+
+.fleetHeroVisual {
+  background: var(--kal-bg);
+}
+
+.subpageVisual::after {
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(transparent, rgb(17 24 20 / 58%));
+  content: "";
+}
+
+.subpageVisual .imageCaption,
+.subpageVisual .imageIndex {
+  z-index: 1;
+}
+
+.subpageDetails {
+  padding: 105px max(calc((100vw - 1120px) / 2), 8vw);
+}
+
+.subpageSectionHeading {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  align-items: end;
+  gap: 70px;
+  margin-bottom: 55px;
+}
+
+.subpageSectionHeading h2 {
+  margin: 20px 0 0;
+  font-size: clamp(38px, 4.5vw, 60px);
+  line-height: 1.03;
+}
+
+.subpageSectionHeading > p {
+  max-width: 430px;
+  margin: 0 0 5px;
+  color: var(--kal-muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.subpageDetailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 56px;
+}
+
+.subpageDetailCard {
+  padding: 24px 0 0;
+  border-top: 1px solid var(--kal-line);
+}
+
+.subpageDetailMark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--kal-green);
+}
+
+.subpageDetailMark span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.subpageDetailCard h3 {
+  margin: 24px 0 20px;
+  font-size: 27px;
+}
+
+.subpageDetailCard ul {
+  display: grid;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subpageDetailCard li {
+  display: grid;
+  grid-template-columns: 17px 1fr;
+  align-items: start;
+  gap: 10px;
+  color: var(--kal-muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.subpageDetailCard li svg {
+  margin-top: 2px;
+  color: var(--kal-green);
+}
+
+.subpageCta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  padding: 70px max(calc((100vw - 1120px) / 2), 8vw);
+  background: #27382f;
+  color: #f7f5ed;
+}
+
+.subpageCta .eyebrow {
+  color: #d6bd83;
+}
+
+.subpageCta h2 {
+  margin: 18px 0 12px;
+  font-size: clamp(34px, 4vw, 50px);
+}
+
+.subpageCta > div > p:last-child {
+  max-width: 540px;
+  margin: 0;
+  color: #d0d2c9;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.subpageCta .lightButton {
+  flex: 0 0 auto;
+}
+
+.tourIntro {
+  padding: 90px max(calc((100vw - 1120px) / 2), 8vw) 105px;
+}
+
+.tourIntroGrid {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  align-items: end;
+  gap: 70px;
+}
+
+.tourIntroGrid h2 {
+  margin: 20px 0 0;
+  font-size: clamp(39px, 4.6vw, 62px);
+  line-height: 1;
+}
+
+.tourIntroGrid > p {
+  margin: 0 0 4px;
+  color: var(--kal-muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.tourPackages {
+  padding: 0 max(calc((100vw - 1120px) / 2), 8vw) 100px;
+}
+
+.tourPackagesHeading {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  align-items: end;
+  gap: 64px;
+  margin-bottom: 42px;
+}
+
+.tourPackagesHeading h2 {
+  margin: 20px 0 0;
+  font-size: clamp(38px, 4.3vw, 58px);
+  line-height: 1;
+}
+
+.tourPackagesHeading > p {
+  margin: 0 0 4px;
+  color: var(--kal-muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.tourPackageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.tourPackageCard {
+  display: flex;
+  min-height: 280px;
+  flex-direction: column;
+  padding: 25px 26px 21px;
+  border: 1px solid var(--kal-line);
+  background: var(--kal-paper);
+}
+
+.tourPackageImage {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  margin: -25px -26px 21px;
+  overflow: hidden;
+  background: #e9e6dc;
+}
+
+.tourPackageImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tourImageTrigger {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.tourImageTrigger img {
+  object-fit: contain;
+}
+
+.tourImageTrigger:focus-visible {
+  z-index: 1;
+  outline: 3px solid var(--kal-yellow);
+  outline-offset: -3px;
+}
+
+.tourImageZoomHint {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  background: rgb(20 34 29 / 88%);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tourImageDialog {
+  position: fixed;
+  width: max-content;
+  max-width: 96vw;
+  max-height: 96vh;
+  margin: auto;
+  padding: 48px 16px 14px;
+  overflow: auto;
+  border: 1px solid rgb(255 255 255 / 18%);
+  background: rgb(18 24 21 / 98%);
+  color: #fff;
+}
+
+.tourImageDialog::backdrop {
+  background: rgb(0 0 0 / 86%);
+  backdrop-filter: blur(3px);
+}
+
+.tourImageClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 25%);
+  background: rgb(255 255 255 / 10%);
+  color: #fff;
+  cursor: pointer;
+}
+
+.tourImageClose:focus-visible {
+  outline: 2px solid var(--kal-yellow);
+  outline-offset: 2px;
+}
+
+.tourImageDialogImage {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(96vw - 34px);
+  max-height: calc(92vh - 100px);
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.tourImageDialog > p {
+  margin: 10px 0 0;
+  color: #e4e5df;
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.tourPackageTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--kal-green);
+}
+
+.tourPackageTopline > span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.tourPackageRegion {
+  margin: 26px 0 9px;
+  color: var(--kal-green);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.tourPackageCard h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 500;
+}
+
+.tourPackageDescription {
+  max-width: 510px;
+  margin: 12px 0 25px;
+  color: var(--kal-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.tourPackageFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid var(--kal-line);
+}
+
+.tourPackageFooter > span {
+  color: var(--kal-muted);
+  font-size: 9px;
+}
+
+.tourPackageFooter a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--kal-green);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.tourEvent {
+  display: grid;
+  grid-template-columns: 1fr 0.84fr;
+  align-items: stretch;
+  margin: 0 max(calc((100vw - 1240px) / 2), 6vw) 100px;
+  background: #27382f;
+  color: #f7f5ed;
+}
+
+.tourEventCopy {
+  padding: clamp(32px, 5vw, 64px);
+}
+
+.tourEventCopy .eventLabel {
+  color: #d6bd83;
+}
+
+.tourEventCopy h2 {
+  margin: 22px 0 17px;
+  font-size: clamp(38px, 4.5vw, 58px);
+  line-height: 1;
+}
+
+.tourEventCopy > p:not(.eventLabel) {
+  max-width: 530px;
+  color: #d0d2c9;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.tourEventCopy .lightButton {
+  margin-top: 16px;
+}
+
+.tourEventVisual {
+  position: relative;
+  width: 100%;
+  align-self: center;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--kal-bg);
+}
+
+.tourEventVisual img {
+  object-fit: contain;
+}
+
+.tourPlanning {
+  padding: 0 max(calc((100vw - 1120px) / 2), 8vw) 105px;
+}
+
+.tourPlanningHeading {
+  max-width: 620px;
+  margin-bottom: 45px;
+}
+
+.tourPlanningHeading h2 {
+  margin: 20px 0 15px;
+  font-size: clamp(38px, 4.2vw, 56px);
+}
+
+.tourPlanningHeading p:last-child {
+  color: var(--kal-muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.tourPlanningGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.tourPlanningCard {
+  min-height: 190px;
+  padding: 22px 18px 0 0;
+  border-top: 1px solid var(--kal-line);
+}
+
+.tourPlanningCard > span {
+  color: var(--kal-green);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.tourPlanningCard h3 {
+  margin: 19px 0 9px;
+  font-size: 23px;
+}
+
+.tourPlanningCard p {
+  margin: 0;
+  color: var(--kal-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.tourReturn {
+  padding: 0 8vw 70px;
+  text-align: center;
+}
+
+.tourReturn a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--kal-green);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.catalogHero {
+  max-width: 900px;
+  padding: 96px max(calc((100vw - 1120px) / 2), 8vw) 74px;
+  border-bottom: 1px solid var(--kal-line);
+}
+
+.catalogHero h1 {
+  max-width: 780px;
+  margin: 28px 0 18px;
+  font-size: clamp(45px, 6vw, 76px);
+  line-height: 1;
+}
+
+.catalogHero > p:last-child {
+  max-width: 560px;
+  margin: 0;
+  color: var(--kal-muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.catalogList {
+  padding: 0 max(calc((100vw - 1120px) / 2), 8vw) 100px;
+}
+
+.catalogRow {
+  display: grid;
+  grid-template-columns: 44px 35px minmax(0, 1fr) 40px;
+  align-items: start;
+  gap: 17px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--kal-line);
+}
+
+.catalogNumber {
+  padding-top: 7px;
+  color: #92948a;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.catalogIcon {
+  margin-top: 5px;
+  color: var(--kal-green);
+}
+
+.catalogRow h2 {
+  margin: 0;
+  font-size: 27px;
+}
+
+.catalogRow p {
+  max-width: 660px;
+  margin: 9px 0 0;
+  color: var(--kal-muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.catalogRow > a {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid var(--kal-line);
+  border-radius: 50%;
+  color: var(--kal-green);
+}
+
+.catalogRow > a:hover {
+  background: var(--kal-green);
+  color: white;
+}
+
+.catalogRelated {
+  padding: 70px max(calc((100vw - 1120px) / 2), 8vw) 82px;
+  background: #eae7de;
+}
+
+.catalogRelated h2 {
+  margin: 17px 0 10px;
+  font-size: clamp(32px, 4vw, 46px);
+}
+
+.catalogRelated > p:not(.eyebrow) {
+  max-width: 600px;
+  color: var(--kal-muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.catalogRelated > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 25px;
+  margin-top: 25px;
+}
+
+.catalogRelated a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--kal-green);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.vehicleGroups {
+  padding: 5px max(calc((100vw - 1120px) / 2), 8vw) 100px;
+}
+
+.vehicleGroup {
+  padding: 35px 0 38px;
+  border-bottom: 1px solid var(--kal-line);
+}
+
+.vehicleGroupHeading {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.vehicleGroupHeading > svg {
+  margin-top: 4px;
+  color: var(--kal-green);
+}
+
+.vehicleGroupHeading h2 {
+  margin: 10px 0 0;
+  font-size: 31px;
+}
+
+.vehicleGroupDescription {
+  max-width: 670px;
+  margin: 16px 0 0 39px;
+  color: var(--kal-muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.vehicleDetailList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 35px;
+  margin: 24px 0 0 39px;
+  padding: 0;
+  border-top: 1px solid var(--kal-line);
+  list-style: none;
+}
+
+.vehicleDetailList li {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--kal-line);
+  color: var(--kal-ink);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.vehicleDetailList a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--kal-green);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.vehicleGroups > .fleetNote {
+  margin-left: 39px;
+}
+
+.vehicleCatalog {
+  padding: 10px max(calc((100vw - 1240px) / 2), 6vw) 80px;
+}
+
+.vehicleCatalogHeading {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  align-items: end;
+  gap: 45px;
+  margin-bottom: 35px;
+}
+
+.vehicleCatalogHeading h2 {
+  margin: 18px 0 0;
+  font-size: clamp(36px, 4.4vw, 55px);
+}
+
+.vehicleCatalogHeading > p {
+  max-width: 430px;
+  margin: 0 0 4px;
+  color: var(--kal-muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.vehicleCatalogGrid,
+.vehicleCardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px 20px;
+}
+
+.vehicleCard {
+  min-width: 0;
+}
+
+.vehicleCardImage {
+  position: relative;
+  aspect-ratio: 1.65;
+  overflow: hidden;
+  background: #eeece4;
+}
+
+.vehicleCardImage img {
+  object-fit: contain;
+}
+
+.vehicleImagePlaceholder {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--kal-green);
+  text-align: center;
+}
+
+.subpageVisual .vehicleImagePlaceholder {
+  position: absolute;
+  inset: 0;
+}
+
+.vehicleImagePlaceholder span {
+  color: var(--kal-muted);
+  font-size: 9px;
+}
+
+.vehicleCardInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 66px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--kal-line);
+}
+
+.vehicleCardInfo p {
+  margin: 0 0 5px;
+  color: var(--kal-muted);
+  font-size: 9px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.vehicleCardInfo h3 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.vehicleCardInfo > a {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--kal-line);
+  border-radius: 50%;
+  color: var(--kal-green);
+}
+
+.vehicleCardInfo > a:hover {
+  background: var(--kal-green);
+  color: white;
+}
+
+.hiaceCatalog {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  gap: 55px;
+  margin: 0 max(calc((100vw - 1120px) / 2), 8vw) 28px;
+  padding: 34px 0;
+  border-top: 1px solid var(--kal-line);
+  border-bottom: 1px solid var(--kal-line);
+}
+
+.hiaceCatalog h2 {
+  margin: 12px 0 8px;
+  font-size: 34px;
+}
+
+.hiaceCatalog > div:first-child > p:last-child {
+  max-width: 440px;
+  margin: 0;
+  color: var(--kal-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.hiaceCatalogOptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  gap: 0 20px;
+}
+
+.hiaceCatalogOptions > div {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--kal-line);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.hiaceCatalogOptions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--kal-green);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.fleetCatalogNote {
+  max-width: 900px;
+  margin: 0 auto 90px;
+  padding: 0 20px;
+  color: var(--kal-muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.vehicleCardGrid {
+  margin-top: 34px;
+}
+
+.vehicleCardGrid + .fleetNote {
+  margin-top: 20px;
+}
+
+.vehicleCardGrid + .fleetNote + .inlineLink {
+  margin-top: 17px;
+}
+
+.faqPage {
+  display: grid;
+  grid-template-columns: 0.72fr 1fr;
+  gap: clamp(35px, 8vw, 116px);
+  padding: 85px max(calc((100vw - 1120px) / 2), 8vw) 105px;
+  background: #eae7de;
+}
+
+.faqPageIntro h2 {
+  margin: 19px 0;
+  font-size: clamp(37px, 4.5vw, 56px);
+  line-height: 1.04;
+}
+
+.faqPageIntro > p:not(.eyebrow) {
+  max-width: 350px;
+  margin: 0;
+  color: var(--kal-muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.faqPage .faqList {
+  align-self: start;
+}
+
 .floatingWhatsApp {
   position: fixed;
   z-index: 100;
@@ -176,6 +1373,23 @@
   gap: clamp(36px, 7vw, 104px);
   padding: 76px max(calc((100vw - 1240px) / 2), 6vw) 104px;
   border-bottom: 1px solid var(--kal-line);
+  background: #202d27;
+  color: #f7f5ed;
+}
+
+.hero::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(25 36 30 / 92%) 0%,
+      rgb(25 36 30 / 82%) 38%,
+      rgb(25 36 30 / 42%) 72%,
+      rgb(25 36 30 / 24%) 100%
+    ),
+    url("/kalimantan/kalimantan-hero.webp") center 48% / cover;
+  content: "";
 }
 
 .heroCopy {
@@ -216,14 +1430,14 @@
 }
 
 .hero h1 span {
-  color: var(--kal-green);
+  color: #e1c77f;
   font-style: italic;
 }
 
 .heroDescription {
   max-width: 435px;
   margin: 0;
-  color: var(--kal-muted);
+  color: #e0e2da;
   font-size: 15px;
   line-height: 1.85;
 }
@@ -276,22 +1490,42 @@
 
 .heroNote {
   margin: 18px 0 0;
-  color: #797b73;
+  color: #d0d2c9;
   font-size: 10px;
   line-height: 1.6;
 }
 
-.heroVisual {
-  position: relative;
-  min-width: 0;
+.hero .eyebrow {
+  color: #e1c77f;
 }
 
-.heroImage {
-  display: block;
-  width: 100%;
-  height: clamp(340px, 42vw, 545px);
-  object-fit: cover;
-  object-position: center;
+.hero .eyebrow > span:not(.eyebrowDot) {
+  color: #d0d2c9;
+}
+
+.hero .eyebrowDot {
+  background: #e1c77f;
+}
+
+.hero .primaryButton {
+  background: #e1c77f;
+  color: #20221d !important;
+}
+
+.hero .primaryButton:hover {
+  background: #f0d995;
+}
+
+.hero .textLink {
+  color: #fff;
+}
+
+.heroVisual {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  min-width: 0;
+  pointer-events: none;
 }
 
 .imageCaption {
@@ -304,10 +1538,18 @@
   line-height: 1.5;
 }
 
+.heroVisual .imageCaption {
+  position: absolute;
+  right: max(calc((100vw - 1240px) / 2 + 110px), 150px);
+  bottom: 29px;
+  margin-top: 0;
+  color: #f7f5ed;
+}
+
 .captionRule {
   width: 25px;
   height: 1px;
-  background: var(--kal-green);
+  background: #e1c77f;
 }
 
 .imageIndex {
@@ -322,11 +1564,19 @@
   letter-spacing: 0.12em;
 }
 
+.heroVisual .imageIndex {
+  right: max(calc((100vw - 1240px) / 2 + 72px), 78px);
+  bottom: 21px;
+  background: rgb(25 36 30 / 75%);
+  color: #f7f5ed;
+}
+
 .scrollHint {
   position: absolute;
   bottom: 28px;
   left: max(calc((100vw - 1240px) / 2), 6vw);
   display: flex;
+  z-index: 2;
   align-items: center;
   gap: 12px;
   color: var(--kal-muted);
@@ -394,21 +1644,7 @@
 .photoBand img {
   display: block;
   width: 100%;
-  height: clamp(280px, 43vw, 510px);
-  object-fit: cover;
-  object-position: center 56%;
-}
-
-.photoBand > p {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  margin: 0;
-  padding: 14px 18px;
-  background: var(--kal-paper);
-  color: var(--kal-ink);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 13px;
+  height: auto;
   font-style: italic;
 }
 
@@ -482,15 +1718,28 @@
 }
 
 .driverImageWrap {
+  position: relative;
   min-height: 100%;
+  overflow: hidden;
+  background: #252921;
+}
+
+.driverImageWrap::before {
+  position: absolute;
+  inset: -16px;
+  background: url("/kalimantan/buka-laptop.webp") center / cover;
+  content: "";
+  filter: blur(16px);
+  transform: scale(1.05);
 }
 
 .driverImageWrap img {
   display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  min-height: 580px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .driverCopy {
@@ -669,7 +1918,7 @@
   inset: 0;
   background:
     linear-gradient(90deg, rgb(25 36 30 / 94%), rgb(25 36 30 / 74%) 55%, rgb(25 36 30 / 51%)),
-    url("/kalimantan/kalimantan-road.jpg") center 48% / cover;
+    url("/kalimantan/kalimantan-road.webp") center 48% / cover;
 }
 
 .regionsContent {
@@ -884,6 +2133,76 @@
 }
 
 @media (max-width: 900px) {
+  .siteHeader {
+    gap: 12px;
+    padding-right: 4vw;
+    padding-left: 4vw;
+  }
+
+  .siteNav {
+    gap: 13px;
+  }
+
+  .siteNav a {
+    font-size: 10px;
+  }
+
+  .subpageHero {
+    min-height: 550px;
+    gap: 36px;
+    padding: 62px 4vw 80px;
+  }
+
+  .subpageVisual {
+    min-height: 400px;
+  }
+
+  .subpageDetails,
+  .tourIntro,
+  .tourPackages,
+  .tourPlanning {
+    padding-right: 8vw;
+    padding-left: 8vw;
+  }
+
+  .subpageSectionHeading,
+  .tourIntroGrid,
+  .tourPackagesHeading {
+    gap: 34px;
+  }
+
+  .tourEvent {
+    margin-right: 4vw;
+    margin-left: 4vw;
+  }
+
+  .catalogHero {
+    padding-right: 8vw;
+    padding-left: 8vw;
+  }
+
+  .catalogList,
+  .vehicleGroups {
+    padding-right: 8vw;
+    padding-left: 8vw;
+  }
+
+  .catalogRelated {
+    padding-right: 8vw;
+    padding-left: 8vw;
+  }
+
+  .faqPage {
+    gap: 34px;
+    padding-right: 8vw;
+    padding-left: 8vw;
+  }
+
+  .eventFeature {
+    margin-right: 4vw;
+    margin-left: 4vw;
+  }
+
   .hero {
     min-height: auto;
     grid-template-columns: 1fr 0.95fr;
@@ -896,8 +2215,19 @@
     font-size: clamp(45px, 7vw, 66px);
   }
 
-  .heroImage {
-    height: 400px;
+  .hero::before {
+    background:
+      linear-gradient(
+        90deg,
+        rgb(25 36 30 / 91%) 0%,
+        rgb(25 36 30 / 76%) 55%,
+        rgb(25 36 30 / 44%) 100%
+      ),
+      url("/kalimantan/kalimantan-hero.webp") center / cover;
+  }
+
+  .hero .imageCaption {
+    right: 90px;
   }
 
   .intro,
@@ -916,6 +2246,11 @@
 
   .serviceGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .vehicleCatalogGrid,
+  .vehicleCardGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .serviceCard {
@@ -937,7 +2272,7 @@
     min-height: 510px;
   }
 
-  .driverImageWrap img {
+  .driverImageWrap {
     min-height: 510px;
   }
 
@@ -965,22 +2300,291 @@
 
 @media (max-width: 600px) {
   .siteHeader {
+    flex-wrap: wrap;
     min-height: 65px;
     gap: 12px;
     padding-right: 17px;
     padding-left: 17px;
   }
 
-  .siteBrand span:first-child {
+  .brandLogo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .footerBrand .brandLogo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .brandText > span:first-child {
     font-size: 15px;
   }
 
-  .siteBrand span:last-child {
+  .brandText > span:last-child {
     font-size: 7px;
   }
 
   .siteNav {
     display: none;
+  }
+
+  .mobileNav {
+    display: block;
+    margin-left: auto;
+  }
+
+  .mobileNav > summary {
+    min-height: 38px;
+    padding: 0 10px;
+    border: 1px solid var(--kal-line);
+    background: var(--kal-paper);
+  }
+
+  .mobileNavContent {
+    top: calc(100% + 8px);
+  }
+
+  .mobileNavContent > a {
+    display: block;
+  }
+
+  .eventFeature {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 24px;
+    margin: 0 17px 70px;
+    padding: 27px 22px;
+    background-position: 58% center;
+  }
+
+  .eventFeature::before {
+    background:
+      linear-gradient(
+        90deg,
+        rgb(13 24 23 / 88%) 0%,
+        rgb(13 24 23 / 80%) 100%
+      ),
+      linear-gradient(0deg, rgb(13 24 23 / 28%), transparent 60%);
+  }
+
+  .eventFeatureActions {
+    width: 100%;
+  }
+
+  .eventFeatureActions a {
+    width: 100%;
+  }
+
+  .eventFeatureVisual {
+    min-height: 230px;
+  }
+
+  .eventFeatureVisual strong {
+    font-size: 118px;
+  }
+
+  .subpageHero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 34px;
+    padding: 48px 22px 71px;
+  }
+
+  .subpageHeroCopy {
+    padding-bottom: 0;
+  }
+
+  .subpageHero h1 {
+    margin-top: 28px;
+    font-size: clamp(44px, 12vw, 60px);
+  }
+
+  .subpageLead {
+    font-size: 14px;
+  }
+
+  .subpageVisual {
+    min-height: 340px;
+  }
+
+  .subpageDetails {
+    padding: 72px 22px;
+  }
+
+  .subpageSectionHeading,
+  .tourIntroGrid,
+  .tourPackagesHeading {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-bottom: 38px;
+  }
+
+  .subpageSectionHeading h2,
+  .tourIntroGrid h2,
+  .tourPackagesHeading h2 {
+    font-size: 42px;
+  }
+
+  .subpageDetailGrid {
+    grid-template-columns: 1fr;
+    gap: 37px;
+  }
+
+  .subpageCta {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+    padding: 58px 22px;
+  }
+
+  .subpageCta .lightButton {
+    align-self: flex-start;
+  }
+
+  .tourIntro {
+    padding: 70px 22px 78px;
+  }
+
+  .tourPackages {
+    padding: 0 22px 75px;
+  }
+
+  .tourIntroGrid {
+    margin-bottom: 0;
+  }
+
+  .tourPackagesHeading {
+    margin-bottom: 30px;
+  }
+
+  .tourPackageGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tourPackageCard {
+    min-height: 0;
+    padding: 22px 19px 18px;
+  }
+
+  .tourPackageImage {
+    margin: -22px -19px 20px;
+  }
+
+  .tourPackageRegion {
+    margin-top: 22px;
+  }
+
+  .tourPackageCard h3 {
+    font-size: 27px;
+  }
+
+  .tourEvent {
+    grid-template-columns: 1fr;
+    margin: 0 17px 72px;
+  }
+
+  .tourEventCopy {
+    padding: 31px 23px;
+  }
+
+  .tourEventCopy h2 {
+    font-size: 42px;
+  }
+
+  .tourEventVisual {
+    min-height: 0;
+  }
+
+  .tourPlanning {
+    padding: 0 22px 75px;
+  }
+
+  .tourPlanningHeading h2 {
+    font-size: 42px;
+  }
+
+  .tourPlanningGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .tourPlanningCard {
+    min-height: 0;
+    padding-bottom: 8px;
+  }
+
+  .tourReturn {
+    padding-bottom: 55px;
+  }
+
+  .catalogHero {
+    padding: 66px 22px 50px;
+  }
+
+  .catalogHero h1 {
+    margin-top: 23px;
+    font-size: 45px;
+  }
+
+  .catalogList,
+  .vehicleGroups {
+    padding: 0 22px 70px;
+  }
+
+  .catalogRow {
+    grid-template-columns: 27px 25px minmax(0, 1fr) 34px;
+    gap: 10px;
+    padding: 22px 0;
+  }
+
+  .catalogRow h2 {
+    font-size: 23px;
+  }
+
+  .catalogRow p {
+    font-size: 11px;
+  }
+
+  .catalogRelated {
+    padding: 52px 22px 62px;
+  }
+
+  .catalogRelated h2 {
+    font-size: 34px;
+  }
+
+  .vehicleGroups > .fleetNote {
+    margin-left: 0;
+  }
+
+  .vehicleGroup {
+    padding: 28px 0;
+  }
+
+  .vehicleGroupHeading h2 {
+    font-size: 25px;
+  }
+
+  .vehicleGroupDescription,
+  .vehicleDetailList {
+    margin-left: 0;
+  }
+
+  .vehicleDetailList {
+    grid-template-columns: 1fr;
+  }
+
+  .faqPage {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding: 64px 22px 74px;
+  }
+
+  .faqPageIntro h2 {
+    font-size: 42px;
   }
 
   .headerCta {
@@ -1033,8 +2637,22 @@
     max-width: 285px;
   }
 
-  .heroImage {
-    height: 310px;
+  .hero::before {
+    background:
+      linear-gradient(
+        180deg,
+        rgb(25 36 30 / 76%) 0%,
+        rgb(25 36 30 / 70%) 45%,
+        rgb(25 36 30 / 88%) 100%
+      ),
+      url("/kalimantan/kalimantan-hero.webp") center / cover;
+  }
+
+  .hero .imageCaption {
+    right: 22px;
+    bottom: 51px;
+    left: 22px;
+    font-size: 9px;
   }
 
   .scrollHint {
@@ -1080,19 +2698,57 @@
     margin-top: 37px;
   }
 
-  .photoBand img {
-    height: 275px;
-  }
-
-  .photoBand > p {
-    max-width: 220px;
-    padding: 11px 13px;
-    font-size: 11px;
-  }
-
   .serviceGrid {
     grid-template-columns: 1fr;
     margin-top: 36px;
+  }
+
+  .vehicleCatalog {
+    padding: 0 22px 70px;
+  }
+
+  .vehicleCatalogHeading {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 28px;
+  }
+
+  .vehicleCatalogHeading h2 {
+    font-size: 40px;
+  }
+
+  .vehicleCatalogGrid,
+  .vehicleCardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 23px 13px;
+  }
+
+  .vehicleCardInfo {
+    min-height: 69px;
+  }
+
+  .vehicleCardInfo h3 {
+    font-size: 14px;
+  }
+
+  .vehicleCardInfo p {
+    font-size: 8px;
+  }
+
+  .hiaceCatalog {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin: 0 22px 24px;
+    padding: 27px 0;
+  }
+
+  .hiaceCatalogOptions {
+    grid-template-columns: 1fr;
+  }
+
+  .fleetCatalogNote {
+    margin-bottom: 65px;
+    padding: 0 22px;
   }
 
   .serviceCard,
@@ -1120,9 +2776,9 @@
     grid-template-columns: 1fr;
   }
 
-  .driverImageWrap img {
-    height: 300px;
+  .driverImageWrap {
     min-height: 0;
+    height: 300px;
   }
 
   .driverCopy {

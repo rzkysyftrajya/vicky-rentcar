@@ -12,26 +12,18 @@ import {
   Users,
 } from "lucide-react";
 import styles from "./kalimantan.module.css";
+import KalimantanNavigation from "@/components/marketing/KalimantanNavigation";
+import MandalikaEventFeature from "@/components/marketing/MandalikaEventFeature";
+import Link from "next/link";
+import KalimantanVehicleCard from "@/components/marketing/KalimantanVehicleCard";
+import {
+  featuredKalimantanFleet,
+} from "@/data/kalimantan-fleet";
 
 const whatsappNumber = "6282363389893";
 const bookingMessage =
   "Halo Vicky Rentcar, saya ingin konsultasi sewa mobil dengan driver untuk perjalanan di Kalimantan. Rencana perjalanan saya:";
 const bookingUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(bookingMessage)}`;
-
-const vehicles = [
-  "Toyota Alphard",
-  "Toyota Avanza G",
-  "Suzuki Ertiga",
-  "Toyota Fortuner Facelift VRZ",
-  "Toyota Hiace Commuter",
-  "Toyota Hiace Premio",
-  "Toyota Innova Reborn V",
-  "Toyota Innova Venturer",
-  "Lexus LX 570",
-  "Mitsubishi Pajero Sport 4×2",
-  "Mitsubishi Xpander",
-  "Hyundai Stargazer",
-];
 
 const services = [
   {
@@ -117,7 +109,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/kalimantan/kalimantan-hero.jpg",
+        url: "/kalimantan/kalimantan-hero.webp",
         width: 1110,
         height: 640,
         alt: "MPV dalam perjalanan di tengah lanskap hijau Kalimantan",
@@ -129,7 +121,7 @@ export const metadata: Metadata = {
     title: "Sewa Mobil Kalimantan dengan Driver | Vicky Rentcar",
     description:
       "Konsultasikan kebutuhan sewa mobil dengan driver untuk perjalanan di Kalimantan.",
-    images: ["/kalimantan/kalimantan-hero.jpg"],
+    images: ["/kalimantan/kalimantan-hero.webp"],
   },
 };
 
@@ -156,25 +148,7 @@ export default function KalimantanPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <header className={styles.siteHeader}>
-        <a className={styles.siteBrand} href="/kalimantan/">
-          <span>VICKY</span>
-          <span>RENTCAR NUSANTARA</span>
-        </a>
-        <nav className={styles.siteNav} aria-label="Navigasi Kalimantan">
-          <a href="#layanan">Layanan</a>
-          <a href="#armada">Armada</a>
-          <a href="#faq">FAQ</a>
-        </nav>
-        <a
-          className={styles.headerCta}
-          href={bookingUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hubungi kami <ArrowUpRight size={15} aria-hidden="true" />
-        </a>
-      </header>
+      <KalimantanNavigation bookingUrl={bookingUrl} />
 
       <div className={styles.content}>
         <section className={styles.hero}>
@@ -204,24 +178,15 @@ export default function KalimantanPage() {
               >
                 Bicarakan rute Anda <ArrowUpRight size={17} aria-hidden="true" />
               </a>
-              <a className={styles.textLink} href="#layanan">
-                Lihat layanan <ArrowDown size={15} aria-hidden="true" />
+              <a className={styles.textLink} href="/kalimantan/layanan">
+                Lihat detail layanan <ArrowUpRight size={15} aria-hidden="true" />
               </a>
             </div>
             <p className={styles.heroNote}>
               Kota, jadwal, dan ketersediaan dikonfirmasi sebelum pemesanan.
             </p>
           </div>
-          <div className={styles.heroVisual}>
-            <Image
-              className={styles.heroImage}
-              src="/kalimantan/kalimantan-hero.jpg"
-              alt="MPV melintasi perbukitan hijau Kalimantan saat senja"
-              width={1110}
-              height={640}
-              priority
-              sizes="(max-width: 900px) 100vw, 52vw"
-            />
+          <div className={styles.heroVisual} aria-hidden="true">
             <div className={styles.imageCaption}>
               <span className={styles.captionRule} />
               Rencana perjalanan dimulai dari obrolan yang jelas.
@@ -256,18 +221,17 @@ export default function KalimantanPage() {
           </div>
           <div className={styles.photoBand}>
             <Image
-              src="/kalimantan/kalimantan-road.jpg"
-              alt="Jalan panjang membelah hutan tropis dan perbukitan"
+              src="/kalimantan/bukan-cuma-soal-sampai-tujuan.webp"
+              alt="Perjalanan Kalimantan dengan driver, kendaraan, dan lanskap saat senja"
               width={1347}
-              height={904}
+              height={1168}
               loading="lazy"
               sizes="(max-width: 900px) 100vw, 90vw"
             />
-            <p>Perjalanan antarkota, direncanakan sejak awal.</p>
           </div>
         </section>
 
-        <section className={styles.services} id="layanan">
+        <section className={styles.services}>
           <div className={styles.sectionHeading}>
             <div>
               <p className={styles.eyebrow}>Bisa untuk berbagai agenda</p>
@@ -294,15 +258,20 @@ export default function KalimantanPage() {
               </article>
             ))}
           </div>
+          <Link className={styles.inlineLink} href="/kalimantan/layanan">
+            Lihat detail layanan <ArrowUpRight size={16} aria-hidden="true" />
+          </Link>
         </section>
+
+        <MandalikaEventFeature />
 
         <section className={styles.driver}>
           <div className={styles.driverImageWrap}>
             <Image
-              src="/kalimantan/kalimantan-driver.jpg"
-              alt="Pemandangan jalan dari dalam mobil yang sedang dikemudikan"
-              width={1065}
-              height={744}
+              src="/kalimantan/buka-laptop.webp"
+              alt="Pengemudi dan penumpang menggunakan laptop dalam perjalanan"
+              width={1152}
+              height={768}
               loading="lazy"
               sizes="(max-width: 900px) 100vw, 50vw"
             />
@@ -338,55 +307,33 @@ export default function KalimantanPage() {
           </div>
         </section>
 
-        <section className={styles.fleet} id="armada">
-          <div className={styles.fleetIntro}>
-            <div className={styles.fleetCopy}>
-              <p className={styles.eyebrow}>Pilih sesuai rute</p>
-              <h2>
-                Kendaraan yang
-                <br />
-                pas, bukan asal ada.
-              </h2>
-              <p>
-                Untuk perjalanan keluarga, agenda kerja, atau bersama rombongan,
-                kebutuhan ruang dan kenyamanannya berbeda. Berikut pilihan
-                armada yang bisa Anda tanyakan kepada tim kami.
-              </p>
-            </div>
-            <div className={styles.fleetVisual}>
-              <Image
-                src="/kalimantan/kalimantan-fleet-mpv.jpg"
-                alt="MPV berwarna perak sebagai pilihan kendaraan untuk perjalanan"
-                width={1110}
-                height={746}
-                loading="lazy"
-                sizes="(max-width: 900px) 100vw, 55vw"
-              />
-              <div className={styles.fleetBadge}>
-                <CarFront size={18} aria-hidden="true" />
-                <span>Konfirmasi tipe dan ketersediaan saat konsultasi</span>
-              </div>
-            </div>
+        <section className={styles.fleet}>
+          <div className={styles.fleetCopy}>
+            <p className={styles.eyebrow}>Pilih sesuai rute</p>
+            <h2>
+              Kendaraan yang
+              <br />
+              pas, bukan asal ada.
+            </h2>
+            <p>
+              Beberapa pilihan untuk keluarga, agenda bisnis, atau perjalanan
+              premium. Tanyakan tipe yang sesuai dengan jumlah penumpang dan
+              rute Anda.
+            </p>
           </div>
-          <ul className={styles.vehicleList} aria-label="Pilihan armada">
-            {vehicles.map((vehicle) => (
-              <li key={vehicle}>
-                <span>{vehicle}</span>
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo Vicky Rentcar, saya ingin menanyakan ketersediaan ${vehicle} untuk perjalanan di Kalimantan.`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Tanyakan ketersediaan ${vehicle}`}
-                >
-                  <ArrowUpRight size={15} aria-hidden="true" />
-                </a>
-              </li>
+          <div className={styles.vehicleCardGrid}>
+            {featuredKalimantanFleet.map((vehicle) => (
+              <KalimantanVehicleCard key={vehicle.name} vehicle={vehicle} />
             ))}
-          </ul>
+          </div>
           <p className={styles.fleetNote}>
             Pilihan dan ketersediaan kendaraan dapat berbeda menurut kota dan
             tanggal perjalanan. Konfirmasi terlebih dahulu sebelum memesan.
           </p>
+          <Link className={styles.inlineLink} href="/kalimantan/armada">
+            Lihat semua pilihan armada{" "}
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </Link>
         </section>
 
         <section className={styles.regions}>
@@ -443,7 +390,7 @@ export default function KalimantanPage() {
           </ol>
         </section>
 
-        <section className={styles.faq} id="faq">
+        <section className={styles.faq}>
           <div className={styles.faqHeading}>
             <p className={styles.eyebrow}>Sebelum berangkat</p>
             <h2>
@@ -456,12 +403,16 @@ export default function KalimantanPage() {
             </a>
           </div>
           <div className={styles.faqList}>
-            {faqs.map(({ question, answer }) => (
+            {faqs.slice(0, 3).map(({ question, answer }) => (
               <details key={question}>
                 <summary>{question}</summary>
                 <p>{answer}</p>
               </details>
             ))}
+            <Link className={styles.inlineLink} href="/kalimantan/faq">
+              Baca semua pertanyaan umum
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
           </div>
         </section>
 
@@ -489,9 +440,18 @@ export default function KalimantanPage() {
       </div>
 
       <footer className={styles.siteFooter}>
-        <a className={styles.siteBrand} href="/kalimantan/">
-          <span>VICKY</span>
-          <span>RENTCAR NUSANTARA</span>
+        <a className={`${styles.siteBrand} ${styles.footerBrand}`} href="/kalimantan/">
+          <Image
+            className={styles.brandLogo}
+            src="/kalimantan/logo.webp"
+            alt=""
+            width={1280}
+            height={1280}
+          />
+          <span className={styles.brandText}>
+            <span>VICKY</span>
+            <span>RENTCAR NUSANTARA</span>
+          </span>
         </a>
         <p>
           Sewa mobil untuk perjalanan di Kalimantan.
@@ -499,9 +459,13 @@ export default function KalimantanPage() {
           Kota dan ketersediaan dikonfirmasi sebelum pemesanan.
         </p>
         <nav aria-label="Navigasi footer Kalimantan">
-          <a href="#layanan">Layanan</a>
-          <a href="#armada">Armada</a>
-          <a href="#faq">Pertanyaan umum</a>
+          <a href="/kalimantan/sewa-mobil-alphard">Sewa Alphard</a>
+          <a href="/kalimantan/sewa-mobil-driver">Sewa dengan driver</a>
+          <a href="/kalimantan/sewa-mobil-hiace">Sewa Hiace</a>
+          <a href="/kalimantan/paket-wisata">Paket Wisata</a>
+          <a href="/kalimantan/layanan">Layanan</a>
+          <a href="/kalimantan/armada">Armada</a>
+          <a href="/kalimantan/faq">Pertanyaan umum</a>
           <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
             WhatsApp <ArrowUpRight size={14} aria-hidden="true" />
           </a>
