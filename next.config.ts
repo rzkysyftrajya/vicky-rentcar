@@ -49,7 +49,13 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   // Redirects (use sparingly, prefer rewrites)
   async redirects() {
-    return [];
+    return [
+      {
+        source: "/bandung",
+        destination: "/sewa-mobil-bandung",
+        permanent: true,
+      },
+    ];
   },
 
   // Host-based rewrites for multi-domain routing

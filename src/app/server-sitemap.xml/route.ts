@@ -5,12 +5,14 @@ export async function GET(): Promise<Response> {
   const baseUrl = "https://www.vickyrentcarnusantara.com";
 
   // Ambil semua path dari cities.json
-  const cityUrls = cities.map((city) => ({
-    loc: `${baseUrl}/${city.slug}`,
-    lastmod: new Date().toISOString(),
-    changefreq: "weekly",
-    priority: 0.9,
-  }));
+  const cityUrls = cities
+    .filter((city) => city.slug !== "bandung")
+    .map((city) => ({
+      loc: `${baseUrl}/${city.slug}`,
+      lastmod: new Date().toISOString(),
+      changefreq: "weekly",
+      priority: 0.9,
+    }));
 
   // Bisa tambahin juga static pages utama
   const staticUrls = [
