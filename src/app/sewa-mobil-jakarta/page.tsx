@@ -93,6 +93,11 @@ export default function Page() {
                 kami siap menyambut Anda tepat waktu. Kami memantau jadwal
                 penerbangan secara real-time untuk memastikan Anda tidak perlu
                 menunggu lama, baik saat kedatangan maupun keberangkatan.
+                Butuh informasi layanan di Jakarta? Kunjungi halaman{" "}
+                <a href="/jakarta/" className="text-primary hover:underline">
+                  airport transfer kami
+                </a>
+                .
               </p>
             </div>
             <div className="p-6 border rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">

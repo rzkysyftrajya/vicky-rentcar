@@ -218,6 +218,11 @@ export default function Page() {
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">
             Hubungi tim kami untuk mendapatkan penawaran eksklusif dan
             konsultasi gratis untuk kebutuhan transportasi Anda.
+            Butuh antar jemput Bandara Soekarno-Hatta? Lihat layanan{" "}
+            <a href="/jakarta/" className="text-primary hover:underline">
+              airport transfer kami
+            </a>
+            .
           </p>
           {/* Di sini Anda bisa tambahkan form kontak atau tombol WhatsApp */}
           <a

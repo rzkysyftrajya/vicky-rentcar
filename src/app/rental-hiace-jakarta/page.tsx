@@ -38,7 +38,11 @@ export default function Page() {
             optimal, Hiace ideal untuk perjalanan bisnis, antar jemput bandara,
             atau tur wisata keliling kota. Kami menyediakan armada Hiace
             Commuter dan Hiace Premio dalam kondisi prima dengan sopir yang
-            andal.
+            andal. Butuh antar jemput Bandara Soekarno-Hatta? Lihat layanan{" "}
+            <a href="/jakarta/" className="text-primary hover:underline">
+              airport transfer kami
+            </a>
+            .
           </p>
         </div>
       </section>
