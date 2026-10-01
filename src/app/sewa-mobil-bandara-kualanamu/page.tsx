@@ -29,7 +29,7 @@ export default function Page() {
   return (
     <main>
       <section className="relative h-[50vh] flex items-center justify-center text-center text-white">
-        <div className="absolute inset-0 bg-[url('https://img.okezone.com/content/2023/05/10/337/2811349/ternyata-ini-asal-usul-nama-bandara-kualanamu-Elpn0h3JG1.jpg')] bg-cover bg-center opacity-60 z-0"></div>
+        <div className="absolute inset-0 bg-[url('/medan/features/antar-jemput-bandara-kualanamu.webp')] bg-cover bg-center opacity-60 z-0"></div>
         <div className="relative z-10 p-6">
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-wide mb-4 drop-shadow-md">
             Sewa Mobil Bandara Kualanamu (KNO)
@@ -190,6 +190,9 @@ export default function Page() {
               <p className="text-muted-foreground">
                 Kendaraan terbaik untuk rombongan besar hingga 16 orang.
               </p>
+              <p className="text-muted-foreground">
+                Tersedia khusus dengan sopir profesional.
+              </p>
             </div>
           </div>
         </div>
@@ -219,7 +222,7 @@ export default function Page() {
               <p className="text-muted-foreground">
                 Tentu. Kami menawarkan layanan{" "}
                 <a
-                  href="/rental-mobil-lepas-kunci-medan"
+                  href="/sewa-mobil-medan"
                   className="text-primary hover:underline"
                 >
                   sewa mobil lepas kunci
