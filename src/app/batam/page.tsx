@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -81,22 +81,22 @@ const servicesList = [
 ];
 
 const vehiclesList = [
-  { id: "innova-reborn", name: "Innova Reborn", type: "Keluarga & Bisnis", promo: "Best Deal", image: "/batam/armada/INNOVA-REBORN.webp", capacity: "7 Penumpang" },
+  { id: "innova-reborn", name: "Innova Reborn", type: "Keluarga & Bisnis", promo: "Pilihan Favorit", image: "/batam/armada/INNOVA-REBORN.webp", capacity: "7 Penumpang" },
   { id: "innova-zenix", name: "Innova Zenix Hybrid", type: "Executive Premium", promo: "Unit Favorit", image: "/batam/armada/INNOVA-ZENIX.webp", capacity: "7 Penumpang" },
   { id: "alphard-gen4", name: "Alphard", type: "VIP Luxury", promo: "VIP Prioritas", image: "/batam/armada/ALPHARD-GEN-4.webp", capacity: "7 Penumpang (Captain)" },
   { id: "hiace-premio", name: "Hiace Premio", type: "Rombongan", promo: "14 Kursi Lega", image: "/batam/armada/HIACE-PREMIO.webp", capacity: "14 Penumpang" },
-  { id: "avanza", name: "Toyota Avanza", type: "Ekonomis", promo: "Paling Hemat", image: "/batam/armada/TOYOTA-AVANZA.webp", capacity: "7 Penumpang" },
+  { id: "avanza", name: "Toyota Avanza", type: "Keluarga", promo: "Praktis & Nyaman", image: "/batam/armada/TOYOTA-AVANZA.webp", capacity: "7 Penumpang" },
   { id: "fortuner", name: "Fortuner GR Sport", type: "SUV Prestisius", promo: "Gagah & Nyaman", image: "/batam/armada/FORTUNER-GR-4X2.webp", capacity: "7 Penumpang" },
 ];
 
 const fleetData = [
-  { name: "Toyota Alphard", category: "VIP", tag: "VIP Luxury", image: "/batam/armada/ALPHARD-GEN-4.webp", promoText: "Promo Diskon Khusus Hari Ini", seats: "7 Kursi", transmission: "Matic", specs: ["Captain Seat Otomatis", "Dual Sunroof & Audio VIP", "Driver Berpakaian Rapi", "Meet & Greet Bandara"] },
-  { name: "Toyota Innova Zenix Hybrid", category: "Executive", tag: "Paling Diminati", image: "/batam/armada/INNOVA-ZENIX.webp", promoText: "Tersedia Penawaran Terbaik", seats: "7 Kursi", transmission: "Matic", specs: ["Kabin Senyap & Nyaman", "AC Digital Tri-Zone", "Keluarga & Tamu Bisnis", "Unit Bersih & Wangi"] },
-  { name: "Toyota Innova Reborn", category: "Executive", tag: "Favorit Keluarga", image: "/batam/armada/INNOVA-REBORN.webp", promoText: "Tarif Hemat Spesial", seats: "7 Kursi", transmission: "Matic / Manual", specs: ["Suspensi Empuk", "Muat Koper Besar", "City Tour & Dinas", "Kondisi Prima"] },
-  { name: "Toyota Hiace Premio", category: "Rombongan", tag: "14 Penumpang", image: "/batam/armada/HIACE-PREMIO.webp", promoText: "Paket Rombongan Diskon", seats: "14 Kursi", transmission: "Manual", specs: ["Kabin Luas & Tinggi", "Reclining Seat Nyaman", "Audio & Mic Tour Guide", "Antar Jemput Ferry/Bandara"] },
-  { name: "Toyota Fortuner GR Sport", category: "SUV", tag: "SUV Tangguh", image: "/batam/armada/FORTUNER-GR-4X2.webp", promoText: "Diskon Kunjungan Proyek", seats: "7 Kursi", transmission: "Matic", specs: ["Ground Clearance Tinggi", "Kunjungan Lapangan & Proyek", "Interior Kulit Mewah", "Driver Berpengalaman"] },
-  { name: "Toyota Avanza New", category: "Hemat", tag: "Hemat & Gesit", image: "/batam/armada/TOYOTA-AVANZA.webp", promoText: "Harga Paling Bersahabat", seats: "7 Kursi", transmission: "Matic / Manual", specs: ["Hemat Bahan Bakar", "Mudah Bermanuver", "AC Double Blower", "Supir Berpengalaman"] },
-  { name: "Mitsubishi Xpander", category: "Hemat", tag: "Keluarga Praktis", image: "/batam/armada/XPANDER.webp", promoText: "Promo City Tour Keluarga", seats: "7 Kursi", transmission: "Matic", specs: ["Kabin Lega & Modern", "Peredaman Baik", "Keluarga & Belanja", "Driver Ramah"] },
+  { name: "Toyota Alphard", category: "VIP", tag: "VIP Luxury", image: "/batam/armada/ALPHARD-GEN-4.webp", promoText: "Layanan VIP dengan Driver", seats: "7 Kursi", transmission: "Matic", specs: ["Captain Seat Otomatis", "Dual Sunroof & Audio VIP", "Driver Berpakaian Rapi", "Meet & Greet Bandara"] },
+  { name: "Toyota Innova Zenix Hybrid", category: "Executive", tag: "Paling Diminati", image: "/batam/armada/INNOVA-ZENIX.webp", promoText: "Pilihan untuk Keluarga & Bisnis", seats: "7 Kursi", transmission: "Matic", specs: ["Kabin Senyap & Nyaman", "AC Digital Tri-Zone", "Keluarga & Tamu Bisnis", "Unit Bersih & Wangi"] },
+  { name: "Toyota Innova Reborn", category: "Executive", tag: "Favorit Keluarga", image: "/batam/armada/INNOVA-REBORN.webp", promoText: "Nyaman untuk Berbagai Perjalanan", seats: "7 Kursi", transmission: "Matic / Manual", specs: ["Suspensi Empuk", "Muat Koper Besar", "City Tour & Dinas", "Kondisi Prima"] },
+  { name: "Toyota Hiace Premio", category: "Rombongan", tag: "14 Penumpang", image: "/batam/armada/HIACE-PREMIO.webp", promoText: "Pilihan untuk Perjalanan Rombongan", seats: "14 Kursi", transmission: "Manual", specs: ["Kabin Luas & Tinggi", "Reclining Seat Nyaman", "Audio & Mic Tour Guide", "Antar Jemput Ferry/Bandara"] },
+  { name: "Toyota Fortuner GR Sport", category: "SUV", tag: "SUV Tangguh", image: "/batam/armada/FORTUNER-GR-4X2.webp", promoText: "Siap untuk Kunjungan Proyek", seats: "7 Kursi", transmission: "Matic", specs: ["Ground Clearance Tinggi", "Kunjungan Lapangan & Proyek", "Interior Kulit Mewah", "Driver Berpengalaman"] },
+  { name: "Toyota Avanza New", category: "Praktis", tag: "Praktis & Gesit", image: "/batam/armada/TOYOTA-AVANZA.webp", promoText: "Pilihan Praktis untuk Keluarga", seats: "7 Kursi", transmission: "Matic / Manual", specs: ["Kabin Nyaman untuk Keluarga", "Mudah Bermanuver", "AC Double Blower", "Supir Berpengalaman"] },
+  { name: "Mitsubishi Xpander", category: "Praktis", tag: "Keluarga Praktis", image: "/batam/armada/XPANDER.webp", promoText: "Nyaman untuk City Tour Keluarga", seats: "7 Kursi", transmission: "Matic", specs: ["Kabin Lega & Modern", "Peredaman Baik", "Keluarga & Belanja", "Driver Ramah"] },
   { name: "Isuzu Elf Minibus", category: "Rombongan", tag: "19-20 Penumpang", image: "/batam/armada/ISUZU-ELF-MINIBUS.webp", promoText: "Kapasitas Rombongan Besar", seats: "19 Kursi", transmission: "Manual", specs: ["Kapasitas Maksimal", "Rombongan Besar & Tour", "Bagasi Rombongan Luas", "Driver Khusus Wisata"] },
 ];
 
@@ -110,16 +110,92 @@ const servicesDetail = [
 ];
 
 const tourPackages = [
-  { name: "Paket Wisata Barelang & Seafood Batam", duration: "1 Hari (Full Day)", image: "/batam/PAKET-TOUR/ONE-DAY-TOUR-BATAM.webp", desc: "Eksplor Jembatan Barelang, santap seafood kepiting & gonggong di Piayu, wisata belanja Nagoya, dan ikon Kota Batam.", features: ["Mobil + Driver Berpengalaman", "BBM & Parkir", "Air Mineral", "Jemput Hotel / Bandara"] },
-  { name: "Tour Pulau Ranoh (Snorkeling & Pantai)", duration: "1 Hari", image: "/batam/PAKET-TOUR/TOUR-RANOH-ISLAND.webp", desc: "Antar jemput armada privat ke dermaga penyeberangan Pulau Ranoh. Nikmati pantai pasir putih dan water sport bahari.", features: ["Antar Jemput Mobil Privat", "Driver Standby di Dermaga", "Termasuk BBM"] },
-  { name: "One Day Tour Bintan (Gurun Pasir & Danau)", duration: "1 Hari", image: "/batam/PAKET-TOUR/ONE-DAY-TOUR-BINTAN.webp", desc: "Menyeberang ke Pulau Bintan via ferry Roro/Speedboat. Eksplor Gurun Pasir Telaga Biru dan destinasi wisata Bintan.", features: ["Antar Jemput Pelabuhan Telaga Punggur", "Unit Standby", "Jadwal Fleksibel"] },
-  { name: "Paket Tour 3D2N Singapore – Malaysia", duration: "3 Hari 2 Malam", image: "/batam/PAKET-TOUR/3D2N-SINGAPORE-MALAYSIA.webp", desc: "Perjalanan lintas negara start dari Batam. Nikmati Jewel Changi, Merlion Park, Menara Petronas KLCC, dan Genting Highlands.", features: ["Transportasi Terorganisir", "Rute Efisien", "Handling Ferry"] },
+  {
+    name: "Paket Tour 3D2N Singapore – Malaysia",
+    description:
+      "Nikmati perjalanan mengeksplorasi Singapura dan Malaysia dalam 3 hari 2 malam. Logistik penyeberangan ferry dan rute wisata diatur rapi.",
+    duration: "3 Hari 2 Malam",
+    destinations: ["Johor", "Melaka", "Kuala Lumpur", "Genting", "Batu Caves", "Singapore"],
+    image: "/batam/PAKET-TOUR/3D2N-SINGAPORE-MALAYSIA.webp",
+    highlights: ["Genting Highland", "Batu Caves", "Melaka Historic City"],
+    badge: "Lintas Negara",
+  },
+  {
+    name: "Paket Tour 5 Hari 3 Negara",
+    description:
+      "Petualangan melintasi Singapura, Malaysia, dan Thailand dalam 5 hari dengan transportasi yang terorganisir bebas ribet.",
+    duration: "5 Hari 3 Negara",
+    destinations: ["Johor", "Melaka", "Kuala Lumpur", "Hatyai", "Genting", "Singapore"],
+    image: "/batam/PAKET-TOUR/5-HARI-3-NEGARA.webp",
+    highlights: ["Hatyai Thailand", "Kuala Lumpur", "Genting Highland"],
+    badge: "Lintas Negara",
+  },
+  {
+    name: "One Day Tour Singapore",
+    description:
+      "Kunjungan satu hari ke Singapura dari Batam. Eksplorasi spot ikonik Merlion Park, Garden by the Bay, dan sentra belanja Sentosa.",
+    duration: "1 Hari",
+    destinations: ["Garden by the Bay", "Merlion Park", "Masjid Sultan", "Bugis Street", "Sentosa Island"],
+    image: "/batam/PAKET-TOUR/ONE-DAY-TOUR-SINGAPORE.webp",
+    highlights: ["Garden by the Bay", "Sentosa Island", "Merlion Park"],
+    badge: "Lintas Negara",
+  },
+  {
+    name: "Tour Pulau Ranoh (Snorkeling & Pantai)",
+    description:
+      "Antar jemput ke dermaga wisata Pulau Ranoh. Nikmati pantai pasir putih eksotis, gazebo santai, dan aneka wahana air.",
+    duration: "1 Hari",
+    destinations: ["Ranoh Island", "Dermaga Barelang"],
+    image: "/batam/PAKET-TOUR/TOUR-RANOH-ISLAND.webp",
+    highlights: ["Snorkeling", "Banana Boat", "Pantai Pasir Putih"],
+    badge: "Snorkeling",
+  },
+  {
+    name: "One Day Tour Bintan (Gurun Pasir & Danau)",
+    description:
+      "Jelajahi keindahan Pulau Bintan dalam satu hari. Dari Gurun Pasir Telaga Biru yang eksotis hingga Laguna Treasure Bay.",
+    duration: "1 Hari",
+    destinations: ["Gurun Pasir Bintan", "Telaga Biru", "Lagoi Bay", "Treasure Bay"],
+    image: "/batam/PAKET-TOUR/ONE-DAY-TOUR-BINTAN.webp",
+    highlights: ["Treasure Bay", "Telaga Biru", "Gurun Pasir"],
+    badge: "1 Hari",
+  },
+  {
+    name: "Tour Pulau Abang (Underwater Snorkeling)",
+    description:
+      "Eksplorasi terumbu karang dan ikan nemo di perairan jernih Pulau Abang lengkap dengan dokumentasi bawah air.",
+    duration: "1 Hari",
+    destinations: ["Pulau Abang", "Barelang Ujung"],
+    image: "/batam/PAKET-TOUR/TOUR-PULAU-ABANG.webp",
+    highlights: ["Snorkeling", "Island Hopping", "Dokumentasi Bawah Air"],
+    badge: "Snorkeling",
+  },
+  {
+    name: "Tour Kepri Coral",
+    description:
+      "Petualangan bawah laut di Kepri Coral. Nikmati keindahan terumbu karang dan kehidupan laut yang menakjubkan.",
+    duration: "1 Hari",
+    destinations: ["Kepri Coral"],
+    image: "/batam/PAKET-TOUR/TOUR-KEPRI-CORAL.webp",
+    highlights: ["Undersea World", "Snorkeling", "Shark Feeding", "Mangrove Forest"],
+    badge: "Snorkeling",
+  },
+  {
+    name: "One Day City Tour Batam & Barelang",
+    description:
+      "Jelajahi ikon Jembatan Barelang, santap seafood segar di restoran terapung Piayu, dan belanja oleh-oleh di Nagoya Hill.",
+    duration: "1 Hari",
+    destinations: ["Jembatan Barelang", "Nagoya Hill", "Seafood Piayu", "Masjid Sultan Mahmud"],
+    image: "/batam/PAKET-TOUR/ONE-DAY-TOUR-BATAM.webp",
+    highlights: ["Jembatan Barelang", "Nagoya Hill", "Kuliner Seafood"],
+    badge: "Populer",
+  },
 ];
 
 const reviewsData = [
   { name: "Bambang Sudibyo", role: "Direktur Operasional, Jakarta", car: "Toyota Alphard Gen 4", comment: "Sangat puas dengan layanan VRN Batam. Driver tepat waktu di Bandara Hang Nadim dengan papan nama, pakaian rapi, dan paham rute kawasan industri Kabil. Invoice resmi PT pun langsung dikirim via email. Sangat profesional.", rating: 5 },
   { name: "David Tan", role: "Wisatawan, Singapore", car: "Innova Zenix Hybrid", comment: "Booked 2 days for family trip from Harbour Bay Ferry Terminal. The driver Mr. Rizal was very helpful, car was clean and comfortable. He brought us to the best seafood in Barelang. Recommended!", rating: 5 },
-  { name: "Siti Rahmania", role: "Keluarga Liburan, Medan", car: "Toyota Hiace Premio", comment: "Rombongan 12 orang sewa Hiace Premio. Mobilnya lega banget, AC dingin, driver sabar nemenin kami belanja di Nagoya Hill dan foto di Barelang. Harga transparan tanpa biaya tambahan aneh-aneh.", rating: 5 },
+  { name: "Siti Rahmania", role: "Keluarga Liburan, Medan", car: "Toyota Hiace Premio", comment: "Rombongan 12 orang sewa Hiace Premio. Mobilnya lega banget, AC dingin, driver sabar nemenin kami belanja di Nagoya Hill dan foto di Barelang. Semua informasi perjalanan disampaikan dengan jelas.", rating: 5 },
 ];
 
 const destinations = [
@@ -156,6 +232,7 @@ export default function BatamHomePage() {
   const [activeCategory, setActiveCategory] = useState("Semua");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [showScroll, setShowScroll] = useState(false);
+  const tourCarouselRef = useRef<HTMLDivElement>(null);
 
   const imageItems = galleryItems.filter((item) => item.type === "image");
 
@@ -175,12 +252,58 @@ export default function BatamHomePage() {
     return () => { document.body.style.overflow = ""; };
   }, [lightboxIndex]);
 
+  useEffect(() => {
+    const carousel = tourCarouselRef.current;
+    const isMobile = window.matchMedia("(max-width: 767px)");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    if (!carousel || !isMobile.matches || prefersReducedMotion.matches) return;
+
+    let hasInteracted = false;
+    let hintTimeout: number | undefined;
+    let returnTimeout: number | undefined;
+
+    const cancelHint = () => {
+      hasInteracted = true;
+      window.clearTimeout(hintTimeout);
+      window.clearTimeout(returnTimeout);
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting || hasInteracted) return;
+
+      observer.disconnect();
+      hintTimeout = window.setTimeout(() => {
+        if (hasInteracted) return;
+        carousel.scrollTo({ left: 24, behavior: "smooth" });
+        returnTimeout = window.setTimeout(() => {
+          if (!hasInteracted) carousel.scrollTo({ left: 0, behavior: "smooth" });
+        }, 500);
+      }, 700);
+    }, { threshold: 0.5 });
+
+    carousel.addEventListener("pointerdown", cancelHint, { once: true });
+    carousel.addEventListener("touchstart", cancelHint, { once: true, passive: true });
+    carousel.addEventListener("wheel", cancelHint, { once: true, passive: true });
+    carousel.addEventListener("keydown", cancelHint, { once: true });
+    observer.observe(carousel);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(hintTimeout);
+      window.clearTimeout(returnTimeout);
+      carousel.removeEventListener("pointerdown", cancelHint);
+      carousel.removeEventListener("touchstart", cancelHint);
+      carousel.removeEventListener("wheel", cancelHint);
+      carousel.removeEventListener("keydown", cancelHint);
+    };
+  }, []);
+
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const activeServiceObj = servicesList.find((s) => s.id === selectedService) || servicesList[0];
   const activeVehicleObj = vehiclesList.find((v) => v.id === selectedVehicle) || vehiclesList[0];
   const customWaText = encodeURIComponent(
-    `Halo VRN Rent Car Batam, saya ingin tanya penawaran harga promo dan ketersediaan untuk layanan: "${activeServiceObj.name}" dengan mobil: "${activeVehicleObj.name}". Apakah masih tersedia?`
+    `Halo VRN Batam, saya ingin bertanya tentang ketersediaan layanan "${activeServiceObj.name}" dengan mobil "${activeVehicleObj.name}".`
   );
   const calculatedWaLink = `${waBase}?text=${customWaText}`;
   const filteredFleet = activeCategory === "Semua" ? fleetData : fleetData.filter((c) => c.category === activeCategory);
@@ -211,7 +334,7 @@ export default function BatamHomePage() {
               <motion.div variants={fadeUp}>
                 <span className="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-200">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Rental Mobil &amp; Supir Terpercaya di Batam
+                  Paket Tour Batam &amp; Perjalanan Lintas Negara
                 </span>
               </motion.div>
 
@@ -219,52 +342,41 @@ export default function BatamHomePage() {
                 variants={fadeUp}
                 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight"
               >
-                Rental &amp; Sewa Mobil Batam <br />
-                <span className="text-amber-400">Plus Driver Profesional.</span>
+                Paket Tour Batam &amp; <br />
+                <span className="text-amber-400">Jelajah Lintas Negara.</span>
               </motion.h1>
 
               <motion.p variants={fadeUp} className="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Vicky Rentcar Nusantara menyediakan sewa mobil Batam untuk perjalanan wisata,
-                bisnis, dan keluarga, dengan pilihan lepas kunci atau plus sopir. Nikmati
-                antar-jemput Bandara Hang Nadim serta Pelabuhan Harbour Bay dan Batam Centre.
-                Armada bersih, nyaman, dan terawat didukung sopir lokal yang ramah serta tepat waktu.
+                Pilih paket tour island hopping ke Pulau Ranoh, Pulau Abang, dan Bintan,
+                city tour Batam, hingga perjalanan lintas negara ke Singapura dan Malaysia.
+                Rental mobil dengan sopir tersedia sebagai pendukung perjalanan Anda di Batam.
               </motion.p>
 
-              {/* 4 Trust Points */}
-              <motion.div variants={fadeUp} className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1 text-left">
-                {[
-                  { title: "Meet & Greet", desc: "Papan Nama di Bandara" },
-                  { title: "Sopir Berpengalaman", desc: "Paham Rute Bebas Macet" },
-                  { title: "Pilihan All-In", desc: "Mobil + Supir + BBM" },
-                  { title: "Faktur Pajak PT", desc: "Resmi untuk Kantor" },
-                ].map((item, idx) => (
-                  <div key={idx} className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                    <div className="text-xs font-bold text-white flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span>{item.title}</span>
-                    </div>
-                    <div className="text-[11px] text-slate-400 mt-0.5">{item.desc}</div>
-                  </div>
+              <motion.div variants={fadeUp} className="flex flex-wrap justify-center lg:justify-start gap-2 pt-1">
+                {["Batam & Barelang", "Pulau Ranoh", "Bintan", "Singapura & Malaysia"].map((destination) => (
+                  <span key={destination} className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1.5 text-xs font-semibold text-slate-200">
+                    {destination}
+                  </span>
                 ))}
               </motion.div>
 
               {/* Action Buttons */}
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-1">
                 <motion.a
-                  href={defaultWaLink}
+                  href={`${waBase}?text=${encodeURIComponent("Halo VRN Batam, saya ingin konsultasi paket tour Batam dan perjalanan lintas negara.")}`}
                   target="_blank"
                   rel="noreferrer"
                   whileTap={{ scale: 0.97 }}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-7 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow-md transition-colors"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
-                  Pesan &amp; Cek Promo via WA (24 Jam)
+                  Konsultasi Paket Tour via WhatsApp
                 </motion.a>
                 <Link
-                  href="/batam/armada"
+                  href="#tour-packages"
                   className="w-full sm:w-auto inline-flex items-center justify-center h-12 px-6 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-colors"
                 >
-                  Lihat Pilihan Mobil &amp; Promo
+                  Lihat Semua Paket Tour
                 </Link>
               </motion.div>
 
@@ -288,17 +400,17 @@ export default function BatamHomePage() {
               <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-2xl border border-slate-200 text-slate-900">
                 <div className="border-b border-slate-100 pb-3 mb-4">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-base font-bold text-slate-900">Cek Ketersediaan &amp; Promo via WA</h2>
+                    <h2 className="text-base font-bold text-slate-900">Butuh Mobil di Batam?</h2>
                     <span className="text-[10px] font-bold bg-amber-100 text-amber-900 px-2 py-0.5 rounded">
-                      Promo Hari Ini
+                      Tanya via WhatsApp
                     </span>
                   </div>
-                  <p className="text-xs text-slate-500 mt-0.5">Pilih mobil dan kebutuhan Anda untuk klaim diskon khusus</p>
+                  <p className="text-xs text-slate-500 mt-0.5">Sebagai pendukung tour, pilih layanan dan armada lokal untuk menanyakan ketersediaannya.</p>
                 </div>
 
                 {/* Step 1 */}
                 <div className="space-y-1.5 mb-4">
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">1. Jenis Layanan di Batam:</label>
+                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">Layanan Mobil di Batam:</label>
                   <div className="space-y-1.5 max-h-36 overflow-y-auto pr-1">
                     {servicesList.map((service) => (
                       <button
@@ -326,7 +438,7 @@ export default function BatamHomePage() {
                 {/* Step 2 */}
                 <div className="space-y-1.5 mb-5">
                   <label className="text-xs font-bold text-slate-700 uppercase tracking-wide flex justify-between">
-                    <span>2. Pilihan Mobil:</span>
+                    <span>2. Pilihan Armada:</span>
                     <span className="text-slate-500 font-normal text-[11px]">{activeVehicleObj.capacity}</span>
                   </label>
                   <div className="grid grid-cols-3 gap-2">
@@ -357,7 +469,7 @@ export default function BatamHomePage() {
                     <span className="text-slate-600">Status Penawaran:</span>
                     <span className="text-emerald-700 font-bold text-xs flex items-center gap-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      Diskon Spesial WhatsApp Aktif
+                      Layanan WhatsApp Aktif
                     </span>
                   </div>
                   <div className="text-[11px] text-slate-600 flex items-center gap-1.5">
@@ -372,7 +484,7 @@ export default function BatamHomePage() {
                     className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold h-11 rounded-lg shadow-sm transition-colors text-sm"
                   >
                     <MessageCircle className="w-4 h-4 fill-white" />
-                    Cek Harga Promo Unit Ini via WA
+                    Tanya Ketersediaan via WhatsApp
                   </motion.a>
                 </div>
               </div>
@@ -409,53 +521,166 @@ export default function BatamHomePage() {
         </div>
       </div>
 
-      <section className="py-14 sm:py-16 bg-white border-b border-slate-200">
+      <section className="border-b border-slate-200 bg-slate-50 py-10 sm:py-12">
+        <div className="mx-auto max-w-3xl space-y-4 px-4 text-center sm:px-6">
+          <p className="text-sm leading-relaxed text-slate-600 sm:text-base">
+            Dari Batam, perjalanan dapat berlanjut dari pulau-pulau dengan laut
+            jernih ke kota-kota lintas negara. Setiap penyeberangan menghadirkan
+            suasana baru, dari snorkeling di perairan kepulauan hingga menjelajahi
+            beragam kota di seberang selat.
+          </p>
+          <p className="text-sm font-medium text-slate-500">
+            8 Pilihan Rute · 4 Negara · Armada &amp; Driver Resmi
+          </p>
+        </div>
+      </section>
+
+      {/* ======================================================= */}
+      {/* 3. TOUR PACKAGES                                         */}
+      {/* ======================================================= */}
+      <section id="tour-packages" className="py-16 sm:py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-3 mb-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">Pilihan Armada Batam</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Rental Mobil Batam untuk Setiap Kebutuhan</h2>
-            <p className="text-slate-600 text-sm leading-relaxed">
-              Pilih unit sesuai jumlah penumpang, gaya perjalanan, dan agenda Anda. Tim kami membantu
-              mencocokkan armada serta paket perjalanan dengan harga yang jelas sejak awal.
+          <motion.div
+            className="text-center max-w-3xl mx-auto mb-12 space-y-3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">Paket Tour</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Paket Tour Batam &amp; Lintas Negara</h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Jelajahi 8 rute pilihan, dari island hopping di pulau-pulau sekitar Batam hingga
+              perjalanan lintas negara ke Singapura, Malaysia, dan Thailand.
             </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            <article className="rounded-xl border border-slate-200 p-5">
-              <h3 className="font-bold text-slate-900 mb-2">Sewa Mobil Alphard &amp; Luxury Batam</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Rental mobil Alphard Batam dan sewa mobil Alphard Batam cocok untuk tamu VIP,
-                pernikahan, dan perjalanan bisnis. Tersedia sewa mobil premium Batam serta rental
-                mobil Luxury Batam dengan sopir profesional.
-              </p>
-            </article>
-            <article className="rounded-xl border border-slate-200 p-5">
-              <h3 className="font-bold text-slate-900 mb-2">Rental Fortuner Batam</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Sewa mobil Fortuner Batam dan rental mobil Fortuner Batam memberikan kabin nyaman
-                serta ground clearance untuk agenda kantor, proyek, dan city tour.
-              </p>
-            </article>
-            <article className="rounded-xl border border-slate-200 p-5">
-              <h3 className="font-bold text-slate-900 mb-2">Innova Reborn &amp; Zenix</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Rental mobil Innova Batam dan sewa mobil Innova Batam menjadi pilihan praktis untuk
-                keluarga. Untuk kenyamanan modern, tersedia rental mobil Zenix Batam dan sewa mobil
-                Zenix Batam.
-              </p>
-            </article>
-            <article className="rounded-xl border border-slate-200 p-5">
-              <h3 className="font-bold text-slate-900 mb-2">Hiace &amp; Paket Tour Batam</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Rental mobil Hiace Batam dan sewa mobil Hiace Batam siap untuk rombongan. Lengkapi
-                perjalanan dengan paket tour Batam ke Barelang, pulau wisata, atau Bintan.
-              </p>
-            </article>
+          </motion.div>
+
+          <p className="mb-3 text-xs text-slate-500 md:hidden">
+            Geser untuk lihat paket lainnya →
+          </p>
+          <motion.div
+            ref={tourCarouselRef}
+            className="min-w-0 max-w-full flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-4 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:pb-0 xl:grid-cols-3 lg:gap-7"
+            variants={staggerGrid}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {tourPackages.map((tour) => (
+              <motion.article
+                key={tour.name}
+                variants={fadeUp}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2 }}
+                className="w-[85vw] shrink-0 snap-start bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden flex flex-col hover:shadow-xl hover:border-slate-300 transition-all duration-300 md:w-auto md:shrink md:snap-none"
+              >
+                <div className="relative bg-slate-200">
+                  <Image
+                    src={tour.image}
+                    alt={tour.name}
+                    width={1080}
+                    height={1350}
+                    className="h-auto w-full"
+                  />
+                  <span className="absolute left-3 top-3 rounded-full bg-white px-3 py-1 text-[11px] font-bold text-slate-900 shadow">
+                    {tour.badge}
+                  </span>
+                  <span className="absolute right-3 top-3 rounded-md bg-[#0B1728] px-2.5 py-1 text-[11px] font-bold text-white">
+                    {tour.duration}
+                  </span>
+                </div>
+                <div className="p-5 sm:p-6 flex-1 flex flex-col">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">{tour.name}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-4">{tour.description}</p>
+                  <div className="space-y-3 flex-1">
+                    <div>
+                      <p className="text-xs font-bold text-slate-800 mb-1.5">Destinasi</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {tour.destinations.map((destination) => (
+                          <span key={destination} className="rounded-md border border-slate-200 bg-white px-2 py-1 text-[11px] text-slate-600">
+                            {destination}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="border-t border-slate-200 pt-3">
+                      <p className="text-xs font-bold text-slate-800 mb-1.5">Highlight</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {tour.highlights.map((highlight) => (
+                          <span key={highlight} className="rounded-md bg-emerald-50 px-2 py-1 text-[11px] font-medium text-emerald-800">
+                            {highlight}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <motion.a
+                    href={`${waBase}?text=${encodeURIComponent(`Halo VRN Batam, saya tertarik dengan ${tour.name}`)}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    whileTap={{ scale: 0.97 }}
+                    className="mt-5 flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm h-11 rounded-lg transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-white" />
+                    Tanya Paket via WhatsApp
+                  </motion.a>
+                </div>
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-slate-50 py-10 sm:py-12">
+        <div className="mx-auto max-w-2xl space-y-3 px-4 text-center sm:px-6">
+          <h2 className="text-lg font-semibold text-slate-900 sm:text-xl">
+            Belum nemu paket yang pas?
+          </h2>
+          <p className="text-sm leading-relaxed text-slate-600">
+            Ceritakan rencana perjalanan Anda, kami bantu susunkan rute dan armada
+            yang sesuai kebutuhan dan budget Anda.
+          </p>
+          <a
+            href={`${waBase}?text=${encodeURIComponent("Halo VRN Batam, saya ingin konsultasi untuk rencana perjalanan yang belum ada paketnya.")}`}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-[#25D366] px-5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#20bd5a]"
+          >
+            <MessageCircle className="h-4 w-4 text-white" />
+            Konsultasi via WhatsApp
+          </a>
+        </div>
+      </section>
+
+      {/* ======================================================= */}
+      {/* 4. DRIVER RENTAL                                         */}
+      {/* ======================================================= */}
+      <section className="py-12 sm:py-14 bg-slate-50 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center space-y-3">
+            <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">Layanan Pendukung Perjalanan</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Sewa Mobil dengan Sopir di Batam</h2>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Untuk perjalanan wisata, bisnis, keluarga, atau antar-jemput bandara dan pelabuhan,
+              tersedia armada terawat dengan sopir lokal berpengalaman.
+            </p>
+            <p className="text-xs text-slate-500">Lepas kunci juga tersedia untuk kebutuhan tertentu; tanyakan syarat dan ketersediaannya melalui WhatsApp.</p>
+            <motion.a
+              href={defaultWaLink}
+              target="_blank"
+              rel="noreferrer"
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm h-11 px-6 rounded-lg shadow-sm transition-colors"
+            >
+              <MessageCircle className="w-4 h-4 fill-white" />
+              Tanya Sewa Mobil dengan Sopir
+            </motion.a>
           </div>
         </div>
       </section>
 
       {/* ======================================================= */}
-      {/* 3. VALUE PROPOSITIONS                                    */}
+      {/* 5. VALUE PROPOSITIONS                                    */}
       {/* ======================================================= */}
       <section className="py-14 sm:py-16 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -501,7 +726,7 @@ export default function BatamHomePage() {
       </section>
 
       {/* ======================================================= */}
-      {/* 4. FLEET SECTION                                         */}
+      {/* 6. FLEET SECTION                                         */}
       {/* ======================================================= */}
       <section id="armada" className="py-14 sm:py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -514,7 +739,7 @@ export default function BatamHomePage() {
           >
             <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">Katalog Armada</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Katalog Armada Mobil Pilihan</h2>
-            <p className="text-slate-500 text-sm">Tersedia diskon spesial dan promo sewa mobil harian plus driver. Hubungi kami untuk penawaran terbaik.</p>
+            <p className="text-slate-500 text-sm">Tersedia layanan sewa mobil harian plus driver. Hubungi kami untuk informasi layanan dan ketersediaan.</p>
           </motion.div>
 
           {/* Category Tabs */}
@@ -536,7 +761,7 @@ export default function BatamHomePage() {
 
           {/* Fleet Grid */}
           <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+            className="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4"
             variants={staggerGrid}
             initial="hidden"
             whileInView="visible"
@@ -545,7 +770,7 @@ export default function BatamHomePage() {
           >
             <AnimatePresence>
               {filteredFleet.map((car, index) => {
-                const carWa = `${waBase}?text=Halo%20VRN%20Batam,%20saya%20mau%20tanya%20penawaran%20harga%20promo%20dan%20ketersediaan%20untuk%20mobil%20${encodeURIComponent(car.name)}%20plus%20driver`;
+                const carWa = `${waBase}?text=${encodeURIComponent(`Halo VRN Batam, saya ingin menanyakan ketersediaan mobil ${car.name} plus driver.`)}`;
                 return (
                   <motion.div
                     key={car.name}
@@ -555,25 +780,22 @@ export default function BatamHomePage() {
                     className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg hover:border-slate-300 transition-all duration-300 flex flex-col"
                   >
                     {/* Image */}
-                    <div className="relative aspect-[16/10] bg-slate-100 border-b border-slate-100 flex items-center justify-center">
+                    <div className="relative bg-slate-100 border-b border-slate-100 flex items-center justify-center">
                       <Image
                         src={car.image}
                         alt={`${car.name} - rental mobil ${car.name.replace("Toyota ", "")} Batam`}
-                        fill
-                        className="object-contain p-3"
+                        width={1414}
+                        height={2000}
+                        className="h-auto w-full"
                       />
                       <span className="absolute top-2 right-2 px-2 py-0.5 rounded-md bg-[#0B1728] text-white text-[10px] font-bold">
                         {car.tag}
                       </span>
-                      <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-semibold flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                        Unit Ready
-                      </span>
                     </div>
 
                     {/* Content */}
-                    <div className="p-4 flex-1 flex flex-col">
-                      <h3 className="text-[15px] font-bold text-slate-900 mb-2">{car.name}</h3>
+                    <div className="p-3 sm:p-4 flex-1 flex flex-col">
+                      <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 mb-2">{car.name}</h3>
 
                       <div className="mb-3 p-2.5 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 flex items-center justify-between">
                         <div className="text-[11px] font-bold flex items-center gap-1">
@@ -581,7 +803,7 @@ export default function BatamHomePage() {
                           <span>{car.promoText}</span>
                         </div>
                         <span className="text-[10px] font-bold text-blue-800 bg-white px-1.5 py-0.5 rounded border border-amber-200">
-                          Diskon WA
+                          Tanya via WA
                         </span>
                       </div>
 
@@ -602,7 +824,7 @@ export default function BatamHomePage() {
                         className="mt-4 flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs h-10 rounded-lg shadow-sm transition-colors"
                       >
                         <MessageCircle className="w-3.5 h-3.5 fill-white" />
-                        Cek Harga Promo via WA
+                        Tanya Ketersediaan via WA
                       </motion.a>
                     </div>
                   </motion.div>
@@ -624,7 +846,7 @@ export default function BatamHomePage() {
       </section>
 
       {/* ======================================================= */}
-      {/* 5. SERVICES SECTION                                      */}
+      {/* 7. SERVICES SECTION                                      */}
       {/* ======================================================= */}
       <section id="layanan" className="py-14 sm:py-16 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -678,7 +900,7 @@ export default function BatamHomePage() {
       </section>
 
       {/* ======================================================= */}
-      {/* 6. HIACE ROMBONGAN                                       */}
+      {/* 8. HIACE ROMBONGAN                                       */}
       {/* ======================================================= */}
       <section id="hiace-section" className="py-14 sm:py-16 bg-[#0B1728] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -741,73 +963,7 @@ export default function BatamHomePage() {
       </section>
 
       {/* ======================================================= */}
-      {/* 7. TOUR PACKAGES                                         */}
-      {/* ======================================================= */}
-      <section id="tour-packages" className="py-14 sm:py-16 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center max-w-2xl mx-auto mb-10 space-y-2"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-          >
-            <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">Paket Wisata</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Paket Wisata Populer Batam &amp; Lintas Negara</h2>
-            <p className="text-slate-500 text-sm">Nikmati perjalanan terencana lengkap dengan kendaraan privat dan driver yang memandu rute wisata Anda.</p>
-          </motion.div>
-
-          <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"
-            variants={staggerGrid}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {tourPackages.map((tour, index) => (
-              <motion.div
-                key={index}
-                variants={fadeUp}
-                whileHover={{ y: -3 }}
-                transition={{ duration: 0.2 }}
-                className="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden flex flex-col hover:shadow-lg hover:border-slate-300 transition-all duration-300"
-              >
-                <div className="relative aspect-[4/3]">
-                  <Image src={tour.image} alt={tour.name} fill className="object-cover" />
-                  <span className="absolute top-2 right-2 px-2 py-0.5 rounded-md bg-[#0B1728] text-white text-[10px] font-bold">
-                    {tour.duration}
-                  </span>
-                </div>
-                <div className="p-4 flex-1 flex flex-col">
-                  <h3 className="text-sm font-bold text-slate-900 mb-1.5">{tour.name}</h3>
-                  <p className="text-xs text-slate-500 leading-relaxed mb-3">{tour.desc}</p>
-                  <div className="space-y-1 flex-1 mb-4 pt-2 border-t border-slate-100">
-                    {tour.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="text-[11px] text-slate-600 flex items-center gap-1.5">
-                        <Check className="w-3 h-3 text-emerald-600 shrink-0" />
-                        <span>{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <motion.a
-                    href={`${waBase}?text=Halo%20VRN%20Batam,%20saya%20ingin%20tanya%20paket:%20${encodeURIComponent(tour.name)}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    whileTap={{ scale: 0.97 }}
-                    className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs h-9 rounded-lg transition-colors"
-                  >
-                    <MessageCircle className="w-3.5 h-3.5 fill-white" />
-                    Klaim Diskon Hari Ini
-                  </motion.a>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ======================================================= */}
-      {/* 8. DESTINATIONS                                          */}
+      {/* 9. DESTINATIONS                                          */}
       {/* ======================================================= */}
       <section id="destinasi" className="py-14 sm:py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -858,7 +1014,7 @@ export default function BatamHomePage() {
       </section>
 
       {/* ======================================================= */}
-      {/* 9. REVIEWS                                               */}
+      {/* 10. REVIEWS                                              */}
       {/* ======================================================= */}
       <section id="reviews" className="py-14 sm:py-16 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -911,7 +1067,7 @@ export default function BatamHomePage() {
       </section>
 
       {/* ======================================================= */}
-      {/* 10. GALLERY                                              */}
+      {/* 11. GALLERY                                              */}
       {/* ======================================================= */}
       <section className="py-14 sm:py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1026,7 +1182,7 @@ export default function BatamHomePage() {
       </AnimatePresence>
 
       {/* ======================================================= */}
-      {/* 11. FAQ                                                  */}
+      {/* 12. FAQ                                                  */}
       {/* ======================================================= */}
       <FaqSection />
       <script
@@ -1041,7 +1197,7 @@ export default function BatamHomePage() {
       />
 
       {/* ======================================================= */}
-      {/* 12. BOTTOM CONVERSION BANNER                             */}
+      {/* 13. BOTTOM CONVERSION BANNER                             */}
       {/* ======================================================= */}
       <section className="py-14 sm:py-16 bg-[#0b1728] text-white text-center">
         <motion.div
@@ -1052,34 +1208,35 @@ export default function BatamHomePage() {
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
         >
           <motion.h2 variants={fadeUp} className="text-2xl sm:text-4xl font-extrabold text-white">
-            Butuh Mobil &amp; Driver di Batam Sekarang?
+            Siap Menjelajahi Batam dan Sekitarnya?
           </motion.h2>
           <motion.p variants={fadeUp} className="text-slate-300 text-sm sm:text-base">
-            Hubungi CS kami untuk konsultasi rute, cek ketersediaan armada, dan dapatkan penawaran promo harga terbaik.
+            Pilih paket tour atau konsultasikan rute perjalanan Anda. Rental mobil dengan sopir
+            juga tersedia sebagai pendukung perjalanan di Batam.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <motion.a
-              href={defaultWaLink}
+              href={`${waBase}?text=${encodeURIComponent("Halo VRN Batam, saya ingin konsultasi paket tour untuk perjalanan saya.")}`}
               target="_blank"
               rel="noreferrer"
               whileTap={{ scale: 0.97 }}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-8 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow-md transition-colors"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
-              Hubungi Kami via WhatsApp
+              Konsultasi Paket Tour via WhatsApp
             </motion.a>
             <Link
-              href="/batam/armada"
+              href="#tour-packages"
               className="w-full sm:w-auto inline-flex items-center justify-center h-12 px-6 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-colors"
             >
-              Lihat Semua Armada
+              Lihat Paket Tour
             </Link>
           </motion.div>
         </motion.div>
       </section>
 
       {/* ======================================================= */}
-      {/* 13. FOOTER                                               */}
+      {/* 14. FOOTER                                               */}
       {/* ======================================================= */}
       <Footer />
 

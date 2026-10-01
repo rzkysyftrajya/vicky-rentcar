@@ -179,20 +179,29 @@ export default function Footer() {
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
                 <div className="flex items-center gap-1.5 text-slate-400 text-[11px]">
                   <MapPin className="w-3.5 h-3.5 text-slate-500" />
-                  Area Layanan Batam:
+                  Alamat:
                 </div>
                 <div className="text-slate-200 text-xs leading-snug">
-                  Bandara Hang Nadim, Batam Centre, Nagoya, Harbour Bay, Sekupang, Nongsa, Kabil,
-                  Mukakuning &amp; Barelang.
+                  Ruko Marbella 2, Belian, Kec. Batam Kota, Kota Batam,
+                  Kepulauan Riau 24964
                 </div>
               </div>
+
+              <iframe
+                title="Peta lokasi Vicky Rentcar Batam"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0522649355553!2d104.0995768!3d1.1227889000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d98932fa699d63%3A0xfd3c65cf53f474ee!2sVICKY%20RENTCAR%20BATAM!5e0!3m2!1sid!2sid!4v1790883362527!5m2!1sid!2sid"
+                className="h-48 w-full rounded-lg border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
 
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
                 <div className="flex items-center gap-1.5 text-slate-400 text-[11px]">
                   <Clock className="w-3.5 h-3.5 text-slate-500" />
                   Jam Operasional:
                 </div>
-                <div className="text-slate-200 text-xs">Setiap Hari â€¢ 00.00 â€“ 24.00 WIB</div>
+                <div className="text-slate-200 text-xs">Setiap Hari: 00.00–24.00 WIB</div>
               </div>
             </div>
           </div>
@@ -243,4 +252,3 @@ export default function Footer() {
     </footer>
   );
 }
-

@@ -223,7 +223,13 @@ export default function BatamLayout({
           defaultTheme="system"
           enableSystem
         >
-          <div className={inter.variable}>
+          <div className={`${inter.variable} batam-route-layout`}>
+            <style>{`
+              body:has(.batam-route-layout) #global-route-chrome-footer,
+              body:has(.batam-route-layout) #global-route-contact-dock {
+                display: none !important;
+              }
+            `}</style>
             <Navbar />
 
             <main>{children}</main>
