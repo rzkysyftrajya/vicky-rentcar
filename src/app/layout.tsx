@@ -124,6 +124,11 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2563eb" />
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="UL+Tvzv2qgByFmKjaSnxqw"
+          async
+        />
 
         {/* Script to remove browser extension injected attributes BEFORE React hydrates */}
         <script
