@@ -855,7 +855,7 @@ export default function RentalMobilJakartaPage() {
                     <option>Pilih mobil...</option>
                     {carOptions.map((car, i) => (
                       <option key={i} value={car.name}>
-                        {car.name} - {car.price}
+                        {car.name}
                       </option>
                     ))}
                   </select>

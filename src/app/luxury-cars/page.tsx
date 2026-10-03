@@ -31,7 +31,6 @@ export default function LuxuryCarsPage() {
   const luxuryFleet = [
     {
       name: "HIACE PREMIO LUXURY",
-      price: "170",
       image: "/armada/hiace-premio-luxury.webp",
       hint: "hiace premio luxury",
       description: "Puncak kemewahan dan kenyamanan otomotif.",
@@ -39,7 +38,6 @@ export default function LuxuryCarsPage() {
     },
     {
       name: "Toyota Alphard New",
-      price: "200",
       image: "/armada/alphard-new.webp",
       hint: "Alphard NEW",
       description: "Performa luar biasa bertemu inovasi hibrida.",
@@ -47,7 +45,6 @@ export default function LuxuryCarsPage() {
     },
     {
       name: "Toyota Fortuner",
-      price: "90",
       image: "/armada/fortuner.webp",
       hint: "Toyta Fortuner",
       description: "Sebuah pernyataan kekuatan dan desain yang agresif.",
@@ -55,7 +52,6 @@ export default function LuxuryCarsPage() {
     },
     {
       name: "Mitsubishi Pajero",
-      price: "100",
       image: "/armada/pajero.webp",
       hint: "Mitsubishi Pajero",
       description: "Grand tourer klasik untuk gaya tertinggi.",
@@ -94,16 +90,19 @@ export default function LuxuryCarsPage() {
                 {car.name}
               </CardTitle>
               <p className="text-gray-600 mt-2">{car.description}</p>
-              <p className="text-2xl font-bold text-primary mt-4">
-                Rp
-                {new Intl.NumberFormat("id-ID").format(
-                  parseInt(car.price) * 15000
-                )}
-                /hari
-              </p>
             </CardContent>
             <CardFooter className="p-6 pt-0 mt-auto">
-              <Button className="w-full">Tanyakan Ketersediaan</Button>
+              <Button className="w-full" asChild>
+                <a
+                  href={`https://wa.me/6282363389893?text=${encodeURIComponent(
+                    `Halo, saya ingin menanyakan harga dan ketersediaan ${car.name}.`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Tanya Harga & Ketersediaan via WhatsApp
+                </a>
+              </Button>
             </CardFooter>
           </Card>
         ))}

@@ -100,9 +100,10 @@ export default function SewaMobilBulananSurabaya() {
   const comparisonData = [
     {
       aspect: "Biaya Investasi Awal",
-      own: "Rp 150-300 juta (DP + Angsuran)",
-      rental: "0 rupiah - langsung pakai",
-      savings: "Hemat 100%",
+      own: "Membutuhkan DP, cicilan, serta biaya perawatan dan pajak tahunan",
+      rental:
+        "Tanpa DP atau cicilan, tanpa biaya perawatan dan pajak tahunan",
+      savings: "Tanpa beban investasi dan biaya kepemilikan",
     },
     {
       aspect: "Pajak & Admin",
@@ -124,7 +125,7 @@ export default function SewaMobilBulananSurabaya() {
     },
     {
       aspect: "Resale & Depresiasi",
-      own: "Nilai jual turun 20-30% per tahun",
+      own: "Nilai kendaraan menyusut seiring waktu",
       rental: "No depresiasi - nilai tetap",
       savings: "Hemat opportunity cost",
     },

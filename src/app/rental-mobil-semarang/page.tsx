@@ -68,7 +68,6 @@ const structuredData = {
     addressRegion: "Jawa Tengah",
     addressCountry: "ID",
   },
-  priceRange: "Rp450.000 - Rp1.800.000",
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.9",
@@ -275,8 +274,6 @@ export default function RentalMobilSemarangPage() {
                       )}
                     </div>
 
-                    <p className="mt-3 font-semibold">{car.price}</p>
-
                     <ul className="mt-3 text-sm text-gray-600 space-y-1">
                       {car.features.map((f, idx) => (
                         <li key={idx}>• {f}</li>
@@ -290,7 +287,7 @@ export default function RentalMobilSemarangPage() {
                         )}%20di%20Semarang`}
                         className="flex-1 text-center bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700"
                       >
-                        Pesan Sekarang
+                        Tanya Harga & Pesan
                       </a>
                       <button
                         className="px-3 py-2 border rounded-lg text-sm"
@@ -691,7 +688,6 @@ export default function RentalMobilSemarangPage() {
                 {
                   name: "Hotel Santika Premiere Semarang",
                   rating: 4.5,
-                  price: "Rp 650.000",
                   image: "/hotels/santika.jpg",
                   location: "Jl. Pandanaran No.116",
                   features: ["WiFi Gratis", "Kolam Renang", "Restoran"],
@@ -699,7 +695,6 @@ export default function RentalMobilSemarangPage() {
                 {
                   name: "Ibis Styles Semarang Simpang Lima",
                   rating: 4.3,
-                  price: "Rp 450.000",
                   image: "/hotels/ibis.jpg",
                   location: "Jl. KH. Ahmad Dahlan No.1",
                   features: [
@@ -711,7 +706,6 @@ export default function RentalMobilSemarangPage() {
                 {
                   name: "Grand Candi Hotel Semarang",
                   rating: 4.4,
-                  price: "Rp 550.000",
                   image: "/hotels/grand-candi.jpg",
                   location: "Jl. Sisingamangaraja No.16",
                   features: ["Spa", "Fitness Center", "Business Center"],
@@ -741,10 +735,6 @@ export default function RentalMobilSemarangPage() {
                     <p className="text-sm text-gray-600 mb-2">
                       📍 {hotel.location}
                     </p>
-                    <p className="text-lg font-bold text-green-600 mb-3">
-                      {hotel.price}/malam
-                    </p>
-
                     <div className="flex flex-wrap gap-2 mb-4">
                       {hotel.features.map((feature, idx) => (
                         <span
@@ -765,7 +755,7 @@ export default function RentalMobilSemarangPage() {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        Booking Hotel
+                        Tanya Harga & Booking
                       </motion.a>
                       <motion.button
                         className="px-3 py-2 border rounded-lg text-sm hover:bg-gray-50 transition-colors"
@@ -788,7 +778,7 @@ export default function RentalMobilSemarangPage() {
               viewport={{ once: true }}
             >
               <p className="text-gray-600 mb-4">
-                Diskon hingga 20% untuk pelanggan rental mobil VRN
+                Tanyakan penawaran khusus untuk pelanggan rental mobil VRN.
               </p>
               <motion.a
                 href={`https://wa.me/${WA_NUMBER}?text=Halo%20VRN%20Semarang,%20saya%20ingin%20info%20paket%20hotel%20+%20mobil`}
@@ -1008,7 +998,7 @@ export default function RentalMobilSemarangPage() {
                     <option>Pilih mobil...</option>
                     {carOptions.map((car, i) => (
                       <option key={i} value={car.name}>
-                        {car.name} - {car.price}
+                        {car.name}
                       </option>
                     ))}
                   </select>
