@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
+import { createSemarangMetadata } from "@/lib/semarang-site/seo";
 import { ContactWhatsAppForm } from "@/components/semarang-site/contact-whatsapp-form";
 import { PageHeader } from "@/components/semarang-site/common/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/semarang-site/ui/card";
 import { MapPin, Phone, Mail, Share2, Globe } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Kontak Rental Mobil Semarang",
+export const metadata = createSemarangMetadata({
+  title: "Kontak dan Reservasi Rental Mobil Semarang",
   description:
-    "Hubungi PT.VRN Semarang untuk menanyakan armada, layanan sopir, atau antar jemput Bandara Ahmad Yani melalui WhatsApp dan email.",
-  alternates: { canonical: "/semarang/kontak" },
-};
+    "Hubungi PT.VRN Semarang untuk cek ketersediaan mobil, minta penawaran sewa dengan sopir atau lepas kunci, dan atur jemput Bandara Ahmad Yani.",
+  path: "/semarang/kontak",
+});
 
 export default function KontakPage() {
   const primaryPhoneNumber = "6282363389893";
@@ -23,7 +23,7 @@ export default function KontakPage() {
   return (
     <>
       <PageHeader
-        title="Hubungi Kami"
+        title="Kontak Rental Mobil Semarang"
         breadcrumb="Beranda / Kontak"
         imageUrl="/semarang/hero-section.webp"
         imageHint="contact us concept"

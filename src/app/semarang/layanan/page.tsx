@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createSemarangMetadata } from "@/lib/semarang-site/seo";
 import { PageHeader } from "@/components/semarang-site/common/page-header";
 import { Button } from "@/components/semarang-site/ui/button";
 import { Check } from "lucide-react";
@@ -20,12 +20,12 @@ import {
   Car,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Layanan Rental Mobil Semarang",
+export const metadata = createSemarangMetadata({
+  title: "Sewa Mobil Harian dan dengan Sopir di Semarang",
   description:
-    "Pilih layanan rental mobil di Semarang untuk pemakaian harian, perjalanan dengan sopir, antar jemput Bandara Ahmad Yani, atau kebutuhan lainnya.",
-  alternates: { canonical: "/semarang/layanan" },
-};
+    "Cari sewa mobil harian atau bulanan di Semarang, rental dengan sopir, lepas kunci, dan antar jemput Bandara Ahmad Yani. Tanyakan rute serta jadwal.",
+  path: "/semarang/layanan",
+});
 
 const servicesList = [
   {
@@ -120,7 +120,7 @@ export default function LayananPage() {
   return (
     <>
       <PageHeader
-        title="Layanan Kami"
+        title="Layanan Sewa Mobil Semarang"
         breadcrumb="Beranda / Layanan"
         imageUrl="/semarang/hero-section.webp"
         imageHint="customer service smiling"
@@ -129,12 +129,12 @@ export default function LayananPage() {
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Solusi Lengkap Kebutuhan Transportasi Anda
+                Layanan Sewa Mobil Sesuai Durasi dan Rute
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-              Kami menawarkan berbagai layanan rental mobil di Semarang yang
-              dirancang untuk memberikan kenyamanan, keamanan, dan
-              fleksibilitas, apa pun tujuan perjalanan Anda.
+                Pilih sewa harian atau bulanan, mobil lepas kunci atau dengan
+                sopir, serta antar jemput Bandara Ahmad Yani. Sampaikan tujuan
+                dan jadwal agar layanan dapat disesuaikan dengan perjalanan Anda.
             </p>
           </div>
 

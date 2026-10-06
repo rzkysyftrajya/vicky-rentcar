@@ -62,7 +62,7 @@ export function TentangPageClient() {
   return (
     <>
       <PageHeader
-        title="Tentang Kami"
+        title="Tentang PT.VRN Semarang"
         breadcrumb="Beranda / Tentang"
         imageUrl="/semarang/hero-section.webp"
         imageHint="office building modern"

@@ -28,7 +28,7 @@ export default function ArmadaPage() {
   return (
     <>
       <PageHeader
-        title="Pilihan Armada"
+        title="Armada Rental Mobil Semarang"
         breadcrumb="Beranda / Armada"
         imageUrl="/semarang/hero-section.webp"
         imageHint="car lineup showroom"
@@ -36,12 +36,13 @@ export default function ArmadaPage() {
       <div className="container py-16 lg:py-24">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Pilihan Mobil Terbaik Untuk Anda
+            Pilih Mobil Sewa Sesuai Tujuan Perjalanan
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Temukan mobil yang paling sesuai dengan kebutuhan perjalanan Anda,
-            dari mobil keluarga yang nyaman hingga sedan mewah untuk perjalanan
-            bisnis.
+            Bandingkan pilihan sewa mobil di Semarang untuk perjalanan harian,
+            bisnis, wisata keluarga, atau rombongan. Tiap kartu menampilkan
+            kapasitas, transmisi, dan tarif yang tersedia sebelum Anda
+            mengonfirmasi tanggal pemakaian.
           </p>
         </div>
 

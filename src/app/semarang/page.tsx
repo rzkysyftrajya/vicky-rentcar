@@ -1,18 +1,14 @@
-import type { Metadata } from "next";
+import { createSemarangMetadata } from "@/lib/semarang-site/seo";
 import HomePage from "./home-client";
 
-export const metadata: Metadata = {
-  title: "Rental Mobil Semarang & Antar Jemput Bandara Ahmad Yani",
+export const metadata = {
+  ...createSemarangMetadata({
+    title: "Sewa Mobil Semarang dengan Sopir atau Lepas Kunci",
   description:
-    "Cari rental mobil di Semarang untuk perjalanan harian, wisata, atau antar jemput Bandara Ahmad Yani. Lihat pilihan armada dan tanyakan ketersediaan via WhatsApp.",
-  alternates: { canonical: "/semarang" },
-  openGraph: {
-    title: "Rental Mobil Semarang | PT.VRN Semarang",
-    description:
-      "Pilihan armada untuk kebutuhan perjalanan di Semarang, termasuk antar jemput Bandara Ahmad Yani.",
-    url: "/semarang",
-    images: ["/semarang/hero-section.webp"],
-  },
+    "Rental mobil Semarang untuk sewa harian, lepas kunci, atau dengan sopir. Lihat pilihan armada dan tanyakan antar jemput Bandara Ahmad Yani via WhatsApp.",
+  path: "/semarang",
+  }),
+  title: { absolute: "Rental Mobil Semarang | Sopir & Lepas Kunci" },
 };
 
 export default function SemarangHomePage() {

@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import { createSemarangMetadata } from "@/lib/semarang-site/seo";
 import ArmadaPage from "./page-client";
 
-export const metadata: Metadata = {
+export const metadata = createSemarangMetadata({
   title: "Pilihan Armada Rental Mobil Semarang",
   description:
-    "Lihat pilihan mobil untuk sewa di Semarang, dari kendaraan keluarga hingga minibus. Tanyakan ketersediaan dan harga sesuai tanggal perjalanan.",
-  alternates: { canonical: "/semarang/armada" },
-};
+    "Bandingkan pilihan mobil sewa di Semarang, dari city car dan MPV hingga Hiace. Cek tipe transmisi, kapasitas, harga, lalu tanyakan ketersediaan.",
+  path: "/semarang/armada",
+});
 
 export default function SemarangArmadaPage() {
   return <ArmadaPage />;

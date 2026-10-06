@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createSemarangMetadata } from "@/lib/semarang-site/seo";
 import { PageHeader } from "@/components/semarang-site/common/page-header";
 import {
   Accordion,
@@ -7,18 +7,28 @@ import {
   AccordionTrigger,
 } from "@/components/semarang-site/ui/accordion";
 
-export const metadata: Metadata = {
-  title: "FAQ Rental Mobil Semarang",
+export const metadata = createSemarangMetadata({
+  title: "FAQ Sewa Mobil Semarang",
   description:
-    "Jawaban tentang syarat sewa lepas kunci, bahan bakar, pembayaran, perjalanan luar kota, dan antar jemput mobil di Semarang.",
-  alternates: { canonical: "/semarang/faq" },
-};
+    "Cari jawaban soal harga, syarat rental mobil lepas kunci, sewa dengan sopir, pembayaran, dan antar jemput Bandara Ahmad Yani Semarang.",
+  path: "/semarang/faq",
+});
 
 const faqItems = [
   {
-    question: "Apa saja syarat untuk menyewa mobil lepas kunci?",
+    question: "Apa syarat rental mobil lepas kunci di Semarang?",
     answer:
       "Untuk sewa lepas kunci, Anda perlu menyediakan dokumen berikut: e-KTP, SIM A yang masih berlaku, dan bukti domisili (tagihan listrik/PBB). Kami juga mungkin akan meminta akun media sosial aktif untuk verifikasi tambahan.",
+  },
+  {
+    question: "Berapa harga sewa mobil di Semarang?",
+    answer:
+      "Tarif bergantung pada model mobil, transmisi, lama sewa, dan pilihan dengan sopir atau lepas kunci. Lihat katalog armada untuk harga yang tersedia, lalu konfirmasikan tanggal pemakaian sebelum memesan.",
+  },
+  {
+    question: "Apakah tersedia rental mobil Semarang dengan sopir?",
+    answer:
+      "Ya, tersedia pilihan mobil dengan sopir untuk perjalanan di Semarang. Sampaikan tanggal, lama pemakaian, jumlah penumpang, dan rute agar tim dapat mengecek kendaraan yang sesuai.",
   },
   {
     question: "Apakah harga sewa sudah termasuk bahan bakar?",
@@ -31,14 +41,14 @@ const faqItems = [
       "Segera hubungi tim kami 24/7. Kerusakan ringan akibat pemakaian normal akan kami tanggung, namun kerusakan berat akibat kelalaian penyewa akan menjadi tanggung jawab penyewa. Semua unit kami dilindungi asuransi untuk ketenangan Anda.",
   },
   {
-    question: "Bisakah saya menyewa mobil untuk perjalanan ke luar kota?",
+    question: "Bisakah sewa mobil dari Semarang untuk perjalanan luar kota?",
     answer:
       "Tentu saja. Kami melayani perjalanan ke luar kota dengan atau tanpa sopir. Mohon informasikan tujuan Anda saat booking agar kami dapat memberikan penawaran terbaik dan memastikan kondisi kendaraan prima untuk perjalanan jauh.",
   },
   {
-    question: "Apakah ada layanan antar-jemput mobil ke lokasi saya?",
+    question: "Bagaimana cara pesan antar jemput Bandara Ahmad Yani ke hotel?",
     answer:
-      "Ya, kami menyediakan layanan antar-jemput mobil di area Kota Semarang, termasuk Bandara Ahmad Yani, stasiun kereta, hotel, atau alamat rumah Anda dengan sedikit biaya tambahan yang disesuaikan dengan jarak.",
+      "Hubungi kami dengan jadwal penerbangan, jumlah penumpang, alamat hotel, dan kendaraan yang dibutuhkan. Penjemputan dari Bandara Ahmad Yani dapat dikoordinasikan sesuai tujuan dan ketersediaan armada.",
   },
   {
     question: "Bagaimana sistem pembayaran yang diterima?",
@@ -48,10 +58,24 @@ const faqItems = [
 ];
 
 export default function FaqPage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <PageHeader
-        title="Pertanyaan Umum"
+        title="FAQ Sewa Mobil Semarang"
         breadcrumb="Beranda / FAQ"
         imageUrl="/semarang/hero-section.webp"
         imageHint="question mark neon"

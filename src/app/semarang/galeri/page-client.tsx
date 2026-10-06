@@ -12,7 +12,7 @@ const galleryImages = Array.from({ length: TOTAL_GALLERY_IMAGES }, (_, i) => {
   return {
     id: `galeri-${imageNumber}`,
     src: `/semarang/galeri/galeri-${imageNumber}.webp`,
-    alt: `Gambar galeri ${imageNumber}`,
+    alt: `Dokumentasi armada dan layanan rental mobil Semarang ${imageNumber}`,
     hint: `galeri-image-${imageNumber}`,
   };
 });
@@ -23,7 +23,7 @@ export default function GaleriPage() {
   return (
     <>
       <PageHeader
-        title="Galeri Armada"
+        title="Galeri Armada Rental Mobil Semarang"
         breadcrumb="Beranda / Galeri"
         imageUrl="/semarang/hero-section.webp"
         imageHint="car photography studio"
