@@ -222,6 +222,7 @@ export default function SurabayaPage() {
           alt="Pemandangan Kota Surabaya"
           fill
           priority
+          sizes="100vw"
           className="absolute inset-0 -z-20 object-cover"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/20" />

@@ -293,12 +293,9 @@ export default function Home() {
 
   return (
     <>
-      <motion.section
+      <section
         id="home"
         className="relative h-[80vh] md:h-screen flex items-center justify-center text-center text-white overflow-hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
       >
         <div className="absolute inset-0 bg-black/50 z-10" />
         <motion.div
@@ -324,21 +321,14 @@ export default function Home() {
           />
         </motion.div>
         <div className="relative z-20 container mx-auto px-4">
-          <motion.h1
-            className="text-4xl md:text-6xl font-extrabold tracking-tight text-gradient"
-            {...animationProps}
-          >
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gradient">
             PT.VICKY RENTCAR NUSANTARA
-          </motion.h1>
-          <motion.p
-            className="mt-4 text-lg md:text-xl text-neutral-200 max-w-3xl mx-auto"
-            {...animationProps}
-            transition={{ ...animationProps.transition, delay: 0.2 }}
-          >
+          </h1>
+          <p className="mt-4 text-lg md:text-xl text-neutral-200 max-w-3xl mx-auto">
             Selamat datang di PT.VICKY RENTCAR NUSANTARA. Jelajahi keindahan
             Nusantara dengan percaya diri. Kami menyediakan armada terbaik dan
             layanan premium untuk setiap perjalanan Anda.
-          </motion.p>
+          </p>
           <motion.div
             className="max-w-md mx-auto mt-6"
             {...animationProps}
@@ -371,7 +361,7 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
-      </motion.section>
+      </section>
 
       <Suspense fallback={<div className="h-64" />}>
         <HomeSearchForm />

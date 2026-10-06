@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Phone,
@@ -30,12 +31,17 @@ const whatsappLink ="https://wa.me/6282363389893?text=Halo%20vicky%20rentcar%20b
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background - Tropical Island Theme for BATAM */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/medan/hero-section.webp')`,
-        }}
-      >
+      <div className="absolute inset-0">
+        <Image
+          src="/batam/hero-section.webp"
+          alt=""
+          aria-hidden="true"
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-teal-900/90 via-cyan-900/80 to-blue-900/90" />
       </div>
 

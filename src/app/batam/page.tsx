@@ -315,10 +315,18 @@ export default function BatamHomePage() {
       {/* 1. HERO SECTION                                          */}
       {/* ======================================================= */}
       <section className="relative overflow-hidden bg-[#0b1728] text-white pt-28 pb-14 lg:pt-32 lg:pb-20">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/batam/hero-section.webp')" }}
-        />
+        <div className="absolute inset-0">
+          <Image
+            src="/batam/hero-section.webp"
+            alt=""
+            aria-hidden="true"
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/75 to-slate-900/80" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

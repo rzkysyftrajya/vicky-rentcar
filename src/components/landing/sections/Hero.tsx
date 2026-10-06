@@ -13,10 +13,13 @@ export default function Hero({ city, title, subtitle }: HeroProps) {
     <section className="relative bg-gradient-to-b from-gray-900 to-gray-800 text-white py-20 md:py-32">
       <Image
         src="/halaman-surabaya/jembatan-suramadu.jpg"
-        alt={`Sewa Mobil di ${city}`}
-        layout="fill"
-        objectFit="cover"
-        className="absolute inset-0 opacity-20"
+        alt=""
+        aria-hidden="true"
+        fill
+        priority
+        fetchPriority="high"
+        sizes="100vw"
+        className="absolute inset-0 object-cover opacity-20"
       />
       <div className="container mx-auto px-4 relative z-10 text-center">
         <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4">

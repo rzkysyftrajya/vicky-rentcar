@@ -89,41 +89,25 @@ export default function RentalMobilJakartaPage() {
 
       <div className="w-full bg-white text-gray-900">
         {/* ================= HERO ================= */}
-        <motion.section
+        <section
           className="relative bg-gray-900 text-white py-24 px-6 lg:px-16 overflow-hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
         >
           <motion.div className="absolute inset-0" style={{ y }}>
             <Image
-              src="/hero/hero-jakarta.webp"
+              src="/armada/fortuner.webp"
               alt="Rental Mobil Jakarta"
               fill
+              priority
+              sizes="100vw"
               className="object-cover opacity-40"
             />
           </motion.div>
 
-          <motion.div
-            className="relative max-w-5xl mx-auto text-center"
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <motion.h1
-              className="text-4xl lg:text-5xl font-bold mb-4"
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
+          <div className="relative max-w-5xl mx-auto text-center">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4">
               Sewa Mobil Jakarta — Premium & Siap 24 Jam
-            </motion.h1>
-            <motion.p
-              className="text-lg mb-6"
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
+            </h1>
+            <p className="text-lg mb-6">
               Solusi transportasi terbaik di Jakarta: armada lengkap, driver
               profesional, dan harga transparan. Booking cepat via WhatsApp!
               Butuh antar jemput Bandara Soekarno-Hatta? Lihat layanan{" "}
@@ -131,7 +115,7 @@ export default function RentalMobilJakartaPage() {
                 airport transfer kami
               </a>
               .
-            </motion.p>
+            </p>
 
             <motion.div
               className="flex justify-center gap-4 mt-6"
@@ -191,8 +175,8 @@ export default function RentalMobilJakartaPage() {
                 </motion.div>
               ))}
             </motion.div>
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* ================= WHY US ================= */}
         <motion.section

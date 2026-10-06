@@ -1,4 +1,5 @@
 import { type Metadata } from "next";
+import Image from "next/image";
 
 const phoneNumber = "6282363389893";
 const whatsappHref = `https://wa.me/${phoneNumber}?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20antar%20jemput%20bandara%20Jakarta.`;
@@ -136,9 +137,14 @@ export default function JakartaAirportTransferPage() {
       />
 
       <section className="relative flex min-h-[420px] items-center justify-center overflow-hidden bg-slate-950 px-4 py-20 text-center text-white md:min-h-[500px]">
-        <div
+        <Image
+          src="/armada/fortuner.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-25"
           aria-hidden="true"
-          className="absolute inset-0 bg-[url('/armada/fortuner.webp')] bg-cover bg-center opacity-25"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/45" />
         <div className="relative z-10 mx-auto max-w-3xl">
