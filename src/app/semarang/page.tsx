@@ -12,22 +12,22 @@ const faqs = [
       "Kirim nomor penerbangan, waktu kedatangan, jumlah penumpang, dan tujuan melalui WhatsApp. Setelah bagasi diambil, sopir akan bertemu Anda di titik penjemputan yang telah dikoordinasikan.",
   },
   {
-    question: "Apakah tersedia pilihan sewa mobil lepas kunci?",
+    question: "Apakah layanan antar jemput Bandara Ahmad Yani menggunakan sopir?",
     answer:
-      "Tersedia sebagai pilihan tambahan untuk kebutuhan tertentu. Untuk antar jemput Bandara Ahmad Yani, layanan utama kami adalah perjalanan dengan sopir.",
+      "Ya. Antar jemput bandara dilayani dengan sopir. Jika membutuhkan mobil untuk digunakan sendiri setelah tiba, tanyakan ketersediaan dan persyaratan sewa lepas kunci secara terpisah.",
   },
   {
-    question: "Bagaimana mengetahui biaya antar jemput bandara?",
+    question: "Berapa biaya antar jemput Bandara Ahmad Yani ke pusat Semarang?",
     answer:
-      "Hubungi kami melalui WhatsApp dengan menyertakan jadwal penerbangan, tujuan, jumlah penumpang, dan kendaraan yang dibutuhkan. Tim kami akan mengirimkan informasi sesuai rincian perjalanan Anda.",
+      "Biaya menyesuaikan tujuan, pilihan kendaraan, dan kebutuhan perjalanan. Kirim alamat tujuan, jadwal penerbangan, serta jumlah penumpang melalui WhatsApp untuk meminta penawaran sebelum memesan.",
   },
   {
-    question: "Ke area mana saja layanan dari bandara tersedia?",
+    question: "Apakah bisa dijemput dari Bandara Ahmad Yani ke hotel atau Kota Lama?",
     answer:
-      "Penjemputan dapat dilanjutkan ke berbagai tujuan di Semarang dan sekitarnya. Anda juga dapat meminta perjalanan menuju tempat seperti Lawang Sewu atau kawasan Simpang Lima.",
+      "Bisa. Perjalanan dari Bandara Ahmad Yani dapat diatur ke hotel, pusat kota, Kota Lama, Simpang Lima, Lawang Sewu, dan tujuan lain di Semarang. Sampaikan alamat tujuan saat meminta penawaran.",
   },
   {
-    question: "Apakah antar jemput tersedia 24 jam?",
+    question: "Apakah tersedia layanan jemput bandara pada malam hari?",
     answer:
       "Ya, layanan tersedia 24 jam untuk membantu menyesuaikan penjemputan dengan jadwal kedatangan penerbangan, termasuk pada malam hari.",
   },
@@ -99,19 +99,19 @@ const structuredData = {
 };
 
 export const metadata: Metadata = {
-  title: "Antar Jemput Bandara Ahmad Yani Semarang dengan Sopir | Vicky Rentcar",
+  title: "Antar Jemput Bandara Ahmad Yani Semarang 24 Jam",
   description:
-    "Antar jemput Bandara Ahmad Yani Semarang dengan sopir, pemantauan penerbangan, dan pilihan armada Avanza, Xpander, serta Hiace Premio. Hubungi kami via WhatsApp.",
-  keywords: [
-    "bandara ahmad yani semarang",
-    "antar jemput bandara semarang",
-    "sewa mobil bandara ahmad yani",
-    "antar jemput Bandara Ahmad Yani dengan sopir",
-  ],
+    "Butuh jemput dari Bandara Ahmad Yani ke hotel, Kota Lama, atau pusat Semarang? Atur perjalanan dengan sopir, pilihan kendaraan, dan koordinasi jadwal penerbangan via WhatsApp.",
+  alternates: {
+    canonical: "/semarang",
+  },
   openGraph: {
-    title: "Antar Jemput Bandara Ahmad Yani Semarang dengan Sopir",
+    title: "Antar Jemput Bandara Ahmad Yani Semarang 24 Jam",
     description:
-      "Atur penjemputan Bandara Ahmad Yani dengan sopir dan kendaraan sesuai kebutuhan perjalanan Anda di Semarang.",
+      "Atur perjalanan dari Bandara Ahmad Yani ke hotel, Kota Lama, Simpang Lima, dan tujuan lain di Semarang. Tersedia dengan sopir dan koordinasi jadwal penerbangan.",
+    url: "/semarang",
+    siteName: "PT. Vicky Rentcar Nusantara",
+    type: "website",
   },
 };
 
@@ -137,9 +137,9 @@ export default function SemarangAirportTransferPage() {
             Antar Jemput Bandara Ahmad Yani Semarang dengan Sopir
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-slate-100 md:text-xl">
-            Lanjutkan perjalanan dengan tenang setelah mendarat. Sopir kami
-            memantau jadwal penerbangan dan mengantar Anda dari Bandara Ahmad
-            Yani ke tujuan di Semarang.
+            Atur perjalanan dari Bandara Ahmad Yani ke hotel, pusat kota, atau
+            tujuan lain di Semarang. Sampaikan jadwal penerbangan dan tujuan
+            Anda agar penjemputan dapat dikoordinasikan lebih awal.
           </p>
           <a
             href={whatsappHref}
@@ -157,9 +157,10 @@ export default function SemarangAirportTransferPage() {
               Penjemputan bandara yang terkoordinasi
             </h2>
             <p className="mt-3 text-slate-600">
-              Dari konfirmasi penerbangan hingga perjalanan ke tujuan,
-              koordinasi dilakukan agar Anda dapat melanjutkan perjalanan
-              dengan nyaman.
+              Untuk memesan mobil dari Bandara Ahmad Yani, kirim nomor
+              penerbangan, waktu tiba, jumlah penumpang, dan alamat tujuan.
+              Informasi ini membantu kami menyiapkan kendaraan dan menyepakati
+              titik temu sebelum Anda mendarat.
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -238,8 +239,10 @@ export default function SemarangAirportTransferPage() {
             bandara tetap berfokus pada layanan dengan sopir.
           </p>
           <p className="mt-4 max-w-3xl text-slate-600">
-            Setelah dijemput, perjalanan dapat dilanjutkan ke berbagai tujuan
-            Semarang, termasuk Lawang Sewu dan kawasan Simpang Lima.
+            Layanan antar jemput Bandara Ahmad Yani dapat dipesan untuk tujuan
+            seperti hotel di pusat kota, Kota Lama, Simpang Lima, dan Lawang
+            Sewu. Biaya perjalanan dikonfirmasi berdasarkan alamat tujuan dan
+            kendaraan yang dipilih.
           </p>
         </div>
       </section>
