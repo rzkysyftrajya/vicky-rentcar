@@ -19,11 +19,14 @@ const dockItems = [
 
 export default function RouteContactDock() {
   const pathname = usePathname();
+  const isSemarangRoute = pathname === "/semarang" || pathname?.startsWith("/semarang/");
   const isSurabayaLanding =
     pathname?.replace(/\/+$/, "") === "/rental-mobil-surabaya";
   const items = isSurabayaLanding
     ? dockItems.filter((item) => item.title !== "WhatsApp")
     : dockItems;
+
+  if (isSemarangRoute) return null;
 
   return (
     <div id="global-route-contact-dock" className="fixed bottom-4 left-4 z-50">

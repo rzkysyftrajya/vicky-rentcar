@@ -1,0 +1,1 @@
+# TODO: Fix Galeri Images ✅\n\n- [x] 1. Create TODO.md with steps\n- [x] 2. Edit src/app/galeri/page.tsx: Add hyphen to gallery image paths (`galeri-${imageNumber}`) and fix PageHeader imageUrl case\n- [x] 3. Mark complete and attempt_completion

@@ -38,6 +38,7 @@
   ],
   "exclude": [
     "kalimantan",
+    "vickyrentcarsemarang-main",
     "node_modules"
   ]
 }

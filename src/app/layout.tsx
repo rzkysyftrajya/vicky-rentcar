@@ -4,8 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import { RouteFooter, RouteNavbar } from "@/components/layout/RouteChrome";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import RouteContactDock from "@/components/layout/RouteContactDock";
 import RouteMain from "@/components/layout/RouteMain";
@@ -211,11 +210,11 @@ export default function RootLayout({
           >
             <div className="flex flex-col w-full">
               <div id="global-route-chrome">
-                <Navbar />
+                <RouteNavbar />
               </div>
               <RouteMain>{children}</RouteMain>
               <div id="global-route-chrome-footer">
-                <Footer />
+                <RouteFooter />
               </div>
               <RouteContactDock />
             </div>
