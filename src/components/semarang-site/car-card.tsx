@@ -9,56 +9,15 @@ import {
   Card,
   CardContent,
   CardFooter,
-  CardHeader,
   CardTitle,
 } from "@/components/semarang-site/ui/card";
-import { cn } from "@/lib/semarang-site/utils";
-import type { Vehicle, PriceOptions } from "@/lib/semarang-site/vehicles";
+import type { Vehicle } from "@/lib/semarang-site/vehicles";
 import { Badge } from "./ui/badge";
 import { useLightbox } from "@/hooks/semarang-site/use-lightbox";
 
 interface CarCardProps {
   vehicle: Vehicle;
 }
-
-const PriceBox = ({
-  label,
-  price,
-  hari = true,
-}: {
-  label: string;
-  price?: number | null;
-  hari?: boolean;
-}) => {
-const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-      maximumFractionDigits: 0,
-      notation: "compact",
-    }).format(price);
-  };
-
-  return (
-    <div className="rounded-xl p-3 text-center bg-secondary/40 backdrop-blur-sm flex flex-col justify-center h-full transition-colors hover:bg-secondary/60">
-      <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-medium mb-1">{label}</p>
-      <p className="font-bold text-primary text-xs md:text-sm truncate">
-        {price ? (
-          <>
-            {formatPrice(price)}
-            {hari && (
-              <span className="text-xs font-normal text-muted-foreground ml-1">
-                /hari
-              </span>
-            )}
-          </>
-        ) : (
-"Info lebih lanjut hubungi kami"
-        )}
-      </p>
-    </div>
-  );
-};
 
 export function CarCard({ vehicle }: CarCardProps) {
   const { openLightbox } = useLightbox();
@@ -109,40 +68,26 @@ export function CarCard({ vehicle }: CarCardProps) {
               <Cog className="w-4 h-4" />
               <span>{vehicle.transmission}</span>
             </div>
-            {vehicle.price.withDriver && (
+            {/hiace/i.test(vehicle.name) ? (
               <div className="flex items-center gap-1">
                 <UserCheck className="w-4 h-4" />
-                <span>Sopir Tersedia</span>
+                <span>Khusus dengan sopir</span>
               </div>
-            )}
-          </div>
-          {Object.keys(vehicle.price).length === 0 ? (
-            <div className="text-center py-6 text-muted-foreground text-sm border rounded-lg border-dashed">
-              Info lebih lanjut silahkan hubungi kami
-            </div>
-          ) : (
-            <div className="grid grid-cols-2 gap-2">
-              {vehicle.price.manual && (
-                <PriceBox label="Manual" price={vehicle.price.manual} />
-              )}
-              {vehicle.price.matic && (
-                <PriceBox label="Matic" price={vehicle.price.matic} />
-              )}
-              {vehicle.price.withDriver && (
-                <div className={cn(
-                  "col-span-1",
-                  (vehicle.price.manual && vehicle.price.matic) ? "col-span-2" : ""
-                )}>
-                  <PriceBox label="Dengan Sopir" price={vehicle.price.withDriver} hari={false} />
-                </div>
-              )}
-            </div>
-          )}
+            ) : null}
+        </div>
+        <div className="mt-auto rounded-lg bg-secondary/50 p-4 text-center">
+          <p className="font-semibold text-foreground">
+            Tanyakan penawaran untuk perjalanan Anda
+          </p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Cek ketersediaan unit, tanggal, dan kebutuhan layanan via WhatsApp.
+          </p>
+        </div>
       </CardContent>
       <CardFooter className="p-5 pt-0">
         <Button asChild size="lg" className="w-full rounded-xl font-bold shadow-lg hover:shadow-primary/20 transition-all">
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-            Pesan via WhatsApp
+            Cek Penawaran via WhatsApp
           </a>
         </Button>
       </CardFooter>

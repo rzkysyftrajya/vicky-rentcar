@@ -4,7 +4,7 @@ import ArmadaPage from "./page-client";
 export const metadata = createSemarangMetadata({
   title: "Pilihan Armada Rental Mobil Semarang",
   description:
-    "Bandingkan pilihan mobil sewa di Semarang, dari city car dan MPV hingga Hiace. Cek tipe transmisi, kapasitas, harga, lalu tanyakan ketersediaan.",
+    "Pilih mobil sewa Semarang dari city car dan MPV hingga Hiace. Cek kapasitas dan transmisi, lalu tanyakan penawaran serta ketersediaan via WhatsApp.",
   path: "/semarang/armada",
 });
 

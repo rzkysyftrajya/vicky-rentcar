@@ -21,9 +21,8 @@ alt="Logo PT.VRN SEMARANG"
               </span>
             </Link>
             <p>
-              Pusat rental mobil Semarang murah, lepas kunci atau dengan supir.
-              Armada lengkap dan terawat untuk perjalanan wisata dan bisnis
-              Anda.
+                Layanan rental mobil Semarang dengan sopir sebagai pilihan utama.
+                Hubungi kami untuk memilih armada dan mengatur perjalanan Anda.
             </p>
             <div className="flex space-x-4 pt-2">
               <a

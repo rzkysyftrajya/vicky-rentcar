@@ -10,30 +10,30 @@ import {
 export const metadata = createSemarangMetadata({
   title: "FAQ Sewa Mobil Semarang",
   description:
-    "Cari jawaban soal harga, syarat rental mobil lepas kunci, sewa dengan sopir, pembayaran, dan antar jemput Bandara Ahmad Yani Semarang.",
+    "Cari jawaban soal penawaran sewa mobil, syarat rental lepas kunci, layanan dengan sopir, pembayaran, dan antar jemput Bandara Ahmad Yani Semarang.",
   path: "/semarang/faq",
 });
 
 const faqItems = [
   {
+    question: "Apakah tersedia sewa mobil dengan sopir di Semarang?",
+    answer:
+      "Ya, tersedia layanan mobil dengan sopir untuk perjalanan di Semarang. Sampaikan tanggal, durasi, jumlah penumpang, dan rute melalui WhatsApp agar tim kami dapat membantu memilih unit serta menyiapkan penawaran.",
+  },
+  {
+    question: "Bagaimana cara mendapatkan penawaran sewa mobil?",
+    answer:
+      "Hubungi kami melalui WhatsApp dengan pilihan mobil, tanggal, durasi, rute, dan kebutuhan layanan. Tim kami akan mengonfirmasi ketersediaan unit dan memberikan penawaran untuk perjalanan Anda.",
+  },
+  {
     question: "Apa syarat rental mobil lepas kunci di Semarang?",
     answer:
-      "Untuk sewa lepas kunci, Anda perlu menyediakan dokumen berikut: e-KTP, SIM A yang masih berlaku, dan bukti domisili (tagihan listrik/PBB). Kami juga mungkin akan meminta akun media sosial aktif untuk verifikasi tambahan.",
+      "Untuk sewa lepas kunci, Anda perlu menyediakan e-KTP, SIM A yang masih berlaku, dan bukti domisili (tagihan listrik/PBB). Kami juga mungkin akan meminta akun media sosial aktif untuk verifikasi tambahan.",
   },
   {
-    question: "Berapa harga sewa mobil di Semarang?",
+    question: "Bagaimana ketentuan bahan bakar?",
     answer:
-      "Tarif bergantung pada model mobil, transmisi, lama sewa, dan pilihan dengan sopir atau lepas kunci. Lihat katalog armada untuk harga yang tersedia, lalu konfirmasikan tanggal pemakaian sebelum memesan.",
-  },
-  {
-    question: "Apakah tersedia rental mobil Semarang dengan sopir?",
-    answer:
-      "Ya, tersedia pilihan mobil dengan sopir untuk perjalanan di Semarang. Sampaikan tanggal, lama pemakaian, jumlah penumpang, dan rute agar tim dapat mengecek kendaraan yang sesuai.",
-  },
-  {
-    question: "Apakah harga sewa sudah termasuk bahan bakar?",
-    answer:
-      "Tidak, harga sewa yang tertera belum termasuk bahan bakar. Mobil akan kami serahkan dengan kondisi bahan bakar penuh dan harus dikembalikan dalam kondisi yang sama.",
+      "Ketentuan bahan bakar akan dikonfirmasi oleh tim kami saat Anda menghubungi WhatsApp untuk menyusun rencana perjalanan.",
   },
   {
     question: "Bagaimana jika terjadi kerusakan pada mobil selama masa sewa?",
@@ -53,7 +53,7 @@ const faqItems = [
   {
     question: "Bagaimana sistem pembayaran yang diterima?",
     answer:
-      "Kami menerima pembayaran melalui transfer bank (BCA, Mandiri) dan pembayaran tunai. Diperlukan pembayaran DP (Down Payment) sebesar 50% saat booking untuk mengunci jadwal, dan pelunasan dilakukan saat serah terima kendaraan.",
+      "Metode dan jadwal pembayaran akan dikonfirmasi oleh tim kami saat pemesanan. Hubungi kami melalui WhatsApp untuk membahas detail booking Anda.",
   },
 ];
 
@@ -108,6 +108,25 @@ export default function FaqPage() {
               </AccordionItem>
             ))}
           </Accordion>
+          <div className="mt-10 rounded-xl bg-secondary/60 p-6 text-center">
+            <h3 className="text-xl font-semibold text-foreground">
+              Siap merencanakan perjalanan?
+            </h3>
+            <p className="mt-2 text-muted-foreground">
+              Kirim pilihan mobil, jadwal, dan rute melalui WhatsApp untuk
+              mengecek ketersediaan serta meminta penawaran.
+            </p>
+            <a
+              href={`https://wa.me/6282363389893?text=${encodeURIComponent(
+                "Halo, saya ingin menanyakan ketersediaan mobil dan penawaran untuk perjalanan di Semarang."
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              Minta Penawaran via WhatsApp
+            </a>
+          </div>
         </div>
       </section>
     </>

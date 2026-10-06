@@ -39,10 +39,10 @@ export default function ArmadaPage() {
             Pilih Mobil Sewa Sesuai Tujuan Perjalanan
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Bandingkan pilihan sewa mobil di Semarang untuk perjalanan harian,
-            bisnis, wisata keluarga, atau rombongan. Tiap kartu menampilkan
-            kapasitas, transmisi, dan tarif yang tersedia sebelum Anda
-            mengonfirmasi tanggal pemakaian.
+            Pilih mobil untuk perjalanan harian, bisnis, wisata keluarga, atau
+            rombongan. Tiap kartu menampilkan kapasitas dan transmisi. Hubungi
+            kami untuk menanyakan ketersediaan serta penawaran sesuai tanggal
+            dan rute perjalanan Anda.
           </p>
         </div>
 

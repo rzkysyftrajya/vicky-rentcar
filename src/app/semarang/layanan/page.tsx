@@ -32,7 +32,7 @@ const servicesList = [
     icon: <Calendar className="h-8 w-8 text-primary" />,
     title: "Sewa Harian, Mingguan & Bulanan",
     description:
-      "Fleksibilitas penuh untuk kebutuhan jangka pendek maupun panjang dengan harga sewa mobil bulanan yang lebih ekonomis.",
+      "Fleksibilitas layanan untuk kebutuhan jangka pendek maupun panjang. Hubungi kami untuk penawaran sesuai durasi dan kebutuhan perjalanan.",
     features: [
       "Pilihan mobil beragam",
       "Termasuk biaya perawatan rutin",
@@ -60,7 +60,7 @@ const servicesList = [
     features: [
       "Tanpa perlu antri taksi",
       "Armada nyaman untuk istirahat setelah penerbangan",
-      "Harga tetap tanpa biaya tersembunyi",
+      "Penjemputan dapat disesuaikan dengan jadwal penerbangan",
       "Penjemputan 24/7",
     ],
   },
@@ -68,9 +68,9 @@ const servicesList = [
     icon: <Briefcase className="h-8 w-8 text-primary" />,
     title: "Sewa Mobil Korporat",
     description:
-      "Solusi transportasi efisien untuk kebutuhan perusahaan dengan kontrak jangka panjang dan layanan premium.",
+      "Solusi transportasi untuk kebutuhan perusahaan dengan kontrak jangka panjang dan layanan pelanggan prioritas.",
     features: [
-      "Harga korporat yang kompetitif",
+      "Penawaran disesuaikan dengan kebutuhan perusahaan",
       "Manajemen armada yang mudah",
       "Layanan pelanggan prioritas",
       "Pilihan mobil sesuai kebutuhan bisnis",
@@ -109,7 +109,7 @@ const servicesList = [
       "Termasuk mobil dan supir",
       "Itinerary fleksibel",
       "Rekomendasi tempat terbaik",
-      "Harga paket yang kompetitif",
+      "Konsultasikan detail perjalanan via WhatsApp",
     ],
   },
 ];

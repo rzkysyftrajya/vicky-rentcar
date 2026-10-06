@@ -1,9 +1,3 @@
-export type PriceOptions = {
-  manual?: number;
-  matic?: number;
-  withDriver?: number;
-};
-
 export type VehicleBrand =
   | "Toyota"
   | "Mitsubishi"
@@ -20,7 +14,6 @@ export interface Vehicle {
   type: "Sedan" | "SUV" | "MPV" | "Hatchback" | "Luxury" | "Van" | "Pick-up";
   transmission: "Automatic" | "Manual" | "Automatic & Manual";
   seats: number;
-  price: PriceOptions;
   image: string;
   badge?: "Premium" | "Luxury" | "Best Seller" | "Unit Favorit";
 }
@@ -28,7 +21,7 @@ export interface Vehicle {
 export const vehicleBrands: VehicleBrand[] = ["All", "Toyota", "Mitsubishi", "Suzuki", "Honda", "Daihatsu", "Isuzu"];
 
 export const vehicles: Vehicle[] = [
-  // Luxury / Premium - Hubungi Admin for custom pricing (per raw data "by request")
+  // Luxury / Premium
   {
     id: "toyota-alphard-new",
     name: "Toyota Alphard New",
@@ -36,7 +29,6 @@ export const vehicles: Vehicle[] = [
     type: "Luxury",
     transmission: "Automatic",
     seats: 6,
-    price: {},
     image: "/semarang/armada/toyota-alphard-new.webp",
     badge: "Luxury",
   },
@@ -47,7 +39,6 @@ export const vehicles: Vehicle[] = [
     type: "Luxury",
     transmission: "Manual",
     seats: 10,
-    price: {},
     image: "/semarang/armada/hiace-premio.webp",
     badge: "Luxury",
   },
@@ -60,7 +51,6 @@ export const vehicles: Vehicle[] = [
     type: "MPV",
     transmission: "Automatic & Manual",
     seats: 7,
-    price: { manual: 500000, matic: 550000, withDriver: 950000 }, // All-in optimized to Rp850k (was 900k) for better closing while premium margin
     image: "/semarang/armada/toyota-innova-reborn.webp",
     badge: "Unit Favorit",
   },
@@ -71,7 +61,6 @@ export const vehicles: Vehicle[] = [
     type: "MPV",
     transmission: "Automatic & Manual",
     seats: 7,
-    price: { manual: 400000, matic: 400000, withDriver: 750000 }, // Per feedback: lepas kunci 400k matic/manual, all-in 750k
     image: "/semarang/armada/toyota-all-new-avanza.webp",
     badge: "Best Seller",
   },
@@ -82,7 +71,6 @@ export const vehicles: Vehicle[] = [
     type: "MPV",
     transmission: "Automatic & Manual",
     seats: 7,
-    price: { manual: 400000, matic: 400000, withDriver: 750000 }, // All-in Rp750k per feedback/raw
     image: "/semarang/armada/mitsubishi-xpander.webp",
     badge: "Best Seller",
   },
@@ -93,7 +81,6 @@ export const vehicles: Vehicle[] = [
     type: "MPV",
     transmission: "Automatic & Manual",
     seats: 7,
-    price: { manual: 400000, matic: 400000, withDriver: 750000 }, // Per feedback
     image: "/semarang/armada/suzuki-ertiga-hybrid.webp",
   },
   {
@@ -103,7 +90,6 @@ export const vehicles: Vehicle[] = [
     type: "MPV",
     transmission: "Automatic & Manual",
     seats: 7,
-    price: { manual: 325000, matic: 325000, withDriver: 675000 }, // Per feedback matic/manual 325k
     image: "/semarang/armada/toyota-calya.webp",
   },
   {
@@ -113,7 +99,6 @@ export const vehicles: Vehicle[] = [
     type: "MPV",
     transmission: "Automatic & Manual",
     seats: 7,
-    price: { manual: 375000, matic: 425000, withDriver: 675000 },
     image: "/semarang/armada/daihatsu-sigra.webp",
   },
 
@@ -125,7 +110,6 @@ export const vehicles: Vehicle[] = [
     type: "SUV",
     transmission: "Automatic",
     seats: 7,
-    price: {}, // Info lebih lanjut hubungi kami
     image: "/semarang/armada/toyota-fortuner.webp",
     badge: "Premium",
   },
@@ -136,7 +120,6 @@ export const vehicles: Vehicle[] = [
     type: "SUV",
     transmission: "Automatic",
     seats: 7,
-    price: {}, // Info lebih lanjut hubungi kami
     image: "/semarang/armada/mitsubishi-pajero.webp",
     badge: "Premium",
   },
@@ -147,7 +130,6 @@ export const vehicles: Vehicle[] = [
     type: "SUV",
     transmission: "Automatic & Manual",
     seats: 7,
-    price: { manual: 400000, matic: 400000, withDriver: 750000 }, // Per feedback: lepas kunci 400k matic/manual, all-in 750k
     image: "/semarang/armada/toyota-rush.webp",
   },
   {
@@ -157,7 +139,6 @@ export const vehicles: Vehicle[] = [
     type: "SUV",
     transmission: "Automatic & Manual",
     seats: 7,
-    price: { manual: 400000, matic: 400000, withDriver: 750000 }, // Per feedback
     image: "/semarang/armada/suzuki-xl7.webp",
   },
   {
@@ -167,7 +148,6 @@ export const vehicles: Vehicle[] = [
     type: "SUV",
     transmission: "Automatic & Manual",
     seats: 7,
-    price: { manual: 475000, matic: 525000, withDriver: 825000 },
     image: "/semarang/armada/daihatsu-terios.webp",
   },
 
@@ -179,7 +159,6 @@ export const vehicles: Vehicle[] = [
     type: "Hatchback",
     transmission: "Automatic & Manual",
     seats: 5,
-    price: { manual: 325000, matic: 350000, withDriver: 650000 }, // Per feedback
     image: "/semarang/armada/toyota-agya.webp",
   },
   {
@@ -189,7 +168,6 @@ export const vehicles: Vehicle[] = [
     type: "Hatchback",
     transmission: "Automatic & Manual",
     seats: 5,
-    price: { manual: 325000, matic: 350000, withDriver: 650000 }, // Per feedback
     image: "/semarang/armada/honda-brio.webp",
   },
   {
@@ -199,7 +177,6 @@ export const vehicles: Vehicle[] = [
     type: "Hatchback",
     transmission: "Automatic & Manual",
     seats: 5,
-    price: { manual: 350000, matic: 400000, withDriver: 650000 },
     image: "/semarang/armada/daihatsu-ayla.webp",
   },
 
@@ -211,7 +188,6 @@ export const vehicles: Vehicle[] = [
     type: "Van",
     transmission: "Manual",
     seats: 12,
-    price: { withDriver: 1500000 }, // All-in only package (no lepas kunci)
     image: "/semarang/armada/hiace-premio.webp",
     badge: "Premium",
   },
@@ -222,7 +198,6 @@ export const vehicles: Vehicle[] = [
     type: "Van",
     transmission: "Manual",
     seats: 15,
-    price: {}, // Info lebih lanjut hubungi kami
     image: "/semarang/armada/toyota-hiace-commuter.webp",
   },
   {
@@ -232,7 +207,6 @@ export const vehicles: Vehicle[] = [
     type: "Pick-up",
     transmission: "Manual",
     seats: 5,
-    price: {}, // Info lebih lanjut hubungi kami
     image: "/semarang/armada/toyota-hilux-double-cabin.webp",
     badge: "Premium",
   },
@@ -243,8 +217,6 @@ export const vehicles: Vehicle[] = [
     type: "Van",
     transmission: "Manual",
     seats: 18,
-    price: {}, // Info lebih lanjut hubungi kami
     image: "/semarang/armada/isuzu-elf-minibus.webp",
   },
 ];
-

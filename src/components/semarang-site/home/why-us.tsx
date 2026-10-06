@@ -16,8 +16,8 @@ export function WhyUs() {
         <ul className="grid grid-cols-1 grid-rows-none gap-8 md:grid-cols-2 lg:grid-cols-3">
           <GridItem
             icon={<Rocket className="h-8 w-8 text-primary" />}
-            title="Harga Murah & Transparan"
-            description="Tidak ada biaya tersembunyi. Dapatkan harga sewa mobil Semarang murah, jujur, dan bersaing."
+            title="Penawaran Sesuai Perjalanan"
+            description="Tanyakan penawaran berdasarkan pilihan mobil, jadwal, durasi, dan rute perjalanan Anda melalui WhatsApp."
           />
           <GridItem
             icon={<ShieldCheck className="h-8 w-8 text-primary" />}

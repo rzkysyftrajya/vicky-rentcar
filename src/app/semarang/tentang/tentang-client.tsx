@@ -35,9 +35,9 @@ const whyUs = [
   },
   {
     icon: <ShieldCheck className="h-10 w-10 text-primary" />,
-    title: "Harga Terbaik & Transparan",
+    title: "Penawaran Sesuai Kebutuhan",
     description:
-      "Kami menawarkan harga sewa yang kompetitif tanpa biaya tersembunyi, memberikan nilai terbaik untuk Anda.",
+      "Hubungi tim kami untuk membahas pilihan armada dan penawaran berdasarkan rencana perjalanan Anda.",
   },
   {
     icon: <CheckCircle className="h-10 w-10 text-primary" />,
