@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Inter } from "next/font/google";
 import "../globals.css";
 import "@/components/medan/medan.css";
+
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import Header from "@/components/medan/Header";
 import Footer from "@/components/medan/Footer";
@@ -17,23 +18,14 @@ const inter = Inter({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-/**
- * Get the canonical hostname for Medan domain.
- */
 function getMedanCanonicalHost(hostname: string): string {
-  if (hostname.startsWith("www.")) {
-    return hostname.replace("www.", "");
-  }
-
-  return hostname;
+  return hostname.startsWith("www.")
+    ? hostname.replace(/^www\./, "")
+    : hostname;
 }
 
-/**
- * Get the base URL for the current request.
- */
 function getBaseUrl(hostname: string): string {
-  const canonicalHost = getMedanCanonicalHost(hostname);
-  return `https://${canonicalHost}`;
+  return `https://${getMedanCanonicalHost(hostname)}`;
 }
 
 export async function generateMetadata({
@@ -79,7 +71,8 @@ export async function generateMetadata({
     },
 
     openGraph: {
-      title: "VRN Rent Car Medan | Rental Mobil di Medan dan Sumatera Utara",
+      title:
+        "VRN Rent Car Medan | Rental Mobil di Medan dan Sumatera Utara",
       description:
         "VRN Rent Car Medan membantu kebutuhan transportasi harian, bandara, keluarga, dan perjalanan antar kota di Medan.",
       type: "website",
@@ -154,7 +147,7 @@ const structuredData = {
       closes: "23:59",
     },
   ],
-  acceptsReservations: "True",
+  acceptsReservations: true,
   serviceType: [
     "Car Rental",
     "Airport Transfer",
@@ -175,34 +168,37 @@ export default function MedanLayout({
 }: MedanLayoutProps) {
   return (
     <AppContextProvider>
-      {/* Google Ads Global Site Tag */}
+      {/* Menyiapkan antrean dan konfigurasi Google Ads */}
+      <Script id="google-ads-tag" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+
+          window.gtag = window.gtag || function () {
+            window.dataLayer.push(arguments);
+          };
+
+          window.gtag('js', new Date());
+          window.gtag('config', 'AW-11495200677');
+        `}
+      </Script>
+
+      {/* Memuat Google tag utama */}
       <Script
+        id="medan-google-ads-library"
         src="https://www.googletagmanager.com/gtag/js?id=AW-11495200677"
         strategy="afterInteractive"
       />
 
-      {/* Initialize Google Ads */}
-      <Script id="google-ads-tag" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            window.dataLayer.push(arguments);
-          }
-
-          window.gtag = gtag;
-
-          gtag('js', new Date());
-          gtag('config', 'AW-11495200677');
-        `}
-      </Script>
-
-      {/* Structured Data */}
+      {/* Structured data: hanya satu blok di layout */}
       <Script
         id="medan-structured-data"
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
+          __html: JSON.stringify(structuredData).replace(
+            /</g,
+            "\\u003c"
+          ),
         }}
       />
 
@@ -212,17 +208,15 @@ export default function MedanLayout({
         enableSystem
         disableTransitionOnChange
       >
-        <div className={`medan-theme ${inter.variable} flex min-h-screen w-full flex-col`}>
-          {/* Medan Header */}
+        <div
+          className={`medan-theme ${inter.variable} flex min-h-screen w-full flex-col`}
+        >
           <Header />
 
-          {/* Main content */}
           <div className="flex-grow">{children}</div>
 
-          {/* Medan Footer */}
           <Footer />
 
-          {/* Floating WhatsApp */}
           <MedanWhatsAppButton
             label="Chat via WhatsApp"
             className="medan-floating-whatsapp [&>span]:sr-only"
@@ -230,7 +224,7 @@ export default function MedanLayout({
         </div>
       </ThemeProvider>
 
-      {/* Medan-specific scripts */}
+      {/* GTM dan listener konversi WhatsApp */}
       <MedanScripts />
     </AppContextProvider>
   );
