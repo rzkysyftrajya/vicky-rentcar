@@ -5,22 +5,6 @@ import { cn } from "@/lib/utils";
 
 const MEDAN_WHATSAPP_NUMBER = "6282363389893";
 
-const GOOGLE_ADS_CONVERSION_ID =
-  "AW-11495200677/14zmCIOu0psdEKWvq-kq";
-
-declare global {
-  interface Window {
-    gtag?: (
-      command: string,
-      eventName: string,
-      parameters?: Record<
-        string,
-        string | number | (() => void)
-      >
-    ) => void;
-  }
-}
-
 export type WhatsAppContext =
   | { type: "general" }
   | { type: "vehicle"; vehicle: string }
@@ -82,21 +66,6 @@ export function MedanWhatsAppButton({
 }: MedanWhatsAppButtonProps) {
   const whatsappUrl = createMedanWhatsAppUrl(context);
 
-  function handleWhatsAppClick() {
-    try {
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "conversion", {
-          send_to: GOOGLE_ADS_CONVERSION_ID,
-        });
-      }
-    } catch (error) {
-      console.error(
-        "Google Ads conversion tracking error:",
-        error
-      );
-    }
-  }
-
   return (
     <a
       className={cn(
@@ -109,7 +78,6 @@ export function MedanWhatsAppButton({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      onClick={handleWhatsAppClick}
     >
       <Image
         src="/icon/wa.png"
