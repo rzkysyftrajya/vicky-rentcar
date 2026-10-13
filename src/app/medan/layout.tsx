@@ -3,7 +3,6 @@ import Script from "next/script";
 import { Inter } from "next/font/google";
 import "../globals.css";
 import "@/components/medan/medan.css";
-import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import Header from "@/components/medan/Header";
 import Footer from "@/components/medan/Footer";
@@ -19,30 +18,22 @@ const inter = Inter({
 });
 
 /**
- * Get the canonical hostname for Medan domain
- * This ensures proper SEO canonical URLs regardless of how users access the site
+ * Get the canonical hostname for Medan domain.
  */
 function getMedanCanonicalHost(hostname: string): string {
-  // Normalize hostname: remove www. prefix for consistency
   if (hostname.startsWith("www.")) {
     return hostname.replace("www.", "");
   }
+
   return hostname;
 }
 
 /**
- * Get the base URL for the current request
+ * Get the base URL for the current request.
  */
 function getBaseUrl(hostname: string): string {
   const canonicalHost = getMedanCanonicalHost(hostname);
   return `https://${canonicalHost}`;
-}
-
-interface MetadataProps {
-  children: React.ReactNode;
-  params: {
-    hostname?: string;
-  };
 }
 
 export async function generateMetadata({
@@ -50,20 +41,22 @@ export async function generateMetadata({
 }: {
   params: Promise<{ hostname?: string }>;
 }): Promise<Metadata> {
-  // Get hostname from params or use default
   const { hostname: requestedHostname } = await params;
   const hostname = requestedHostname || "pt.vrnrentcarmedan.com";
   const baseUrl = getBaseUrl(hostname);
 
   return {
     metadataBase: new URL(baseUrl),
+
     title: {
       default:
         "VRN Rent Car Medan | Rental Mobil di Medan dan Sumatera Utara",
       template: "%s | VRN Rent Car Medan",
     },
+
     description:
       "VRN Rent Car Medan menyediakan layanan rental mobil di Medan untuk kebutuhan harian, perjalanan keluarga, bisnis, dan antar jemput bandara.",
+
     keywords: [
       "rental mobil medan",
       "sewa mobil medan",
@@ -76,12 +69,15 @@ export async function generateMetadata({
       "sewa mobil harian medan",
       "rental mobil bulanan medan",
     ],
+
     verification: {
       google: "0e7tdpsZeFHt20H7FDiaoWypuVlVHKnJ7PGYqalg-6c",
     },
+
     alternates: {
       canonical: `${baseUrl}/medan`,
     },
+
     openGraph: {
       title: "VRN Rent Car Medan | Rental Mobil di Medan dan Sumatera Utara",
       description:
@@ -99,6 +95,7 @@ export async function generateMetadata({
         },
       ],
     },
+
     twitter: {
       card: "summary_large_image",
       title: "VRN Rent Car Medan | Rental Mobil di Medan",
@@ -106,6 +103,7 @@ export async function generateMetadata({
         "Layanan rental mobil di Medan untuk kebutuhan harian, keluarga, bisnis, dan perjalanan antar kota.",
       images: [`${baseUrl}/medan/hero-section.webp`],
     },
+
     robots: {
       index: true,
       follow: true,
@@ -160,7 +158,6 @@ const structuredData = {
   serviceType: [
     "Car Rental",
     "Airport Transfer",
-    "Car Rental",
     "Wedding Car Service",
   ],
   areaServed: {
@@ -173,7 +170,9 @@ interface MedanLayoutProps {
   children: React.ReactNode;
 }
 
-export default function MedanLayout({ children }: MedanLayoutProps) {
+export default function MedanLayout({
+  children,
+}: MedanLayoutProps) {
   return (
     <AppContextProvider>
       {/* Google Ads Global Site Tag */}
@@ -182,15 +181,30 @@ export default function MedanLayout({ children }: MedanLayoutProps) {
         strategy="afterInteractive"
       />
 
+      {/* Initialize Google Ads */}
       <Script id="google-ads-tag" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+          function gtag() {
+            window.dataLayer.push(arguments);
+          }
 
+          window.gtag = gtag;
+
+          gtag('js', new Date());
           gtag('config', 'AW-11495200677');
         `}
       </Script>
+
+      {/* Structured Data */}
+      <Script
+        id="medan-structured-data"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
 
       <ThemeProvider
         attribute="class"
@@ -198,16 +212,17 @@ export default function MedanLayout({ children }: MedanLayoutProps) {
         enableSystem
         disableTransitionOnChange
       >
-        <div className="medan-theme flex min-h-screen flex-col w-full">
-          {/* Medan-specific Header (replaces global Navbar) */}
+        <div className={`medan-theme ${inter.variable} flex min-h-screen w-full flex-col`}>
+          {/* Medan Header */}
           <Header />
 
           {/* Main content */}
           <div className="flex-grow">{children}</div>
 
-          {/* Medan-specific Footer (replaces global Footer) */}
+          {/* Medan Footer */}
           <Footer />
 
+          {/* Floating WhatsApp */}
           <MedanWhatsAppButton
             label="Chat via WhatsApp"
             className="medan-floating-whatsapp [&>span]:sr-only"
@@ -215,7 +230,7 @@ export default function MedanLayout({ children }: MedanLayoutProps) {
         </div>
       </ThemeProvider>
 
-      {/* Medan-specific scripts for Google Ads & Analytics */}
+      {/* Medan-specific scripts */}
       <MedanScripts />
     </AppContextProvider>
   );
