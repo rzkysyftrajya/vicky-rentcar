@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import Navbar from "@/components/surabaya/Navbar";
 import { AppContextProvider } from "../context/AppContext";
 import Script from "next/script";
+import VrnLeadPilotMount from "@/components/surabaya/VrnLeadPilotMount";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -69,6 +70,19 @@ export default function RentalMobilSurabayaLayout({
             if (window.__vrnSbyWaListenerAttached) return;
             window.__vrnSbyWaListenerAttached = true;
 
+            function trackSurabayaWhatsAppConversion() {
+              if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                  send_to: 'AW-17510183879/wj1kCPmgo4gdEMfnwJ1B'
+                });
+              }
+            }
+
+            window.addEventListener(
+              'vrn:sby-wa-click',
+              trackSurabayaWhatsAppConversion
+            );
+
             document.addEventListener('click', function (e) {
               var el = e.target && e.target.closest('a[href*="wa.me"]');
               if (!el) return;
@@ -77,12 +91,7 @@ export default function RentalMobilSurabayaLayout({
               if (el.__vrnSbyWaFired) return;
               el.__vrnSbyWaFired = true;
               setTimeout(function () { el.__vrnSbyWaFired = false; }, 1000);
-
-              if (typeof gtag === 'function') {
-                gtag('event', 'conversion', {
-                  send_to: 'AW-17510183879/wj1kCPmgo4gdEMfnwJ1B'
-                });
-              }
+              trackSurabayaWhatsAppConversion();
             }, true);
           })();
         `}
@@ -97,6 +106,7 @@ export default function RentalMobilSurabayaLayout({
           </div>
         </ThemeProvider>
       </AppContextProvider>
+      <VrnLeadPilotMount enabled={process.env.VERCEL_ENV === "preview"} />
     </>
   );
 }
