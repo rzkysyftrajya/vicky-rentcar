@@ -1,0 +1,44 @@
+VRN MATCHING — NEXT.JS SURABAYA | PAKET PENGGANTI UNDuhan
+====================================================
+Untuk langkah sekarang: hanya perlu file route.ts. Tidak perlu mengganti
+Code.gs atau Index.html milik Master Control yang sudah berjalan.
+
+1. Jika situs menggunakan Next.js App Router, buat file:
+   app/api/vrn-lead/route.ts
+   ATAU jika proyek memiliki folder src/app:
+   src/app/api/vrn-lead/route.ts
+   Salin seluruh isi route.ts dari paket.
+
+2. Pada Vercel -> Settings -> Environment Variables (Preview):
+   VRN_CAPTURE_WEBAPP_URL = receiver Apps Script /exec (tanpa koma)
+   VRN_INGEST_HMAC_SECRET = secret baru yang SAMA dengan receiver Apps Script
+   VRN_PHONE_HMAC_KEY = secret yang SAMA dengan Master Control Apps Script
+   Kedua secret harus berbeda satu sama lain. Jangan gunakan NEXT_PUBLIC_.
+
+3. Commit/push file route.ts dan buat deployment Preview baru.
+   Jangan langsung mengganti tombol WA produksi, karena tombol yang sudah
+   ada memanggil tracking konversi yang tidak boleh digandakan.
+
+4. File VrnLeadGate.tsx adalah contoh UI terpisah untuk PILOT saja.
+   JANGAN menggunakannya pada tombol WA produksi sebelum memeriksa handler
+   gtag_report_conversion() yang sudah aktif. Jika digunakan sendirian,
+   komponen contoh ini TIDAK mengirim event Google Ads lama.
+
+5. Test permintaan POST hanya setelah sistem siap dan form consent tersedia.
+   Receiver menggunakan HMAC; membuka URL /exec langsung di browser akan
+   menunjukkan 'doGet tidak ditemukan' karena endpoint ini menggunakan doPost.
+
+6. Keamanan: route publik saat ini belum dilengkapi rate limit dan anti-bot.
+   Tambahkan rate limit/Turnstile sebelum penggunaan luas. Perlindungan HMAC
+   menjaga receiver dari request tidak bertanda tangan, tetapi tidak mencegah
+   spam lewat route Next.js publik. Pastikan kebijakan privasi menjelaskan
+   pencatatan nomor opt-in dan pencocokan sumber iklan.
+
+BATASAN:
+- GCLID hanya bisa dicocokkan jika pengguna memberi nomor secara sukarela.
+- Contoh komponen mencari GCLID di URL HALAMAN SAAT INI; bila pelanggan pindah
+  halaman dan parameter hilang, data tidak dapat dicocokkan. Tambahkan
+  mekanisme persistensi sesi yang sesuai dengan consent sebelum produksi.
+- Nomor mentah tidak ditulis ke Google Sheets, tapi tetap diproses di browser
+  dan endpoint Next.js. Gunakan HTTPS dan hindari console logging payload.
+- Ini belum membuat Google Ads offline conversion otomatis.
