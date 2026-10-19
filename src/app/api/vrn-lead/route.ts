@@ -3,7 +3,7 @@
  * Server-only. Uses the signature protocol of the VRN Lead Capture Apps Script.
  * Does NOT send a Google Ads conversion, alter WhatsApp text, or install gtag.
  */
-import { createHmac } from 'node:crypto';
+import { createHmac, randomUUID } from 'node:crypto';
 import { NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
@@ -35,6 +35,65 @@ function errorResponse(message: string, status: number) {
   });
 }
 
+type CaptureEnvelope = {
+  ts: number;
+  nonce: string;
+  data: object;
+  sig: string;
+};
+
+type CaptureResult =
+  | { ok: true }
+  | { ok: false; reason: 'network' }
+  | {
+      ok: false;
+      reason: 'invalid-json' | 'rejected';
+      status: number;
+      contentType: string | null;
+    };
+
+async function sendCapture(
+  receiverUrl: string,
+  envelope: CaptureEnvelope,
+): Promise<CaptureResult> {
+  let response: Response;
+  try {
+    response = await fetch(receiverUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(envelope),
+      cache: 'no-store',
+      redirect: 'follow',
+      signal: AbortSignal.timeout(9000),
+    });
+  } catch {
+    return { ok: false, reason: 'network' };
+  }
+
+  const contentType = response.headers.get('content-type');
+  let result: { ok?: unknown };
+  try {
+    result = await response.json();
+  } catch {
+    return {
+      ok: false,
+      reason: 'invalid-json',
+      status: response.status,
+      contentType,
+    };
+  }
+
+  if (!response.ok || result.ok !== true) {
+    return {
+      ok: false,
+      reason: 'rejected',
+      status: response.status,
+      contentType,
+    };
+  }
+  return { ok: true };
+}
+
 export async function POST(request: Request) {
   if (process.env.VRN_LEAD_ENABLED !== 'true') {
     return errorResponse('Endpoint pencocokan sedang tidak aktif.', 404);
@@ -42,16 +101,27 @@ export async function POST(request: Request) {
 
   const receiverUrl = process.env.VRN_CAPTURE_WEBAPP_URL;
   const ingestKey = process.env.VRN_INGEST_HMAC_SECRET;
-  const phoneKey = process.env.VRN_PHONE_HMAC_KEY;
 
   if (!receiverUrl?.startsWith('https://script.google.com/macros/s/') ||
       !receiverUrl.endsWith('/exec') ||
-      !ingestKey || ingestKey.length < 32 ||
-      !phoneKey || phoneKey.length < 32) {
+      !ingestKey || ingestKey.length < 32) {
     return errorResponse('Konfigurasi server VRN belum lengkap.', 503);
   }
 
-  let body: { phone?: unknown; gclid?: unknown; city?: unknown; consent?: unknown };
+  let body: {
+    eventType?: unknown;
+    eventId?: unknown;
+    timestamp?: unknown;
+    page?: unknown;
+    car?: unknown;
+    gclid?: unknown;
+    gbraid?: unknown;
+    wbraid?: unknown;
+    utm?: unknown;
+    phone?: unknown;
+    city?: unknown;
+    consent?: unknown;
+  };
   try {
     const raw = await request.text();
     if (raw.length > 3000) return errorResponse('Permintaan terlalu besar.', 413);
@@ -61,6 +131,72 @@ export async function POST(request: Request) {
     }
   } catch {
     return errorResponse('Format data tidak valid.', 400);
+  }
+
+  if (body.eventType === 'WHATSAPP_CLICK') {
+    const validIdentifier = (value: unknown) =>
+      value === undefined ||
+      (typeof value === 'string' && /^[A-Za-z0-9_.~-]{1,500}$/.test(value));
+    const validEventId = typeof body.eventId === 'string' &&
+      /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(body.eventId);
+    const validUtm = (value: unknown) =>
+      value === undefined ||
+      (typeof value === 'object' &&
+        value !== null &&
+        !Array.isArray(value) &&
+        Object.keys(value).length <= 10 &&
+        Object.entries(value).every(
+          ([key, entry]) =>
+            /^utm_[a-z0-9_]{1,40}$/.test(key) &&
+            typeof entry === 'string' &&
+            entry.length <= 200,
+        ));
+
+    if (!validEventId ||
+        typeof body.timestamp !== 'string' ||
+        !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(body.timestamp) ||
+        Number.isNaN(Date.parse(body.timestamp)) ||
+        typeof body.page !== 'string' ||
+        !body.page.startsWith('/') ||
+        body.page.startsWith('//') ||
+        body.page.length > 500 ||
+        (body.car !== undefined &&
+          (typeof body.car !== 'string' || body.car.length > 200)) ||
+        !validIdentifier(body.gclid) ||
+        !validIdentifier(body.gbraid) ||
+        !validIdentifier(body.wbraid) ||
+        !validUtm(body.utm)) {
+      return errorResponse('Data klik WhatsApp tidak valid.', 400);
+    }
+
+    const data = {
+      eventType: 'WHATSAPP_CLICK',
+      eventId: body.eventId,
+      timestamp: body.timestamp,
+      page: body.page,
+      ...(body.car ? { car: body.car.trim() } : {}),
+      ...(body.gclid ? { gclid: body.gclid } : {}),
+      ...(body.gbraid ? { gbraid: body.gbraid } : {}),
+      ...(body.wbraid ? { wbraid: body.wbraid } : {}),
+      ...(body.utm ? { utm: body.utm } : {}),
+    };
+    const ts = Date.now();
+    const nonce = randomUUID();
+    const sig = hmac(`${ts}.${nonce}.${JSON.stringify(data)}`, ingestKey);
+
+    const result = await sendCapture(receiverUrl, { ts, nonce, data, sig });
+    if (!result.ok) {
+      console.error('VRN WhatsApp click capture receiver failed.', result);
+      return errorResponse('Klik WhatsApp belum tersimpan.', 502);
+    }
+    return NextResponse.json({ ok: true }, {
+      headers: { 'Cache-Control': 'no-store' },
+    });
+  }
+
+  const phoneKey = process.env.VRN_PHONE_HMAC_KEY;
+  if (!phoneKey || phoneKey.length < 32) {
+    return errorResponse('Konfigurasi server VRN belum lengkap.', 503);
   }
 
   const phone = normalizeIndonesiaPhone(body.phone);
@@ -86,23 +222,15 @@ export async function POST(request: Request) {
   // Must match CaptureEndpoint.gs: ts + '.' + nonce + '.' + JSON.stringify(data)
   const sig = hmac(`${ts}.${nonce}.${JSON.stringify(data)}`, ingestKey);
 
-  try {
-    const response = await fetch(receiverUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ts, nonce, data, sig }),
-      cache: 'no-store',
-      redirect: 'follow',
-      signal: AbortSignal.timeout(9000),
-    });
-    const result: { ok?: unknown } = await response.json().catch(() => ({}));
-    if (!response.ok || result.ok !== true) {
-      return errorResponse('Pencocokan belum tersimpan; WhatsApp tetap bisa digunakan.', 502);
-    }
-    return NextResponse.json({ ok: true }, {
-      headers: { 'Cache-Control': 'no-store' },
-    });
-  } catch {
-    return errorResponse('Receiver tidak merespons; WhatsApp tetap bisa digunakan.', 502);
+  const result = await sendCapture(receiverUrl, { ts, nonce, data, sig });
+  if (!result.ok) {
+    console.error('VRN lead capture receiver failed.', result);
+    const message = result.reason === 'network'
+      ? 'Receiver tidak merespons; WhatsApp tetap bisa digunakan.'
+      : 'Pencocokan belum tersimpan; WhatsApp tetap bisa digunakan.';
+    return errorResponse(message, 502);
   }
+  return NextResponse.json({ ok: true }, {
+    headers: { 'Cache-Control': 'no-store' },
+  });
 }
