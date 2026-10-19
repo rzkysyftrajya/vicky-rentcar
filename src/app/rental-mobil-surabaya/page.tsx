@@ -31,6 +31,7 @@ import {
   serviceAreas,
   testimonials,
 } from "@/data/surabaya-page-data";
+import { VrnLeadWhatsAppLink } from "@/components/surabaya/VrnLeadMatching";
 
 const whatsappNumber = "6282363389893";
 
@@ -246,7 +247,7 @@ export default function SurabayaPage() {
                 size="lg"
                 className="bg-orange-500 text-white hover:bg-orange-600"
               >
-                <a
+                <VrnLeadWhatsAppLink
                   href={whatsappLink(
                     "Halo VRN Surabaya, saya ingin konsultasikan kebutuhan sewa mobil.",
                   )}
@@ -255,7 +256,7 @@ export default function SurabayaPage() {
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Konsultasikan kebutuhan
-                </a>
+                </VrnLeadWhatsAppLink>
               </Button>
               <Button
                 asChild
@@ -349,7 +350,7 @@ export default function SurabayaPage() {
                       </span>
                     ))}
                   </div>
-                  <a
+                  <VrnLeadWhatsAppLink
                     className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-orange-700"
                     href={whatsappLink(
                       `Halo VRN Surabaya, saya ingin bertanya tentang ${car.name}.`,
@@ -358,7 +359,7 @@ export default function SurabayaPage() {
                     rel="noopener noreferrer"
                   >
                     Tanya tentang kendaraan <ChevronRight className="h-4 w-4" />
-                  </a>
+                  </VrnLeadWhatsAppLink>
                 </div>
               </article>
             ))}
@@ -439,7 +440,7 @@ export default function SurabayaPage() {
                 </div>
               ))}
             </div>
-            <a
+            <VrnLeadWhatsAppLink
               href={whatsappLink(
                 "Halo VRN Surabaya, saya ingin bertanya tentang rental mobil dengan driver.",
               )}
@@ -448,7 +449,7 @@ export default function SurabayaPage() {
               className="mt-8 inline-flex items-center gap-2 font-semibold text-orange-700"
             >
               Konsultasikan perjalanan <ArrowRight className="h-4 w-4" />
-            </a>
+            </VrnLeadWhatsAppLink>
           </div>
         </div>
       </section>
@@ -488,7 +489,7 @@ export default function SurabayaPage() {
                   </div>
                 ))}
               </div>
-              <a
+              <VrnLeadWhatsAppLink
                 href={whatsappLink(
                   "Halo VRN Surabaya, saya ingin konsultasikan antar-jemput Bandara Juanda.",
                 )}
@@ -497,7 +498,7 @@ export default function SurabayaPage() {
                 className="mt-8 inline-flex items-center gap-2 font-semibold text-orange-300 hover:text-orange-200"
               >
                 Tanya layanan Bandara Juanda <ArrowRight className="h-4 w-4" />
-              </a>
+              </VrnLeadWhatsAppLink>
             </div>
           </div>
         </div>
@@ -524,7 +525,7 @@ export default function SurabayaPage() {
                 ))}
               </div>
               <Button asChild className="mt-8 bg-orange-500 text-white hover:bg-orange-600">
-                <a
+                <VrnLeadWhatsAppLink
                   href={whatsappLink(
                     "Halo VRN Surabaya, saya ingin konsultasikan kendaraan untuk agenda bisnis atau dinas.",
                   )}
@@ -532,7 +533,7 @@ export default function SurabayaPage() {
                   rel="noopener noreferrer"
                 >
                   Konsultasikan agenda
-                </a>
+                </VrnLeadWhatsAppLink>
               </Button>
             </div>
             <div className="relative h-[280px] overflow-hidden rounded-[2rem] bg-slate-100 sm:h-[320px] lg:h-[420px]">
@@ -621,7 +622,7 @@ export default function SurabayaPage() {
                   </div>
                 ))}
               </div>
-              <a
+              <VrnLeadWhatsAppLink
                 href={whatsappLink(
                   "Halo VRN Surabaya, saya ingin bertanya tentang kendaraan untuk rombongan.",
                 )}
@@ -630,7 +631,7 @@ export default function SurabayaPage() {
                 className="mt-7 inline-flex items-center gap-2 font-semibold text-orange-700"
               >
                 Tanya kendaraan rombongan <ArrowRight className="h-4 w-4" />
-              </a>
+              </VrnLeadWhatsAppLink>
             </div>
             <div className="grid grid-cols-5 grid-rows-2 gap-3">
               <div className="relative col-span-3 row-span-2 min-h-[370px] overflow-hidden rounded-[2rem] bg-slate-100">
@@ -973,7 +974,7 @@ export default function SurabayaPage() {
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="bg-white text-orange-700 hover:bg-orange-50">
-              <a
+              <VrnLeadWhatsAppLink
                 href={whatsappLink(
                   "Halo VRN Surabaya, saya ingin konsultasikan kebutuhan rental mobil.",
                 )}
@@ -981,7 +982,7 @@ export default function SurabayaPage() {
                 rel="noopener noreferrer"
               >
                 Hubungi via WhatsApp
-              </a>
+              </VrnLeadWhatsAppLink>
             </Button>
             <Button
               asChild
@@ -995,7 +996,7 @@ export default function SurabayaPage() {
         </div>
       </section>
 
-      <a
+      <VrnLeadWhatsAppLink
         href={whatsappLink(
           "Halo VRN, saya ingin konsultasikan kebutuhan rental mobil Surabaya.",
         )}
@@ -1012,7 +1013,7 @@ export default function SurabayaPage() {
           height={32}
           className="object-contain"
         />
-      </a>
+      </VrnLeadWhatsAppLink>
     </main>
   );
 }

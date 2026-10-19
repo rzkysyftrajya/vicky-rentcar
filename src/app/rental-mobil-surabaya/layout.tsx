@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import Navbar from "@/components/surabaya/Navbar";
 import { AppContextProvider } from "../context/AppContext";
 import Script from "next/script";
-import VrnLeadPilotMount from "@/components/surabaya/VrnLeadPilotMount";
+import { VrnLeadProvider } from "@/components/surabaya/VrnLeadMatching";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -86,6 +86,9 @@ export default function RentalMobilSurabayaLayout({
             document.addEventListener('click', function (e) {
               var el = e.target && e.target.closest('a[href*="wa.me"]');
               if (!el) return;
+              if (el.hasAttribute('data-vrn-lead-trigger') &&
+                  e.button === 0 && !e.metaKey && !e.ctrlKey &&
+                  !e.shiftKey && !e.altKey) return;
 
               // Guard: satu klik hanya kirim satu konversi (debounce 1 detik)
               if (el.__vrnSbyWaFired) return;
@@ -99,14 +102,15 @@ export default function RentalMobilSurabayaLayout({
 
       <AppContextProvider>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {/* Menerapkan class font Inter agar sinkron dengan globals.css */}
-          <div className={`${inter.variable} font-sans`}>
-            <Navbar />
-            <main>{children}</main>
-          </div>
+          <VrnLeadProvider enabled={process.env.VRN_LEAD_ENABLED === "true"}>
+            {/* Menerapkan class font Inter agar sinkron dengan globals.css */}
+            <div className={`${inter.variable} font-sans`}>
+              <Navbar />
+              <main>{children}</main>
+            </div>
+          </VrnLeadProvider>
         </ThemeProvider>
       </AppContextProvider>
-      <VrnLeadPilotMount enabled={process.env.VERCEL_ENV === "preview"} />
     </>
   );
 }

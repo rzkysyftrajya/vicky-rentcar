@@ -3,7 +3,7 @@
  * Server-only. Uses the signature protocol of the VRN Lead Capture Apps Script.
  * Does NOT send a Google Ads conversion, alter WhatsApp text, or install gtag.
  */
-import { createHmac, randomUUID } from 'node:crypto';
+import { createHmac } from 'node:crypto';
 import { NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
@@ -20,6 +20,14 @@ function hmac(value: string, key: string): string {
   return createHmac('sha256', key).update(value, 'utf8').digest('hex');
 }
 
+function createIdempotencyNonce(value: string, key: string): string {
+  const chars = hmac(`vrn-lead:${value}`, key).slice(0, 32).split('');
+  chars[12] = '5';
+  chars[16] = ((parseInt(chars[16], 16) & 0x3) | 0x8).toString(16);
+  const hex = chars.join('');
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
+}
+
 function errorResponse(message: string, status: number) {
   return NextResponse.json({ ok: false, message }, {
     status,
@@ -28,8 +36,8 @@ function errorResponse(message: string, status: number) {
 }
 
 export async function POST(request: Request) {
-  if (process.env.VERCEL_ENV !== 'preview') {
-    return errorResponse('Endpoint pencocokan hanya aktif pada deployment Preview.', 404);
+  if (process.env.VRN_LEAD_ENABLED !== 'true') {
+    return errorResponse('Endpoint pencocokan sedang tidak aktif.', 404);
   }
 
   const receiverUrl = process.env.VRN_CAPTURE_WEBAPP_URL;
@@ -70,7 +78,11 @@ export async function POST(request: Request) {
     consent: true,
   };
   const ts = Date.now();
-  const nonce = randomUUID();
+  // Stable for the same hashed phone and click ID so receiver replay checks can deduplicate retries.
+  const nonce = createIdempotencyNonce(
+    `${data.city}:${data.phoneHash}:${data.gclid}`,
+    ingestKey,
+  );
   // Must match CaptureEndpoint.gs: ts + '.' + nonce + '.' + JSON.stringify(data)
   const sig = hmac(`${ts}.${nonce}.${JSON.stringify(data)}`, ingestKey);
 

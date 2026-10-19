@@ -7,6 +7,7 @@ import { Phone, Car, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { motion } from "framer-motion";
+import { VrnLeadWhatsAppLink } from "./VrnLeadMatching";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,10 +75,10 @@ const Navbar = () => {
           <div className="hidden md:block">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button asChild className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-5 shadow-lg">
-                <a href={waLink} target="_blank" rel="noopener noreferrer">
+                <VrnLeadWhatsAppLink href={waLink} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-4 h-4 mr-2" />
                   Chat WhatsApp
-                </a>
+                </VrnLeadWhatsAppLink>
               </Button>
             </motion.div>
           </div>
@@ -125,10 +126,10 @@ const Navbar = () => {
                 
                 <div className="mt-4 pt-4 border-t border-white/20">
                   <Button asChild className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold">
-                    <a href={waLink} target="_blank">
+                    <VrnLeadWhatsAppLink href={waLink} target="_blank">
                       <MessageCircle className="w-4 h-4 mr-2" />
                       Chat WhatsApp
-                    </a>
+                    </VrnLeadWhatsAppLink>
                   </Button>
                 </div>
               </div>
