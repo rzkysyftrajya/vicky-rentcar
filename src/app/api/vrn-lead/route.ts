@@ -28,6 +28,10 @@ function errorResponse(message: string, status: number) {
 }
 
 export async function POST(request: Request) {
+  if (process.env.VERCEL_ENV !== 'preview') {
+    return errorResponse('Endpoint pencocokan hanya aktif pada deployment Preview.', 404);
+  }
+
   const receiverUrl = process.env.VRN_CAPTURE_WEBAPP_URL;
   const ingestKey = process.env.VRN_INGEST_HMAC_SECRET;
   const phoneKey = process.env.VRN_PHONE_HMAC_KEY;
