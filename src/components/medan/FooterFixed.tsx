@@ -118,7 +118,7 @@ const FooterFixed = () => {
             <p>© {currentYear} VRN Rent Car Medan. All rights reserved.</p>
             <div className="flex gap-6">
               <a
-                href="/privacy"
+                href="/kebijakan-privasi/"
                 className="hover:text-blue-400 transition-colors"
               >
                 Privacy Policy

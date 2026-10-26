@@ -55,6 +55,11 @@ const nextConfig: NextConfig = {
         destination: "/sewa-mobil-bandung",
         permanent: true,
       },
+      {
+        source: "/privacy",
+        destination: "/kebijakan-privasi/",
+        permanent: true,
+      },
     ];
   },
 

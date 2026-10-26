@@ -16,6 +16,10 @@ module.exports = {
   // Opsi untuk mengecualikan halaman tertentu
   exclude: [
     "/server-sitemap.xml", // Sitemap server-side dikecualikan agar tidak diduplikasi
+    "/privacy",
+    "/privacy/",
+    "/kebijakan-privasi",
+    "/kebijakan-privasi/",
     "/404",
     "/[city]", // Mengecualikan halaman dinamis generik jika tidak ingin diindeks
   ],

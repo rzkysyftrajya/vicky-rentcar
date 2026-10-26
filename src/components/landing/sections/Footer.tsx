@@ -25,7 +25,7 @@ export default function Footer() {
             <Link href="/contact" className="hover:text-blue-300">
               Kontak
             </Link>
-            <Link href="/privacy" className="hover:text-blue-300">
+            <Link href="/kebijakan-privasi/" className="hover:text-blue-300">
               Privasi
             </Link>
           </nav>

@@ -244,7 +244,7 @@ export default function Footer() {
             <Link href="/batam/faq" className="hover:text-slate-300 transition-colors">FAQ</Link>
             <Link href="/batam/kontak" className="hover:text-slate-300 transition-colors">Kontak</Link>
             <Link href="/batam/destinasi" className="hover:text-slate-300 transition-colors">Destinasi</Link>
-            <Link href="/privacy" className="hover:text-slate-300 transition-colors">Kebijakan Privasi</Link>
+            <Link href="/kebijakan-privasi/" className="hover:text-slate-300 transition-colors">Kebijakan Privasi</Link>
             <Link href="/terms" className="hover:text-slate-300 transition-colors">Syarat &amp; Ketentuan</Link>
           </div>
         </div>

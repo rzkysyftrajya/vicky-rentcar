@@ -34,6 +34,12 @@ export async function GET(): Promise<Response> {
       changefreq: "monthly",
       priority: 0.6,
     },
+    {
+      loc: `${baseUrl}/kebijakan-privasi/`,
+      lastmod: new Date().toISOString(),
+      changefreq: "yearly",
+      priority: 0.3,
+    },
   ];
 
   const urls = [...staticUrls, ...cityUrls];
@@ -59,4 +65,3 @@ ${urls
     },
   });
 }
-

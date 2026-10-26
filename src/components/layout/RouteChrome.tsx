@@ -176,7 +176,7 @@ function SemarangFooter() {
       <div className="border-t border-slate-800">
         <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 px-4 py-4 text-xs text-slate-500 sm:px-6">
           <span>© {new Date().getFullYear()} PT. Vicky Rentcar Nusantara</span>
-          <Link href="/privacy" className="hover:text-slate-300">
+          <Link href="/kebijakan-privasi/" className="hover:text-slate-300">
             Kebijakan Privasi
           </Link>
         </div>
