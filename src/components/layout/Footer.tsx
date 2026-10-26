@@ -214,7 +214,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/privacy"
+                  href="/kebijakan-privasi/"
                   className="text-primary-foreground/80 hover:text-white transition-colors"
                 >
                   Kebijakan Privasi
