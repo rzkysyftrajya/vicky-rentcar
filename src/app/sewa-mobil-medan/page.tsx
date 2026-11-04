@@ -1,9 +1,9 @@
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sewa Mobil Medan - Rental Murah Lepas Kunci & Dengan Sopir | PT.VRN",
+  title: "Sewa Mobil Medan | Lepas Kunci & Dengan Sopir",
   description:
-    "Pusat sewa mobil di Medan dengan harga murah. Menyediakan layanan rental mobil lepas kunci 24 jam atau dengan sopir. Armada lengkap dan terawat untuk wisata, bisnis, atau perjalanan dinas.",
+    "Rental mobil di Medan untuk keluarga, bisnis, dan wisata. Tersedia layanan lepas kunci atau dengan sopir. Tanyakan armada, syarat sewa, dan ketersediaan via WhatsApp.",
   keywords: [
     "sewa mobil medan",
     "rental mobil medan",
@@ -17,10 +17,15 @@ export const metadata: Metadata = {
     "sewa mobil perjalanan dinas medan",
     "sewa mobil medan 24 jam",
   ],
+  alternates: {
+    canonical: "/sewa-mobil-medan/",
+  },
   openGraph: {
-    title: "Sewa Mobil Medan - Rental Murah Lepas Kunci & Dengan Sopir",
+    title: "Sewa Mobil Medan | Lepas Kunci & Dengan Sopir",
     description:
-      "Pusat sewa mobil di Medan dengan harga murah. Menyediakan layanan rental mobil lepas kunci 24 jam atau dengan sopir profesional.",
+      "Rental mobil di Medan untuk keluarga, bisnis, dan wisata. Tersedia layanan lepas kunci atau dengan sopir. Tanyakan ketersediaan armada.",
+    url: "https://www.vickyrentcarnusantara.com/sewa-mobil-medan/",
+    type: "website",
   },
 };
 

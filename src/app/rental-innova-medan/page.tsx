@@ -1,9 +1,9 @@
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Rental Innova Medan | Sewa Toyota Innova Reborn & Zenix Murah",
+  title: "Rental Innova Medan | Reborn & Zenix dengan Sopir",
   description:
-    "Pusat rental Innova di Medan dengan harga sewa murah. Tersedia Innova Reborn dan Innova Zenix untuk kebutuhan keluarga, perjalanan dinas, atau wisata. Layanan lepas kunci atau dengan sopir.",
+    "Rental Innova Reborn dan Zenix di Medan untuk keluarga, wisata, atau perjalanan dinas. Tanyakan opsi lepas kunci atau dengan sopir dan cek ketersediaan via WhatsApp.",
   keywords: [
     "rental innova medan",
     "sewa innova medan",
@@ -12,10 +12,15 @@ export const metadata: Metadata = {
     "harga sewa innova medan",
     "rental innova reborn lepas kunci medan",
   ],
+  alternates: {
+    canonical: "/rental-innova-medan/",
+  },
   openGraph: {
-    title: "Rental Innova Medan - Sewa Toyota Innova Reborn & Zenix",
+    title: "Rental Innova Medan | Reborn & Zenix dengan Sopir",
     description:
-      "Sewa Toyota Innova di Medan dengan pilihan lepas kunci dan sopir. Armada bersih, terawat, dan siap mengantar Anda keliling Medan.",
+      "Rental Innova Reborn dan Zenix di Medan untuk keluarga, wisata, atau perjalanan dinas. Tanyakan opsi lepas kunci atau dengan sopir.",
+    url: "https://www.vickyrentcarnusantara.com/rental-innova-medan/",
+    type: "website",
   },
 };
 

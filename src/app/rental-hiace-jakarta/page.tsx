@@ -1,9 +1,9 @@
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sewa Mobil Hiace Jakarta - Rental Mini Bus untuk Rombongan & Wisata",
+  title: "Sewa Hiace Jakarta dengan Sopir | Wisata & Rombongan",
   description:
-    "Sewa mobil Toyota Hiace di Jakarta untuk rombongan wisata, perjalanan bisnis, atau acara keluarga. Kapasitas hingga 15 orang, nyaman, dengan sopir berpengalaman. Harga rental Hiace terbaik.",
+    "Rental Toyota Hiace Jakarta untuk wisata, bisnis, atau rombongan. Tersedia Hiace Commuter dan Premio dengan sopir. Cek jadwal dan penawaran via WhatsApp.",
   keywords: [
     "sewa hiace jakarta",
     "rental hiace jakarta",
@@ -12,11 +12,15 @@ export const metadata: Metadata = {
     "sewa hiace premio jakarta",
     "sewa elf jakarta",
   ],
+  alternates: {
+    canonical: "/rental-hiace-jakarta/",
+  },
   openGraph: {
-    title:
-      "Sewa Mobil Hiace Jakarta - Rental Mini Bus untuk Rombongan & Wisata",
+    title: "Sewa Hiace Jakarta dengan Sopir | Wisata & Rombongan",
     description:
-      "Sewa mobil Toyota Hiace di Jakarta untuk rombongan wisata, bisnis, atau keluarga. Kapasitas hingga 15 orang.",
+      "Rental Toyota Hiace Jakarta untuk wisata, bisnis, atau rombongan. Tersedia Hiace Commuter dan Premio dengan sopir.",
+    url: "https://www.vickyrentcarnusantara.com/rental-hiace-jakarta/",
+    type: "website",
   },
 };
 

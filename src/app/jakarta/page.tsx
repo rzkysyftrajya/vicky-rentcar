@@ -110,9 +110,9 @@ const structuredData = {
 };
 
 export const metadata: Metadata = {
-  title: "Antar Jemput Bandara Soekarno-Hatta dengan Sopir | Rental Mobil CGK",
+  title: "Sewa Mobil Jakarta | Antar Jemput Bandara Soekarno-Hatta",
   description:
-    "Pesan rental mobil Bandara Soekarno-Hatta (CGK) dengan sopir, pemantauan penerbangan, dan penjemputan 24 jam untuk Jakarta dan Jabodetabek. Tanyakan ketersediaan via WhatsApp.",
+    "Rental mobil Jakarta dengan sopir untuk antar jemput Bandara Soekarno-Hatta (CGK). Tersedia penjemputan 24 jam dan perjalanan ke Jabodetabek. Cek jadwal via WhatsApp.",
   keywords: [
     "rental mobil bandara soekarno hatta",
     "sewa mobil CGK",
@@ -121,10 +121,15 @@ export const metadata: Metadata = {
     "sewa mobil bandara soekarno hatta lepas kunci",
     "jemput Bandara Soekarno-Hatta Jakarta",
   ],
+  alternates: {
+    canonical: "/jakarta/",
+  },
   openGraph: {
-    title: "Antar Jemput Bandara Soekarno-Hatta dengan Sopir",
+    title: "Sewa Mobil Jakarta | Antar Jemput Bandara Soekarno-Hatta",
     description:
       "Layanan penjemputan CGK dengan sopir, pemantauan penerbangan, dan armada Avanza, Innova Reborn, serta Fortuner untuk Jakarta dan Jabodetabek.",
+    url: "https://www.vickyrentcarnusantara.com/jakarta/",
+    type: "website",
   },
 };
 

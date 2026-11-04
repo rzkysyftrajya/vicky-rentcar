@@ -21,12 +21,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.vickyrentcarnusantara.com"),
   title: {
-    default:
-      "Rental Mobil & Sewa Mobil Medan, Jakarta, Bali | PT.VICKY RENTCAR NUSANTARA",
-    template: "%s | PT.VICKY RENTCAR NUSANTARA",
+    default: "Rental Mobil Indonesia | PT Vicky Rent Car Nusantara",
+    template: "%s | VRN",
   },
   description:
-    "Rental & sewa mobil terpercaya di seluruh Nusantara (Medan, Jakarta, Bali, dll). Layanan lepas kunci atau dengan sopir 24 jam. Armada lengkap untuk wisata, bisnis, dan antar jemput bandara di seluruh Indonesia.",
+    "Sewa dan rental mobil untuk perjalanan bisnis, wisata, dan antar jemput bandara. Pilih layanan lepas kunci atau dengan sopir di kota-kota layanan VRN.",
   keywords: [
     "sewa mobil nusantara",
     "rental mobil indonesia",
@@ -48,8 +47,20 @@ export const metadata: Metadata = {
     description:
       "Layanan sewa mobil lepas kunci dan dengan sopir 24 jam. Pilihan armada lengkap untuk perjalanan bisnis dan wisata.",
     type: "website",
-    url: "https://www.vickyrentcarnusantara.com",
     siteName: "PT.VICKY RENTCAR NUSANTARA",
+    images: [
+      {
+        url: "/section.webp",
+        alt: "Layanan rental mobil PT Vicky Rent Car Nusantara",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rental Mobil Indonesia | PT Vicky Rent Car Nusantara",
+    description:
+      "Sewa dan rental mobil untuk perjalanan bisnis, wisata, dan antar jemput bandara. Pilih layanan lepas kunci atau dengan sopir.",
+    images: ["/section.webp"],
   },
 };
 

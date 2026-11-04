@@ -2,9 +2,9 @@ import { type Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Sewa Mobil Bandara Kualanamu (KNO) - Rental Lepas Kunci & Dengan Sopir",
+    "Sewa Mobil Bandara Kualanamu (KNO) | Antar Jemput",
   description:
-    "Jasa rental & sewa mobil di Bandara Kualanamu Medan (KNO) harga murah. Layanan antar jemput, lepas kunci 24 jam, atau dengan sopir. Pesan sekarang untuk penjemputan tepat waktu.",
+    "Antar jemput Bandara Kualanamu dengan sopir atau opsi sewa lepas kunci. Kirim jadwal penerbangan, tujuan, dan jumlah penumpang untuk cek ketersediaan.",
   keywords: [
     "sewa mobil bandara kualanamu",
     "rental mobil kualanamu",
@@ -18,10 +18,15 @@ export const metadata: Metadata = {
     "sewa mobil kualanamu terdekat",
     "rental mobil terdekat di kualanamu",
   ],
+  alternates: {
+    canonical: "/sewa-mobil-bandara-kualanamu/",
+  },
   openGraph: {
     title: "Sewa Mobil Bandara Kualanamu (KNO) - Rental & Antar Jemput 24 Jam",
     description:
-      "Rental mobil di Bandara Kualanamu (KNO) dengan sopir atau lepas kunci. Pilihan Avanza, Innova, Hiace. Harga kompetitif.",
+      "Antar jemput Bandara Kualanamu dengan sopir atau opsi sewa lepas kunci. Kirim jadwal penerbangan dan tujuan untuk cek ketersediaan.",
+    url: "https://www.vickyrentcarnusantara.com/sewa-mobil-bandara-kualanamu/",
+    type: "website",
   },
 };
 

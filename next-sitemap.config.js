@@ -3,14 +3,13 @@
 module.exports = {
   siteUrl,
   generateRobotsTxt: true,
+  autoLastmod: false,
+  changefreq: "monthly",
   robotsTxtOptions: {
     policies: [
       { userAgent: "*", allow: "/" },
       // Anda bisa menambahkan aturan disallow di sini jika perlu
       // { userAgent: 'Googlebot', disallow: ['/private'] },
-    ],
-    additionalSitemaps: [
-      `${siteUrl}/server-sitemap.xml`, // Jika Anda menggunakan sitemap server-side
     ],
   },
   // Opsi untuk mengecualikan halaman tertentu
@@ -22,6 +21,8 @@ module.exports = {
     "/kebijakan-privasi/",
     "/404",
     "/[city]", // Mengecualikan halaman dinamis generik jika tidak ingin diindeks
+    "/bandung",
+    "/bandung/",
   ],
   // Fungsi untuk menghasilkan URL dinamis, contohnya dari folder 'pages'
   // Jika menggunakan App Router (Next.js 13+), konfigurasinya sedikit berbeda

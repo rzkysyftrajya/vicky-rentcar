@@ -1,6 +1,7 @@
 import cities from "@/data/cities.json";
 import CityPage from "@/components/CityPage";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 // ✅ Generate URL statis dari cities.json
 export function generateStaticParams() {
@@ -14,7 +15,7 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ [key: string]: string | string[] }>;
-}) {
+}): Promise<Metadata> {
   const { city } = await params;
   const citySlug = Array.isArray(city) ? city[0] : city;
   const cityData = cities.find((c) => c.slug === citySlug);
@@ -26,9 +27,24 @@ export async function generateMetadata({
     };
   }
 
+  const title = cityData.title.replace(/ \| PT\.VRN$/, "");
+  const canonical = `/${citySlug}/`;
+
   return {
-    title: cityData.title,
+    title,
     description: cityData.description,
+    alternates: { canonical },
+    openGraph: {
+      title,
+      description: cityData.description,
+      type: "website",
+      url: canonical,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: cityData.description,
+    },
   };
 }
 

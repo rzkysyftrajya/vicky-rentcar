@@ -7,4 +7,3 @@ Host: https://www.vickyrentcarnusantara.com
 
 # Sitemaps
 Sitemap: https://www.vickyrentcarnusantara.com/sitemap.xml
-Sitemap: https://www.vickyrentcarnusantara.com/server-sitemap.xml

@@ -1,9 +1,9 @@
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sewa Mobil Bulanan untuk Perusahaan & Pribadi",
+  title: "Sewa Mobil Bulanan untuk Pribadi & Perusahaan",
   description:
-    "Cari sewa mobil bulanan untuk operasional perusahaan atau kebutuhan pribadi? Pilih armada dan kota layanan, lalu minta penawaran sesuai durasi serta kebutuhan Anda.",
+    "Rental mobil bulanan untuk kebutuhan pribadi dan operasional perusahaan. Pilih kota, armada, durasi, serta opsi sopir, lalu minta penawaran yang sesuai.",
   keywords: [
     "sewa mobil bulanan",
     "rental mobil bulanan",
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     canonical: "/sewa-mobil-bulanan/",
   },
   openGraph: {
-    title: "Sewa Mobil Bulanan untuk Perusahaan & Pribadi",
+    title: "Sewa Mobil Bulanan untuk Pribadi & Perusahaan",
     description:
-      "Solusi rental mobil bulanan untuk kebutuhan operasional perusahaan maupun pribadi. Konsultasikan kota, armada, durasi, dan kebutuhan layanan Anda.",
+      "Rental mobil bulanan untuk kebutuhan pribadi dan perusahaan. Konsultasikan kota, armada, durasi sewa, dan opsi layanan Anda.",
     url: "https://www.vickyrentcarnusantara.com/sewa-mobil-bulanan/",
     type: "website",
   },

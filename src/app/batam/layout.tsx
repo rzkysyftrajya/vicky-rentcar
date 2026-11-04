@@ -14,10 +14,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Rental Mobil Batam: Alphard, Innova Zenix, Fortuner & Hiace | VRN",
+  title: "Rental Mobil Batam | Sopir & Lepas Kunci",
   description:
-    "Sewa mobil Batam dengan sopir berpengalaman. Alphard, Zenix, Fortuner, Innova, Hiace. Antar-jemput Bandara Hang Nadim & Pelabuhan Harbour Bay/Batam Centre. Cek promo via WA.",
+    "Sewa mobil Batam dengan sopir atau lepas kunci untuk keluarga, bisnis, dan wisata. Tersedia antar jemput Bandara Hang Nadim. Tanya ketersediaan via WhatsApp.",
   keywords: [
     "rental mobil batam",
     "sewa mobil batam",
@@ -38,14 +37,10 @@ export const metadata: Metadata = {
     "antar jemput bandara hang nadim",
     "sewa mobil dengan driver batam",
   ],
-  alternates: {
-    canonical: "https://www.vickyrentcarnusantara.com/batam",
-  },
   openGraph: {
-    title: "Rental Mobil Batam: Alphard, Innova Zenix, Fortuner & Hiace | VRN",
+    title: "Rental Mobil Batam | Sopir & Lepas Kunci",
     description:
-      "Sewa mobil Batam dengan sopir berpengalaman. Alphard, Zenix, Fortuner, Innova, Hiace. Antar-jemput Bandara Hang Nadim & Pelabuhan. Cek promo via WA.",
-    url: "https://www.vickyrentcarnusantara.com/batam",
+      "Sewa mobil Batam dengan sopir atau lepas kunci untuk keluarga, bisnis, dan wisata. Tersedia antar jemput Bandara Hang Nadim.",
     type: "website",
     siteName: "VRN Rent Car Batam",
     images: [
@@ -59,9 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rental Mobil Batam: Alphard, Innova Zenix, Fortuner & Hiace | VRN",
+    title: "Rental Mobil Batam | Sopir & Lepas Kunci",
     description:
-      "Sewa mobil Batam dengan sopir berpengalaman. Alphard, Zenix, Fortuner, Innova, Hiace. Antar-jemput Bandara & Pelabuhan.",
+      "Sewa mobil Batam dengan sopir atau lepas kunci untuk keluarga, bisnis, dan wisata.",
   },
 };
 
