@@ -20,6 +20,103 @@
   background: var(--medan-background);
 }
 
+.medan-homepage {
+  background: #fff;
+}
+
+.medan-homepage section {
+  scroll-margin-top: 5rem;
+}
+
+.medan-home-kicker {
+  border: 1px solid rgb(242 193 78 / 0.45);
+  border-radius: 9999px;
+  background: rgb(16 42 76 / 0.48);
+  padding: 0.625rem 1rem;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+}
+
+.medan-home-quicklinks {
+  border: 1px solid rgb(255 255 255 / 0.2);
+  border-radius: 1.5rem;
+  background: rgb(7 26 49 / 0.74);
+  padding: 1.5rem;
+  box-shadow: 0 24px 80px rgb(3 14 29 / 0.32);
+  backdrop-filter: blur(18px);
+}
+
+.medan-home-quicklink {
+  display: flex;
+  min-height: 4.5rem;
+  align-items: center;
+  gap: 0.875rem;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 0.875rem;
+  background: rgb(255 255 255 / 0.06);
+  padding: 0.75rem;
+  transition: background-color 160ms ease, border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.medan-home-quicklink:hover {
+  transform: translateX(3px);
+  border-color: rgb(242 193 78 / 0.55);
+  background: rgb(255 255 255 / 0.12);
+}
+
+.medan-home-quicklink-icon {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 0.75rem;
+  background: #f2c14e;
+  color: #102a4c;
+}
+
+.medan-home-intro {
+  background: linear-gradient(135deg, #f3f7fb 0%, #fffaf0 100%);
+}
+
+.medan-home-services {
+  background: #f5f7fa;
+}
+
+.medan-home-featured {
+  background:
+    radial-gradient(ellipse at 12% 90%, rgb(242 193 78 / 0.12), transparent 34%),
+    linear-gradient(135deg, #173b6c 0%, #102a4c 58%, #091d36 100%);
+}
+
+.medan-home-fleet {
+  background: linear-gradient(180deg, #edf2f7 0%, #f8fafc 100%);
+}
+
+.medan-home-destinations {
+  background: linear-gradient(135deg, #fffaf0 0%, #fff 58%, #f3f7fb 100%);
+}
+
+.medan-home-airport {
+  background:
+    radial-gradient(ellipse at 100% 10%, rgb(242 193 78 / 0.16), transparent 36%),
+    linear-gradient(115deg, #102a4c 0%, #173b6c 100%);
+}
+
+.medan-home-final-cta::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse at center, transparent 0%, rgb(7 26 49 / 0.32) 100%);
+  content: "";
+  pointer-events: none;
+}
+
 body:has(.medan-theme) #global-route-chrome,
 body:has(.medan-theme) #global-route-chrome-footer {
   display: none;
@@ -162,6 +259,14 @@ body:has(.medan-theme) #global-route-contact-dock {
 @media (max-width: 639px) {
   .medan-container {
     width: min(100% - 32px, 1200px);
+  }
+
+  .medan-home-hero {
+    min-height: 700px;
+  }
+
+  .medan-home-quicklinks {
+    padding: 1rem;
   }
 }
 
