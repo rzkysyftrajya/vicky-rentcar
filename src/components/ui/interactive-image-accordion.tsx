@@ -35,7 +35,13 @@ export function LandingAccordionItem() {
   return (
     <section
       id="home"
-      className="flex min-h-[calc(100vh-64px)] items-center overflow-hidden bg-gradient-to-br from-white via-[#f7f8fa] to-[#eef3f8] py-16 sm:py-20 md:py-24"
+      className="flex min-h-[calc(100vh-64px)] items-center overflow-hidden py-16 sm:py-20 md:py-24"
+      style={{
+        backgroundImage:
+          "linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(247, 248, 250, 0.78) 55%, rgba(238, 243, 248, 0.82)), url('/medan/hero-section.webp')",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
     >
       <div className="medan-container grid w-full items-center gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-8 lg:gap-14">
         <div className="text-center md:text-left">
