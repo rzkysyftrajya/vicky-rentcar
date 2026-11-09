@@ -1,12 +1,19 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import {
+  MobileNav,
+  MobileNavHeader,
+  MobileNavMenu,
+  MobileNavToggle,
+  Navbar,
+  NavbarLogo,
+  NavBody,
+  NavItems,
+} from "@/components/ui/resizable-navbar";
 import { cn } from "@/lib/utils";
-import { MedanWhatsAppButton } from "./MedanWhatsApp";
 
 const primaryNavigation = [
   { label: "Beranda", href: "/medan" },
@@ -22,6 +29,8 @@ const secondaryNavigation = [
   { label: "Testimoni", href: "/medan/testimonials" },
 ];
 
+const navigation = [...primaryNavigation, ...secondaryNavigation];
+
 function isActive(pathname: string, href: string) {
   return href === "/medan"
     ? pathname === href
@@ -31,7 +40,10 @@ function isActive(pathname: string, href: string) {
 export default function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -42,88 +54,55 @@ export default function Header() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--medan-border)] bg-white">
-      <div className="medan-container flex min-h-16 items-center justify-between gap-6">
-        <Link href="/medan" className="flex min-h-11 items-center gap-2" aria-label="VRN Rent Car Medan">
-          <Image src="/logoVRN.png" alt="" width={40} height={40} className="object-contain" priority />
-          <span className="text-base font-bold text-[var(--medan-primary)] sm:text-lg">
-            VRN Rent Car <span className="font-normal">Medan</span>
-          </span>
-        </Link>
-
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Navigasi utama">
-          {primaryNavigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              aria-current={isActive(pathname, item.href) ? "page" : undefined}
-              className={cn(
-                "min-h-11 rounded-[var(--medan-radius-control)] px-3 py-3 text-sm font-medium text-[var(--medan-text)] hover:bg-[#eef3f9] hover:text-[var(--medan-primary)]",
-                isActive(pathname, item.href) && "font-bold text-[var(--medan-primary)]",
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <span className="mx-2 h-5 w-px bg-[var(--medan-border)]" aria-hidden="true" />
-          {secondaryNavigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              aria-current={isActive(pathname, item.href) ? "page" : undefined}
-              className="min-h-11 px-2 py-3 text-sm text-[var(--medan-muted)] hover:text-[var(--medan-primary)]"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden lg:block">
-          <MedanWhatsAppButton label="Konsultasi" variant="outline" />
-        </div>
-
-        <MedanWhatsAppButton
-          label="WhatsApp"
-          className="medan-mobile-whatsapp h-11 w-11 shrink-0 justify-center px-2 [&>span]:sr-only"
+    <Navbar className="top-0 z-50 border-b border-[var(--medan-border)] bg-white">
+      <NavBody className="max-w-7xl bg-white/95 dark:bg-white/95">
+        <NavbarLogo href="/medan" label="VRN Rent Car Medan" />
+        <NavItems
+          items={navigation.map((item) => ({
+            name: item.label,
+            link: item.href,
+            active: isActive(pathname, item.href),
+          }))}
+          lightMode
+          className="left-[250px] right-4 justify-end space-x-0 lg:space-x-0 [&_a]:px-2"
         />
+      </NavBody>
 
-        <button
-          type="button"
-          className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-[var(--medan-radius-control)] border border-[var(--medan-border)] text-[var(--medan-primary)] lg:hidden"
-          aria-expanded={isOpen}
-          aria-controls="medan-mobile-menu"
-          aria-label={isOpen ? "Tutup menu" : "Buka menu"}
-          onClick={() => setIsOpen((open) => !open)}
+      <MobileNav className="bg-white dark:bg-white">
+        <MobileNavHeader className="medan-container min-h-14">
+          <NavbarLogo href="/medan" label="VRN Rent Car Medan" />
+          <MobileNavToggle
+            isOpen={isOpen}
+            onClick={() => setIsOpen((open) => !open)}
+            className="rounded-full border border-[var(--medan-border)] text-[var(--medan-primary)]"
+          />
+        </MobileNavHeader>
+
+        <MobileNavMenu
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          className="border border-[var(--medan-border)] bg-white dark:bg-white"
         >
-          {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-        </button>
-      </div>
-
-      {isOpen ? (
-        <div ref={menuRef} id="medan-mobile-menu" className="border-t border-[var(--medan-border)] bg-white lg:hidden">
-          <nav className="medan-container flex flex-col gap-1 py-4" aria-label="Navigasi mobile">
-            {[...primaryNavigation, ...secondaryNavigation].map((item) => (
+          <nav className="flex w-full flex-col gap-1" aria-label="Navigasi mobile">
+            {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 aria-current={isActive(pathname, item.href) ? "page" : undefined}
+                onClick={() => setIsOpen(false)}
                 className={cn(
-                  "min-h-11 rounded-[var(--medan-radius-control)] px-3 py-3 text-sm text-[var(--medan-text)] hover:bg-[#eef3f9]",
-                  isActive(pathname, item.href) && "font-bold text-[var(--medan-primary)]",
+                  "min-h-11 rounded-full px-3 py-3 text-sm text-[var(--medan-text)] hover:bg-[#eef3f9]",
+                  isActive(pathname, item.href) &&
+                    "font-bold text-[var(--medan-primary)]",
                 )}
               >
                 {item.label}
               </Link>
             ))}
-            <MedanWhatsAppButton label="Konsultasi via WhatsApp" className="mt-3 w-full" />
           </nav>
-        </div>
-      ) : null}
-    </header>
+        </MobileNavMenu>
+      </MobileNav>
+    </Navbar>
   );
 }

@@ -188,13 +188,15 @@ function SemarangFooter() {
 export function RouteNavbar() {
   const pathname = usePathname();
   const isSemarangRoute = pathname === "/semarang" || pathname?.startsWith("/semarang/");
+  const isResizableNavbarDemo = pathname === "/resizable-navbar-demo";
 
-  return isSemarangRoute ? null : <Navbar />;
+  return isSemarangRoute || isResizableNavbarDemo ? null : <Navbar />;
 }
 
 export function RouteFooter() {
   const pathname = usePathname();
   const isSemarangRoute = pathname === "/semarang" || pathname?.startsWith("/semarang/");
+  const isResizableNavbarDemo = pathname === "/resizable-navbar-demo";
 
-  return isSemarangRoute ? null : <Footer />;
+  return isSemarangRoute || isResizableNavbarDemo ? null : <Footer />;
 }

@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PhoneCall, ArrowRight, CarFront, MapPin, Plane } from 'lucide-react';
+import { PhoneCall, ArrowRight } from 'lucide-react';
 import { createMedanWhatsAppUrl } from '@/components/medan/MedanWhatsApp';
 import MedanTestimonialsCarousel from '@/components/medan/MedanTestimonialsCarousel';
+import { LandingAccordionItem } from '@/components/ui/interactive-image-accordion';
 import { cars } from '@/data/fleet-data';
 import { topTourPackages } from '@/data/medan-tour-packages';
 
@@ -22,91 +23,7 @@ export default function MedanPage() {
   
   return (
     <div className="medan-homepage flex w-full flex-col text-slate-800">
-      {/* SECTION 1: CINEMATIC HERO */}
-      <section className="medan-home-hero relative flex min-h-[760px] items-center overflow-hidden py-20 lg:min-h-[calc(100vh-64px)] lg:py-24">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/medan/hero-section.webp"
-            alt="Rental Mobil Medan"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071a31]/95 via-[#102a4c]/80 to-[#102a4c]/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071a31]/70 via-transparent to-[#071a31]/20" />
-        </div>
-        
-        <div className="medan-container relative z-10 grid w-full items-center gap-12 text-white lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.75fr)]">
-          <div className="max-w-3xl">
-            <p className="medan-home-kicker mb-6 inline-flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#f2c14e]" />
-              Rental mobil Medan & Sumatera Utara
-            </p>
-            <h1 className="mb-6 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
-              Rental mobil Medan.{" "}
-              <span className="text-[#f2c14e]">Perjalanan lebih nyaman.</span>
-            </h1>
-            <p className="mb-9 max-w-2xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8">
-              Temukan kendaraan untuk mobilitas di Medan, antar jemput Kualanamu, perjalanan keluarga, agenda bisnis, hingga wisata Sumatera Utara.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a 
-                href={createMedanWhatsAppUrl({ type: 'general' })}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="medan-button min-h-14 rounded-xl bg-[#f2c14e] px-6 text-[#102a4c] shadow-lg shadow-black/20 hover:bg-[#ffd66c]"
-              >
-                <PhoneCall className="h-5 w-5" />
-                Konsultasi via WhatsApp
-              </a>
-              <Link 
-                href="#fleet"
-                className="medan-button min-h-14 rounded-xl border border-white/40 bg-white/10 px-6 text-white backdrop-blur-sm hover:bg-white/20"
-              >
-                Jelajahi armada <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-
-          <div className="medan-home-quicklinks">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#f2c14e]">
-              Perjalanan Anda
-            </p>
-            <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
-              Mulai dari tujuan
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-white/70">
-              Pilih kebutuhan perjalanan untuk melihat layanan yang tersedia.
-            </p>
-            <div className="mt-6 grid gap-3">
-              <Link href="/medan/airport" className="medan-home-quicklink">
-                <span className="medan-home-quicklink-icon"><Plane className="h-5 w-5" /></span>
-                <span className="min-w-0 flex-1">
-                  <span className="block font-semibold text-white">Bandara Kualanamu</span>
-                  <span className="mt-1 block text-sm text-white/60">Antar jemput dari dan ke Medan</span>
-                </span>
-                <ArrowRight className="h-4 w-4 text-white/60" />
-              </Link>
-              <Link href="/medan/fleet" className="medan-home-quicklink">
-                <span className="medan-home-quicklink-icon"><CarFront className="h-5 w-5" /></span>
-                <span className="min-w-0 flex-1">
-                  <span className="block font-semibold text-white">Mobilitas di kota</span>
-                  <span className="mt-1 block text-sm text-white/60">Lihat pilihan kendaraan</span>
-                </span>
-                <ArrowRight className="h-4 w-4 text-white/60" />
-              </Link>
-              <Link href="/medan/tourism" className="medan-home-quicklink">
-                <span className="medan-home-quicklink-icon"><MapPin className="h-5 w-5" /></span>
-                <span className="min-w-0 flex-1">
-                  <span className="block font-semibold text-white">Wisata Sumatera Utara</span>
-                  <span className="mt-1 block text-sm text-white/60">Jelajahi tujuan luar kota</span>
-                </span>
-                <ArrowRight className="h-4 w-4 text-white/60" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <LandingAccordionItem />
 
       {/* SECTION 2: INTRODUCTION */}
       <section className="medan-home-intro py-16 lg:py-24">
