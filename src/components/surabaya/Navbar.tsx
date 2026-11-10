@@ -5,7 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, Car, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTrigger,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
@@ -85,14 +91,35 @@ const Navbar = () => {
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className="text-white">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-white"
+                aria-label={
+                  isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
+                }
+              >
+                <svg
+                  aria-hidden="true"
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 </svg>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-80 bg-slate-900 overflow-y-auto">
               <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
+              <SheetDescription className="sr-only">
+                Pilih halaman yang ingin Anda kunjungi.
+              </SheetDescription>
               <div className="flex flex-col gap-1 mt-8">
                 {/* Logo in mobile menu */}
                 <div className="flex items-center gap-2 mb-4 px-4">

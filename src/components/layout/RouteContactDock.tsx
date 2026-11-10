@@ -6,12 +6,17 @@ import { FloatingDock } from "@/components/ui/floating-dock";
 
 const dockItems = [
   {
-    icon: <IconBrandWhatsapp className="w-5 h-5 text-green-500" />,
+    icon: (
+      <IconBrandWhatsapp
+        aria-hidden="true"
+        className="w-5 h-5 text-green-500"
+      />
+    ),
     href: "https://wa.me/6282363389893",
     title: "WhatsApp",
   },
   {
-    icon: <IconPhone className="w-5 h-5 text-primary" />,
+    icon: <IconPhone aria-hidden="true" className="w-5 h-5 text-primary" />,
     href: "tel:+6282363389893",
     title: "Telepon",
   },

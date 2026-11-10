@@ -103,9 +103,15 @@ function IconContainer({
   });
 
   const [hovered, setHovered] = useState(false);
+  const isTelephoneLink = href.startsWith("tel:");
 
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
+    <a
+      href={href}
+      aria-label={title}
+      target={isTelephoneLink ? undefined : "_blank"}
+      rel={isTelephoneLink ? undefined : "noopener noreferrer"}
+    >
       <motion.div
         ref={ref}
         style={{ width, height }}
