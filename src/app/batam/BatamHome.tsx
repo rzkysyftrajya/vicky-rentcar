@@ -422,6 +422,7 @@ export default function BatamHomePage() {
               { href: "#armada", label: "Pilihan Mobil" },
               { href: "/batam/layanan", label: "Dengan Sopir" },
               { href: "/batam/hiace", label: "Hiace Rombongan" },
+              { href: "#legalitas", label: "Legalitas" },
               { href: "/batam/paket-tour", label: "Paket Wisata" },
               { href: "#galeri", label: "Foto & Video" },
               { href: "#reviews", label: "Review Pengguna" },
@@ -611,6 +612,49 @@ export default function BatamHomePage() {
                 </div>
                 <h3 className="text-[15px] font-bold text-slate-900 mb-1.5">{item.title}</h3>
                 <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="legalitas" className="scroll-mt-28 border-b border-slate-200 bg-slate-50 py-12 sm:py-14">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="mx-auto mb-8 max-w-2xl space-y-2 text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">Legalitas Usaha</p>
+            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Rental Mobil dengan Legalitas Resmi</h2>
+            <p className="text-sm text-slate-600">Informasi legalitas usaha VRN Rent Car.</p>
+          </motion.div>
+
+          <motion.div
+            className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
+            variants={staggerGrid}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {[
+              { title: "Akta Pendirian", description: "AHU-006180.AH.01.30.TAHUN 2025" },
+              { title: "KBLI 79121", description: "Aktivitas Penyewaan Kendaraan Bermotor Roda Empat" },
+              { title: "NPWP", description: "Terdaftar" },
+              { title: "NIB / OSS", description: "Berizin Resmi" },
+            ].map((item) => (
+              <motion.div
+                key={item.title}
+                variants={fadeUp}
+                className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
+              >
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" aria-hidden="true" />
+                <div>
+                  <h3 className="text-sm font-bold text-slate-900">{item.title}</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-slate-600">{item.description}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
