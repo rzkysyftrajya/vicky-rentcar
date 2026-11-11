@@ -226,6 +226,49 @@ const staggerGrid = {
   visible: { transition: { staggerChildren: 0.09 } },
 };
 
+function DeferredAutoplayVideo({ src, className }: { src: string; className: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const loadVideo = () => {
+      video.src = src;
+      video.load();
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      loadVideo();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        loadVideo();
+        observer.disconnect();
+      },
+      { rootMargin: "800px 0px" }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [src]);
+
+  return (
+    <video
+      ref={videoRef}
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="none"
+      className={className}
+    />
+  );
+}
+
 export default function BatamHomePage() {
   const [selectedService, setSelectedService] = useState(servicesList[0].id);
   const [selectedVehicle, setSelectedVehicle] = useState(vehiclesList[0].id);
@@ -462,7 +505,7 @@ export default function BatamHomePage() {
                         }`}
                       >
                         <div className="relative w-12 h-8 mb-1">
-                          <Image src={car.image} alt={car.name} fill className="object-contain" />
+                          <Image src={car.image} alt={car.name} fill sizes="48px" className="object-contain" />
                         </div>
                         <div className="text-[11px] font-bold text-slate-900 line-clamp-1">{car.name}</div>
                         <div className="text-[10px] text-amber-700 font-semibold mt-0.5">{car.promo}</div>
@@ -588,6 +631,7 @@ export default function BatamHomePage() {
                     alt={tour.name}
                     width={1080}
                     height={1350}
+                    sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 85vw"
                     className="h-auto w-full"
                   />
                   <span className="absolute left-3 top-3 rounded-full bg-white px-3 py-1 text-[11px] font-bold text-slate-900 shadow">
@@ -794,6 +838,7 @@ export default function BatamHomePage() {
                         alt={`${car.name} - rental mobil ${car.name.replace("Toyota ", "")} Batam`}
                         width={1414}
                         height={2000}
+                        sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, 50vw"
                         className="h-auto w-full"
                       />
                       <span className="absolute top-2 right-2 px-2 py-0.5 rounded-md bg-[#0B1728] text-white text-[10px] font-bold">
@@ -964,7 +1009,13 @@ export default function BatamHomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <Image src="/batam/paket-hiace/hiace-batam-city-barelang-tour.webp" alt="Hiace Premio Batam" fill className="object-cover" />
+              <Image
+                src="/batam/paket-hiace/hiace-batam-city-barelang-tour.webp"
+                alt="Hiace Premio Batam"
+                fill
+                sizes="(min-width: 1024px) 40vw, 92vw"
+                className="object-cover"
+              />
             </motion.div>
           </div>
         </div>
@@ -1000,7 +1051,13 @@ export default function BatamHomePage() {
                 variants={fadeUp}
                 className="relative aspect-[4/3] rounded-xl overflow-hidden group cursor-pointer"
               >
-                <Image src={dest.image} alt={dest.name} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                <Image
+                  src={dest.image}
+                  alt={dest.name}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 92vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
                 {/* Clean gradient overlay — no text on image */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" />
                 {/* Text only at bottom, minimal */}
@@ -1114,17 +1171,11 @@ export default function BatamHomePage() {
                     src={item.src}
                     alt={item.alt}
                     fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 ) : (
-                  <video
-                    src={item.src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
+                  <DeferredAutoplayVideo src={item.src} className="w-full h-full object-cover" />
                 )}
                 {/* Hover overlay — clean, no text */}
                 {item.type === "image" && (
@@ -1160,6 +1211,7 @@ export default function BatamHomePage() {
                 src={imageItems[lightboxIndex].src}
                 alt={imageItems[lightboxIndex].alt}
                 fill
+                sizes="(min-width: 928px) 896px, calc(100vw - 32px)"
                 className="object-contain"
               />
             </motion.div>
