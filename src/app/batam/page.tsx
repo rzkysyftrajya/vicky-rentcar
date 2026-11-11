@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import BatamHome from "./BatamHome";
 
-const title = "Rental Mobil Batam | Sopir & Lepas Kunci";
+const title = "Rental Mobil Batam | Innova, Zenix, Hiace & Alphard";
 const description =
-  "Sewa mobil Batam dengan sopir atau lepas kunci untuk keluarga, bisnis, dan wisata. Tersedia antar jemput Bandara Hang Nadim. Tanya ketersediaan via WhatsApp.";
+  "Rental mobil Batam untuk wisatawan, perjalanan bisnis, keluarga, dan rombongan. Pilihan Innova, Zenix, Alphard, dan Hiace; tersedia dengan sopir atau lepas kunci. Cek ketersediaan via WhatsApp.";
 
 export const metadata: Metadata = {
   title,
