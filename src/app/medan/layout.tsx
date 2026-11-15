@@ -9,7 +9,6 @@ import Header from "@/components/medan/Header";
 import Footer from "@/components/medan/Footer";
 import { MedanWhatsAppButton } from "@/components/medan/MedanWhatsApp";
 import { AppContextProvider } from "../context/AppContext";
-import MedanScripts from "@/components/medan/MedanScripts";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -168,27 +167,6 @@ export default function MedanLayout({
 }: MedanLayoutProps) {
   return (
     <AppContextProvider>
-      {/* Menyiapkan antrean dan konfigurasi Google Ads */}
-      <Script id="google-ads-tag" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-
-          window.gtag = window.gtag || function () {
-            window.dataLayer.push(arguments);
-          };
-
-          window.gtag('js', new Date());
-          window.gtag('config', 'AW-11495200677');
-        `}
-      </Script>
-
-      {/* Memuat Google tag utama */}
-      <Script
-        id="medan-google-ads-library"
-        src="https://www.googletagmanager.com/gtag/js?id=AW-11495200677"
-        strategy="afterInteractive"
-      />
-
       {/* Structured data: hanya satu blok di layout */}
       <Script
         id="medan-structured-data"
@@ -223,9 +201,6 @@ export default function MedanLayout({
           />
         </div>
       </ThemeProvider>
-
-      {/* GTM dan listener konversi WhatsApp */}
-      <MedanScripts />
     </AppContextProvider>
   );
 }

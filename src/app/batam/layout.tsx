@@ -4,7 +4,6 @@ import "../globals.css";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import Navbar from "@/components/batam/Navbar";
 import FloatingWhatsApp from "@/components/batam/FloatingWhatsApp";
-import BatamConversionTracking from "@/components/batam/BatamConversionTracking";
 import { AppContextProvider } from "../context/AppContext";
 import Script from "next/script";
 
@@ -186,31 +185,6 @@ export default function BatamLayout({
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(batamFAQSchema) }}
       />
-
-      {/* Google Ads dasar Batam */}
-      <Script
-        id="google-tag-batam"
-        src="https://www.googletagmanager.com/gtag/js?id=AW-17357105664"
-        strategy="afterInteractive"
-      />
-
-      <Script id="google-tag-config-batam" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-
-          function gtag() {
-            window.dataLayer.push(arguments);
-          }
-
-          window.gtag = window.gtag || gtag;
-
-          gtag("js", new Date());
-          gtag("config", "AW-17357105664");
-        `}
-      </Script>
-
-      {/* Konversi seluruh tombol WhatsApp Batam */}
-      <BatamConversionTracking />
 
       <AppContextProvider>
         <ThemeProvider

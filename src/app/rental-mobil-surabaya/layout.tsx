@@ -24,58 +24,11 @@ export default function RentalMobilSurabayaLayout({
 }) {
   return (
     <>
-      {/* 1. Master Google Tag Baru (AW-17510183879) */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=AW-17510183879"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics-surabaya" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'AW-17510183879');
-        `}
-      </Script>
-
-      {/* 2. Event Snippet Fungsi tracking konversi Kontak dari Google Ads */}
-      <Script id="google-ads-conversion-contact" strategy="afterInteractive">
-        {`
-          function gtag_report_conversion(url) {
-            var callback = function () {
-              if (typeof(url) != 'undefined') {
-                window.location = url;
-              }
-            };
-            if (typeof gtag === 'function') {
-              gtag('event', 'conversion', {
-                'send_to': 'AW-17510183879/ywTVCJjzp44bEMfnwJ1B',
-                'event_callback': callback
-              });
-            } else {
-              callback();
-            }
-            return false;
-          }
-          window.gtag_report_conversion = gtag_report_conversion;
-        `}
-      </Script>
-
-      {/* Konversi klik WhatsApp khusus halaman Surabaya — AW-17510183879/wj1kCPmgo4gdEMfnwJ1B */}
-      <Script id="google-ads-wa-click-surabaya" strategy="afterInteractive">
+      <Script id="surabaya-whatsapp-lead-capture" strategy="afterInteractive">
         {`
           (function () {
-            // Guard: pastikan listener hanya dipasang sekali
             if (window.__vrnSbyWaListenerAttached) return;
             window.__vrnSbyWaListenerAttached = true;
-
-            function trackSurabayaWhatsAppConversion() {
-              if (typeof gtag === 'function') {
-                gtag('event', 'conversion', {
-                  send_to: 'AW-17510183879/wj1kCPmgo4gdEMfnwJ1B'
-                });
-              }
-            }
 
             function createWhatsAppEventId() {
               if (window.crypto && typeof window.crypto.randomUUID === 'function') {
@@ -159,12 +112,6 @@ export default function RentalMobilSurabayaLayout({
               } catch (error) {
                 console.error('VRN WhatsApp click capture could not be queued.', error);
               }
-
-              // Guard: satu klik hanya kirim satu konversi (debounce 1 detik)
-              if (el.__vrnSbyWaFired) return;
-              el.__vrnSbyWaFired = true;
-              setTimeout(function () { el.__vrnSbyWaFired = false; }, 1000);
-              trackSurabayaWhatsAppConversion();
             }, true);
           })();
         `}
