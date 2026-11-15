@@ -167,6 +167,21 @@ export default function MedanLayout({
 }: MedanLayoutProps) {
   return (
     <AppContextProvider>
+      <Script
+        id="medan-google-tag-data-layer"
+        strategy="afterInteractive"
+      >
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        `}
+      </Script>
+      <Script
+        src="https://www.googletagmanager.com/gtm.js?id=GTM-KGSHBQ5R"
+        strategy="afterInteractive"
+      />
+
       {/* Structured data: hanya satu blok di layout */}
       <Script
         id="medan-structured-data"
