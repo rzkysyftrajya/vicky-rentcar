@@ -24,6 +24,17 @@ export default function RentalMobilSurabayaLayout({
 }) {
   return (
     <>
+      <Script id="google-tag-manager-data-layer" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+        `}
+      </Script>
+      <Script
+        src="https://www.googletagmanager.com/gtm.js?id=GTM-5Q6M76TX"
+        strategy="afterInteractive"
+      />
       <Script id="surabaya-whatsapp-lead-capture" strategy="afterInteractive">
         {`
           (function () {
