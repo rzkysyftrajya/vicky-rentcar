@@ -154,3 +154,289 @@
     }
   }
 }
+
+.nataru-page-snowfall {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.nataru-page-flake {
+  position: absolute;
+  top: -1.5rem;
+  width: 14px;
+  height: 14px;
+  color: #ffe082;
+  filter: drop-shadow(0 1px 3px rgb(16 42 76 / 0.4));
+  animation: nataru-page-snow 14s linear infinite;
+}
+
+.nataru-page-flake-1 { left: 5%; animation-delay: -3s; }
+.nataru-page-flake-2 { left: 15%; width: 11px; height: 11px; color: #fca5a5; animation-delay: -9s; animation-duration: 17s; }
+.nataru-page-flake-3 { left: 26%; animation-delay: -6s; animation-duration: 16s; }
+.nataru-page-flake-4 { left: 37%; width: 12px; height: 12px; animation-delay: -12s; }
+.nataru-page-flake-5 { left: 49%; animation-delay: -4s; animation-duration: 18s; }
+.nataru-page-flake-6 { left: 61%; width: 11px; height: 11px; color: #fca5a5; animation-delay: -10s; animation-duration: 16s; }
+.nataru-page-flake-7 { left: 72%; animation-delay: -7s; animation-duration: 19s; }
+.nataru-page-flake-8 { left: 83%; width: 12px; height: 12px; animation-delay: -14s; }
+.nataru-page-flake-9 { left: 94%; animation-delay: -2s; animation-duration: 17s; }
+.nataru-page-flake-10 { left: 55%; width: 10px; height: 10px; animation-delay: -16s; animation-duration: 20s; }
+
+.nataru-garland-hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.nataru-garland-hero::before {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  height: clamp(9rem, 15vw, 13rem);
+  background-image:
+    linear-gradient(180deg, transparent 56%, rgb(15 23 42 / 0.32) 100%),
+    url("/medan/nataru-garland.svg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100% 100%, 100% auto;
+  content: "";
+  pointer-events: none;
+}
+
+.nataru-garland-content {
+  position: relative;
+  z-index: 2;
+}
+
+.nataru-home-banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgb(255 224 130 / 0.5);
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(ellipse at 82% 45%, rgb(255 224 130 / 0.18), transparent 30%),
+    linear-gradient(115deg, #991b1b 0%, #b91c1c 36%, #166534 72%, #064e3b 100%);
+  padding: 3.5rem 1.5rem 1.75rem;
+  color: white;
+  box-shadow: 0 20px 55px rgb(16 42 76 / 0.16);
+}
+
+.nataru-home-banner::before {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 3;
+  height: 9px;
+  background: repeating-linear-gradient(45deg, #fff 0 8px, #dc2626 8px 16px);
+  content: "";
+}
+
+.nataru-home-lights {
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-image:
+    radial-gradient(circle, #fff6c2 0 2.5px, transparent 3.5px),
+    radial-gradient(circle, #f87171 0 2.5px, transparent 3.5px),
+    radial-gradient(circle, #4ade80 0 2.5px, transparent 3.5px);
+  background-position: 0 0, 18px 0, 36px 0;
+  background-repeat: repeat-x;
+  background-size: 54px 18px;
+  filter: drop-shadow(0 0 5px rgb(255 224 130 / 0.75));
+  animation: nataru-banner-twinkle 1.8s ease-in-out infinite;
+}
+
+.nataru-home-banner-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nataru-home-banner-copy {
+  max-width: 46rem;
+}
+
+.nataru-home-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.15);
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.nataru-home-badge svg {
+  color: #ffe082;
+}
+
+.nataru-home-banner h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.nataru-home-greeting {
+  margin-top: 0.75rem;
+  color: #ffe082;
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.nataru-home-description {
+  max-width: 38rem;
+  margin-top: 0.75rem;
+  color: rgb(255 255 255 / 0.9);
+  line-height: 1.65;
+}
+
+.nataru-home-cta {
+  display: inline-flex;
+  min-height: 3rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  background: #ffe082;
+  padding: 0.75rem 1.25rem;
+  color: #102a4c;
+  font-weight: 800;
+  text-align: center;
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.nataru-home-cta:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.22);
+}
+
+.nataru-home-cta:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
+.nataru-home-banner-tree {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 0.5rem;
+  z-index: 1;
+  width: 9rem;
+  height: 12rem;
+  animation: nataru-tree-sway 4s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+
+.nataru-home-tree-icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 9rem;
+  height: 10rem;
+  fill: #15803d;
+  color: #bbf7d0;
+  filter: drop-shadow(0 8px 8px rgb(0 0 0 / 0.2));
+  stroke-width: 1.25;
+}
+
+.nataru-home-tree-star {
+  position: absolute;
+  top: 0;
+  left: 4rem;
+  z-index: 2;
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: #ffe082;
+  color: #ffe082;
+  filter: drop-shadow(0 0 8px rgb(255 224 130 / 0.9));
+  animation: nataru-banner-twinkle 1.5s ease-in-out infinite;
+}
+
+.nataru-home-tree-ornament {
+  position: absolute;
+  z-index: 2;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 2px solid rgb(255 255 255 / 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 9px currentColor;
+  animation: nataru-banner-twinkle 2s ease-in-out infinite;
+}
+
+.nataru-home-tree-ornament.ornament-red { top: 4rem; left: 2.3rem; color: #f87171; background: #ef4444; }
+.nataru-home-tree-ornament.ornament-gold { top: 6rem; right: 1rem; color: #facc15; background: #facc15; animation-delay: 400ms; }
+.nataru-home-tree-ornament.ornament-blue { top: 7.5rem; left: 1.5rem; color: #60a5fa; background: #3b82f6; animation-delay: 800ms; }
+
+.nataru-home-gift {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 2rem;
+  height: 2rem;
+  fill: #dc2626;
+  color: #ffe082;
+  filter: drop-shadow(0 4px 4px rgb(0 0 0 / 0.2));
+}
+
+@keyframes nataru-page-snow {
+  0% { opacity: 0; transform: translate3d(-12px, -5vh, 0) rotate(0deg); }
+  12%, 88% { opacity: 0.5; }
+  100% { opacity: 0; transform: translate3d(20px, 110vh, 0) rotate(300deg); }
+}
+
+@keyframes nataru-banner-twinkle {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 1; }
+}
+
+@keyframes nataru-tree-sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+@media (min-width: 768px) {
+  .nataru-home-banner {
+    padding: 4rem 3rem 3rem;
+  }
+
+  .nataru-home-banner-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .nataru-home-banner-tree {
+    right: -2rem;
+    opacity: 0.22;
+    transform: scale(0.75);
+  }
+
+  .nataru-home-cta {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nataru-page-snowfall *,
+  .nataru-home-banner *,
+  .nataru-home-cta {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

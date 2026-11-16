@@ -327,6 +327,253 @@ body:has(.medan-theme) #global-route-contact-dock {
   box-shadow: 0 4px 16px rgb(16 42 76 / 0.08);
 }
 
+.medan-nataru-banner {
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 78% 45%, rgb(255 224 130 / 0.2), transparent 30%),
+    linear-gradient(115deg, #991b1b 0%, #b91c1c 36%, #166534 72%, #064e3b 100%);
+  animation: medan-nataru-entrance 800ms cubic-bezier(0.2, 0.75, 0.3, 1) both,
+    medan-nataru-glow 5s ease-in-out 800ms infinite;
+}
+
+.medan-nataru-banner::before {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 3;
+  height: 9px;
+  background: repeating-linear-gradient(
+    45deg,
+    #fff 0 8px,
+    #dc2626 8px 16px
+  );
+  content: "";
+}
+
+.medan-nataru-lights {
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-image:
+    radial-gradient(circle, #fff6c2 0 2.5px, transparent 3.5px),
+    radial-gradient(circle, #f87171 0 2.5px, transparent 3.5px),
+    radial-gradient(circle, #4ade80 0 2.5px, transparent 3.5px);
+  background-position: 0 0, 18px 0, 36px 0;
+  background-repeat: repeat-x;
+  background-size: 54px 18px;
+  filter: drop-shadow(0 0 5px rgb(255 224 130 / 0.75));
+  animation: medan-nataru-twinkle 1.8s ease-in-out infinite;
+}
+
+.medan-nataru-snow {
+  position: absolute;
+  inset: 20px 0 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.medan-nataru-flake {
+  position: absolute;
+  top: -24px;
+  width: 16px;
+  height: 16px;
+  color: rgb(255 255 255 / 0.8);
+  filter: drop-shadow(0 0 4px rgb(255 255 255 / 0.5));
+  animation: medan-nataru-snowfall 7s linear infinite;
+}
+
+.medan-nataru-flake.flake-1 { left: 8%; animation-delay: -1s; }
+.medan-nataru-flake.flake-2 { left: 21%; width: 12px; height: 12px; animation-delay: -4s; animation-duration: 9s; }
+.medan-nataru-flake.flake-3 { left: 39%; animation-delay: -6s; animation-duration: 8s; }
+.medan-nataru-flake.flake-4 { left: 54%; width: 13px; height: 13px; animation-delay: -2s; }
+.medan-nataru-flake.flake-5 { left: 68%; animation-delay: -5s; animation-duration: 10s; }
+.medan-nataru-flake.flake-6 { left: 82%; width: 12px; height: 12px; animation-delay: -3s; animation-duration: 8s; }
+.medan-nataru-flake.flake-7 { left: 94%; animation-delay: -7s; animation-duration: 9s; }
+.medan-nataru-flake.flake-8 { left: 31%; width: 10px; height: 10px; animation-delay: -8s; animation-duration: 10s; }
+
+.medan-nataru-tree {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 0.5rem;
+  z-index: 1;
+  width: 10rem;
+  height: 13rem;
+  animation: medan-nataru-sway 4s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+
+.medan-nataru-tree-icon {
+  position: absolute;
+  right: 0;
+  bottom: 1.25rem;
+  width: 10rem;
+  height: 11rem;
+  fill: #15803d;
+  color: #bbf7d0;
+  filter: drop-shadow(0 8px 8px rgb(0 0 0 / 0.2));
+  stroke-width: 1.25;
+}
+
+.medan-nataru-tree-star {
+  position: absolute;
+  top: 0;
+  left: 4.3rem;
+  z-index: 2;
+  width: 1.8rem;
+  height: 1.8rem;
+  fill: #ffe082;
+  color: #ffe082;
+  filter: drop-shadow(0 0 8px rgb(255 224 130 / 0.9));
+  animation: medan-nataru-twinkle 1.5s ease-in-out infinite;
+}
+
+.medan-nataru-ornament {
+  position: absolute;
+  z-index: 2;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 2px solid rgb(255 255 255 / 0.75);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px currentColor;
+  animation: medan-nataru-twinkle 2s ease-in-out infinite;
+}
+
+.medan-nataru-ornament.ornament-1 { top: 4.2rem; left: 3rem; color: #f87171; background: #ef4444; }
+.medan-nataru-ornament.ornament-2 { top: 5.7rem; right: 1.2rem; color: #facc15; background: #facc15; animation-delay: 400ms; }
+.medan-nataru-ornament.ornament-3 { top: 7.6rem; left: 2rem; color: #60a5fa; background: #3b82f6; animation-delay: 800ms; }
+.medan-nataru-ornament.ornament-4 { top: 8.5rem; right: 2.8rem; color: #f87171; background: #ef4444; animation-delay: 1.2s; }
+
+.medan-nataru-gift {
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: #dc2626;
+  color: #ffe082;
+  filter: drop-shadow(0 4px 4px rgb(0 0 0 / 0.2));
+}
+
+.medan-nataru-gift.gift-1 { left: 0.4rem; }
+.medan-nataru-gift.gift-2 { right: 0; width: 2rem; height: 2rem; fill: #facc15; animation: medan-nataru-twinkle 2.5s ease-in-out infinite; }
+
+.medan-nataru-cta {
+  box-shadow: 0 0 0 0 rgb(255 224 130 / 0.55);
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.medan-nataru-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.24), 0 0 0 5px rgb(255 224 130 / 0.18);
+}
+
+.medan-home-nataru-snow {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.medan-home-snowflake {
+  position: absolute;
+  top: -2rem;
+  width: 15px;
+  height: 15px;
+  color: #f2c14e;
+  filter: drop-shadow(0 1px 3px rgb(16 42 76 / 0.45));
+  animation: medan-homepage-snowfall 13s linear infinite;
+}
+
+.medan-home-snowflake.homeflake-1 { left: 4%; animation-delay: -2s; }
+.medan-home-snowflake.homeflake-2 { left: 13%; width: 11px; height: 11px; color: #f87171; animation-delay: -8s; animation-duration: 17s; }
+.medan-home-snowflake.homeflake-3 { left: 22%; animation-delay: -5s; animation-duration: 15s; }
+.medan-home-snowflake.homeflake-4 { left: 32%; width: 12px; height: 12px; animation-delay: -11s; }
+.medan-home-snowflake.homeflake-5 { left: 42%; animation-delay: -7s; animation-duration: 18s; }
+.medan-home-snowflake.homeflake-6 { left: 52%; width: 10px; height: 10px; color: #f87171; animation-delay: -3s; animation-duration: 16s; }
+.medan-home-snowflake.homeflake-7 { left: 62%; animation-delay: -13s; animation-duration: 14s; }
+.medan-home-snowflake.homeflake-8 { left: 72%; width: 12px; height: 12px; animation-delay: -9s; animation-duration: 19s; }
+.medan-home-snowflake.homeflake-9 { left: 82%; animation-delay: -4s; animation-duration: 16s; }
+.medan-home-snowflake.homeflake-10 { left: 92%; width: 11px; height: 11px; color: #f87171; animation-delay: -12s; animation-duration: 18s; }
+.medan-home-snowflake.homeflake-11 { left: 57%; animation-delay: -6s; animation-duration: 20s; }
+.medan-home-snowflake.homeflake-12 { left: 27%; width: 10px; height: 10px; animation-delay: -15s; animation-duration: 17s; }
+
+.medan-nataru-home #home {
+  position: relative;
+  isolation: isolate;
+  padding-top: calc(clamp(10rem, 17vw, 14rem) + 1rem);
+}
+
+.medan-nataru-home #home::before {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  height: clamp(10rem, 17vw, 14rem);
+  background-image:
+    linear-gradient(180deg, transparent 42%, rgb(255 255 255 / 0.82) 100%),
+    url("/medan/nataru-garland.svg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100% 100%, 100% auto;
+  content: "";
+  pointer-events: none;
+}
+
+.medan-nataru-home #home > .medan-container {
+  position: relative;
+}
+
+.medan-nataru-home .medan-eyebrow::before {
+  display: inline-block;
+  margin-right: 0.45rem;
+  color: #b91c1c;
+  content: "✦";
+  animation: medan-nataru-twinkle 2s ease-in-out infinite;
+}
+
+@keyframes medan-nataru-entrance {
+  from { opacity: 0; transform: translateY(24px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes medan-nataru-glow {
+  0%, 100% { box-shadow: 0 20px 55px rgb(16 42 76 / 0.16); }
+  50% { box-shadow: 0 24px 70px rgb(185 28 28 / 0.24); }
+}
+
+@keyframes medan-nataru-twinkle {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 1; }
+}
+
+@keyframes medan-nataru-snowfall {
+  0% { opacity: 0; transform: translate3d(0, -15px, 0) rotate(0deg); }
+  12% { opacity: 0.85; }
+  100% { opacity: 0; transform: translate3d(-24px, 330px, 0) rotate(280deg); }
+}
+
+@keyframes medan-nataru-sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+@keyframes medan-homepage-snowfall {
+  0% { opacity: 0; transform: translate3d(-12px, -5vh, 0) rotate(0deg); }
+  12%, 88% { opacity: 0.52; }
+  100% { opacity: 0; transform: translate3d(20px, 110vh, 0) rotate(300deg); }
+}
+
+@media (max-width: 767px) {
+  .medan-nataru-tree {
+    right: -0.75rem;
+    bottom: 0.25rem;
+    opacity: 0.48;
+    transform: scale(0.72);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .medan-theme *,
   .medan-theme *::before,

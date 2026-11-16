@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PhoneCall, ArrowRight } from 'lucide-react';
+import { PhoneCall, ArrowRight, Building2, FileText, ReceiptText, ShieldCheck, TreePine, Sparkles, Snowflake, Gift, Star } from 'lucide-react';
 import { createMedanWhatsAppUrl } from '@/components/medan/MedanWhatsApp';
 import MedanTestimonialsCarousel from '@/components/medan/MedanTestimonialsCarousel';
 import { LandingAccordionItem } from '@/components/ui/interactive-image-accordion';
@@ -20,10 +20,99 @@ export default function MedanPage() {
   
   const featuredCar = showcaseCars.find(car => car.name === 'Innova Zenix') || showcaseCars[0];
   const gridCars = showcaseCars.filter(car => car.name !== featuredCar.name);
+  const legalities = [
+    {
+      icon: Building2,
+      label: 'Akta Pendirian',
+      value: 'AHU-006180.AH.01.30.TAHUN 2025',
+    },
+    {
+      icon: FileText,
+      label: 'KBLI 79121',
+      value: 'Aktivitas Penyewaan Kendaraan Bermotor Roda Empat',
+    },
+    {
+      icon: ReceiptText,
+      label: 'NPWP',
+      value: 'Terdaftar',
+    },
+    {
+      icon: ShieldCheck,
+      label: 'Perizinan Usaha',
+      value: 'Berizin resmi melalui NIB/OSS',
+    },
+  ];
   
   return (
-    <div className="medan-homepage flex w-full flex-col text-slate-800">
+    <div className="medan-homepage medan-nataru-home flex w-full flex-col text-slate-800">
+      <div className="medan-home-nataru-snow" aria-hidden="true">
+        <Snowflake className="medan-home-snowflake homeflake-1" />
+        <Snowflake className="medan-home-snowflake homeflake-2" />
+        <Snowflake className="medan-home-snowflake homeflake-3" />
+        <Snowflake className="medan-home-snowflake homeflake-4" />
+        <Snowflake className="medan-home-snowflake homeflake-5" />
+        <Snowflake className="medan-home-snowflake homeflake-6" />
+        <Snowflake className="medan-home-snowflake homeflake-7" />
+        <Snowflake className="medan-home-snowflake homeflake-8" />
+        <Snowflake className="medan-home-snowflake homeflake-9" />
+        <Snowflake className="medan-home-snowflake homeflake-10" />
+        <Snowflake className="medan-home-snowflake homeflake-11" />
+        <Snowflake className="medan-home-snowflake homeflake-12" />
+      </div>
       <LandingAccordionItem />
+
+      <section aria-labelledby="medan-nataru-heading" className="bg-[#f7f8fa] px-4 py-10 sm:px-6 lg:py-12">
+        <div className="medan-container">
+          <div className="medan-nataru-banner relative overflow-hidden rounded-3xl border border-[#f2c14e]/50 p-7 pt-12 text-white shadow-xl sm:p-10 sm:pt-14 lg:p-12 lg:pt-16">
+            <div className="medan-nataru-lights" aria-hidden="true" />
+            <div className="medan-nataru-snow" aria-hidden="true">
+              <Snowflake className="medan-nataru-flake flake-1" />
+              <Snowflake className="medan-nataru-flake flake-2" />
+              <Snowflake className="medan-nataru-flake flake-3" />
+              <Snowflake className="medan-nataru-flake flake-4" />
+              <Snowflake className="medan-nataru-flake flake-5" />
+              <Snowflake className="medan-nataru-flake flake-6" />
+              <Snowflake className="medan-nataru-flake flake-7" />
+              <Snowflake className="medan-nataru-flake flake-8" />
+            </div>
+            <div aria-hidden="true" className="medan-nataru-tree">
+              <Star className="medan-nataru-tree-star" />
+              <TreePine className="medan-nataru-tree-icon" />
+              <span className="medan-nataru-ornament ornament-1" />
+              <span className="medan-nataru-ornament ornament-2" />
+              <span className="medan-nataru-ornament ornament-3" />
+              <span className="medan-nataru-ornament ornament-4" />
+              <Gift className="medan-nataru-gift gift-1" />
+              <Gift className="medan-nataru-gift gift-2" />
+            </div>
+            <div className="relative z-10 flex flex-col gap-7 md:flex-row md:items-center md:justify-between md:pr-40">
+              <div className="max-w-2xl">
+                <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-2 text-sm font-semibold text-white shadow-sm backdrop-blur-sm">
+                  <Sparkles aria-hidden="true" className="h-4 w-4 text-[#ffe082]" />
+                  Spesial Libur Natal &amp; Tahun Baru
+                </p>
+                <h2 id="medan-nataru-heading" className="text-2xl font-bold leading-tight drop-shadow sm:text-3xl lg:text-4xl">
+                  Rayakan Nataru, Jelajahi Medan &amp; Sumatera Utara!
+                </h2>
+                <p className="mt-3 text-lg font-extrabold tracking-wide text-[#ffe082] drop-shadow-sm">Merry Christmas &amp; Happy New Year!</p>
+                <p className="mt-3 max-w-xl leading-relaxed text-white/90">
+                  Ajak keluarga menikmati liburan akhir tahun tanpa repot mengatur perjalanan. VRN Rent Car Medan siap menemani perjalanan Natal dan Tahun Baru Anda.
+                </p>
+              </div>
+              <a
+                href={createMedanWhatsAppUrl({ type: 'service', service: 'rental mobil untuk libur Natal dan Tahun Baru' })}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="medan-nataru-cta inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#ffe082] px-6 py-3.5 font-bold text-[#102a4c] transition-colors hover:bg-white"
+              >
+                <Gift aria-hidden="true" className="h-5 w-5" />
+                Booking Liburan
+                <ArrowRight aria-hidden="true" className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 2: INTRODUCTION */}
       <section className="medan-home-intro py-16 lg:py-24">
@@ -60,6 +149,33 @@ export default function MedanPage() {
               <p className="text-xs font-semibold uppercase tracking-wider text-[var(--medan-muted)]">Rute populer</p>
               <p className="mt-1 font-bold text-[var(--medan-primary-dark)]">Medan <ArrowRight className="mx-1 inline h-4 w-4 text-[var(--medan-accent)]" /> Sumatera Utara</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="medan-legalitas" className="bg-white py-16 lg:py-20">
+        <div className="medan-container">
+          <div className="mb-8 max-w-2xl">
+            <p className="medan-eyebrow">Legalitas Usaha</p>
+            <h2 id="medan-legalitas" className="medan-heading-2 mt-3">
+              Informasi legalitas VRN Rent Car Medan.
+            </h2>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {legalities.map(({ icon: Icon, label, value }) => (
+              <article
+                key={label}
+                className="rounded-2xl border border-slate-200 bg-[#f7f8fa] p-5"
+              >
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#102a4c] text-[#f2c14e]">
+                  <Icon aria-hidden="true" className="h-5 w-5" />
+                </div>
+                <h3 className="text-sm font-semibold text-slate-600">{label}</h3>
+                <p className="mt-2 break-words font-bold leading-relaxed text-[var(--medan-primary-dark)]">
+                  {value}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -412,7 +528,6 @@ export default function MedanPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#071a31]/95 via-[#102a4c]/85 to-[#102a4c]/55" />
         </div>
-        
         <div className="medan-container relative z-10 text-center text-white max-w-3xl">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Siap menentukan kendaraan untuk perjalanan Anda?</h2>
           <p className="text-lg text-white/80 mb-10">

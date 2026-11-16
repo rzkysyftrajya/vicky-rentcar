@@ -33,6 +33,10 @@ import {
 import { Button } from "@/components/ui/button";
 import FaqSection from "@/components/batam/FaqSection";
 import Footer from "@/components/batam/Footer";
+import {
+  NataruHomeBanner,
+  NataruSnowfall,
+} from "@/components/seasonal/NataruHomeEffects";
 
 const waBase = "https://wa.me/6282363389893";
 const defaultWaLink = `${waBase}?text=Halo%20VRN%20Rent%20Car%20Batam,%20saya%20ingin%20tanya%20sewa%20mobil%20dengan%20driver`;
@@ -221,12 +225,13 @@ export default function BatamHomePage() {
   const filteredFleet = activeCategory === "Semua" ? fleetData : fleetData.filter((c) => c.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="nataru-home-page min-h-screen bg-slate-50 text-slate-900">
+      <NataruSnowfall />
 
       {/* ======================================================= */}
       {/* 1. HERO SECTION                                          */}
       {/* ======================================================= */}
-      <section className="relative overflow-hidden bg-[#0b1728] text-white pt-28 pb-14 lg:pt-32 lg:pb-20">
+      <section className="nataru-garland-hero relative overflow-hidden bg-[#0b1728] text-white pt-44 pb-14 lg:pt-48 lg:pb-20">
         <div className="absolute inset-0">
           <Image
             src="/batam/hero-section.webp"
@@ -439,6 +444,14 @@ export default function BatamHomePage() {
           </div>
         </div>
       </div>
+
+      <NataruHomeBanner
+        city="Batam"
+        description="Ajak keluarga menikmati liburan akhir tahun di Batam, Barelang, dan sekitarnya. Rencanakan perjalanan dengan armada dan layanan yang sesuai kebutuhan."
+        href={`${waBase}?text=${encodeURIComponent(
+          "Halo VRN Batam, saya ingin merencanakan perjalanan libur Natal dan Tahun Baru. Mohon info armada dan ketersediaan.",
+        )}`}
+      />
 
       <section className="border-b border-slate-200 bg-slate-50 py-8 sm:py-10">
         <div className="mx-auto max-w-3xl space-y-4 px-4 text-center sm:px-6">

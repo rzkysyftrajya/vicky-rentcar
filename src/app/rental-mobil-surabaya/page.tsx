@@ -31,6 +31,10 @@ import {
   serviceAreas,
   testimonials,
 } from "@/data/surabaya-page-data";
+import {
+  NataruHomeBanner,
+  NataruSnowfall,
+} from "@/components/seasonal/NataruHomeEffects";
 
 const whatsappNumber = "6282363389893";
 
@@ -215,8 +219,9 @@ export default function SurabayaPage() {
   );
 
   return (
-    <main className="bg-white text-slate-900">
-      <section className="relative isolate min-h-[680px] overflow-hidden bg-slate-950">
+    <main className="nataru-home-page bg-white text-slate-900">
+      <NataruSnowfall />
+      <section className="nataru-garland-hero relative isolate min-h-[680px] overflow-hidden bg-slate-950">
         <Image
           src="/destinasi-wisata/surabaya.jpg"
           alt="Pemandangan Kota Surabaya"
@@ -226,7 +231,7 @@ export default function SurabayaPage() {
           className="absolute inset-0 -z-20 object-cover"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/20" />
-        <div className="mx-auto flex min-h-[680px] max-w-7xl items-center px-6 py-24">
+        <div className="nataru-garland-content mx-auto flex min-h-[680px] max-w-7xl items-center px-6 pb-24 pt-44 sm:pt-48">
           <div className="max-w-3xl">
             <Badge className="mb-6 border border-orange-300/40 bg-orange-500/15 text-orange-100">
               Sewa mobil di Surabaya
@@ -293,6 +298,14 @@ export default function SurabayaPage() {
           ))}
         </div>
       </section>
+
+      <NataruHomeBanner
+        city="Surabaya"
+        description="Nikmati libur akhir tahun dengan perjalanan yang lebih nyaman. Rencanakan perjalanan keluarga, wisata kota, atau tujuan sekitar Jawa Timur bersama VRN Rent Car Surabaya."
+        href={whatsappLink(
+          "Halo VRN Surabaya, saya ingin merencanakan perjalanan libur Natal dan Tahun Baru. Mohon info armada dan ketersediaan.",
+        )}
+      />
 
       <section id="armada" className="scroll-mt-24 py-24">
         <div className="mx-auto max-w-7xl px-6">
