@@ -5,6 +5,7 @@ import { PhoneCall, ArrowRight, Building2, FileText, ReceiptText, ShieldCheck, T
 import { createMedanWhatsAppUrl } from '@/components/medan/MedanWhatsApp';
 import MedanTestimonialsCarousel from '@/components/medan/MedanTestimonialsCarousel';
 import { LandingAccordionItem } from '@/components/ui/interactive-image-accordion';
+import Lanyard from '@/components/medan/Lanyard';
 import { cars } from '@/data/fleet-data';
 import { topTourPackages } from '@/data/medan-tour-packages';
 
@@ -549,6 +550,49 @@ export default function MedanPage() {
             >
               Lihat pilihan armada
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="medan-owner-heading"
+        className="overflow-hidden bg-gradient-to-br from-[#f7f8fa] via-white to-[#fff8e7] py-16 lg:py-20"
+      >
+        <div className="medan-container grid items-center gap-8 lg:grid-cols-[1fr_0.85fr] lg:gap-12">
+          <div className="order-2 max-w-xl lg:order-1">
+            <p className="medan-eyebrow">Pemilik VRN Rent Car Nusantara</p>
+            <h2 id="medan-owner-heading" className="medan-heading-2 mt-3">
+              Halo, saya Vicky.
+            </h2>
+            <p className="medan-body-muted mt-4">
+              Saya dan tim siap membantu kebutuhan perjalanan Anda dari Medan ke berbagai tujuan
+              di Sumatera Utara. Ceritakan rencana Anda, dan kami akan membantu membahas pilihan
+              layanan yang sesuai.
+            </p>
+            <a
+              href={createMedanWhatsAppUrl({ type: 'general' })}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="medan-button mt-6 inline-flex items-center gap-2 bg-[var(--medan-primary-dark)] text-white hover:bg-[var(--medan-primary)]"
+            >
+              <PhoneCall className="h-5 w-5" />
+              Hubungi tim kami
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+          <div
+            className="order-1 mx-auto h-[360px] w-full max-w-[420px] lg:order-2 lg:h-[440px]"
+            role="img"
+            aria-label="Kartu identitas Vicky, pemilik VRN Rent Car Nusantara"
+          >
+            <Lanyard
+              frontImage="/owner-vicky-rentcar-nusantara.webp"
+              backImage="/owner-vicky-rentcar-nusantara.webp"
+              imageFit="cover"
+              strapColor="#173b6c"
+              size={0.62}
+              intro
+            />
           </div>
         </div>
       </section>

@@ -31,6 +31,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import Lanyard from "@/components/medan/Lanyard";
 import FaqSection from "@/components/batam/FaqSection";
 import Footer from "@/components/batam/Footer";
 import {
@@ -1190,6 +1191,53 @@ export default function BatamHomePage() {
             </Link>
           </motion.div>
         </motion.div>
+      </section>
+
+      <section
+        aria-labelledby="batam-owner-heading"
+        className="overflow-hidden bg-gradient-to-br from-slate-50 via-white to-amber-50 py-16 sm:py-20"
+      >
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:gap-12">
+          <div className="order-2 max-w-xl lg:order-1">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">
+              Pemilik VRN Rent Car Nusantara
+            </p>
+            <h2
+              id="batam-owner-heading"
+              className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+            >
+              Halo, saya Vicky.
+            </h2>
+            <p className="mt-4 leading-7 text-slate-600">
+              Bersama tim VRN Rent Car Nusantara, saya siap membantu kebutuhan perjalanan Anda
+              di Batam, mulai dari antar-jemput hingga wisata. Ceritakan rencana Anda untuk
+              membahas pilihan layanan yang sesuai.
+            </p>
+            <a
+              href={`${waBase}?text=${encodeURIComponent("Halo Vicky, saya ingin konsultasi kebutuhan rental mobil di Batam.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex min-h-12 items-center justify-center rounded-lg bg-[#0b1728] px-6 font-bold text-white transition-colors hover:bg-slate-800"
+            >
+              <MessageCircle className="mr-2 h-5 w-5" />
+              Hubungi tim kami
+            </a>
+          </div>
+          <div
+            className="order-1 mx-auto h-[360px] w-full max-w-[420px] lg:order-2 lg:h-[440px]"
+            role="img"
+            aria-label="Kartu identitas Vicky, pemilik VRN Rent Car Nusantara"
+          >
+            <Lanyard
+              frontImage="/owner-vicky-rentcar-nusantara.webp"
+              backImage="/owner-vicky-rentcar-nusantara.webp"
+              imageFit="cover"
+              strapColor="#d97706"
+              size={0.62}
+              intro
+            />
+          </div>
+        </div>
       </section>
 
       {/* ======================================================= */}

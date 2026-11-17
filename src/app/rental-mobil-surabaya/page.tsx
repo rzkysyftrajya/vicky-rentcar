@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Lanyard from "@/components/medan/Lanyard";
 import {
   ArrowRight,
   BriefcaseBusiness,
@@ -1004,6 +1005,56 @@ export default function SurabayaPage() {
             >
               <Link href="/rental-mobil-surabaya/armada">Lihat Armada</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="surabaya-owner-heading"
+        className="overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50 py-16 sm:py-20"
+      >
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-6 lg:grid-cols-[1fr_0.85fr] lg:gap-12">
+          <div className="order-2 max-w-xl lg:order-1">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange-700">
+              Pemilik VRN Rent Car Nusantara
+            </p>
+            <h2
+              id="surabaya-owner-heading"
+              className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+            >
+              Halo, saya Vicky.
+            </h2>
+            <p className="mt-4 leading-7 text-slate-600">
+              Bersama tim VRN Rent Car Nusantara, saya siap membantu kebutuhan perjalanan Anda
+              di Surabaya dan sekitarnya. Ceritakan rencana Anda untuk membahas pilihan layanan
+              yang sesuai.
+            </p>
+            <Button asChild size="lg" className="mt-6 bg-orange-600 text-white hover:bg-orange-700">
+              <a
+                href={whatsappLink(
+                  "Halo Vicky, saya ingin konsultasi kebutuhan rental mobil di Surabaya.",
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Hubungi tim kami
+              </a>
+            </Button>
+          </div>
+          <div
+            className="order-1 mx-auto h-[360px] w-full max-w-[420px] lg:order-2 lg:h-[440px]"
+            role="img"
+            aria-label="Kartu identitas Vicky, pemilik VRN Rent Car Nusantara"
+          >
+            <Lanyard
+              frontImage="/owner-vicky-rentcar-nusantara.webp"
+              backImage="/owner-vicky-rentcar-nusantara.webp"
+              imageFit="cover"
+              strapColor="#c2410c"
+              size={0.62}
+              intro
+            />
           </div>
         </div>
       </section>
