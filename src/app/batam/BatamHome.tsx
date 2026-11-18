@@ -31,7 +31,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import Lanyard from "@/components/medan/Lanyard";
+import DeferredOwnerLanyard from "@/components/medan/DeferredOwnerLanyard";
 import FaqSection from "@/components/batam/FaqSection";
 import Footer from "@/components/batam/Footer";
 import {
@@ -1223,19 +1223,8 @@ export default function BatamHomePage() {
               Hubungi tim kami
             </a>
           </div>
-          <div
-            className="order-1 mx-auto h-[360px] w-full max-w-[420px] lg:order-2 lg:h-[440px]"
-            role="img"
-            aria-label="Kartu identitas Vicky, pemilik VRN Rent Car Nusantara"
-          >
-            <Lanyard
-              frontImage="/owner-vicky-rentcar-nusantara.webp"
-              backImage="/owner-vicky-rentcar-nusantara.webp"
-              imageFit="cover"
-              strapColor="#d97706"
-              size={0.62}
-              intro
-            />
+          <div className="order-1 lg:order-2">
+            <DeferredOwnerLanyard strapColor="#d97706" />
           </div>
         </div>
       </section>

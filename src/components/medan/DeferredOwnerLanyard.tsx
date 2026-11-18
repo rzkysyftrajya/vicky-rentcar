@@ -5,7 +5,13 @@ import { useEffect, useRef, useState } from "react";
 
 const Lanyard = dynamic(() => import("./Lanyard"), { ssr: false });
 
-export default function DeferredOwnerLanyard() {
+interface DeferredOwnerLanyardProps {
+  strapColor?: string;
+}
+
+export default function DeferredOwnerLanyard({
+  strapColor = "#173b6c",
+}: DeferredOwnerLanyardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isNearViewport, setIsNearViewport] = useState(false);
 
@@ -39,7 +45,7 @@ export default function DeferredOwnerLanyard() {
           frontImage="/owner-vicky-rentcar-nusantara.webp"
           backImage="/owner-vicky-rentcar-nusantara.webp"
           imageFit="cover"
-          strapColor="#173b6c"
+          strapColor={strapColor}
           size={0.62}
           intro
         />
