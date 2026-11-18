@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { flushSync } from "react-dom";
-import createGlobe from "cobe";
 import type { Globe } from "cobe";
 
 type Vec3 = [number, number, number];
@@ -85,6 +84,7 @@ const SWIPE_MIN = 40;
 const WIDE_MIN = 620;
 const FRONT_MARGIN = 0.06;
 const MAX_CONTENT = 1200;
+type GlobeFactory = typeof import("cobe")["default"];
 
 const DEFAULT_LABELS: TestimonialGlobeLabels = {
   previous: "Previous review",
@@ -523,6 +523,8 @@ export function TestimonialGlobe({
 
   const [width, setWidth] = React.useState(0);
   const [glState, setGlState] = React.useState("pending" as GlState);
+  const [globeFactory, setGlobeFactory] = React.useState<GlobeFactory | null>(null);
+  const globeLoadStarted = React.useRef(false);
   const [glVersion, setGlVersion] = React.useState(0);
   const [reduced, setReduced] = React.useState(false);
   const [visible, setVisible] = React.useState(true);
@@ -754,6 +756,12 @@ export function TestimonialGlobe({
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[entries.length - 1];
       s.onScreen = entry?.isIntersecting ?? true;
+      if (s.onScreen && !globeLoadStarted.current) {
+        globeLoadStarted.current = true;
+        void import("cobe")
+          .then(({ default: createGlobe }) => setGlobeFactory(() => createGlobe))
+          .catch(() => setGlState("unavailable"));
+      }
       sync();
     });
     onMotion();
@@ -854,7 +862,7 @@ export function TestimonialGlobe({
   // the canvas is created imperatively.
   React.useEffect(() => {
     const host = canvasHostRef.current;
-    if (!host || !hasSize) return;
+    if (!host || !hasSize || !globeFactory) return;
     const canvas = document.createElement("canvas");
     canvas.style.cssText = "width:100%;height:100%;display:block";
     host.appendChild(canvas);
@@ -862,7 +870,7 @@ export function TestimonialGlobe({
     const s = live.current;
     let globe: Globe | null = null;
     try {
-      globe = createGlobe(canvas, {
+      globe = globeFactory(canvas, {
         devicePixelRatio: dpr,
         width: s.size,
         height: s.size,
@@ -974,7 +982,7 @@ export function TestimonialGlobe({
       host.replaceChildren();
       setGlState("pending");
     };
-  }, [hasSize, dpr, glVersion]);
+  }, [hasSize, dpr, glVersion, globeFactory]);
 
   // Colors follow the theme tokens; dark or light is read from the background
   // itself, whatever mechanism the site uses to switch.
