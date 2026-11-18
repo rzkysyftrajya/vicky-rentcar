@@ -134,72 +134,10 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2563eb" />
-        <script
+        <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="UL+Tvzv2qgByFmKjaSnxqw"
-          async
-        />
-
-        {/* Script to remove browser extension injected attributes BEFORE React hydrates */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                // Use MutationObserver to catch and remove extension attributes immediately
-                var observer = new MutationObserver(function(mutations) {
-                  mutations.forEach(function(mutation) {
-                    if (mutation.type === 'attributes' && mutation.attributeName) {
-                      var attr = mutation.attributeName;
-                      if (attr.includes('bis_') || attr.includes('skin_checked')) {
-                        mutation.target.removeAttribute(attr);
-                      }
-                    }
-                  });
-                });
-
-                function cleanElement(el) {
-                  try {
-                    var attrs = el.attributes;
-                    for (var i = attrs.length - 1; i >= 0; i--) {
-                      var attr = attrs[i];
-                      if (attr.name.includes('bis_') || attr.name.includes('skin_checked')) {
-                        el.removeAttribute(attr.name);
-                      }
-                    }
-                  } catch(e) {}
-                }
-
-                function scanAndClean() {
-                  try {
-                    var all = document.querySelectorAll('*');
-                    for (var i = 0; i < all.length; i++) {
-                      cleanElement(all[i]);
-                    }
-                  } catch(e) {}
-                }
-
-                // Run immediately
-                scanAndClean();
-
-                // Also observe for changes
-                if (document.body) {
-                  observer.observe(document.body, {
-                    childList: true,
-                    subtree: true,
-                    attributes: true,
-                    attributeFilter: ['bis_skin_checked', 'data-bis-', 'bis-']
-                  });
-                }
-
-                // Run again after DOM is ready
-                if (document.readyState === 'loading') {
-                  document.addEventListener('DOMContentLoaded', function() {
-                    scanAndClean();
-                  });
-                }
-              })();
-            `,
-          }}
+          strategy="lazyOnload"
         />
       </head>
       <body

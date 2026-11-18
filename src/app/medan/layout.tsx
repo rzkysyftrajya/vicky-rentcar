@@ -179,7 +179,7 @@ export default function MedanLayout({
       </Script>
       <Script
         src="https://www.googletagmanager.com/gtm.js?id=GTM-KGSHBQ5R"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
 
       {/* Structured data: hanya satu blok di layout */}

@@ -35,14 +35,20 @@ export function LandingAccordionItem() {
   return (
     <section
       id="home"
-      className="flex min-h-[calc(100vh-64px)] items-center overflow-hidden py-16 sm:py-20 md:py-24"
-      style={{
-        backgroundImage:
-          "linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(247, 248, 250, 0.78) 55%, rgba(238, 243, 248, 0.82)), url('/medan/hero-section.webp')",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-      }}
+      className="relative isolate flex min-h-[calc(100vh-64px)] items-center overflow-hidden py-16 sm:py-20 md:py-24"
     >
+      <div aria-hidden="true" className="absolute inset-0 -z-10">
+        <Image
+          src="/medan/hero-section.webp"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.84),rgba(247,248,250,0.78)_55%,rgba(238,243,248,0.82))]" />
+      </div>
       <div className="medan-container grid w-full items-center gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-8 lg:gap-14">
         <div className="text-center md:text-left">
           <p className="medan-eyebrow inline-flex items-center gap-2 rounded-full border border-[#f2c14e]/50 bg-white px-4 py-2 shadow-sm">
@@ -123,7 +129,6 @@ export function LandingAccordionItem() {
                   fill
                   sizes="(max-width: 639px) 62vw, (max-width: 1023px) 44vw, 420px"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  priority={item.id === "innova-zenix"}
                 />
                 <span className="absolute inset-0 bg-gradient-to-t from-[#071a31]/80 via-[#071a31]/15 to-transparent" />
                 <span

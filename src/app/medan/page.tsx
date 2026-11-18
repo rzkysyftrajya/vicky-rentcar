@@ -5,7 +5,7 @@ import { PhoneCall, ArrowRight, Building2, FileText, ReceiptText, ShieldCheck, T
 import { createMedanWhatsAppUrl } from '@/components/medan/MedanWhatsApp';
 import MedanTestimonialsCarousel from '@/components/medan/MedanTestimonialsCarousel';
 import { LandingAccordionItem } from '@/components/ui/interactive-image-accordion';
-import Lanyard from '@/components/medan/Lanyard';
+import DeferredOwnerLanyard from '@/components/medan/DeferredOwnerLanyard';
 import { cars } from '@/data/fleet-data';
 import { topTourPackages } from '@/data/medan-tour-packages';
 
@@ -580,19 +580,8 @@ export default function MedanPage() {
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
-          <div
-            className="order-1 mx-auto h-[360px] w-full max-w-[420px] lg:order-2 lg:h-[440px]"
-            role="img"
-            aria-label="Kartu identitas Vicky, pemilik VRN Rent Car Nusantara"
-          >
-            <Lanyard
-              frontImage="/owner-vicky-rentcar-nusantara.webp"
-              backImage="/owner-vicky-rentcar-nusantara.webp"
-              imageFit="cover"
-              strapColor="#173b6c"
-              size={0.62}
-              intro
-            />
+          <div className="order-1 lg:order-2">
+            <DeferredOwnerLanyard />
           </div>
         </div>
       </section>
