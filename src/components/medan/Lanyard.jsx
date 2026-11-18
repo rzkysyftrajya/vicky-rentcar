@@ -705,6 +705,7 @@ const Lanyard = ({
   frontImage,
   backImage,
   imageFit = 'cover',
+  backImageFit = imageFit,
   cardColor = '#ffffff',
   orientation = 'portrait',
   finish = 'glossy',
@@ -733,6 +734,7 @@ const Lanyard = ({
     frontImage,
     backImage,
     imageFit: imageFit === 'contain' ? 'contain' : 'cover',
+    backImageFit: backImageFit === 'contain' ? 'contain' : 'cover',
     cardColor,
     orientation: orientation === 'landscape' ? 'landscape' : 'portrait',
     finish,
@@ -896,7 +898,7 @@ const Lanyard = ({
         backTexture.dispose();
       }
       paintFace(frontCanvas, images.front, color, s.imageFit);
-      paintFace(backCanvas, images.back || images.front, color, s.imageFit);
+      paintFace(backCanvas, images.back || images.front, color, s.backImageFit);
       frontTexture.needsUpdate = true;
       backTexture.needsUpdate = true;
       start();
@@ -981,7 +983,7 @@ const Lanyard = ({
           repaintStrap();
         });
       }
-      const faceKey = `${layoutKey}|${s.cardColor}|${s.imageFit}`;
+      const faceKey = `${layoutKey}|${s.cardColor}|${s.imageFit}|${s.backImageFit}`;
       if (faceKey !== applied.faceKey) paintFaces();
       if (s.strapColor !== applied.strapColor) repaintStrap();
 

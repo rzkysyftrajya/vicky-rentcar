@@ -1198,7 +1198,7 @@ export default function BatamHomePage() {
         className="overflow-hidden bg-gradient-to-br from-slate-50 via-white to-amber-50 py-16 sm:py-20"
       >
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:gap-12">
-          <div className="order-2 max-w-xl lg:order-1">
+          <div className="max-w-xl">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">
               Pemilik VRN Rent Car Nusantara
             </p>
@@ -1223,7 +1223,7 @@ export default function BatamHomePage() {
               Hubungi tim kami
             </a>
           </div>
-          <div className="order-1 lg:order-2">
+          <div>
             <DeferredOwnerLanyard strapColor="#d97706" />
           </div>
         </div>

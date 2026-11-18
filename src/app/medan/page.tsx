@@ -559,7 +559,7 @@ export default function MedanPage() {
         className="overflow-hidden bg-gradient-to-br from-[#f7f8fa] via-white to-[#fff8e7] py-16 lg:py-20"
       >
         <div className="medan-container grid items-center gap-8 lg:grid-cols-[1fr_0.85fr] lg:gap-12">
-          <div className="order-2 max-w-xl lg:order-1">
+          <div className="max-w-xl">
             <p className="medan-eyebrow">Pemilik VRN Rent Car Nusantara</p>
             <h2 id="medan-owner-heading" className="medan-heading-2 mt-3">
               Halo, saya Vicky.
@@ -580,7 +580,7 @@ export default function MedanPage() {
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
-          <div className="order-1 lg:order-2">
+          <div>
             <DeferredOwnerLanyard />
           </div>
         </div>

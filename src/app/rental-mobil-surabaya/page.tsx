@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import Lanyard from "@/components/medan/Lanyard";
+import DeferredOwnerLanyard from "@/components/medan/DeferredOwnerLanyard";
 import {
   ArrowRight,
   BriefcaseBusiness,
@@ -1014,7 +1014,7 @@ export default function SurabayaPage() {
         className="overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50 py-16 sm:py-20"
       >
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-6 lg:grid-cols-[1fr_0.85fr] lg:gap-12">
-          <div className="order-2 max-w-xl lg:order-1">
+          <div className="max-w-xl">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange-700">
               Pemilik VRN Rent Car Nusantara
             </p>
@@ -1042,19 +1042,8 @@ export default function SurabayaPage() {
               </a>
             </Button>
           </div>
-          <div
-            className="order-1 mx-auto h-[360px] w-full max-w-[420px] lg:order-2 lg:h-[440px]"
-            role="img"
-            aria-label="Kartu identitas Vicky, pemilik VRN Rent Car Nusantara"
-          >
-            <Lanyard
-              frontImage="/owner-vicky-rentcar-nusantara.webp"
-              backImage="/owner-vicky-rentcar-nusantara.webp"
-              imageFit="cover"
-              strapColor="#c2410c"
-              size={0.62}
-              intro
-            />
+          <div>
+            <DeferredOwnerLanyard strapColor="#c2410c" />
           </div>
         </div>
       </section>

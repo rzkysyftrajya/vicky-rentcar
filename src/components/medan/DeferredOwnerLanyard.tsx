@@ -36,17 +36,18 @@ export default function DeferredOwnerLanyard({
   return (
     <div
       ref={containerRef}
-      className="mx-auto h-[360px] w-full max-w-[420px] lg:h-[440px]"
+      className="mx-auto h-[320px] w-full max-w-[350px] sm:h-[360px] sm:max-w-[370px] lg:h-[380px]"
       role="img"
       aria-label="Kartu identitas Vicky, pemilik VRN Rent Car Nusantara"
     >
       {isNearViewport && (
         <Lanyard
           frontImage="/owner-vicky-rentcar-nusantara.webp"
-          backImage="/owner-vicky-rentcar-nusantara.webp"
+          backImage="/logoVRN.png"
           imageFit="cover"
+          backImageFit="contain"
           strapColor={strapColor}
-          size={0.62}
+          size={0.58}
           intro
         />
       )}
